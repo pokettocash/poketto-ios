@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F572255234C00D30A8C /* AppDelegate.swift */; };
+		DDAE1F5A2255234C00D30A8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F592255234C00D30A8C /* ViewController.swift */; };
+		DDAE1F5D2255234C00D30A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDAE1F5B2255234C00D30A8C /* Main.storyboard */; };
+		DDAE1F5F2255234D00D30A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDAE1F5E2255234D00D30A8C /* Assets.xcassets */; };
+		DDAE1F622255234D00D30A8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDAE1F602255234D00D30A8C /* LaunchScreen.storyboard */; };
+		DDAE1F6D2255234D00D30A8C /* PokettoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F6C2255234D00D30A8C /* PokettoTests.swift */; };
+		DDAE1F782255234D00D30A8C /* PokettoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F772255234D00D30A8C /* PokettoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DDAE1F692255234D00D30A8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDAE1F4C2255234B00D30A8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDAE1F532255234C00D30A8C;
+			remoteInfo = Poketto;
+		};
+		DDAE1F742255234D00D30A8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDAE1F4C2255234B00D30A8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDAE1F532255234C00D30A8C;
+			remoteInfo = Poketto;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DDAE1F542255234C00D30A8C /* Poketto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poketto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDAE1F572255234C00D30A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DDAE1F592255234C00D30A8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DDAE1F5C2255234C00D30A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DDAE1F5E2255234D00D30A8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DDAE1F612255234D00D30A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DDAE1F632255234D00D30A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDAE1F682255234D00D30A8C /* PokettoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokettoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDAE1F6C2255234D00D30A8C /* PokettoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokettoTests.swift; sourceTree = "<group>"; };
+		DDAE1F6E2255234D00D30A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDAE1F732255234D00D30A8C /* PokettoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokettoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDAE1F772255234D00D30A8C /* PokettoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokettoUITests.swift; sourceTree = "<group>"; };
+		DDAE1F792255234D00D30A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DDAE1F512255234C00D30A8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDAE1F652255234D00D30A8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDAE1F702255234D00D30A8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DDAE1F4B2255234B00D30A8C = {
+			isa = PBXGroup;
+			children = (
+				DDAE1F562255234C00D30A8C /* Poketto */,
+				DDAE1F6B2255234D00D30A8C /* PokettoTests */,
+				DDAE1F762255234D00D30A8C /* PokettoUITests */,
+				DDAE1F552255234C00D30A8C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DDAE1F552255234C00D30A8C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDAE1F542255234C00D30A8C /* Poketto.app */,
+				DDAE1F682255234D00D30A8C /* PokettoTests.xctest */,
+				DDAE1F732255234D00D30A8C /* PokettoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DDAE1F562255234C00D30A8C /* Poketto */ = {
+			isa = PBXGroup;
+			children = (
+				DDAE1F572255234C00D30A8C /* AppDelegate.swift */,
+				DDAE1F592255234C00D30A8C /* ViewController.swift */,
+				DDAE1F5B2255234C00D30A8C /* Main.storyboard */,
+				DDAE1F5E2255234D00D30A8C /* Assets.xcassets */,
+				DDAE1F602255234D00D30A8C /* LaunchScreen.storyboard */,
+				DDAE1F632255234D00D30A8C /* Info.plist */,
+			);
+			path = Poketto;
+			sourceTree = "<group>";
+		};
+		DDAE1F6B2255234D00D30A8C /* PokettoTests */ = {
+			isa = PBXGroup;
+			children = (
+				DDAE1F6C2255234D00D30A8C /* PokettoTests.swift */,
+				DDAE1F6E2255234D00D30A8C /* Info.plist */,
+			);
+			path = PokettoTests;
+			sourceTree = "<group>";
+		};
+		DDAE1F762255234D00D30A8C /* PokettoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DDAE1F772255234D00D30A8C /* PokettoUITests.swift */,
+				DDAE1F792255234D00D30A8C /* Info.plist */,
+			);
+			path = PokettoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DDAE1F532255234C00D30A8C /* Poketto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDAE1F7C2255234D00D30A8C /* Build configuration list for PBXNativeTarget "Poketto" */;
+			buildPhases = (
+				DDAE1F502255234C00D30A8C /* Sources */,
+				DDAE1F512255234C00D30A8C /* Frameworks */,
+				DDAE1F522255234C00D30A8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Poketto;
+			productName = Poketto;
+			productReference = DDAE1F542255234C00D30A8C /* Poketto.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DDAE1F672255234D00D30A8C /* PokettoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDAE1F7F2255234D00D30A8C /* Build configuration list for PBXNativeTarget "PokettoTests" */;
+			buildPhases = (
+				DDAE1F642255234D00D30A8C /* Sources */,
+				DDAE1F652255234D00D30A8C /* Frameworks */,
+				DDAE1F662255234D00D30A8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDAE1F6A2255234D00D30A8C /* PBXTargetDependency */,
+			);
+			name = PokettoTests;
+			productName = PokettoTests;
+			productReference = DDAE1F682255234D00D30A8C /* PokettoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DDAE1F722255234D00D30A8C /* PokettoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDAE1F822255234D00D30A8C /* Build configuration list for PBXNativeTarget "PokettoUITests" */;
+			buildPhases = (
+				DDAE1F6F2255234D00D30A8C /* Sources */,
+				DDAE1F702255234D00D30A8C /* Frameworks */,
+				DDAE1F712255234D00D30A8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDAE1F752255234D00D30A8C /* PBXTargetDependency */,
+			);
+			name = PokettoUITests;
+			productName = PokettoUITests;
+			productReference = DDAE1F732255234D00D30A8C /* PokettoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DDAE1F4C2255234B00D30A8C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Poketto;
+				TargetAttributes = {
+					DDAE1F532255234C00D30A8C = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					DDAE1F672255234D00D30A8C = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = DDAE1F532255234C00D30A8C;
+					};
+					DDAE1F722255234D00D30A8C = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = DDAE1F532255234C00D30A8C;
+					};
+				};
+			};
+			buildConfigurationList = DDAE1F4F2255234B00D30A8C /* Build configuration list for PBXProject "Poketto" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DDAE1F4B2255234B00D30A8C;
+			productRefGroup = DDAE1F552255234C00D30A8C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DDAE1F532255234C00D30A8C /* Poketto */,
+				DDAE1F672255234D00D30A8C /* PokettoTests */,
+				DDAE1F722255234D00D30A8C /* PokettoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DDAE1F522255234C00D30A8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDAE1F622255234D00D30A8C /* LaunchScreen.storyboard in Resources */,
+				DDAE1F5F2255234D00D30A8C /* Assets.xcassets in Resources */,
+				DDAE1F5D2255234C00D30A8C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDAE1F662255234D00D30A8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDAE1F712255234D00D30A8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DDAE1F502255234C00D30A8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDAE1F5A2255234C00D30A8C /* ViewController.swift in Sources */,
+				DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDAE1F642255234D00D30A8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDAE1F6D2255234D00D30A8C /* PokettoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDAE1F6F2255234D00D30A8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDAE1F782255234D00D30A8C /* PokettoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDAE1F6A2255234D00D30A8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDAE1F532255234C00D30A8C /* Poketto */;
+			targetProxy = DDAE1F692255234D00D30A8C /* PBXContainerItemProxy */;
+		};
+		DDAE1F752255234D00D30A8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDAE1F532255234C00D30A8C /* Poketto */;
+			targetProxy = DDAE1F742255234D00D30A8C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DDAE1F5B2255234C00D30A8C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDAE1F5C2255234C00D30A8C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DDAE1F602255234D00D30A8C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDAE1F612255234D00D30A8C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DDAE1F7A2255234D00D30A8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DDAE1F7B2255234D00D30A8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DDAE1F7D2255234D00D30A8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7XW95HDSC;
+				INFOPLIST_FILE = Poketto/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.poketto.Poketto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DDAE1F7E2255234D00D30A8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7XW95HDSC;
+				INFOPLIST_FILE = Poketto/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.poketto.Poketto;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DDAE1F802255234D00D30A8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7XW95HDSC;
+				INFOPLIST_FILE = PokettoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.poketto.PokettoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Poketto.app/Poketto";
+			};
+			name = Debug;
+		};
+		DDAE1F812255234D00D30A8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7XW95HDSC;
+				INFOPLIST_FILE = PokettoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.poketto.PokettoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Poketto.app/Poketto";
+			};
+			name = Release;
+		};
+		DDAE1F832255234D00D30A8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7XW95HDSC;
+				INFOPLIST_FILE = PokettoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.poketto.PokettoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Poketto;
+			};
+			name = Debug;
+		};
+		DDAE1F842255234D00D30A8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7XW95HDSC;
+				INFOPLIST_FILE = PokettoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.poketto.PokettoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Poketto;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DDAE1F4F2255234B00D30A8C /* Build configuration list for PBXProject "Poketto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDAE1F7A2255234D00D30A8C /* Debug */,
+				DDAE1F7B2255234D00D30A8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDAE1F7C2255234D00D30A8C /* Build configuration list for PBXNativeTarget "Poketto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDAE1F7D2255234D00D30A8C /* Debug */,
+				DDAE1F7E2255234D00D30A8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDAE1F7F2255234D00D30A8C /* Build configuration list for PBXNativeTarget "PokettoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDAE1F802255234D00D30A8C /* Debug */,
+				DDAE1F812255234D00D30A8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDAE1F822255234D00D30A8C /* Build configuration list for PBXNativeTarget "PokettoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDAE1F832255234D00D30A8C /* Debug */,
+				DDAE1F842255234D00D30A8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DDAE1F4C2255234B00D30A8C /* Project object */;
+}
