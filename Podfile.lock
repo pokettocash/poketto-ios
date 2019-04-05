@@ -1,3 +1,70 @@
-PODFILE CHECKSUM: 695c9e5494f59fa81e8f65f5a0961c72997e43c2
+PODS:
+  - BigInt (3.1.0):
+    - SipHash (~> 1.2)
+  - CryptoSwift (0.14.0)
+  - EthereumABI (1.1.1):
+    - BigInt (~> 3.1)
+    - CryptoSwift (~> 0.13)
+    - EthereumAddress (~> 1.0.0)
+  - EthereumAddress (1.0.0):
+    - CryptoSwift (~> 0.13)
+  - PromiseKit (6.8.3):
+    - PromiseKit/CorePromise (= 6.8.3)
+    - PromiseKit/Foundation (= 6.8.3)
+    - PromiseKit/UIKit (= 6.8.3)
+  - PromiseKit/CorePromise (6.8.3)
+  - PromiseKit/Foundation (6.8.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.8.3):
+    - PromiseKit/CorePromise
+  - scrypt (2.0):
+    - CryptoSwift (~> 0.11)
+  - secp256k1_swift (1.0.3)
+  - SipHash (1.2.2)
+  - SwiftKeychainWrapper (3.2.0)
+  - SwiftRLP (1.2):
+    - BigInt (~> 3.1)
+  - web3swift (2.0.4):
+    - BigInt (~> 3.1)
+    - CryptoSwift (~> 0.13)
+    - EthereumABI (~> 1.1.1)
+    - EthereumAddress (~> 1.0.0)
+    - PromiseKit (~> 6.3)
+    - scrypt (~> 2.0)
+    - secp256k1_swift (~> 1.0.3)
+    - SwiftRLP (~> 1.1)
+
+DEPENDENCIES:
+  - SwiftKeychainWrapper
+  - web3swift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BigInt
+    - CryptoSwift
+    - EthereumABI
+    - EthereumAddress
+    - PromiseKit
+    - scrypt
+    - secp256k1_swift
+    - SipHash
+    - SwiftKeychainWrapper
+    - SwiftRLP
+    - web3swift
+
+SPEC CHECKSUMS:
+  BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
+  CryptoSwift: 35a10419f4dbf0619c13f8c1c180037e115323fa
+  EthereumABI: f040f5429e5a4366d028c88b88d9441e137593af
+  EthereumAddress: f476e1320dca3a0024431e713ede7a09c7eb7796
+  PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
+  scrypt: 3fe5b1a3b0976f97cd87488673a8f7c65708cc84
+  secp256k1_swift: 4fc5c4b2d2c6d21ee8ccb868cdc92da12f38bed9
+  SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
+  SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
+  SwiftRLP: 98a02b2210128353ca02e4c2f4d83e2a9796db4f
+  web3swift: aeb3d08ded961e0562919d4161f5af6ccb0ab30f
+
+PODFILE CHECKSUM: 0cde065447571d0881a8d1546e0e3bf7a19d0799
 
 COCOAPODS: 1.5.3

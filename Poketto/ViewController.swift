@@ -7,12 +7,27 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
+import Web3swift
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Generate new wallet, store on keychain and print wallet
+        let newWallet = generateWallet()
+        print(newWallet?.addresses?.first)
+    }
+    
+    func generateWallet() -> AbstractKeystore? {
+        let mnemonic = try! BIP39.generateMnemonics(bitsOfEntropy: 256)!
+        let keystore = try! BIP32Keystore(mnemonics: mnemonic)
+        
+        // Store mnemonic on keychain
+        KeychainWrapper.standard.set(mnemonic, forKey: "mnemonic")
+        
+        return keystore
     }
 
 }
