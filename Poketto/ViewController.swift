@@ -16,8 +16,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Generate new wallet, store on keychain and print wallet
-        let newWallet = generateWallet()
-        print(newWallet?.addresses?.first)
+        // let newWallet = generateWallet()
+        // print(newWallet?.addresses?.first)
+        
+        let explorer = Explorer.init()
+        explorer.balanceFrom(address: "0xDc6789592EEDe0789b7a04E703c7D05244737e86", completion: { balance in
+            print(balance)
+        })
     }
     
     func generateWallet() -> AbstractKeystore? {

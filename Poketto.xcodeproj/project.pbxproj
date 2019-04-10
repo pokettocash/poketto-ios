@@ -17,6 +17,7 @@
 		DDAE1F622255234D00D30A8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDAE1F602255234D00D30A8C /* LaunchScreen.storyboard */; };
 		DDAE1F6D2255234D00D30A8C /* PokettoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F6C2255234D00D30A8C /* PokettoTests.swift */; };
 		DDAE1F782255234D00D30A8C /* PokettoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F772255234D00D30A8C /* PokettoUITests.swift */; };
+		DDB50445225CC6EF005B3DE0 /* Explorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB50444225CC6EF005B3DE0 /* Explorer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		DDAE1F732255234D00D30A8C /* PokettoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokettoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAE1F772255234D00D30A8C /* PokettoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokettoUITests.swift; sourceTree = "<group>"; };
 		DDAE1F792255234D00D30A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDB50444225CC6EF005B3DE0 /* Explorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explorer.swift; sourceTree = "<group>"; };
 		DF89B1D434C1875740174179 /* Pods-PokettoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokettoTests/Pods-PokettoTests.release.xcconfig"; sourceTree = "<group>"; };
 		E7F469C00E35522E14CACCEE /* Pods-Poketto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poketto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Poketto/Pods-Poketto.debug.xcconfig"; sourceTree = "<group>"; };
 		F0DA1ED52B355FC6C7BE394D /* Pods-PokettoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokettoUITests/Pods-PokettoUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		DDAE1F562255234C00D30A8C /* Poketto */ = {
 			isa = PBXGroup;
 			children = (
+				DDB50443225CC50C005B3DE0 /* API */,
 				DDAE1F572255234C00D30A8C /* AppDelegate.swift */,
 				DDAE1F592255234C00D30A8C /* ViewController.swift */,
 				DDAE1F5B2255234C00D30A8C /* Main.storyboard */,
@@ -163,6 +166,14 @@
 				DDAE1F792255234D00D30A8C /* Info.plist */,
 			);
 			path = PokettoUITests;
+			sourceTree = "<group>";
+		};
+		DDB50443225CC50C005B3DE0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DDB50444225CC6EF005B3DE0 /* Explorer.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,7 +368,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Poketto/Pods-Poketto-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${BUILT_PRODUCTS_DIR}/Chester/Chester.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/EthereumABI/EthereumABI.framework",
 				"${BUILT_PRODUCTS_DIR}/EthereumAddress/EthereumAddress.framework",
@@ -365,13 +378,16 @@
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftRLP/SwiftRLP.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1_swift/secp256k1_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/web3swift/Web3swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Chester.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EthereumABI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EthereumAddress.framework",
@@ -379,6 +395,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftRLP.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Web3swift.framework",
@@ -395,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB50445225CC6EF005B3DE0 /* Explorer.swift in Sources */,
 				DDAE1F5A2255234C00D30A8C /* ViewController.swift in Sources */,
 				DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */,
 			);
