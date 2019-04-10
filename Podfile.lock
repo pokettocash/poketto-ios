@@ -42,7 +42,7 @@ DEPENDENCIES:
   - Chester
   - SwiftKeychainWrapper
   - SwiftyJSON (= 4.0)
-  - web3swift
+  - web3swift (= 2.0.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -77,6 +77,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   web3swift: aeb3d08ded961e0562919d4161f5af6ccb0ab30f
 
-PODFILE CHECKSUM: 8e1cd54a593c43be9c338b958055c4679e2d4d87
+PODFILE CHECKSUM: 5fd4982ff08018b9e1073cc4d383da17a01f8772
 
 COCOAPODS: 1.5.3

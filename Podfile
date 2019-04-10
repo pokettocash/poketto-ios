@@ -8,7 +8,7 @@ target 'Poketto' do
   pod 'Chester'
   pod 'SwiftKeychainWrapper'
   pod 'SwiftyJSON', '4.0'
-  pod 'web3swift'
+  pod 'web3swift', '2.0.4'
 
   # Pods for Poketto
 
