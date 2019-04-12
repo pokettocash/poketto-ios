@@ -28,6 +28,12 @@ class ViewController: UIViewController {
             // print(balance)
         // })
         
+        // Get transactions from address
+         let explorer = Explorer.init()
+         explorer.transactionsFrom(address: "0x569d656393ca2e1b62a362a6a60556b2ad56721d", completion: { transactions in
+             print(transactions)
+         })
+        
         // Execute transaction on xDai chain
         // send(toAddress: "0x394a29F426F6505d40854ABb730D1c8DE29C8C87", value: "0.001")
     }

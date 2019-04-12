@@ -41,4 +41,17 @@ class Explorer {
             completion(0)
         }
     }
+    
+    func transactionsFrom(address: String, completion: @escaping (_ transactions: Array<Any>) -> ()) {
+        let url = "https://blockscout.com/poa/dai/api?module=account&action=txlist&address=\(address)"
+        Alamofire.request(url).responseJSON { response in
+            let json = JSON(response.result.value!)
+            let result = json["result"]
+            if let transactions = result.array {
+                completion(transactions)
+            } else {
+                completion([])
+            }
+        }
+    }
 }
