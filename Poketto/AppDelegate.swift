@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        clearCredentials()
 //        KeychainWrapper.standard.remove(key: "mnemonic")
 
         return true
@@ -56,6 +57,13 @@ extension AppDelegate {
     }
     var rootViewController: RootController {
         return window!.rootViewController as! RootController
+    }
+    
+    func clearCredentials() {
+        if (UserDefaults.standard.object(forKey: "FirstRun") == nil) {
+            UserDefaults.standard.setValue("1strun", forKey: "FirstRun")
+            KeychainWrapper.standard.remove(key: "mnemonic")
+        }
     }
 }
 
