@@ -29,6 +29,10 @@ class Wallet {
     func getEthereumAddress() -> EthereumAddress? {
         
         let mnemonic = KeychainWrapper.standard.string(forKey: "mnemonic")
+        if(mnemonic == nil) {
+            return nil
+        }
+        
         let keystore = try! BIP32Keystore(mnemonics: mnemonic!)
         let ownWalletAddress = keystore?.addresses?.first!
         
