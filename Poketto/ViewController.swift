@@ -19,8 +19,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Generate new wallet, store on keychain and print wallet
-        // let newWallet = generateWallet()
-        // print(newWallet?.addresses?.first)
+//         let newWallet = generateWallet()
+//         print(newWallet?.addresses?.first)
         
         // Get wallet balance
         // let explorer = Explorer.init()
@@ -37,18 +37,7 @@ class ViewController: UIViewController {
         // Execute transaction on xDai chain
         // send(toAddress: "0x394a29F426F6505d40854ABb730D1c8DE29C8C87", value: "0.001")
     }
-    
-    func generateWallet() -> AbstractKeystore? {
-        let mnemonic = try! BIP39.generateMnemonics(bitsOfEntropy: 256)!
-        let keystore = try! BIP32Keystore(mnemonics: mnemonic)
         
-        // Store mnemonic on keychain
-        KeychainWrapper.standard.set(mnemonic, forKey: "mnemonic")
-        print(mnemonic)
-        
-        return keystore
-    }
-    
     func send(toAddress: String, value: String) {
         let toAddress = EthereumAddress(toAddress)!
         
