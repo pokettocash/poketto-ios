@@ -14,4 +14,11 @@ class OnboardingController: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    @IBAction func goToDashboard() {
+     
+        let wallet = Wallet.init()
+        wallet.generate()
+        AppDelegate.shared.rootViewController.switchToDashboard()
+    }
 }

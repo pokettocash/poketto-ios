@@ -92,7 +92,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="goToDashboard" destination="VsL-Ce-LRk" eventType="touchUpInside" id="iI5-xM-rRX"/>
+                                    <action selector="goToDashboard" destination="VsL-Ce-LRk" eventType="touchUpInside" id="44Q-gg-8g4"/>
                                 </connections>
                             </button>
                         </subviews>
