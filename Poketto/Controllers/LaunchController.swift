@@ -13,13 +13,12 @@ class LaunchController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let wallet = Wallet.init()
+        if(wallet.getEthereumAddress() == nil) {
+            AppDelegate.shared.rootViewController.switchToOnboarding()
+        } else {
+            AppDelegate.shared.rootViewController.switchToDashboard()
+        }
     }
     
-    @IBAction func goToDashboard() {
-        
-        let wallet = Wallet.init()
-        wallet.generate()
-        AppDelegate.shared.rootViewController.switchToDashboard()
-    }
 }

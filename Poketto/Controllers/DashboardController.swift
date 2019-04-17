@@ -9,22 +9,18 @@
 import UIKit
 
 class DashboardController: UIViewController {
+    
+    @IBOutlet var balanceLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let wallet = Wallet.init()
+
+        let explorer = Explorer.init()
+        explorer.balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
+            print(balance)
+            self.balanceLabel.text = "\(balance) xDai"
+        })
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

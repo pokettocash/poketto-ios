@@ -17,13 +17,32 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9N-H0-N5y">
+                                <rect key="frame" x="15" y="83" width="112" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzJ-vx-9c7">
+                                <rect key="frame" x="15" y="113" width="112" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="balanceLabel" destination="dzJ-vx-9c7" id="c8i-At-5j2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-59" y="66"/>
+            <point key="canvasLocation" x="-59.420289855072468" y="65.625"/>
         </scene>
         <!--Root Controller-->
         <scene sceneID="Htf-R8-jQr">
@@ -47,33 +66,48 @@
                     <view key="view" contentMode="scaleToFill" id="woj-Tv-5Mc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3Q-mu-lHy">
-                                <rect key="frame" x="20" y="655" width="374" height="51"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.7752844426467379" blue="0.0058782038885557631" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="oXH-MW-71Q"/>
-                                </constraints>
-                                <state key="normal" title="Go To your Wallet">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToDashboard" destination="6Tn-eB-RUz" eventType="touchUpInside" id="Oig-DD-dgG"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="4ke-IV-oIJ" firstAttribute="bottom" secondItem="A3Q-mu-lHy" secondAttribute="bottom" constant="156" id="QTi-hB-CvD"/>
-                            <constraint firstItem="A3Q-mu-lHy" firstAttribute="leading" secondItem="4ke-IV-oIJ" secondAttribute="leading" constant="20" id="S4o-oJ-mQz"/>
-                            <constraint firstItem="4ke-IV-oIJ" firstAttribute="trailing" secondItem="A3Q-mu-lHy" secondAttribute="trailing" constant="20" id="euU-Gf-neC"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4ke-IV-oIJ"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rNo-XJ-8CX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="779.71014492753625" y="813.61607142857144"/>
+            <point key="canvasLocation" x="780" y="814"/>
+        </scene>
+        <!--Onboarding Controller-->
+        <scene sceneID="wVe-kS-Pge">
+            <objects>
+                <viewController storyboardIdentifier="onboardingVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VsL-Ce-LRk" customClass="OnboardingController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y6M-hM-Gkx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXx-gw-AeF">
+                                <rect key="frame" x="20" y="655" width="374" height="51"/>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.77528444259999996" blue="0.0058782038889999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="h3P-v9-h1H"/>
+                                </constraints>
+                                <state key="normal" title="Go To your Wallet">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToDashboard" destination="VsL-Ce-LRk" eventType="touchUpInside" id="iI5-xM-rRX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dyn-0b-KUf" firstAttribute="bottom" secondItem="AXx-gw-AeF" secondAttribute="bottom" constant="156" id="23p-nk-9L7"/>
+                            <constraint firstItem="AXx-gw-AeF" firstAttribute="leading" secondItem="dyn-0b-KUf" secondAttribute="leading" constant="20" id="e9V-9i-Pz4"/>
+                            <constraint firstItem="dyn-0b-KUf" firstAttribute="trailing" secondItem="AXx-gw-AeF" secondAttribute="trailing" constant="20" id="yaf-bI-4uv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dyn-0b-KUf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hcY-rR-ghl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1494" y="814"/>
         </scene>
     </scenes>
 </document>

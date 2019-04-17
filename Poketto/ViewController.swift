@@ -23,10 +23,10 @@ class ViewController: UIViewController {
 //         print(newWallet?.addresses?.first)
         
         // Get wallet balance
-        // let explorer = Explorer.init()
-        // explorer.balanceFrom(address: "0x569d656393ca2e1b62a362a6a60556b2ad56721d", completion: { balance in
-            // print(balance)
-        // })
+//         let explorer = Explorer.init()
+//         explorer.balanceFrom(address: "0x569d656393ca2e1b62a362a6a60556b2ad56721d", completion: { balance in
+//             print(balance)
+//         })
         
         // Get transactions from address
          let explorer = Explorer.init()

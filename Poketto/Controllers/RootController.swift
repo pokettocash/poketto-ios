@@ -32,6 +32,11 @@ class RootController: UIViewController {
         animateFadeTransition(to: dashboardController)
     }
     
+    func switchToOnboarding() {
+        let onboardingController = self.storyboard?.instantiateViewController(withIdentifier: "onboardingVC") as! OnboardingController
+        animateFadeTransition(to: onboardingController)
+    }
+    
     private func animateFadeTransition(to new: UIViewController, completion: (() -> Void)? = nil) {
         current.willMove(toParent: nil)
         addChild(new)

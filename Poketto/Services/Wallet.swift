@@ -16,13 +16,22 @@ import BigInt
 class Wallet {
 
     func generate() {
+        
         let mnemonic = try! BIP39.generateMnemonics(bitsOfEntropy: 256)!
         let keystore = try! BIP32Keystore(mnemonics: mnemonic)
         
         // Store mnemonic on keychain
         KeychainWrapper.standard.set(mnemonic, forKey: "mnemonic")
         print("mnemonic \(mnemonic)")
-        
         print("keystore: \(String(describing: keystore))")
+    }
+    
+    func getEthereumAddress() -> EthereumAddress? {
+        
+        let mnemonic = KeychainWrapper.standard.string(forKey: "mnemonic")
+        let keystore = try! BIP32Keystore(mnemonics: mnemonic!)
+        let ownWalletAddress = keystore?.addresses?.first!
+        
+        return ownWalletAddress
     }
 }
