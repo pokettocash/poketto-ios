@@ -14,6 +14,9 @@
 		70A31C76226760E4007291D1 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C75226760E4007291D1 /* DashboardController.swift */; };
 		70A31C7822676550007291D1 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C7722676550007291D1 /* Wallet.swift */; };
 		70A31C7A22676A34007291D1 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C7922676A34007291D1 /* OnboardingController.swift */; };
+		70A31C7C22677084007291D1 /* Page1Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C7B22677084007291D1 /* Page1Controller.swift */; };
+		70A31C7E22677090007291D1 /* Page2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C7D22677090007291D1 /* Page2Controller.swift */; };
+		70A31C802267709A007291D1 /* Page3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C7F2267709A007291D1 /* Page3Controller.swift */; };
 		A136120CCE27E06D8541DB17 /* Pods_Poketto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184E4C91EB2B14C9091ED422 /* Pods_Poketto.framework */; };
 		DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F572255234C00D30A8C /* AppDelegate.swift */; };
 		DDAE1F5A2255234C00D30A8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F592255234C00D30A8C /* ViewController.swift */; };
@@ -51,6 +54,9 @@
 		70A31C75226760E4007291D1 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
 		70A31C7722676550007291D1 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		70A31C7922676A34007291D1 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
+		70A31C7B22677084007291D1 /* Page1Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1Controller.swift; sourceTree = "<group>"; };
+		70A31C7D22677090007291D1 /* Page2Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2Controller.swift; sourceTree = "<group>"; };
+		70A31C7F2267709A007291D1 /* Page3Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page3Controller.swift; sourceTree = "<group>"; };
 		9D52EC7AF6843B272DF9DECA /* Pods_PokettoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2222DDD006819514830BBDB /* Pods-Poketto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poketto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Poketto/Pods-Poketto.release.xcconfig"; sourceTree = "<group>"; };
 		B8A9DCECD69B7C600C3A2A9A /* Pods-PokettoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokettoUITests/Pods-PokettoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +137,9 @@
 				70A31C7322676096007291D1 /* LaunchController.swift */,
 				70A31C75226760E4007291D1 /* DashboardController.swift */,
 				70A31C7922676A34007291D1 /* OnboardingController.swift */,
+				70A31C7B22677084007291D1 /* Page1Controller.swift */,
+				70A31C7D22677090007291D1 /* Page2Controller.swift */,
+				70A31C7F2267709A007291D1 /* Page3Controller.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -442,7 +451,10 @@
 				70A31C7A22676A34007291D1 /* OnboardingController.swift in Sources */,
 				DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */,
 				70A31C76226760E4007291D1 /* DashboardController.swift in Sources */,
+				70A31C802267709A007291D1 /* Page3Controller.swift in Sources */,
+				70A31C7C22677084007291D1 /* Page1Controller.swift in Sources */,
 				70A31C7222676082007291D1 /* RootController.swift in Sources */,
+				70A31C7E22677090007291D1 /* Page2Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

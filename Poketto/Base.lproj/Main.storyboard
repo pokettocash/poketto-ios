@@ -75,15 +75,23 @@
             <point key="canvasLocation" x="780" y="814"/>
         </scene>
         <!--Onboarding Controller-->
+        <scene sceneID="j4t-1m-ku9">
+            <objects>
+                <pageViewController storyboardIdentifier="onboardingVC" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="d4p-fL-8XW" customClass="OnboardingController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="124-YW-CBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1586" y="814"/>
+        </scene>
+        <!--Page3 Controller-->
         <scene sceneID="wVe-kS-Pge">
             <objects>
-                <viewController storyboardIdentifier="onboardingVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VsL-Ce-LRk" customClass="OnboardingController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Page3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VsL-Ce-LRk" customClass="Page3Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y6M-hM-Gkx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXx-gw-AeF">
-                                <rect key="frame" x="20" y="655" width="374" height="51"/>
+                                <rect key="frame" x="20" y="755" width="374" height="51"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.77528444259999996" blue="0.0058782038889999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="h3P-v9-h1H"/>
@@ -92,13 +100,13 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="goToDashboard" destination="VsL-Ce-LRk" eventType="touchUpInside" id="44Q-gg-8g4"/>
+                                    <action selector="goToDashboard" destination="VsL-Ce-LRk" eventType="touchUpInside" id="ix6-b8-Uab"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dyn-0b-KUf" firstAttribute="bottom" secondItem="AXx-gw-AeF" secondAttribute="bottom" constant="156" id="23p-nk-9L7"/>
+                            <constraint firstItem="dyn-0b-KUf" firstAttribute="bottom" secondItem="AXx-gw-AeF" secondAttribute="bottom" constant="56" id="I5j-Yq-kMw"/>
                             <constraint firstItem="AXx-gw-AeF" firstAttribute="leading" secondItem="dyn-0b-KUf" secondAttribute="leading" constant="20" id="e9V-9i-Pz4"/>
                             <constraint firstItem="dyn-0b-KUf" firstAttribute="trailing" secondItem="AXx-gw-AeF" secondAttribute="trailing" constant="20" id="yaf-bI-4uv"/>
                         </constraints>
@@ -107,7 +115,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcY-rR-ghl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1494" y="814"/>
+            <point key="canvasLocation" x="3939" y="814"/>
+        </scene>
+        <!--Page1 Controller-->
+        <scene sceneID="KP1-9S-vxR">
+            <objects>
+                <viewController storyboardIdentifier="Page1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pA8-B8-Xq2" customClass="Page1Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zID-dh-rFb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wTr-Uy-Jvw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k4J-c5-gc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2322" y="814"/>
+        </scene>
+        <!--Page2 Controller-->
+        <scene sceneID="D9Y-h7-MkX">
+            <objects>
+                <viewController storyboardIdentifier="Page2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8CV-a7-Mon" customClass="Page2Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gcv-JY-nM5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="EGz-tv-E8E"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GqJ-EW-HYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3148" y="814"/>
         </scene>
     </scenes>
 </document>
