@@ -108,13 +108,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="efz-aY-KQG">
+                        <barButtonItem key="leftBarButtonItem" image="nav-button-settings" id="TS2-ia-The">
+                            <color key="tintColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="nav-button-qrcode" id="N96-tE-um3">
+                            <color key="tintColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="28t-0i-3Jn" id="3d3-Zj-Txc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-59.420289855072468" y="65.625"/>
+            <point key="canvasLocation" x="850.72463768115949" y="65.625"/>
         </scene>
         <!--Root Controller-->
         <scene sceneID="Htf-R8-jQr">
@@ -219,5 +227,28 @@
             </objects>
             <point key="canvasLocation" x="3148" y="814"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4CL-wJ-iPH">
+            <objects>
+                <navigationController storyboardIdentifier="dashboardNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iJV-Gs-E4e" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xFq-mP-gCh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UJ4-bM-s4Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VAj-Tb-8pP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-59.420289855072468" y="65.625"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="nav-button-qrcode" width="32" height="32"/>
+        <image name="nav-button-settings" width="32" height="32"/>
+    </resources>
 </document>

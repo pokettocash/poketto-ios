@@ -28,7 +28,7 @@ class RootController: UIViewController {
     }
     
     func switchToDashboard() {
-        let dashboardController = self.storyboard?.instantiateViewController(withIdentifier: "dashboardVC") as! DashboardController
+        let dashboardController = self.storyboard?.instantiateViewController(withIdentifier: "dashboardNavVC") as! UINavigationController
         animateFadeTransition(to: dashboardController)
     }
     

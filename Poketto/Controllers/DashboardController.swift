@@ -19,6 +19,8 @@ class DashboardController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addNavDivider()
 
         let wallet = Wallet.init()
 
@@ -55,6 +57,16 @@ class DashboardController: UIViewController {
         
         let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.sectionHeadersPinToVisibleBounds = true
+    }
+    
+    func addNavDivider() {
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+
+        let dividerView = UIView(frame: CGRect(x: 15, y: (navigationController?.navigationBar.frame.size.height)!-2, width: (navigationController?.navigationBar.frame.size.width)!-30, height: 2))
+        dividerView.backgroundColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
+        navigationController?.navigationBar.addSubview(dividerView)
     }
 }
 
