@@ -68,6 +68,10 @@ class DashboardController: UIViewController {
         dividerView.backgroundColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
         navigationController?.navigationBar.addSubview(dividerView)
     }
+    
+    @IBAction func settings() {
+        
+    }
 }
 
 extension DashboardController : UICollectionViewDataSource {

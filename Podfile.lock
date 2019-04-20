@@ -10,6 +10,7 @@ PODS:
     - EthereumAddress (~> 1.0.0)
   - EthereumAddress (1.0.0):
     - CryptoSwift (~> 0.13)
+  - Presentr (1.9)
   - PromiseKit (6.8.3):
     - PromiseKit/CorePromise (= 6.8.3)
     - PromiseKit/Foundation (= 6.8.3)
@@ -40,6 +41,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (= 4.8.0)
   - Chester
+  - Presentr
   - SwiftKeychainWrapper
   - SwiftyJSON (= 4.0)
   - web3swift (= 2.0.4)
@@ -52,6 +54,7 @@ SPEC REPOS:
     - CryptoSwift
     - EthereumABI
     - EthereumAddress
+    - Presentr
     - PromiseKit
     - scrypt
     - secp256k1_swift
@@ -68,6 +71,7 @@ SPEC CHECKSUMS:
   CryptoSwift: 35a10419f4dbf0619c13f8c1c180037e115323fa
   EthereumABI: f040f5429e5a4366d028c88b88d9441e137593af
   EthereumAddress: f476e1320dca3a0024431e713ede7a09c7eb7796
+  Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
   scrypt: 3fe5b1a3b0976f97cd87488673a8f7c65708cc84
   secp256k1_swift: 4fc5c4b2d2c6d21ee8ccb868cdc92da12f38bed9
@@ -77,6 +81,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   web3swift: aeb3d08ded961e0562919d4161f5af6ccb0ab30f
 
-PODFILE CHECKSUM: 5fd4982ff08018b9e1073cc4d383da17a01f8772
+PODFILE CHECKSUM: 3095c24115670f8952470d0a2aa34b02eb6afac9
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

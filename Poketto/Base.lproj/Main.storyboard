@@ -193,6 +193,9 @@
                     <navigationItem key="navigationItem" id="efz-aY-KQG">
                         <barButtonItem key="leftBarButtonItem" image="nav-button-settings" id="TS2-ia-The">
                             <color key="tintColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="settings" destination="BYZ-38-t0r" id="kCO-YN-L7g"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="nav-button-qrcode" id="N96-tE-um3">
                             <color key="tintColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
