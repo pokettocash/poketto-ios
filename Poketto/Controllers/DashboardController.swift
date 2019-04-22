@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import Presentr
 
 class DashboardController: UIViewController {
     
@@ -71,6 +72,25 @@ class DashboardController: UIViewController {
     
     @IBAction func settings() {
         
+        let presenter: Presentr = {
+            let width = ModalSize.sideMargin(value: 14)
+            let height = ModalSize.custom(size: 673)
+            let center = ModalCenterPosition.customOrigin(origin: CGPoint(x: 14, y: 76))
+            let customType = PresentationType.custom(width: width, height: height, center: center)
+            
+            let customPresenter = Presentr(presentationType: customType)
+            customPresenter.transitionType = .coverVertical
+            customPresenter.dismissTransitionType = .coverVerticalFromTop
+            customPresenter.roundCorners = true
+            customPresenter.cornerRadius = 25
+            customPresenter.backgroundColor = .black
+            customPresenter.backgroundOpacity = 0.5
+            customPresenter.dismissOnSwipe = false
+            customPresenter.dismissOnSwipeDirection = .top
+            return customPresenter
+        }()
+        let controller = storyboard?.instantiateViewController(withIdentifier: "settingsNavVC") as! UINavigationController
+        customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
     }
 }
 
