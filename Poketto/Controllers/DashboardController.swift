@@ -70,6 +70,12 @@ class DashboardController: UIViewController {
         navigationController?.navigationBar.addSubview(dividerView)
     }
     
+    @IBAction func pay() {
+        
+        let payNavVC = storyboard?.instantiateViewController(withIdentifier: "payNavVC") as! UINavigationController
+        navigationController?.present(payNavVC, animated: true, completion: nil)
+    }
+    
     @IBAction func settings() {
         
         let presenter: Presentr = {

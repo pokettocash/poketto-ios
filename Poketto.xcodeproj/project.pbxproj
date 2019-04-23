@@ -11,6 +11,10 @@
 		239C8B6D8C0C79E902619370 /* Pods_PokettoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D52EC7AF6843B272DF9DECA /* Pods_PokettoUITests.framework */; };
 		707DEB94226DD56000F0AD93 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB93226DD56000F0AD93 /* SettingsController.swift */; };
 		707DEB96226F466800F0AD93 /* RequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB95226F466800F0AD93 /* RequestController.swift */; };
+		707DEB98226F52A500F0AD93 /* PayOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB97226F52A500F0AD93 /* PayOptionsController.swift */; };
+		707DEB9A226F52B300F0AD93 /* PaySendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB99226F52B300F0AD93 /* PaySendController.swift */; };
+		707DEB9C226F572900F0AD93 /* PayOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB9B226F572900F0AD93 /* PayOptionCell.swift */; };
+		707DEB9E226F5BCB00F0AD93 /* PasteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB9D226F5BCB00F0AD93 /* PasteCell.swift */; };
 		70A31C7222676082007291D1 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C7122676082007291D1 /* RootController.swift */; };
 		70A31C7422676096007291D1 /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C7322676096007291D1 /* LaunchController.swift */; };
 		70A31C76226760E4007291D1 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C75226760E4007291D1 /* DashboardController.swift */; };
@@ -55,6 +59,10 @@
 		4E75285DDEAD6CD4FD3FCC28 /* Pods_PokettoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		707DEB93226DD56000F0AD93 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		707DEB95226F466800F0AD93 /* RequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestController.swift; sourceTree = "<group>"; };
+		707DEB97226F52A500F0AD93 /* PayOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayOptionsController.swift; sourceTree = "<group>"; };
+		707DEB99226F52B300F0AD93 /* PaySendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaySendController.swift; sourceTree = "<group>"; };
+		707DEB9B226F572900F0AD93 /* PayOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayOptionCell.swift; sourceTree = "<group>"; };
+		707DEB9D226F5BCB00F0AD93 /* PasteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteCell.swift; sourceTree = "<group>"; };
 		70A31C7122676082007291D1 /* RootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
 		70A31C7322676096007291D1 /* LaunchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchController.swift; sourceTree = "<group>"; };
 		70A31C75226760E4007291D1 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
@@ -144,6 +152,8 @@
 				70A31C7122676082007291D1 /* RootController.swift */,
 				70A31C7322676096007291D1 /* LaunchController.swift */,
 				70A31C75226760E4007291D1 /* DashboardController.swift */,
+				707DEB97226F52A500F0AD93 /* PayOptionsController.swift */,
+				707DEB99226F52B300F0AD93 /* PaySendController.swift */,
 				707DEB93226DD56000F0AD93 /* SettingsController.swift */,
 				707DEB95226F466800F0AD93 /* RequestController.swift */,
 				70A31C7922676A34007291D1 /* OnboardingController.swift */,
@@ -157,8 +167,10 @@
 		70A31C81226780ED007291D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				70A31C822267810B007291D1 /* TransactionCell.swift */,
 				70A31C84226782A0007291D1 /* DashboardHeaderView.swift */,
+				707DEB9D226F5BCB00F0AD93 /* PasteCell.swift */,
+				707DEB9B226F572900F0AD93 /* PayOptionCell.swift */,
+				70A31C822267810B007291D1 /* TransactionCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -469,6 +481,7 @@
 				70A31C7822676550007291D1 /* Wallet.swift in Sources */,
 				DDB50445225CC6EF005B3DE0 /* Explorer.swift in Sources */,
 				70A31C832267810B007291D1 /* TransactionCell.swift in Sources */,
+				707DEB9A226F52B300F0AD93 /* PaySendController.swift in Sources */,
 				70A31C7422676096007291D1 /* LaunchController.swift in Sources */,
 				DDAE1F5A2255234C00D30A8C /* ViewController.swift in Sources */,
 				70A31C7A22676A34007291D1 /* OnboardingController.swift in Sources */,
@@ -476,11 +489,14 @@
 				DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */,
 				70A31C85226782A0007291D1 /* DashboardHeaderView.swift in Sources */,
 				70A31C76226760E4007291D1 /* DashboardController.swift in Sources */,
+				707DEB9E226F5BCB00F0AD93 /* PasteCell.swift in Sources */,
 				70A31C802267709A007291D1 /* Page3Controller.swift in Sources */,
 				707DEB94226DD56000F0AD93 /* SettingsController.swift in Sources */,
 				70A31C7C22677084007291D1 /* Page1Controller.swift in Sources */,
 				70A31C7222676082007291D1 /* RootController.swift in Sources */,
 				70A31C7E22677090007291D1 /* Page2Controller.swift in Sources */,
+				707DEB98226F52A500F0AD93 /* PayOptionsController.swift in Sources */,
+				707DEB9C226F572900F0AD93 /* PayOptionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
