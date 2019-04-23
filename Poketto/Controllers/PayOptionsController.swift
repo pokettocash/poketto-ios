@@ -13,12 +13,13 @@ class PayOptionsController: UIViewController, UISearchResultsUpdating, UISearchB
     var searchController            : UISearchController!
     let reuseIdentifier             = "payOptionCellId"
     @IBOutlet weak var tableView    : UITableView!
+    var hasAddressOnClipboard       : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setSearchBar()
-        tableView.reloadData()
+        checkPasteBoard()
     }
     
     func setSearchBar() {
@@ -34,6 +35,17 @@ class PayOptionsController: UIViewController, UISearchResultsUpdating, UISearchB
     func updateSearchResults(for searchController: UISearchController) {
         
     }
+    
+    func checkPasteBoard() {
+        
+        if let pasteboardString = UIPasteboard.general.string {
+            let first2 = String(pasteboardString.prefix(2))
+            if first2 == "0x" {
+                hasAddressOnClipboard = true
+            }
+            tableView.reloadData()
+        }
+    }
 
 }
 
@@ -45,7 +57,11 @@ extension PayOptionsController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 3
+            if hasAddressOnClipboard {
+                return 3
+            } else {
+                return 2
+            }
         } else if section == 1 {
             return 0
         } else {
@@ -56,16 +72,26 @@ extension PayOptionsController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
-            if indexPath.row == 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "pasteCellId", for: indexPath) as! PasteCell
-                cell.subtitleLabel.text = UIPasteboard.general.string
-                return cell
-            } else if indexPath.row == 1 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "enterAddressCellId", for: indexPath)
-                return cell
+            if hasAddressOnClipboard {
+                if indexPath.row == 0 {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "pasteCellId", for: indexPath) as! PasteCell
+                    cell.subtitleLabel.text = UIPasteboard.general.string
+                    return cell
+                } else if indexPath.row == 1 {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "enterAddressCellId", for: indexPath)
+                    return cell
+                } else {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "scanCellId", for: indexPath)
+                    return cell
+                }
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "scanCellId", for: indexPath)
-                return cell
+                if indexPath.row == 0 {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "enterAddressCellId", for: indexPath)
+                    return cell
+                } else {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "scanCellId", for: indexPath)
+                    return cell
+                }
             }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "pasteCellId", for: indexPath) as! PasteCell
