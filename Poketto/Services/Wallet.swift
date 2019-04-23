@@ -26,6 +26,10 @@ class Wallet {
         print("keystore: \(String(describing: keystore))")
     }
     
+    func importSeed(seed: String) {
+        KeychainWrapper.standard.set(seed, forKey: "mnemonic")
+    }
+    
     func getEthereumAddress() -> EthereumAddress? {
         
         let mnemonic = KeychainWrapper.standard.string(forKey: "mnemonic")
