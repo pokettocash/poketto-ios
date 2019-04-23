@@ -14,6 +14,7 @@ class PayOptionsController: UIViewController, UISearchResultsUpdating, UISearchB
     let reuseIdentifier             = "payOptionCellId"
     @IBOutlet weak var tableView    : UITableView!
     var hasAddressOnClipboard       : Bool = false
+    var selectedAddress             : String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +60,13 @@ class PayOptionsController: UIViewController, UISearchResultsUpdating, UISearchB
                 hasAddressOnClipboard = true
             }
             tableView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "send" {
+            let sendVC = segue.destination as! PaySendController
+            sendVC.address = selectedAddress
         }
     }
 
@@ -119,5 +127,23 @@ extension PayOptionsController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if indexPath.section == 0 {
+            if hasAddressOnClipboard {
+                if indexPath.row == 0 {
+                    selectedAddress = UIPasteboard.general.string
+                    performSegue(withIdentifier: "send", sender: nil)
+                } else if indexPath.row == 1 {
+
+                } else {
+
+                }
+            } else {
+                if indexPath.row == 0 {
+
+                } else {
+
+                }
+            }
+        }
     }
 }

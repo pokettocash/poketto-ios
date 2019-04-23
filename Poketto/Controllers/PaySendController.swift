@@ -9,22 +9,30 @@
 import UIKit
 
 class PaySendController: UIViewController {
+    
+    var address : String!
+    @IBOutlet weak var userImageView    : UIImageView!
+    @IBOutlet weak var userNameLabel    : UILabel!
+    @IBOutlet weak var amountTextField  : UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if address != nil {
+            userNameLabel.text = address
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if address != nil {
+            userNameLabel.text = address
+            amountTextField.becomeFirstResponder()
+        }
     }
-    */
-
+    
+    @IBAction func send() {
+        
+    }
 }
