@@ -13,7 +13,6 @@ class SettingsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         view.layer.cornerRadius = 25
         navigationController?.navigationBar.layer.cornerRadius = 25
         navigationController?.navigationBar.clipsToBounds = true

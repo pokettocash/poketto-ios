@@ -92,6 +92,32 @@ class DashboardController: UIViewController {
         let controller = storyboard?.instantiateViewController(withIdentifier: "settingsNavVC") as! UINavigationController
         customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
     }
+    
+    @IBAction func request() {
+        
+        let presenter: Presentr = {
+            let width = ModalSize.sideMargin(value: 14)
+            let height = ModalSize.custom(size: 536)
+            let center = ModalCenterPosition.customOrigin(origin: CGPoint(x: 14, y: 95))
+            let customType = PresentationType.custom(width: width, height: height, center: center)
+            
+            let customPresenter = Presentr(presentationType: customType)
+            customPresenter.transitionType = .coverVertical
+            customPresenter.dismissTransitionType = .coverVerticalFromTop
+            customPresenter.roundCorners = true
+            customPresenter.cornerRadius = 25
+            customPresenter.backgroundColor = .black
+            customPresenter.backgroundOpacity = 0.5
+            customPresenter.dismissOnSwipe = false
+            customPresenter.dismissOnSwipeDirection = .top
+            return customPresenter
+        }()
+        let navController = storyboard?.instantiateViewController(withIdentifier: "requestNavVC") as! UINavigationController
+        let wallet = Wallet.init()
+        let controller = navController.viewControllers[0] as! RequestController
+        controller.address = wallet.getEthereumAddress()?.address
+        customPresentViewController(presenter, viewController: navController, animated: true, completion: nil)
+    }
 }
 
 extension DashboardController : UICollectionViewDataSource {
