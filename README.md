@@ -37,4 +37,6 @@ Work in progress 🏗
 
 ---
 
-Made by [Done Sunday](http://donesunday.com/) 🌞 Join us on [Discord](https://discord.gg/6SrsfUf) to help shape Poketto's future.
+Made at [Done Sunday](http://donesunday.com/) 🌞 by [@_andre_sousa](https://twitter.com/_andre_sousa), [@alvesjtiago](https://twitter.com/alvesjtiago) and [@jackveiga](https://twitter.com/jackveiga).
+
+Join us on [Discord](https://discord.gg/6SrsfUf) to help shape Poketto's future.
