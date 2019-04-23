@@ -24,18 +24,12 @@ class DashboardController: UIViewController {
         addNavDivider()
 
         let wallet = Wallet.init()
-
         let explorer = Explorer.init()
         explorer.balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
             print(balance)
             self.balance = balance
             self.collectionView.reloadData()
         })
-        
-//        explorer.transactionsFrom(address: "0x569d656393ca2e1b62a362a6a60556b2ad56721d", completion: { transactions in
-//            print("transactions \(transactions)")
-//            self.transactions = transactions
-//        })
 
         explorer.transactionsFrom(address: wallet.getEthereumAddress()!.address, completion: { transactions in
             print("transactions \(transactions)")

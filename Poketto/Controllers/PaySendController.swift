@@ -68,7 +68,6 @@ class PaySendController: UIViewController {
                 print(balance)
                 self.navBarSubTitleLabel.text = "Balance \(balance) xDai"
             })
-            
         }
     }
     
@@ -82,5 +81,10 @@ class PaySendController: UIViewController {
     
     @IBAction func send() {
         
+        if let amount = amountTextField.text {
+            let wallet = Wallet.init()
+//            wallet.send(toAddress: address, value: amount)
+            wallet.send(toAddress: "0x569D656393CA2e1b62A362A6A60556B2aD56721D", value: amount)
+        }
     }
 }

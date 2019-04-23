@@ -27,7 +27,6 @@
 		70A31C85226782A0007291D1 /* DashboardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C84226782A0007291D1 /* DashboardHeaderView.swift */; };
 		A136120CCE27E06D8541DB17 /* Pods_Poketto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184E4C91EB2B14C9091ED422 /* Pods_Poketto.framework */; };
 		DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F572255234C00D30A8C /* AppDelegate.swift */; };
-		DDAE1F5A2255234C00D30A8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F592255234C00D30A8C /* ViewController.swift */; };
 		DDAE1F5D2255234C00D30A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDAE1F5B2255234C00D30A8C /* Main.storyboard */; };
 		DDAE1F5F2255234D00D30A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDAE1F5E2255234D00D30A8C /* Assets.xcassets */; };
 		DDAE1F622255234D00D30A8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDAE1F602255234D00D30A8C /* LaunchScreen.storyboard */; };
@@ -78,7 +77,6 @@
 		B8A9DCECD69B7C600C3A2A9A /* Pods-PokettoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokettoUITests/Pods-PokettoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DDAE1F542255234C00D30A8C /* Poketto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poketto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAE1F572255234C00D30A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDAE1F592255234C00D30A8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DDAE1F5C2255234C00D30A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDAE1F5E2255234D00D30A8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDAE1F612255234D00D30A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 				70A31C7022676066007291D1 /* Controllers */,
 				DDB50443225CC50C005B3DE0 /* Services */,
 				DDAE1F572255234C00D30A8C /* AppDelegate.swift */,
-				DDAE1F592255234C00D30A8C /* ViewController.swift */,
 				DDAE1F5B2255234C00D30A8C /* Main.storyboard */,
 				DDAE1F5E2255234D00D30A8C /* Assets.xcassets */,
 				DDAE1F602255234D00D30A8C /* LaunchScreen.storyboard */,
@@ -483,7 +480,6 @@
 				70A31C832267810B007291D1 /* TransactionCell.swift in Sources */,
 				707DEB9A226F52B300F0AD93 /* PaySendController.swift in Sources */,
 				70A31C7422676096007291D1 /* LaunchController.swift in Sources */,
-				DDAE1F5A2255234C00D30A8C /* ViewController.swift in Sources */,
 				70A31C7A22676A34007291D1 /* OnboardingController.swift in Sources */,
 				707DEB96226F466800F0AD93 /* RequestController.swift in Sources */,
 				DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */,
