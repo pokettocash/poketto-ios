@@ -58,6 +58,7 @@ class RequestController: UIViewController {
     func copyToClipboard() {
         
         UIPasteboard.general.string = address
+        dismiss(animated: true, completion: nil)
     }
     
     func share() {

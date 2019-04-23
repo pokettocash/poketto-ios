@@ -67,6 +67,10 @@ class PayOptionsController: UIViewController, UISearchResultsUpdating, UISearchB
         if segue.identifier == "send" {
             let sendVC = segue.destination as! PaySendController
             sendVC.address = selectedAddress
+            
+            let backItem = UIBarButtonItem()
+            backItem.title = "Pay"
+            navigationItem.backBarButtonItem = backItem
         }
     }
 
@@ -145,5 +149,7 @@ extension PayOptionsController : UITableViewDelegate {
                 }
             }
         }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

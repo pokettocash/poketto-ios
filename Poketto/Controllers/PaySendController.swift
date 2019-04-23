@@ -10,15 +10,17 @@ import UIKit
 
 class PaySendController: UIViewController {
     
-    var address : String!
+    var address                         : String!
     @IBOutlet weak var userImageView    : UIImageView!
     @IBOutlet weak var userNameLabel    : UILabel!
     @IBOutlet weak var amountTextField  : UITextField!
-    
+    var navBarTitleLabel                : UILabel!
+    var navBarSubTitleLabel             : UILabel!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if address != nil {
             userNameLabel.text = address
         }
@@ -26,10 +28,56 @@ class PaySendController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        setNavigationBar()
         if address != nil {
             userNameLabel.text = address
             amountTextField.becomeFirstResponder()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeNavBarLabels()
+    }
+    
+    func setNavigationBar() {
+        
+        if let navigationBar = navigationController?.navigationBar {
+            let firstFrame = CGRect(x: navigationBar.frame.width/2 - 47, y: 0, width: 94, height: 18)
+            let secondFrame = CGRect(x: 0, y: 20, width: navigationBar.frame.width, height: 12)
+            
+            navBarTitleLabel = UILabel(frame: firstFrame)
+            navBarTitleLabel.text = "Send Money"
+            navBarTitleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+            navBarTitleLabel.textAlignment = .center
+            
+            navBarSubTitleLabel = UILabel(frame: secondFrame)
+            navBarSubTitleLabel.text = "Balance ... xDai"
+            navBarSubTitleLabel.font = UIFont.systemFont(ofSize: 12)
+            navBarSubTitleLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 0.6)
+            navBarSubTitleLabel.textAlignment = .center
+            
+            navigationBar.addSubview(navBarTitleLabel)
+            navigationBar.addSubview(navBarSubTitleLabel)
+
+            let wallet = Wallet.init()
+            
+            let explorer = Explorer.init()
+            explorer.balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
+                print(balance)
+                self.navBarSubTitleLabel.text = "Balance \(balance) xDai"
+            })
+            
+        }
+    }
+    
+    func removeNavBarLabels() {
+        
+        navBarTitleLabel.removeFromSuperview()
+        navBarSubTitleLabel.removeFromSuperview()
+        navBarTitleLabel = nil
+        navBarSubTitleLabel = nil
     }
     
     @IBAction func send() {
