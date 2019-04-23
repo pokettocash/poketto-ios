@@ -18,6 +18,7 @@ class PayOptionsController: UIViewController, UISearchResultsUpdating, UISearchB
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setNavigationBar()
         setSearchBar()
         checkPasteBoard()
     }
@@ -28,12 +29,26 @@ class PayOptionsController: UIViewController, UISearchResultsUpdating, UISearchB
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search Contacts"
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.showsCancelButton = true
+        navigationItem.titleView = searchController.searchBar
+        searchController.hidesNavigationBarDuringPresentation = false
+        navigationController!.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .always
+    }
+    
+    func setNavigationBar() {
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
 
     func updateSearchResults(for searchController: UISearchController) {
         
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        navigationController?.dismiss(animated: true, completion: nil)
     }
     
     func checkPasteBoard() {
