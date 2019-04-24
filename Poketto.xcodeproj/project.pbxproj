@@ -26,10 +26,10 @@
 		70A31C832267810B007291D1 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C822267810B007291D1 /* TransactionCell.swift */; };
 		70A31C85226782A0007291D1 /* DashboardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C84226782A0007291D1 /* DashboardHeaderView.swift */; };
 		70C82D6622710B7200F627A1 /* PaymentSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */; };
+		70C82D68227113A100F627A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C82D67227113A100F627A1 /* Assets.xcassets */; };
 		A136120CCE27E06D8541DB17 /* Pods_Poketto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184E4C91EB2B14C9091ED422 /* Pods_Poketto.framework */; };
 		DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F572255234C00D30A8C /* AppDelegate.swift */; };
 		DDAE1F5D2255234C00D30A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDAE1F5B2255234C00D30A8C /* Main.storyboard */; };
-		DDAE1F5F2255234D00D30A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDAE1F5E2255234D00D30A8C /* Assets.xcassets */; };
 		DDAE1F622255234D00D30A8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDAE1F602255234D00D30A8C /* LaunchScreen.storyboard */; };
 		DDAE1F6D2255234D00D30A8C /* PokettoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F6C2255234D00D30A8C /* PokettoTests.swift */; };
 		DDAE1F782255234D00D30A8C /* PokettoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F772255234D00D30A8C /* PokettoUITests.swift */; };
@@ -74,13 +74,13 @@
 		70A31C822267810B007291D1 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		70A31C84226782A0007291D1 /* DashboardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHeaderView.swift; sourceTree = "<group>"; };
 		70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessController.swift; sourceTree = "<group>"; };
+		70C82D67227113A100F627A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D52EC7AF6843B272DF9DECA /* Pods_PokettoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2222DDD006819514830BBDB /* Pods-Poketto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poketto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Poketto/Pods-Poketto.release.xcconfig"; sourceTree = "<group>"; };
 		B8A9DCECD69B7C600C3A2A9A /* Pods-PokettoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokettoUITests/Pods-PokettoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DDAE1F542255234C00D30A8C /* Poketto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poketto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAE1F572255234C00D30A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDAE1F5C2255234C00D30A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DDAE1F5E2255234D00D30A8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDAE1F612255234D00D30A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDAE1F632255234D00D30A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDAE1F682255234D00D30A8C /* PokettoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokettoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,8 +206,8 @@
 				DDB50443225CC50C005B3DE0 /* Services */,
 				DDAE1F572255234C00D30A8C /* AppDelegate.swift */,
 				DDAE1F5B2255234C00D30A8C /* Main.storyboard */,
-				DDAE1F5E2255234D00D30A8C /* Assets.xcassets */,
 				DDAE1F602255234D00D30A8C /* LaunchScreen.storyboard */,
+				70C82D67227113A100F627A1 /* Assets.xcassets */,
 				DDAE1F632255234D00D30A8C /* Info.plist */,
 			);
 			path = Poketto;
@@ -349,7 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDAE1F622255234D00D30A8C /* LaunchScreen.storyboard in Resources */,
-				DDAE1F5F2255234D00D30A8C /* Assets.xcassets in Resources */,
+				70C82D68227113A100F627A1 /* Assets.xcassets in Resources */,
 				DDAE1F5D2255234C00D30A8C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

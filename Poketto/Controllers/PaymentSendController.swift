@@ -83,9 +83,10 @@ class PaymentSendController: UIViewController {
         
         if let amount = amountTextField.text {
             let wallet = Wallet.init()
-            wallet.send(toAddress: "0x569D656393CA2e1b62A362A6A60556B2aD56721D", value: amount, success: { result in
+            wallet.send(toAddress: wallet.getEthereumAddress()!.address, value: amount, success: { result in
                 print("show next screen")
-                self.performSegue(withIdentifier: "success", sender: nil)
+                let transaction = ["address": wallet.getEthereumAddress()!.address, "amount": amount]
+                self.performSegue(withIdentifier: "success", sender: transaction)
             }) { error in
                 DispatchQueue.main.async {
                     let msg = "Invalid code"
@@ -96,6 +97,15 @@ class PaymentSendController: UIViewController {
                     self.present(alert, animated: true, completion: nil)
                 }
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "success" {
+            let paymentSuccessVC = segue.destination as! PaymentSuccessController
+            paymentSuccessVC.address = (sender as! [String: Any])["address"] as? String
+            paymentSuccessVC.amount = (sender as! [String: Any])["amount"] as? String
         }
     }
 }

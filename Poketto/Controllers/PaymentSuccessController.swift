@@ -9,13 +9,33 @@
 import UIKit
 
 class PaymentSuccessController: UIViewController {
+    
+    var address                     : String!
+    var amount                      : String!
+    @IBOutlet weak var addressLabel : UILabel!
+    @IBOutlet weak var amountLabel  : UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        addressLabel.text = address
+        amountLabel.text = amount
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    @IBAction func done() {
+        
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
