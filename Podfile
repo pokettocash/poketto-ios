@@ -10,6 +10,7 @@ target 'Poketto' do
   pod 'SwiftyJSON', '4.0'
   pod 'web3swift', '2.0.4'
   pod 'Presentr'
+  pod 'QRCodeReader.swift', '~> 10.0.0'
 
   # Pods for Poketto
 

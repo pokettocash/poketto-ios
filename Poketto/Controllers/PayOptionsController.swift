@@ -7,9 +7,26 @@
 //
 
 import UIKit
+import AVFoundation
+import QRCodeReader
+
 
 class PayOptionsController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
 
+    lazy var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
+            
+            // Configure the view controller (optional)
+            $0.showTorchButton        = false
+            $0.showSwitchCameraButton = false
+            $0.showCancelButton       = true
+            $0.showOverlayView        = true
+            $0.rectOfInterest         = CGRect(x: 0.2, y: 0.2, width: 0.6, height: 0.6)
+        }
+        
+        return QRCodeReaderViewController(builder: builder)
+    }()
     var searchController            : UISearchController!
     let reuseIdentifier             = "payOptionCellId"
     @IBOutlet weak var tableView    : UITableView!
@@ -61,6 +78,46 @@ class PayOptionsController: UIViewController, UISearchResultsUpdating, UISearchB
             }
             tableView.reloadData()
         }
+    }
+    
+    func scanAction() {
+        
+        readerVC.completionBlock = { (result: QRCodeReaderResult?) in
+            if let resultString = result?.value {
+                let first2 = String(resultString.prefix(2))
+                if first2 == "0x" {
+                    DispatchQueue.main.async {
+                        self.readerVC.dismiss(animated: true, completion: {
+                            self.selectedAddress = resultString
+                            self.performSegue(withIdentifier: "send", sender: nil)
+                        })
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        let msg = "Invalid address"
+                        let alert = UIAlertController(title: "Error",
+                                                      message: msg,
+                                                      preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    let msg = "Invalid code"
+                    let alert = UIAlertController(title: "Error",
+                                                  message: msg,
+                                                  preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+        
+        // Presents the readerVC as modal form sheet
+        readerVC.modalPresentationStyle = .formSheet
+        
+        present(readerVC, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -125,6 +182,7 @@ extension PayOptionsController : UITableViewDataSource {
             return cell
         }
     }
+    
 }
 
 extension PayOptionsController : UITableViewDelegate {
@@ -139,13 +197,13 @@ extension PayOptionsController : UITableViewDelegate {
                 } else if indexPath.row == 1 {
 
                 } else {
-
+                    scanAction()
                 }
             } else {
                 if indexPath.row == 0 {
 
                 } else {
-
+                    scanAction()
                 }
             }
         }

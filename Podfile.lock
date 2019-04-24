@@ -20,6 +20,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.8.3):
     - PromiseKit/CorePromise
+  - QRCodeReader.swift (10.0.0)
   - scrypt (2.0):
     - CryptoSwift (~> 0.11)
   - secp256k1_swift (1.0.3)
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - Alamofire (= 4.8.0)
   - Chester
   - Presentr
+  - QRCodeReader.swift (~> 10.0.0)
   - SwiftKeychainWrapper
   - SwiftyJSON (= 4.0)
   - web3swift (= 2.0.4)
@@ -56,6 +58,7 @@ SPEC REPOS:
     - EthereumAddress
     - Presentr
     - PromiseKit
+    - QRCodeReader.swift
     - scrypt
     - secp256k1_swift
     - SipHash
@@ -73,6 +76,7 @@ SPEC CHECKSUMS:
   EthereumAddress: f476e1320dca3a0024431e713ede7a09c7eb7796
   Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
+  QRCodeReader.swift: 74d0378eb0c7807828552b49626bbc8307495aee
   scrypt: 3fe5b1a3b0976f97cd87488673a8f7c65708cc84
   secp256k1_swift: 4fc5c4b2d2c6d21ee8ccb868cdc92da12f38bed9
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
@@ -81,6 +85,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   web3swift: aeb3d08ded961e0562919d4161f5af6ccb0ab30f
 
-PODFILE CHECKSUM: d179a64d96b2d06249c6da5b1dcde188b292a129
+PODFILE CHECKSUM: bbdb4194ae269d68b68bd337df4f819b6e37b2fa
 
 COCOAPODS: 1.6.1
