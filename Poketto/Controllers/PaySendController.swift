@@ -83,8 +83,18 @@ class PaySendController: UIViewController {
         
         if let amount = amountTextField.text {
             let wallet = Wallet.init()
-//            wallet.send(toAddress: address, value: amount)
-            wallet.send(toAddress: "0x569D656393CA2e1b62A362A6A60556B2aD56721D", value: amount)
+            wallet.send(toAddress: "0x569D656393CA2e1b62A362A6A60556B2aD56721D", value: amount, success: { result in
+                print("show next screen")
+            }) { error in
+                DispatchQueue.main.async {
+                    let msg = "Invalid code"
+                    let alert = UIAlertController(title: "Error",
+                                                  message: msg,
+                                                  preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
     }
 }

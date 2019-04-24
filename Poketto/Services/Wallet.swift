@@ -43,7 +43,7 @@ class Wallet {
         return ownWalletAddress
     }
     
-    func send(toAddress: String, value: String) {
+    func send(toAddress: String, value: String, success: @escaping (TransactionSendingResult) -> Void, failure: @escaping (Error) -> Void) {
         
         let toAddress = EthereumAddress(toAddress)!
         
@@ -70,13 +70,19 @@ class Wallet {
             extraData: Data(),
             transactionOptions: options)!
         
-        let result = try! tx.send()
-        
-        print(result)
-
-//         Balance
-         let balanceResult = try! connection.eth.getBalance(address: ownWalletAddress!)
-         let balanceString = Web3.Utils.formatToEthereumUnits(balanceResult, toUnits: .eth, decimals: 6)!
-         print("balanceString \(balanceString)")
+        do {
+            let result = try tx.send()
+            print("success executing transaction")
+            print(result)
+            // Balance
+            let balanceResult = try! connection.eth.getBalance(address: ownWalletAddress!)
+            let balanceString = Web3.Utils.formatToEthereumUnits(balanceResult, toUnits: .eth, decimals: 6)!
+            print("balanceString \(balanceString)")
+            success(result)
+        } catch {
+            print("error executing transaction")
+            print(error)
+            failure(error)
+        }
     }
 }
