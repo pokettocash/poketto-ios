@@ -104,7 +104,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkr-kQ-3lu">
-                                            <rect key="frame" x="30" y="122" width="178" height="60"/>
+                                            <rect key="frame" x="123" y="122" width="178" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="178" id="F0W-c4-RaV"/>
                                                 <constraint firstAttribute="height" constant="60" id="uHL-XD-dtb"/>
@@ -113,7 +113,7 @@
                                             <state key="normal" title="  Request" image="arrow-down" backgroundImage="request-button-background"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E59-rd-AH7">
-                                            <rect key="frame" x="205.5" y="122" width="177" height="60"/>
+                                            <rect key="frame" x="298.5" y="122" width="177" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="4OY-vB-EH9"/>
                                                 <constraint firstAttribute="width" constant="177" id="jzc-Lo-ghp"/>
@@ -125,7 +125,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spent today" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwV-cp-UAK">
-                                            <rect key="frame" x="287" y="32" width="112" height="22"/>
+                                            <rect key="frame" x="473" y="32" width="112" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="Lec-rb-QpT"/>
                                                 <constraint firstAttribute="width" constant="112" id="R2n-zk-RgB"/>
@@ -135,7 +135,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ers-73-5HB">
-                                            <rect key="frame" x="272" y="60" width="127" height="20"/>
+                                            <rect key="frame" x="458" y="60" width="127" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="HV0-dL-MJL"/>
                                                 <constraint firstAttribute="width" constant="127" id="QVO-sR-gUV"/>
@@ -145,7 +145,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGh-Pu-6kF">
-                                            <rect key="frame" x="287" y="86" width="112" height="12"/>
+                                            <rect key="frame" x="473" y="86" width="112" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="112" id="7XN-y7-seC"/>
                                                 <constraint firstAttribute="height" constant="12" id="Vxb-nr-roe"/>
@@ -215,10 +215,10 @@
             </objects>
             <point key="canvasLocation" x="851" y="1564"/>
         </scene>
-        <!--Pay Options Controller-->
+        <!--Payment Contacts Controller-->
         <scene sceneID="cpM-0J-rYH">
             <objects>
-                <viewController storyboardIdentifier="payOptionsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uD4-Zb-agu" customClass="PayOptionsController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="payOptionsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uD4-Zb-agu" customClass="PaymentContactsController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aEq-Up-I4u">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -227,7 +227,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pasteCellId" id="Y3P-47-BI8" customClass="PasteCell" customModule="Poketto" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pasteCellId" id="Y3P-47-BI8" customClass="PasteCell" customModule="Poketto" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="414" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y3P-47-BI8" id="chF-xq-vRo">
@@ -294,7 +294,7 @@
                                             <outlet property="subtitleLabel" destination="9jp-vN-gsl" id="eTe-8g-wNs"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="enterAddressCellId" id="eeY-xo-MLt">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="enterAddressCellId" id="eeY-xo-MLt">
                                         <rect key="frame" x="0.0" y="53" width="414" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eeY-xo-MLt" id="XU6-FD-CUM">
@@ -346,7 +346,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scanCellId" id="xiK-HX-b1i">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scanCellId" id="xiK-HX-b1i">
                                         <rect key="frame" x="0.0" y="105" width="414" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xiK-HX-b1i" id="bs1-uN-dvS">
@@ -415,10 +415,10 @@
             </objects>
             <point key="canvasLocation" x="2494.202898550725" y="1563.6160714285713"/>
         </scene>
-        <!--Pay Send Controller-->
+        <!--Payment Send Controller-->
         <scene sceneID="6JQ-9g-H1w">
             <objects>
-                <viewController id="vmc-Ph-dxZ" customClass="PaySendController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vmc-Ph-dxZ" customClass="PaymentSendController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z90-jH-MMY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -538,11 +538,27 @@
                         <outlet property="amountTextField" destination="2q0-pW-CPp" id="xoh-cF-Men"/>
                         <outlet property="userImageView" destination="r1a-87-9eQ" id="3iP-2G-mcQ"/>
                         <outlet property="userNameLabel" destination="W5i-eh-1cZ" id="ukd-Nm-Fb4"/>
+                        <segue destination="e0q-2O-PhO" kind="show" identifier="success" id="f1F-Li-Le7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpb-Hb-71e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3253.6231884057975" y="1563.6160714285713"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9FV-fq-ec3">
+            <objects>
+                <viewController id="e0q-2O-PhO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rw0-dW-WIT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="hjq-Bx-4Xf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uPc-Ca-dGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4057" y="1564"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Iod-2e-fSt">
@@ -1298,7 +1314,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bhP-yr-zuK">
             <objects>
-                <navigationController storyboardIdentifier="payNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="q2k-vh-Oth" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="paymentContactsNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="q2k-vh-Oth" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wpV-0N-Imh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

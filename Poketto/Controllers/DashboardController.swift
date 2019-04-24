@@ -69,8 +69,8 @@ class DashboardController: UIViewController {
     
     @IBAction func pay() {
         
-        let payNavVC = storyboard?.instantiateViewController(withIdentifier: "payNavVC") as! UINavigationController
-        navigationController?.present(payNavVC, animated: true, completion: nil)
+        let paymentContactsNavVC = storyboard?.instantiateViewController(withIdentifier: "paymentContactsNavVC") as! UINavigationController
+        navigationController?.present(paymentContactsNavVC, animated: true, completion: nil)
     }
     
     @IBAction func settings() {

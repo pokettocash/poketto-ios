@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PaySendController: UIViewController {
+class PaymentSendController: UIViewController {
     
     var address                         : String!
     @IBOutlet weak var userImageView    : UIImageView!
@@ -85,6 +85,7 @@ class PaySendController: UIViewController {
             let wallet = Wallet.init()
             wallet.send(toAddress: "0x569D656393CA2e1b62A362A6A60556B2aD56721D", value: amount, success: { result in
                 print("show next screen")
+                self.performSegue(withIdentifier: "success", sender: nil)
             }) { error in
                 DispatchQueue.main.async {
                     let msg = "Invalid code"

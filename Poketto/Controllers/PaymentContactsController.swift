@@ -11,7 +11,7 @@ import AVFoundation
 import QRCodeReader
 
 
-class PayOptionsController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
+class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
 
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
@@ -122,7 +122,7 @@ class PayOptionsController: UIViewController, UISearchResultsUpdating, UISearchB
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "send" {
-            let sendVC = segue.destination as! PaySendController
+            let sendVC = segue.destination as! PaymentSendController
             sendVC.address = selectedAddress
             
             let backItem = UIBarButtonItem()
@@ -133,7 +133,7 @@ class PayOptionsController: UIViewController, UISearchResultsUpdating, UISearchB
 
 }
 
-extension PayOptionsController : UITableViewDataSource {
+extension PaymentContactsController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -185,7 +185,7 @@ extension PayOptionsController : UITableViewDataSource {
     
 }
 
-extension PayOptionsController : UITableViewDelegate {
+extension PaymentContactsController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
