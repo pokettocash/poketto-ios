@@ -36,6 +36,7 @@ class Wallet {
         if(mnemonic == nil) {
             return nil
         }
+        print("mnemonic \(mnemonic!)")
         
         let keystore = try! BIP32Keystore(mnemonics: mnemonic!)
         let ownWalletAddress = keystore?.addresses?.first!
@@ -43,7 +44,7 @@ class Wallet {
         return ownWalletAddress
     }
     
-    func send(toAddress: String, value: String, success: @escaping (TransactionSendingResult) -> Void, failure: @escaping (Error) -> Void) {
+    func send(toAddress: String, value: String, success: @escaping (TransactionSendingResult) -> Void, failure: @escaping (String) -> Void) {
         
         let toAddress = EthereumAddress(toAddress)!
         
@@ -62,7 +63,7 @@ class Wallet {
         var options = TransactionOptions.defaultOptions
         options.value = amount
         options.from = ownWalletAddress
-        options.gasPrice = .automatic
+        options.gasPrice = .manual(Web3.Utils.parseToBigUInt("3", units: .Gwei)!)
         options.gasLimit = .automatic
         let tx = contract.write(
             "fallback",
@@ -82,7 +83,16 @@ class Wallet {
         } catch {
             print("error executing transaction")
             print(error)
-            failure(error)
+            if let web3Error = error as? Web3Error {
+                print("error \(web3Error)")
+                // Waiting for PR
+//                let desc = web3Error.errorDescription
+//                print("desc \(desc)")
+//                failure(desc)
+                failure("Error executing transaction \(web3Error.localizedDescription)")
+            } else {
+                failure("Invalid code")
+            }
         }
     }
 }

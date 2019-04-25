@@ -11,8 +11,7 @@ target 'Poketto' do
   pod 'web3swift', '2.0.4'
   pod 'Presentr'
   pod 'QRCodeReader.swift', '~> 10.0.0'
-
-  # Pods for Poketto
+  pod 'SVProgressHUD'
 
   target 'PokettoTests' do
     inherit! :search_paths

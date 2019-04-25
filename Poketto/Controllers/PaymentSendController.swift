@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class PaymentSendController: UIViewController {
     
@@ -82,21 +83,46 @@ class PaymentSendController: UIViewController {
     @IBAction func send() {
         
         if let amount = amountTextField.text {
-            let wallet = Wallet.init()
-            wallet.send(toAddress: wallet.getEthereumAddress()!.address, value: amount, success: { result in
-                print("show next screen")
-                let transaction = ["address": wallet.getEthereumAddress()!.address, "amount": amount]
-                self.performSegue(withIdentifier: "success", sender: transaction)
-            }) { error in
-                DispatchQueue.main.async {
-                    let msg = "Invalid code"
-                    let alert = UIAlertController(title: "Error",
-                                                  message: msg,
-                                                  preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+            
+            SVProgressHUD.show()
+            SVProgressHUD.setForegroundColor(UIColor(red: 251/255, green: 198/255, blue: 73/255, alpha: 1))
+            SVProgressHUD.setBackgroundLayerColor(UIColor(white: 0, alpha: 0.4))
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+            DispatchQueue.global(qos: .background).async {
+                print("This is run on the background queue")
+
+                let wallet = Wallet.init()
+                wallet.send(toAddress: wallet.getEthereumAddress()!.address, value: amount, success: { result in
+                    print("show next screen")
+                    DispatchQueue.main.async {
+                        SVProgressHUD.dismiss()
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                        let transaction = ["address": wallet.getEthereumAddress()!.address, "amount": amount]
+                        self.performSegue(withIdentifier: "success", sender: transaction)
+                    }
+                }) { error in
+                    DispatchQueue.main.async {
+
+                        SVProgressHUD.dismiss()
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
+                        let msg = error
+                        let alert = UIAlertController(title: "Error",
+                                                      message: msg,
+                                                      preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
             }
+        } else {
+            let msg = "Please insert amount."
+            let alert = UIAlertController(title: "Error",
+                                          message: msg,
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

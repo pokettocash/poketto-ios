@@ -31,7 +31,7 @@ class DashboardController: UIViewController {
         //        wallet.importSeed(seed: "barely setup matter drive exchange agree fatal sunny interest adjust horror hip season captain dilemma upgrade debris bullet renew hurt citizen scatter famous season")
         let explorer = Explorer.init()
         explorer.balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
-            print(balance)
+            print("balance \(balance)")
             self.balance = balance
             self.collectionView.reloadData()
         })

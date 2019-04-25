@@ -25,6 +25,7 @@ PODS:
     - CryptoSwift (~> 0.11)
   - secp256k1_swift (1.0.3)
   - SipHash (1.2.2)
+  - SVProgressHUD (2.2.5)
   - SwiftKeychainWrapper (3.2.0)
   - SwiftRLP (1.2):
     - BigInt (~> 3.1)
@@ -44,6 +45,7 @@ DEPENDENCIES:
   - Chester
   - Presentr
   - QRCodeReader.swift (~> 10.0.0)
+  - SVProgressHUD
   - SwiftKeychainWrapper
   - SwiftyJSON (= 4.0)
   - web3swift (= 2.0.4)
@@ -62,6 +64,7 @@ SPEC REPOS:
     - scrypt
     - secp256k1_swift
     - SipHash
+    - SVProgressHUD
     - SwiftKeychainWrapper
     - SwiftRLP
     - SwiftyJSON
@@ -80,11 +83,12 @@ SPEC CHECKSUMS:
   scrypt: 3fe5b1a3b0976f97cd87488673a8f7c65708cc84
   secp256k1_swift: 4fc5c4b2d2c6d21ee8ccb868cdc92da12f38bed9
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
   SwiftRLP: 98a02b2210128353ca02e4c2f4d83e2a9796db4f
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   web3swift: aeb3d08ded961e0562919d4161f5af6ccb0ab30f
 
-PODFILE CHECKSUM: bbdb4194ae269d68b68bd337df4f819b6e37b2fa
+PODFILE CHECKSUM: dc86a837349b8f7d14950d2a1e2df4e7761756fd
 
 COCOAPODS: 1.6.1
