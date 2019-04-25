@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="dashboardVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="DashboardController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="28t-0i-3Jn">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z4o-1M-Ako">
                                     <size key="itemSize" width="375" height="60"/>
@@ -104,7 +104,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkr-kQ-3lu">
-                                            <rect key="frame" x="123" y="122" width="178" height="60"/>
+                                            <rect key="frame" x="30" y="122" width="178" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="178" id="F0W-c4-RaV"/>
                                                 <constraint firstAttribute="height" constant="60" id="uHL-XD-dtb"/>
@@ -113,7 +113,7 @@
                                             <state key="normal" title="  Request" image="arrow-down" backgroundImage="request-button-background"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E59-rd-AH7">
-                                            <rect key="frame" x="298.5" y="122" width="177" height="60"/>
+                                            <rect key="frame" x="205.5" y="122" width="177" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="4OY-vB-EH9"/>
                                                 <constraint firstAttribute="width" constant="177" id="jzc-Lo-ghp"/>
@@ -125,7 +125,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spent today" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwV-cp-UAK">
-                                            <rect key="frame" x="473" y="32" width="112" height="22"/>
+                                            <rect key="frame" x="287" y="32" width="112" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="Lec-rb-QpT"/>
                                                 <constraint firstAttribute="width" constant="112" id="R2n-zk-RgB"/>
@@ -135,7 +135,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ers-73-5HB">
-                                            <rect key="frame" x="458" y="60" width="127" height="20"/>
+                                            <rect key="frame" x="272" y="60" width="127" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="HV0-dL-MJL"/>
                                                 <constraint firstAttribute="width" constant="127" id="QVO-sR-gUV"/>
@@ -145,7 +145,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGh-Pu-6kF">
-                                            <rect key="frame" x="473" y="86" width="112" height="12"/>
+                                            <rect key="frame" x="287" y="86" width="112" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="112" id="7XN-y7-seC"/>
                                                 <constraint firstAttribute="height" constant="12" id="Vxb-nr-roe"/>
@@ -227,7 +227,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pasteCellId" id="Y3P-47-BI8" customClass="PasteCell" customModule="Poketto" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pasteCellId" id="Y3P-47-BI8" customClass="PasteCell" customModule="Poketto" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="414" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y3P-47-BI8" id="chF-xq-vRo">
@@ -294,7 +294,7 @@
                                             <outlet property="subtitleLabel" destination="9jp-vN-gsl" id="eTe-8g-wNs"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="enterAddressCellId" id="eeY-xo-MLt">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="enterAddressCellId" id="eeY-xo-MLt">
                                         <rect key="frame" x="0.0" y="53" width="414" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eeY-xo-MLt" id="XU6-FD-CUM">
@@ -346,7 +346,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scanCellId" id="xiK-HX-b1i">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scanCellId" id="xiK-HX-b1i">
                                         <rect key="frame" x="0.0" y="105" width="414" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xiK-HX-b1i" id="bs1-uN-dvS">
@@ -1232,7 +1232,7 @@
             <objects>
                 <navigationController storyboardIdentifier="dashboardNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iJV-Gs-E4e" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xFq-mP-gCh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="xFq-mP-gCh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

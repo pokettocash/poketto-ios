@@ -13,6 +13,7 @@ import Presentr
 class DashboardController: UIViewController {
     
     @IBOutlet var collectionView    : UICollectionView!
+    private let refreshControl      = UIRefreshControl()
     var transactions                : Array<Any> = []
     let reuseIdentifier             = "transactionCellId"
     var headerID                    = "dashboardHeaderId"
@@ -22,27 +23,15 @@ class DashboardController: UIViewController {
         super.viewDidLoad()
         
         addNavDivider()
+        
+        collectionView.refreshControl = self.refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let wallet = Wallet.init()
-        //        wallet.importSeed(seed: "barely setup matter drive exchange agree fatal sunny interest adjust horror hip season captain dilemma upgrade debris bullet renew hurt citizen scatter famous season")
-        let explorer = Explorer.init()
-        explorer.balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
-            print("balance \(balance)")
-            self.balance = balance
-            self.collectionView.reloadData()
-        })
-        
-        print("wallet address \(wallet.getEthereumAddress()!.address)")
-        
-        explorer.transactionsFrom(address: wallet.getEthereumAddress()!.address, completion: { transactions in
-            print("transactions \(transactions)")
-            self.transactions = transactions
-            self.collectionView.reloadData()
-        })
+        fetchData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -69,6 +58,32 @@ class DashboardController: UIViewController {
         let dividerView = UIView(frame: CGRect(x: 15, y: (navigationController?.navigationBar.frame.size.height)!-2, width: (navigationController?.navigationBar.frame.size.width)!-30, height: 2))
         dividerView.backgroundColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
         navigationController?.navigationBar.addSubview(dividerView)
+    }
+    
+    func fetchData() {
+        
+        let wallet = Wallet.init()
+        //        wallet.importSeed(seed: "barely setup matter drive exchange agree fatal sunny interest adjust horror hip season captain dilemma upgrade debris bullet renew hurt citizen scatter famous season")
+        let explorer = Explorer.init()
+        explorer.balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
+            print("balance \(balance)")
+            self.balance = balance
+            self.collectionView.reloadData()
+        })
+        
+        print("wallet address \(wallet.getEthereumAddress()!.address)")
+        explorer.transactionsFrom(address: wallet.getEthereumAddress()!.address, completion: { transactions in
+            print("transactions \(transactions)")
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+                self.transactions = transactions
+                self.collectionView.reloadData()
+            }
+        })
+    }
+    
+    @objc func refreshData(_ sender: Any) {
+        fetchData()
     }
     
     @IBAction func pay() {
