@@ -10,6 +10,9 @@ PODS:
     - EthereumAddress (~> 1.0.0)
   - EthereumAddress (1.0.0):
     - CryptoSwift (~> 0.13)
+  - MagicalRecord (2.3.3):
+    - MagicalRecord/Core (= 2.3.3)
+  - MagicalRecord/Core (2.3.3)
   - Presentr (1.9)
   - PromiseKit (6.8.3):
     - PromiseKit/CorePromise (= 6.8.3)
@@ -43,6 +46,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (= 4.8.0)
   - Chester
+  - MagicalRecord (from `https://github.com/magicalpanda/MagicalRecord.git`, tag `v2.3.3`)
   - Presentr
   - QRCodeReader.swift (~> 10.0.0)
   - SVProgressHUD
@@ -70,6 +74,16 @@ SPEC REPOS:
     - SwiftyJSON
     - web3swift
 
+EXTERNAL SOURCES:
+  MagicalRecord:
+    :git: https://github.com/magicalpanda/MagicalRecord.git
+    :tag: v2.3.3
+
+CHECKOUT OPTIONS:
+  MagicalRecord:
+    :git: https://github.com/magicalpanda/MagicalRecord.git
+    :tag: v2.3.3
+
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
@@ -77,6 +91,7 @@ SPEC CHECKSUMS:
   CryptoSwift: 35a10419f4dbf0619c13f8c1c180037e115323fa
   EthereumABI: f040f5429e5a4366d028c88b88d9441e137593af
   EthereumAddress: f476e1320dca3a0024431e713ede7a09c7eb7796
+  MagicalRecord: e3dfdee87c234c6d460dbd5d8a32e3cb4de223aa
   Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
   PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
   QRCodeReader.swift: 74d0378eb0c7807828552b49626bbc8307495aee
@@ -89,6 +104,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   web3swift: aeb3d08ded961e0562919d4161f5af6ccb0ab30f
 
-PODFILE CHECKSUM: dc86a837349b8f7d14950d2a1e2df4e7761756fd
+PODFILE CHECKSUM: 636a8ab7d2b292f1094a950a450ae6fc5a3970c4
 
 COCOAPODS: 1.6.1
