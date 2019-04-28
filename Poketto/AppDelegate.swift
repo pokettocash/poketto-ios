@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MagicalRecord
 import SwiftKeychainWrapper
 
 
@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        MagicalRecord.setupCoreDataStack(withAutoMigratingSqliteStoreNamed: "db")
+
         clearCredentials()
 //        KeychainWrapper.standard.remove(key: "mnemonic")
 

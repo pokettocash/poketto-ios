@@ -10,14 +10,15 @@
 		1879AFCAC7E17D3AA752AA0C /* Pods_PokettoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E75285DDEAD6CD4FD3FCC28 /* Pods_PokettoTests.framework */; };
 		239C8B6D8C0C79E902619370 /* Pods_PokettoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D52EC7AF6843B272DF9DECA /* Pods_PokettoUITests.framework */; };
 		70572CD12274A17200297421 /* db.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70572CCF2274A17200297421 /* db.xcdatamodeld */; };
-		70572CE22274A5BE00297421 /* _Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70572CE02274A5BD00297421 /* _Contact.swift */; };
-		70572CE32274A5BE00297421 /* __Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70572CE12274A5BD00297421 /* __Contact.swift */; };
 		707DEB94226DD56000F0AD93 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB93226DD56000F0AD93 /* SettingsController.swift */; };
 		707DEB96226F466800F0AD93 /* RequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB95226F466800F0AD93 /* RequestController.swift */; };
 		707DEB98226F52A500F0AD93 /* PaymentContactsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB97226F52A500F0AD93 /* PaymentContactsController.swift */; };
 		707DEB9A226F52B300F0AD93 /* PaymentSendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB99226F52B300F0AD93 /* PaymentSendController.swift */; };
 		707DEB9C226F572900F0AD93 /* PayOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB9B226F572900F0AD93 /* PayOptionCell.swift */; };
 		707DEB9E226F5BCB00F0AD93 /* PasteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB9D226F5BCB00F0AD93 /* PasteCell.swift */; };
+		707FB2052275CF2A005B29A2 /* ContactsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707FB2042275CF2A005B29A2 /* ContactsController.swift */; };
+		707FB2082275D061005B29A2 /* PhoneContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707FB2072275D061005B29A2 /* PhoneContact.swift */; };
+		707FB20A2275D351005B29A2 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707FB2092275D351005B29A2 /* ContactCell.swift */; };
 		70A31C7222676082007291D1 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C7122676082007291D1 /* RootController.swift */; };
 		70A31C7422676096007291D1 /* LaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C7322676096007291D1 /* LaunchController.swift */; };
 		70A31C76226760E4007291D1 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C75226760E4007291D1 /* DashboardController.swift */; };
@@ -61,14 +62,15 @@
 		43BD7433D9766FC80D79B494 /* Pods-PokettoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokettoTests/Pods-PokettoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E75285DDEAD6CD4FD3FCC28 /* Pods_PokettoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70572CD02274A17200297421 /* db.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = db.xcdatamodel; sourceTree = "<group>"; };
-		70572CE02274A5BD00297421 /* _Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _Contact.swift; sourceTree = "<group>"; };
-		70572CE12274A5BD00297421 /* __Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = __Contact.swift; sourceTree = "<group>"; };
 		707DEB93226DD56000F0AD93 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		707DEB95226F466800F0AD93 /* RequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestController.swift; sourceTree = "<group>"; };
 		707DEB97226F52A500F0AD93 /* PaymentContactsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentContactsController.swift; sourceTree = "<group>"; };
 		707DEB99226F52B300F0AD93 /* PaymentSendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSendController.swift; sourceTree = "<group>"; };
 		707DEB9B226F572900F0AD93 /* PayOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayOptionCell.swift; sourceTree = "<group>"; };
 		707DEB9D226F5BCB00F0AD93 /* PasteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteCell.swift; sourceTree = "<group>"; };
+		707FB2042275CF2A005B29A2 /* ContactsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsController.swift; sourceTree = "<group>"; };
+		707FB2072275D061005B29A2 /* PhoneContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneContact.swift; sourceTree = "<group>"; };
+		707FB2092275D351005B29A2 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		70A31C7122676082007291D1 /* RootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
 		70A31C7322676096007291D1 /* LaunchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchController.swift; sourceTree = "<group>"; };
 		70A31C75226760E4007291D1 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
@@ -172,10 +174,16 @@
 		70572CDF2274A58B00297421 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				70572CE12274A5BD00297421 /* __Contact.swift */,
-				70572CE02274A5BD00297421 /* _Contact.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		707FB2062275D04E005B29A2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				707FB2072275D061005B29A2 /* PhoneContact.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		70A31C7022676066007291D1 /* Controllers */ = {
@@ -183,16 +191,17 @@
 			children = (
 				70A31C7122676082007291D1 /* RootController.swift */,
 				70A31C7322676096007291D1 /* LaunchController.swift */,
+				70A31C7922676A34007291D1 /* OnboardingController.swift */,
+				70A31C7B22677084007291D1 /* Page1Controller.swift */,
+				70A31C7D22677090007291D1 /* Page2Controller.swift */,
+				70A31C7F2267709A007291D1 /* Page3Controller.swift */,
 				70A31C75226760E4007291D1 /* DashboardController.swift */,
 				707DEB97226F52A500F0AD93 /* PaymentContactsController.swift */,
 				707DEB99226F52B300F0AD93 /* PaymentSendController.swift */,
 				70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */,
 				707DEB93226DD56000F0AD93 /* SettingsController.swift */,
 				707DEB95226F466800F0AD93 /* RequestController.swift */,
-				70A31C7922676A34007291D1 /* OnboardingController.swift */,
-				70A31C7B22677084007291D1 /* Page1Controller.swift */,
-				70A31C7D22677090007291D1 /* Page2Controller.swift */,
-				70A31C7F2267709A007291D1 /* Page3Controller.swift */,
+				707FB2042275CF2A005B29A2 /* ContactsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -204,6 +213,7 @@
 				707DEB9D226F5BCB00F0AD93 /* PasteCell.swift */,
 				707DEB9B226F572900F0AD93 /* PayOptionCell.swift */,
 				70A31C822267810B007291D1 /* TransactionCell.swift */,
+				707FB2092275D351005B29A2 /* ContactCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +243,7 @@
 		DDAE1F562255234C00D30A8C /* Poketto */ = {
 			isa = PBXGroup;
 			children = (
+				707FB2062275D04E005B29A2 /* Models */,
 				70A31C81226780ED007291D1 /* Views */,
 				70A31C7022676066007291D1 /* Controllers */,
 				DDB50443225CC50C005B3DE0 /* Services */,
@@ -543,15 +554,16 @@
 				70A31C7A22676A34007291D1 /* OnboardingController.swift in Sources */,
 				707DEB96226F466800F0AD93 /* RequestController.swift in Sources */,
 				70C82D6622710B7200F627A1 /* PaymentSuccessController.swift in Sources */,
-				70572CE32274A5BE00297421 /* __Contact.swift in Sources */,
 				DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */,
-				70572CE22274A5BE00297421 /* _Contact.swift in Sources */,
+				707FB2082275D061005B29A2 /* PhoneContact.swift in Sources */,
 				70572CD12274A17200297421 /* db.xcdatamodeld in Sources */,
 				70A31C85226782A0007291D1 /* DashboardHeaderView.swift in Sources */,
 				70A31C76226760E4007291D1 /* DashboardController.swift in Sources */,
+				707FB20A2275D351005B29A2 /* ContactCell.swift in Sources */,
 				707DEB9E226F5BCB00F0AD93 /* PasteCell.swift in Sources */,
 				70A31C802267709A007291D1 /* Page3Controller.swift in Sources */,
 				707DEB94226DD56000F0AD93 /* SettingsController.swift in Sources */,
+				707FB2052275CF2A005B29A2 /* ContactsController.swift in Sources */,
 				70A31C7C22677084007291D1 /* Page1Controller.swift in Sources */,
 				70A31C7222676082007291D1 /* RootController.swift in Sources */,
 				70A31C7E22677090007291D1 /* Page2Controller.swift in Sources */,

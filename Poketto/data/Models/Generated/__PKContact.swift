@@ -1,22 +1,22 @@
 // DO NOT EDIT. This file is machine-generated and constantly overwritten.
-// Make changes to Contact.swift instead.
+// Make changes to PKContact.swift instead.
 
 import Foundation
 import CoreData
 
-public enum ContactAttributes: String {
+public enum PKContactAttributes: String {
     case address = "address"
     case avatar_url = "avatar_url"
     case contact_id = "contact_id"
     case name = "name"
 }
 
-open class _Contact: NSManagedObject {
+open class _PKContact: NSManagedObject {
 
     // MARK: - Class methods
 
     open class func entityName () -> String {
-        return "Contact"
+        return "PKContact"
     }
 
     open class func entity(managedObjectContext: NSManagedObjectContext) -> NSEntityDescription? {
@@ -24,7 +24,7 @@ open class _Contact: NSManagedObject {
     }
 
     @nonobjc
-    open class func fetchRequest() -> NSFetchRequest<Contact> {
+    open class func fetchRequest() -> NSFetchRequest<PKContact> {
         return NSFetchRequest(entityName: self.entityName())
     }
 
@@ -35,7 +35,7 @@ open class _Contact: NSManagedObject {
     }
 
     public convenience init?(managedObjectContext: NSManagedObjectContext) {
-        guard let entity = _Contact.entity(managedObjectContext: managedObjectContext) else { return nil }
+        guard let entity = _PKContact.entity(managedObjectContext: managedObjectContext) else { return nil }
         self.init(entity: entity, insertInto: managedObjectContext)
     }
 
@@ -48,7 +48,7 @@ open class _Contact: NSManagedObject {
     var avatar_url: String?
 
     @NSManaged open
-    var contact_id: Int16 // Optional scalars not supported
+    var contact_id: String?
 
     @NSManaged open
     var name: String?
