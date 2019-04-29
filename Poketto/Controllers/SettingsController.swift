@@ -22,6 +22,21 @@ class SettingsController: UIViewController {
         
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func twitter() {
+    
+        UIApplication.shared.open(URL(string: "https://twitter.com/pokettocash")!, options: [:], completionHandler: nil)
+    }
+    
+    @IBAction func discord() {
+        
+        UIApplication.shared.open(URL(string: "https://discord.gg/kMTUpME")!, options: [:], completionHandler: nil)
+    }
+    
+    @IBAction func github() {
+        
+        UIApplication.shared.open(URL(string: "https://github.com/pokettocash")!, options: [:], completionHandler: nil)
+    }
 }
 
 class SettingsOptionsController: UITableViewController {

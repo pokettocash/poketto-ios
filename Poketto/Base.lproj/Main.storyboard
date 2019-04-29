@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QSI-JI-uk8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QSI-JI-uk8">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -823,6 +823,9 @@
                                     <constraint firstAttribute="height" constant="36" id="fpR-kY-vla"/>
                                 </constraints>
                                 <state key="normal" image="settings-discord"/>
+                                <connections>
+                                    <action selector="discord" destination="Zbk-Xs-99T" eventType="touchUpInside" id="eF4-9g-8lT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zo3-Jr-1XX">
                                 <rect key="frame" x="249" y="240" width="36" height="36"/>
@@ -831,6 +834,9 @@
                                     <constraint firstAttribute="height" constant="36" id="VrV-UN-Yt9"/>
                                 </constraints>
                                 <state key="normal" image="settings-github"/>
+                                <connections>
+                                    <action selector="github" destination="Zbk-Xs-99T" eventType="touchUpInside" id="1MK-NE-7J7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsl-J9-9c9">
                                 <rect key="frame" x="129" y="240" width="36" height="36"/>
@@ -839,6 +845,9 @@
                                     <constraint firstAttribute="width" constant="36" id="eqJ-PL-FcJ"/>
                                 </constraints>
                                 <state key="normal" image="settings-twitter"/>
+                                <connections>
+                                    <action selector="twitter" destination="Zbk-Xs-99T" eventType="touchUpInside" id="wlp-8o-fHC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join the community" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tH-W8-oAg">
                                 <rect key="frame" x="117" y="292" width="180.5" height="21"/>
