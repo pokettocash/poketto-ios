@@ -177,7 +177,13 @@ extension DashboardController : UICollectionViewDataSource {
         let transaction = transactions[indexPath.row] as! JSON
         
         cell.addressLabel.text = "\(transaction["to"])"
-        cell.amountLabel.text = "\(transaction["value"])"
+        
+        if let amount = transaction["value"].string {
+            let wei = Float(amount)!
+            let dai : Float = wei / 1000000000000000000.0
+            cell.amountLabel.text = String(format: "%.2f", dai)
+        }
+        
         
         return cell
     }
