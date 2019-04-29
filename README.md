@@ -30,10 +30,20 @@ Clone the project and install the required dependencies via cocoapods with:
 
 Open `Poketto.xcworkspace` and you're ready 🎉
 
+### Development
+
+In order to generate classes automatically for Core Data we use mogenerator.
+Install via:
+
+`brew install mogenerator`
+
+and uncomment the run script:
+
+`mogenerator -m Poketto/data/db.xcdatamodeld/db.xcdatamodel -O Poketto/data/Models/Generated --swift --template-var arc=true`
+
 ### Guidelines
 
 Work in progress 🏗
-
 
 ---
 

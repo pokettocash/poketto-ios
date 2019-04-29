@@ -467,7 +467,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nmogenerator -m Poketto/data/db.xcdatamodeld/db.xcdatamodel -O Poketto/data/Models/Generated --swift --template-var arc=true\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# mogenerator -m Poketto/data/db.xcdatamodeld/db.xcdatamodel -O Poketto/data/Models/Generated --swift --template-var arc=true\n";
+			showEnvVarsInLog = 0;
 		};
 		90790F10FA4F1BBF46BBB0DD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

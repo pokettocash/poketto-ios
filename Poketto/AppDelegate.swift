@@ -64,7 +64,7 @@ extension AppDelegate {
     func clearCredentials() {
         if (UserDefaults.standard.object(forKey: "FirstRun") == nil) {
             UserDefaults.standard.setValue("1strun", forKey: "FirstRun")
-            KeychainWrapper.standard.remove(key: "mnemonic")
+            KeychainWrapper.standard.removeObject(forKey: "mnemonic")
         }
     }
 }

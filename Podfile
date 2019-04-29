@@ -12,7 +12,7 @@ target 'Poketto' do
   pod 'Presentr'
   pod 'QRCodeReader.swift', '~> 10.0.0'
   pod 'SVProgressHUD'
-  	pod 'MagicalRecord', :git => 'https://github.com/magicalpanda/MagicalRecord.git', :tag => 'v2.3.3'
+  pod 'MagicalRecord', :git => 'https://github.com/magicalpanda/MagicalRecord.git', :tag => 'v2.3.3'
 
   target 'PokettoTests' do
     inherit! :search_paths

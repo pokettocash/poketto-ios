@@ -23,3 +23,15 @@ class SettingsController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 }
+
+class SettingsOptionsController: UITableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath.row == 0) {
+            if let seed = Wallet.init().exportSeed() {
+                let items = [seed]
+                let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+                present(ac, animated: true)
+            }
+        }
+    }
+}

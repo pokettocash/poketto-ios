@@ -30,6 +30,10 @@ class Wallet {
         KeychainWrapper.standard.set(seed, forKey: "mnemonic")
     }
     
+    func exportSeed() -> String? {
+        return KeychainWrapper.standard.string(forKey: "mnemonic")
+    }
+    
     func getEthereumAddress() -> EthereumAddress? {
         
         let mnemonic = KeychainWrapper.standard.string(forKey: "mnemonic")
