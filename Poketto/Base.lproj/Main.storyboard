@@ -754,18 +754,28 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kyR-zF-gEJ">
+                                                    <rect key="frame" x="379" y="15" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="heL-xF-fO4"/>
+                                                        <constraint firstAttribute="height" constant="20" id="yWQ-Zx-wzY"/>
+                                                    </constraints>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="kyR-zF-gEJ" firstAttribute="centerY" secondItem="2U8-26-4Vv" secondAttribute="centerY" id="0Rb-Db-ZTw"/>
                                                 <constraint firstItem="8SL-ye-87X" firstAttribute="leading" secondItem="rqa-vD-FNN" secondAttribute="trailing" constant="16" id="7ad-8P-xqP"/>
                                                 <constraint firstItem="rqa-vD-FNN" firstAttribute="centerY" secondItem="2U8-26-4Vv" secondAttribute="centerY" id="TX6-n4-jb4"/>
                                                 <constraint firstAttribute="trailing" secondItem="8SL-ye-87X" secondAttribute="trailing" constant="15" id="gMy-nK-o3e"/>
                                                 <constraint firstItem="rqa-vD-FNN" firstAttribute="leading" secondItem="2U8-26-4Vv" secondAttribute="leading" constant="15" id="r2r-Rb-kGO"/>
+                                                <constraint firstAttribute="trailing" secondItem="kyR-zF-gEJ" secondAttribute="trailing" constant="15" id="svu-OS-SGd"/>
                                                 <constraint firstItem="8SL-ye-87X" firstAttribute="centerY" secondItem="2U8-26-4Vv" secondAttribute="centerY" id="zst-PM-sgU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="contactImageView" destination="rqa-vD-FNN" id="qug-xi-ElU"/>
                                             <outlet property="contactLabel" destination="8SL-ye-87X" id="AB0-jA-Iuf"/>
+                                            <outlet property="spinner" destination="kyR-zF-gEJ" id="Qrr-FW-vZ3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

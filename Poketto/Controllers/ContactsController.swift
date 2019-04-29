@@ -79,6 +79,8 @@ extension ContactsController : UITableViewDataSource {
         let phoneContact = phoneContacts[indexPath.row]
         cell.contactImageView.layer.cornerRadius = 20
         cell.contactLabel.text = "\(phoneContact.givenName) \(phoneContact.familyName)"
+        cell.spinner.isHidden = true
+        cell.accessoryType = .none
         DispatchQueue.main.async {
             if let contactThumbailData = phoneContact.thumbnailImageData {
                 cell.contactImageView.image = UIImage(data: contactThumbailData)
@@ -94,6 +96,12 @@ extension ContactsController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let cell = tableView.cellForRow(at: indexPath) as! ContactCell
+        cell.spinner.isHidden = false
+        cell.spinner.startAnimating()
+        
         let phoneContact = phoneContacts[indexPath.row]
         
         let contact = PKContact(context: NSManagedObjectContext.mr_default())
@@ -103,8 +111,14 @@ extension ContactsController : UITableViewDelegate {
         
         NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.navigationController!.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            cell.spinner.isHidden = true
+            cell.spinner.stopAnimating()
+            cell.accessoryType = .checkmark
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                self.navigationController!.dismiss(animated: true, completion: nil)
+            })
         })
     }
 }

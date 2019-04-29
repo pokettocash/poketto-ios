@@ -12,5 +12,5 @@ class ContactCell: UITableViewCell {
 
     @IBOutlet weak var contactImageView : UIImageView!
     @IBOutlet weak var contactLabel : UILabel!
-
+    @IBOutlet weak var spinner : UIActivityIndicatorView!
 }
