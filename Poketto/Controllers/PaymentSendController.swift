@@ -85,8 +85,8 @@ class PaymentSendController: UIViewController {
         if let amount = amountTextField.text {
             
             SVProgressHUD.show()
+            SVProgressHUD.setDefaultMaskType(.black)
             SVProgressHUD.setForegroundColor(UIColor(red: 251/255, green: 198/255, blue: 73/255, alpha: 1))
-            SVProgressHUD.setBackgroundLayerColor(UIColor(white: 0, alpha: 0.4))
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
             DispatchQueue.global(qos: .background).async {
