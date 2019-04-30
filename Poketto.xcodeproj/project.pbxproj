@@ -29,6 +29,7 @@
 		70A31C802267709A007291D1 /* Page3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C7F2267709A007291D1 /* Page3Controller.swift */; };
 		70A31C832267810B007291D1 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C822267810B007291D1 /* TransactionCell.swift */; };
 		70A31C85226782A0007291D1 /* DashboardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A31C84226782A0007291D1 /* DashboardHeaderView.swift */; };
+		70AD5C3E2279064400A9E164 /* EmptyStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AD5C3D2279064400A9E164 /* EmptyStateController.swift */; };
 		70C82D6622710B7200F627A1 /* PaymentSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */; };
 		70C82D68227113A100F627A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C82D67227113A100F627A1 /* Assets.xcassets */; };
 		A136120CCE27E06D8541DB17 /* Pods_Poketto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184E4C91EB2B14C9091ED422 /* Pods_Poketto.framework */; };
@@ -81,6 +82,7 @@
 		70A31C7F2267709A007291D1 /* Page3Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page3Controller.swift; sourceTree = "<group>"; };
 		70A31C822267810B007291D1 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		70A31C84226782A0007291D1 /* DashboardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHeaderView.swift; sourceTree = "<group>"; };
+		70AD5C3D2279064400A9E164 /* EmptyStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateController.swift; sourceTree = "<group>"; };
 		70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessController.swift; sourceTree = "<group>"; };
 		70C82D67227113A100F627A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D52EC7AF6843B272DF9DECA /* Pods_PokettoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +198,7 @@
 				70A31C7D22677090007291D1 /* Page2Controller.swift */,
 				70A31C7F2267709A007291D1 /* Page3Controller.swift */,
 				70A31C75226760E4007291D1 /* DashboardController.swift */,
+				70AD5C3D2279064400A9E164 /* EmptyStateController.swift */,
 				707DEB97226F52A500F0AD93 /* PaymentContactsController.swift */,
 				707DEB99226F52B300F0AD93 /* PaymentSendController.swift */,
 				70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */,
@@ -556,6 +559,7 @@
 				707DEB96226F466800F0AD93 /* RequestController.swift in Sources */,
 				70C82D6622710B7200F627A1 /* PaymentSuccessController.swift in Sources */,
 				DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */,
+				70AD5C3E2279064400A9E164 /* EmptyStateController.swift in Sources */,
 				707FB2082275D061005B29A2 /* PhoneContact.swift in Sources */,
 				70572CD12274A17200297421 /* db.xcdatamodeld in Sources */,
 				70A31C85226782A0007291D1 /* DashboardHeaderView.swift in Sources */,

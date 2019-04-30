@@ -15,15 +15,16 @@ import Contacts
 
 class DashboardController: UIViewController {
     
-    @IBOutlet var collectionView    : UICollectionView!
-    private let refreshControl      = UIRefreshControl()
-    var transactions                : Array<Any> = []
-    let reuseIdentifier             = "transactionCellId"
-    var headerID                    = "dashboardHeaderId"
-    var balance                     : Float!
-    var contactStore                = CNContactStore()
-    var wallet                      = Wallet.init()
-    var explorer                    = Explorer.init()
+    @IBOutlet var emptyStateContainer   : UIView!
+    @IBOutlet var collectionView        : UICollectionView!
+    private let refreshControl          = UIRefreshControl()
+    var transactions                    : Array<Any> = []
+    let reuseIdentifier                 = "transactionCellId"
+    var headerID                        = "dashboardHeaderId"
+    var balance                         : Float!
+    var contactStore                    = CNContactStore()
+    var wallet                          = Wallet.init()
+    var explorer                        = Explorer.init()
     
     
     override func viewDidLoad() {
@@ -80,10 +81,17 @@ class DashboardController: UIViewController {
         print("wallet address \(wallet.getEthereumAddress()!.address)")
         explorer.transactionsFrom(address: wallet.getEthereumAddress()!.address, completion: { transactions in
             print("transactions \(transactions)")
-            DispatchQueue.main.async {
-                self.refreshControl.endRefreshing()
-                self.transactions = transactions
-                self.collectionView.reloadData()
+            if transactions.count == 0 {
+                DispatchQueue.main.async {
+                    self.emptyStateContainer.isHidden = false
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.emptyStateContainer.isHidden = true
+                    self.refreshControl.endRefreshing()
+                    self.transactions = transactions
+                    self.collectionView.reloadData()
+                }
             }
         })
     }

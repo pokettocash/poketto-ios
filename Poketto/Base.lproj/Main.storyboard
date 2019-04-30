@@ -193,13 +193,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="oXt-NY-yYq"/>
                                 </connections>
                             </collectionView>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aos-en-LKp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <segue destination="LQM-I3-wfg" kind="embed" id="SkK-Rb-nSd"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="aos-en-LKp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DMx-md-Umh"/>
+                            <constraint firstAttribute="bottom" secondItem="aos-en-LKp" secondAttribute="bottom" id="EG0-A2-36a"/>
                             <constraint firstItem="28t-0i-3Jn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Kdh-XM-2Mg"/>
+                            <constraint firstItem="aos-en-LKp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Kr6-oh-NaQ"/>
                             <constraint firstAttribute="bottom" secondItem="28t-0i-3Jn" secondAttribute="bottom" id="N0r-ek-N04"/>
                             <constraint firstItem="28t-0i-3Jn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Oa1-ML-or2"/>
                             <constraint firstItem="28t-0i-3Jn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="a9v-ER-GAr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aos-en-LKp" secondAttribute="trailing" id="zAJ-uW-s7E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -219,11 +230,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="28t-0i-3Jn" id="3d3-Zj-Txc"/>
+                        <outlet property="emptyStateContainer" destination="aos-en-LKp" id="lex-bo-3TS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="851" y="1564"/>
+            <point key="canvasLocation" x="850.72463768115949" y="1563.6160714285713"/>
         </scene>
         <!--Payment Contacts Controller-->
         <scene sceneID="cpM-0J-rYH">
@@ -423,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ANI-B0-9Vh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2494.202898550725" y="1563.6160714285713"/>
+            <point key="canvasLocation" x="3229" y="1564"/>
         </scene>
         <!--Payment Send Controller-->
         <scene sceneID="6JQ-9g-H1w">
@@ -553,7 +565,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpb-Hb-71e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3253.6231884057975" y="1563.6160714285713"/>
+            <point key="canvasLocation" x="3990" y="1564"/>
         </scene>
         <!--Payment Success Controller-->
         <scene sceneID="9FV-fq-ec3">
@@ -720,7 +732,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uPc-Ca-dGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4056.521739130435" y="1563.6160714285713"/>
+            <point key="canvasLocation" x="4793" y="1564"/>
         </scene>
         <!--Assign address-->
         <scene sceneID="OfB-gk-2ei">
@@ -825,7 +837,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XU-25-6lO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5842.0289855072469" y="1563.6160714285713"/>
+            <point key="canvasLocation" x="6577" y="1564"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Iod-2e-fSt">
@@ -1552,7 +1564,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ke-9N-Q3W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1585.5072463768117" y="1563.6160714285713"/>
+            <point key="canvasLocation" x="2322" y="1564"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GMf-0E-QmZ">
@@ -1570,10 +1582,95 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XN2-5m-h2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4931.884057971015" y="1563.6160714285713"/>
+            <point key="canvasLocation" x="5668" y="1564"/>
+        </scene>
+        <!--Empty State Controller-->
+        <scene sceneID="JdD-Wx-zOb">
+            <objects>
+                <viewController id="LQM-I3-wfg" customClass="EmptyStateController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WOW-vX-TFp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUG-CS-Tfw">
+                                <rect key="frame" x="115" y="403.5" width="184" height="1"/>
+                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="184" id="4Iu-Wl-Tbq"/>
+                                    <constraint firstAttribute="height" constant="1" id="lba-TX-Qfw"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WV4-6B-ViR">
+                                <rect key="frame" x="115" y="283.5" width="184" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="184" id="jBX-Xm-ud2"/>
+                                    <constraint firstAttribute="height" constant="48" id="mXU-Xe-RJz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Receive funds" backgroundImage="receive-funds-bg">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="receiveFunds" destination="LQM-I3-wfg" eventType="touchUpInside" id="joB-30-ugJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npr-N9-2BU">
+                                <rect key="frame" x="115" y="428.5" width="184" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="184" id="00c-Gt-kPu"/>
+                                    <constraint firstAttribute="height" constant="48" id="bX7-wO-HmN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Add funds" backgroundImage="add-funds-bg">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addFunds" destination="LQM-I3-wfg" eventType="touchUpInside" id="nhI-0R-GDq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start receiving xDai transfers in your wallet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGX-N0-J1t">
+                                <rect key="frame" x="115" y="347.5" width="184" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="GjC-CI-5XO"/>
+                                    <constraint firstAttribute="width" constant="184" id="bfc-JV-Hia"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn how to add funds to your wallet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lw3-0Y-2Dz">
+                                <rect key="frame" x="115" y="492.5" width="184" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="184" id="PFi-Hg-ceC"/>
+                                    <constraint firstAttribute="height" constant="32" id="fOa-dV-kDT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qGX-N0-J1t" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="0Ii-mW-q4a"/>
+                            <constraint firstItem="YUG-CS-Tfw" firstAttribute="top" secondItem="qGX-N0-J1t" secondAttribute="bottom" constant="24" id="FN7-ap-Y4D"/>
+                            <constraint firstItem="qGX-N0-J1t" firstAttribute="top" secondItem="WV4-6B-ViR" secondAttribute="bottom" constant="16" id="Lj7-xI-LL4"/>
+                            <constraint firstItem="npr-N9-2BU" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="MQX-0U-4Se"/>
+                            <constraint firstItem="WV4-6B-ViR" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="SaC-ee-LXX"/>
+                            <constraint firstItem="YUG-CS-Tfw" firstAttribute="centerY" secondItem="WOW-vX-TFp" secondAttribute="centerY" id="Um1-Q6-YrT"/>
+                            <constraint firstItem="lw3-0Y-2Dz" firstAttribute="top" secondItem="npr-N9-2BU" secondAttribute="bottom" constant="16" id="ciT-T4-Cpj"/>
+                            <constraint firstItem="YUG-CS-Tfw" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="exh-sK-iLJ"/>
+                            <constraint firstItem="npr-N9-2BU" firstAttribute="top" secondItem="YUG-CS-Tfw" secondAttribute="bottom" constant="24" id="orv-Dt-TKf"/>
+                            <constraint firstItem="lw3-0Y-2Dz" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="rlW-7u-2pG"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZuR-CX-LMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1582.608695652174" y="1563.6160714285713"/>
         </scene>
     </scenes>
     <resources>
+        <image name="add-funds-bg" width="184" height="48"/>
         <image name="arrow-down" width="12" height="16"/>
         <image name="arrow-up" width="12" height="16"/>
         <image name="assign-address" width="13.5" height="14"/>
@@ -1583,6 +1680,7 @@
         <image name="nav-button-settings" width="32" height="32"/>
         <image name="pay-button-background" width="177" height="60"/>
         <image name="pay-unknown" width="28" height="28"/>
+        <image name="receive-funds-bg" width="184" height="48"/>
         <image name="request-button-background" width="177" height="60"/>
         <image name="request-clipboard" width="34" height="34"/>
         <image name="request-share" width="34" height="34"/>
