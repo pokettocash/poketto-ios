@@ -22,7 +22,10 @@ class DashboardController: UIViewController {
     var headerID                    = "dashboardHeaderId"
     var balance                     : Float!
     var contactStore                = CNContactStore()
-
+    var wallet                      = Wallet.init()
+    var explorer                    = Explorer.init()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,9 +69,8 @@ class DashboardController: UIViewController {
     
     func fetchData() {
         
-        let wallet = Wallet.init()
         //        wallet.importSeed(seed: "barely setup matter drive exchange agree fatal sunny interest adjust horror hip season captain dilemma upgrade debris bullet renew hurt citizen scatter famous season")
-        let explorer = Explorer.init()
+        
         explorer.balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
             print("balance \(balance)")
             self.balance = balance
@@ -190,9 +192,15 @@ extension DashboardController : UICollectionViewDataSource {
         
         let transaction = transactions[indexPath.row] as! JSON
         
-        let address = transaction["to"].stringValue.uppercased()
-        
-        if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: address) {
+        let toAddress = transaction["to"].stringValue
+        let fromAddress = transaction["from"].stringValue
+
+        var othersAddress = toAddress.uppercased()
+        if toAddress.uppercased() == wallet.getEthereumAddress()?.address.uppercased() {
+            othersAddress = fromAddress.uppercased()
+        }
+    
+        if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: othersAddress) {
             
             cell.addressLabel.text = contact.name
             
@@ -230,7 +238,14 @@ extension DashboardController : UICollectionViewDataSource {
         if let amount = transaction["value"].string {
             let wei = Float(amount)!
             let dai : Float = wei / 1000000000000000000.0
-            cell.amountLabel.text = String(format: "%.2f", dai)
+            
+            if toAddress.uppercased() == wallet.getEthereumAddress()?.address.uppercased() {
+                cell.amountLabel.text = String(format: "+%.2f", dai)
+                cell.amountLabel.textColor = UIColor(red: 255/255, green: 190/255, blue: 65/255, alpha: 1)
+            } else {
+                cell.amountLabel.text = String(format: "%.2f", dai)
+                cell.amountLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)
+            }
         }
         
         cell.contactImageView.layer.cornerRadius = 20
