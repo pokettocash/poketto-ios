@@ -13,6 +13,7 @@ import MagicalRecord
 class ContactsController: UIViewController {
     
     @IBOutlet weak var tableView : UITableView!
+    @IBOutlet weak var searchBar : UISearchBar!
     var address : String!
     lazy var phoneContacts: [CNContact] = {
         let contactStore = CNContactStore()
@@ -50,11 +51,28 @@ class ContactsController: UIViewController {
         
         return sortedResults
     }()
+    
+    var filterContacts : [CNContact]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        filterContacts = phoneContacts
 
         // Do any additional setup after loading the view.
+        for s in searchBar.subviews[0].subviews {
+            if s is UITextField {
+                s.layer.borderWidth = 2.0
+                s.layer.cornerRadius = 10
+                s.layer.borderColor = UIColor(red: 112/255, green: 112/255, blue: 112/255, alpha: 0.4).cgColor
+            }
+        }
+        
+        searchBar.layer.borderWidth = 1
+        searchBar.layer.borderColor = UIColor.white.cgColor
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     @IBAction func cancel() {
@@ -64,6 +82,35 @@ class ContactsController: UIViewController {
     
 }
 
+extension ContactsController : UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText:String){
+        filterContentForSearchText(searchText: searchText)
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        
+        DispatchQueue.main.async {
+            self.filterContacts.removeAll()
+            
+            if searchText != "" {
+                self.filterContacts = self.phoneContacts.filter { phoneContact in
+                    return "\(phoneContact.givenName) \(phoneContact.familyName)".lowercased().contains(searchText.lowercased())
+                }
+            } else {
+                self.filterContacts = self.phoneContacts
+                
+            }
+            self.tableView.reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        view.endEditing(true)
+    }
+}
+
 extension ContactsController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -71,12 +118,12 @@ extension ContactsController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return phoneContacts.count
+        return filterContacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCellId", for: indexPath) as! ContactCell
-        let phoneContact = phoneContacts[indexPath.row]
+        let phoneContact = filterContacts[indexPath.row]
         cell.contactImageView.layer.cornerRadius = 20
         cell.contactLabel.text = "\(phoneContact.givenName) \(phoneContact.familyName)"
         cell.spinner.isHidden = true
@@ -102,7 +149,7 @@ extension ContactsController : UITableViewDelegate {
         cell.spinner.isHidden = false
         cell.spinner.startAnimating()
         
-        let phoneContact = phoneContacts[indexPath.row]
+        let phoneContact = filterContacts[indexPath.row]
         
         let contact = PKContact(context: NSManagedObjectContext.mr_default())
         contact.address = address

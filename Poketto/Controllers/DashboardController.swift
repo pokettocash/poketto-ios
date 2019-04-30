@@ -96,13 +96,13 @@ class DashboardController: UIViewController {
         
         let presenter: Presentr = {
             let width = ModalSize.sideMargin(value: 14)
-            let height = ModalSize.custom(size: 673)
+            let height = ModalSize.custom(size: 570)
             let window = UIApplication.shared.keyWindow
             var padding : CGFloat = 0
             if window?.safeAreaInsets.bottom == 0 {
-                padding = 40
+                padding = 50
             }
-            let center = ModalCenterPosition.customOrigin(origin: CGPoint(x: 14, y: (76-padding)*(UIScreen.main.bounds.size.height/812)-padding))
+            let center = ModalCenterPosition.customOrigin(origin: CGPoint(x: 14, y: (122-padding)*(UIScreen.main.bounds.size.height/812)-padding))
             let customType = PresentationType.custom(width: width, height: height, center: center)
             
             let customPresenter = Presentr(presentationType: customType)
