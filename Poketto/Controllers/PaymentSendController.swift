@@ -93,12 +93,12 @@ class PaymentSendController: UIViewController {
                 print("This is run on the background queue")
 
                 let wallet = Wallet.init()
-                wallet.send(toAddress: wallet.getEthereumAddress()!.address, value: amount, success: { result in
+                wallet.send(toAddress: self.address!, value: amount, success: { result in
                     print("show next screen")
                     DispatchQueue.main.async {
                         SVProgressHUD.dismiss()
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                        let transaction = ["address": wallet.getEthereumAddress()!.address, "amount": amount]
+                        let transaction = ["address": self.address!, "amount": amount]
                         self.performSegue(withIdentifier: "success", sender: transaction)
                     }
                 }) { error in

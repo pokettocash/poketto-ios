@@ -9,6 +9,9 @@
 import UIKit
 import SwiftyJSON
 import Presentr
+import MagicalRecord
+import Contacts
+
 
 class DashboardController: UIViewController {
     
@@ -18,12 +21,13 @@ class DashboardController: UIViewController {
     let reuseIdentifier             = "transactionCellId"
     var headerID                    = "dashboardHeaderId"
     var balance                     : Float!
+    var contactStore                = CNContactStore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addNavDivider()
-        
+    
         collectionView.refreshControl = self.refreshControl
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
     }
@@ -186,7 +190,36 @@ extension DashboardController : UICollectionViewDataSource {
         
         let transaction = transactions[indexPath.row] as! JSON
         
-        cell.addressLabel.text = "\(transaction["to"])"
+        let address = transaction["to"].stringValue.uppercased()
+        
+        if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: address) {
+            
+            cell.addressLabel.text = contact.name
+            
+            do {
+                let phoneContact = try contactStore.unifiedContact(withIdentifier: contact.contact_id!, keysToFetch: [CNContactThumbnailImageDataKey as CNKeyDescriptor])
+                if let avatar = phoneContact.thumbnailImageData {
+                    DispatchQueue.main.async {
+                        cell.contactImageView.image = UIImage(data: avatar)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        cell.contactImageView.image = UIImage(named: "contact-placeholder")
+                    }
+                }
+            } catch {
+                print("Error fetching results for container")
+                DispatchQueue.main.async {
+                    cell.contactImageView.image = UIImage(named: "contact-placeholder")
+                }
+            }
+            
+        } else {
+            cell.addressLabel.text = "Unknown \(transaction["to"])"
+            DispatchQueue.main.async {
+                cell.contactImageView.image = UIImage(named: "unknown-address")
+            }
+        }
         
         if let amount = transaction["value"].string {
             let wei = Float(amount)!
@@ -194,6 +227,7 @@ extension DashboardController : UICollectionViewDataSource {
             cell.amountLabel.text = String(format: "%.2f", dai)
         }
         
+        cell.contactImageView.layer.cornerRadius = 20
         
         return cell
     }

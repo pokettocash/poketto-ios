@@ -132,7 +132,9 @@ extension ContactsController : UITableViewDataSource {
             if let contactThumbailData = phoneContact.thumbnailImageData {
                 cell.contactImageView.image = UIImage(data: contactThumbailData)
             } else {
-                cell.contactImageView.image = nil
+                DispatchQueue.main.async {
+                    cell.contactImageView.image = UIImage(named: "contact-placeholder")
+                }
             }
         }
         return cell
@@ -151,10 +153,15 @@ extension ContactsController : UITableViewDelegate {
         
         let phoneContact = filterContacts[indexPath.row]
         
-        let contact = PKContact(context: NSManagedObjectContext.mr_default())
-        contact.address = address
-        contact.name = "\(phoneContact.givenName) \(phoneContact.familyName)"
-        contact.contact_id = phoneContact.identifier
+        if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: address.uppercased()) {
+            contact.name = "\(phoneContact.givenName) \(phoneContact.familyName)"
+            contact.contact_id = phoneContact.identifier
+        } else {
+            let contact = PKContact(context: NSManagedObjectContext.mr_default())
+            contact.address = address.uppercased()
+            contact.name = "\(phoneContact.givenName) \(phoneContact.familyName)"
+            contact.contact_id = phoneContact.identifier
+        }
         
         NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
         

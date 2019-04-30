@@ -10,6 +10,7 @@ import UIKit
 
 class TransactionCell: UICollectionViewCell {
     
+    @IBOutlet weak var contactImageView : UIImageView!
     @IBOutlet weak var addressLabel : UILabel!
     @IBOutlet weak var amountLabel : UILabel!
 }
