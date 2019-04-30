@@ -215,7 +215,13 @@ extension DashboardController : UICollectionViewDataSource {
             }
             
         } else {
-            cell.addressLabel.text = "Unknown \(transaction["to"])"
+            let attributedString = NSMutableAttributedString(string: "Unknown",
+                                                             attributes: [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium),
+                                                                           NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)])
+            attributedString.append(NSMutableAttributedString(string: "   \(transaction["to"])",
+                attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12, weight: .medium),
+                NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 0.3)]))
+            cell.addressLabel.attributedText = attributedString
             DispatchQueue.main.async {
                 cell.contactImageView.image = UIImage(named: "unknown-address")
             }
