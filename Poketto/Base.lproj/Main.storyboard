@@ -1183,7 +1183,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdU-gA-W6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1478" y="2629"/>
+            <point key="canvasLocation" x="1583" y="2628"/>
         </scene>
         <!--Import Seed-->
         <scene sceneID="3kM-Ak-4kt">
@@ -1193,7 +1193,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Paste here your seed key..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-Ni-yt1">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Paste here your seed key..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-Ni-yt1" customClass="UITextViewWithDoneButton" customModule="Poketto" customModuleProvider="target">
                                 <rect key="frame" x="20" y="108" width="374" height="678"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1580,7 +1580,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1t-CI-eDq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528" y="3029"/>
+            <point key="canvasLocation" x="1586" y="3029"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8GY-7D-YI4">

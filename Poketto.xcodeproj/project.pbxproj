@@ -33,6 +33,7 @@
 		70C82D6622710B7200F627A1 /* PaymentSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */; };
 		70C82D68227113A100F627A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C82D67227113A100F627A1 /* Assets.xcassets */; };
 		A136120CCE27E06D8541DB17 /* Pods_Poketto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184E4C91EB2B14C9091ED422 /* Pods_Poketto.framework */; };
+		DD8FADDF227A50FC00851827 /* UITextViewWithDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8FADDE227A50FC00851827 /* UITextViewWithDoneButton.swift */; };
 		DD9826F12279FD84003CB0ED /* ImportSeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9826F02279FD84003CB0ED /* ImportSeedController.swift */; };
 		DD9826F3227A008D003CB0ED /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9826F2227A008D003CB0ED /* SettingsNavigationController.swift */; };
 		DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F572255234C00D30A8C /* AppDelegate.swift */; };
@@ -90,6 +91,7 @@
 		9D52EC7AF6843B272DF9DECA /* Pods_PokettoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2222DDD006819514830BBDB /* Pods-Poketto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poketto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Poketto/Pods-Poketto.release.xcconfig"; sourceTree = "<group>"; };
 		B8A9DCECD69B7C600C3A2A9A /* Pods-PokettoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokettoUITests/Pods-PokettoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DD8FADDE227A50FC00851827 /* UITextViewWithDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewWithDoneButton.swift; sourceTree = "<group>"; };
 		DD9826F02279FD84003CB0ED /* ImportSeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSeedController.swift; sourceTree = "<group>"; };
 		DD9826F2227A008D003CB0ED /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		DDAE1F542255234C00D30A8C /* Poketto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poketto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +225,7 @@
 				707DEB9B226F572900F0AD93 /* PayOptionCell.swift */,
 				70A31C822267810B007291D1 /* TransactionCell.swift */,
 				707FB2092275D351005B29A2 /* ContactCell.swift */,
+				DD8FADDE227A50FC00851827 /* UITextViewWithDoneButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				707FB20A2275D351005B29A2 /* ContactCell.swift in Sources */,
 				707DEB9E226F5BCB00F0AD93 /* PasteCell.swift in Sources */,
 				70A31C802267709A007291D1 /* Page3Controller.swift in Sources */,
+				DD8FADDF227A50FC00851827 /* UITextViewWithDoneButton.swift in Sources */,
 				707DEB94226DD56000F0AD93 /* SettingsController.swift in Sources */,
 				707FB2052275CF2A005B29A2 /* ContactsController.swift in Sources */,
 				70A31C7C22677084007291D1 /* Page1Controller.swift in Sources */,
