@@ -13,7 +13,7 @@ import MagicalRecord
 import Contacts
 
 
-class DashboardController: UIViewController {
+class DashboardController: UIViewController, SettingsDelegate {
     
     @IBOutlet var emptyStateContainer   : UIView!
     @IBOutlet var collectionView        : UICollectionView!
@@ -130,8 +130,13 @@ class DashboardController: UIViewController {
             customPresenter.dismissOnSwipeDirection = .top
             return customPresenter
         }()
-        let controller = storyboard?.instantiateViewController(withIdentifier: "settingsNavVC") as! UINavigationController
+        let controller = storyboard?.instantiateViewController(withIdentifier: "settingsNavVC") as! SettingsNavigationController
+        controller.settingsDelegate = self
         customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
+    }
+    
+    func importCompleted() {
+        self.fetchData()
     }
     
     @IBAction func request() {

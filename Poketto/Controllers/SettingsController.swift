@@ -8,14 +8,14 @@
 
 import UIKit
 
-class SettingsController: UIViewController {
+class SettingsController: UIViewController, SettingsOptionsDelegate {
+    weak var settingsOptionsController : SettingsOptionsController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.layer.cornerRadius = 25
-        navigationController?.navigationBar.layer.cornerRadius = 25
-        navigationController?.navigationBar.clipsToBounds = true
+        view.clipsToBounds = true
     }
         
     @IBAction func dismiss() {
@@ -37,9 +37,30 @@ class SettingsController: UIViewController {
         
         UIApplication.shared.open(URL(string: "https://github.com/pokettocash")!, options: [:], completionHandler: nil)
     }
+    
+    func importScreenView() {
+        performSegue(withIdentifier: "importSeed", sender: nil)
+    }
+    
+    // Consider moving the SettingsOptionsController to a table view inside the
+    // SettingsController to avoid setting the embed view controller via segue.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let segueName = segue.identifier {
+            if segueName == "settingsOptions" {
+                settingsOptionsController = segue.destination as? SettingsOptionsController
+                settingsOptionsController?.delegate = self
+            }
+        }
+    }
+}
+
+protocol SettingsOptionsDelegate: class {
+    func importScreenView()
 }
 
 class SettingsOptionsController: UITableViewController {
+    weak var delegate: SettingsOptionsDelegate?
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.row == 0) {
             if let seed = Wallet.init().exportSeed() {
@@ -47,6 +68,8 @@ class SettingsOptionsController: UITableViewController {
                 let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
                 present(ac, animated: true)
             }
+        } else if (indexPath.row == 1) {
+            delegate?.importScreenView()
         }
     }
 }
