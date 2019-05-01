@@ -19,7 +19,14 @@ class PaymentSuccessController: UIViewController {
         super.viewDidLoad()
 
         addressLabel.text = address
-        amountLabel.text = amount
+        
+        let attributedString = NSMutableAttributedString(string: amount,
+                                                         attributes: [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 40),
+                                                                       NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)])
+        attributedString.append(NSMutableAttributedString(string: "xDai",
+            attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
+                         NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)]))
+        amountLabel.attributedText = attributedString
     }
     
     override func viewWillAppear(_ animated: Bool) {
