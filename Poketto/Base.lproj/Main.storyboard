@@ -970,7 +970,7 @@
                         <sections>
                             <tableViewSection id="QAn-TY-TqM">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="i4W-gq-Pte">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="i4W-gq-Pte">
                                         <rect key="frame" x="0.0" y="0.0" width="268" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i4W-gq-Pte" id="Ub6-Xz-iMX">
@@ -1022,7 +1022,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OWB-2I-kwd">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="OWB-2I-kwd">
                                         <rect key="frame" x="0.0" y="52" width="268" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OWB-2I-kwd" id="hm6-5E-Wfv">
@@ -1074,7 +1074,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OQD-ih-etx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="OQD-ih-etx">
                                         <rect key="frame" x="0.0" y="104" width="268" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OQD-ih-etx" id="at7-Ic-m81">
@@ -1126,7 +1126,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LaC-RC-ffu">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="LaC-RC-ffu">
                                         <rect key="frame" x="0.0" y="156" width="268" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LaC-RC-ffu" id="z57-XG-ca0">
@@ -1662,6 +1662,7 @@
                             <constraint firstItem="npr-N9-2BU" firstAttribute="top" secondItem="YUG-CS-Tfw" secondAttribute="bottom" constant="24" id="orv-Dt-TKf"/>
                             <constraint firstItem="lw3-0Y-2Dz" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="rlW-7u-2pG"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kmh-9W-iiQ"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZuR-CX-LMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
