@@ -935,7 +935,7 @@
                                     <constraint firstAttribute="height" constant="208" id="mCc-nS-t4b"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="69t-EH-2U5" kind="embed" id="gIM-ce-DY5"/>
+                                    <segue destination="69t-EH-2U5" kind="embed" identifier="settingsOptions" id="gIM-ce-DY5"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.1.0(1)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThG-y9-dUb">
@@ -977,6 +977,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="N4Z-yg-pFd" kind="show" identifier="importSeed" id="I1J-Pc-efU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewz-IZ-Uzy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -993,7 +996,7 @@
                         <sections>
                             <tableViewSection id="QAn-TY-TqM">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="i4W-gq-Pte">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="i4W-gq-Pte">
                                         <rect key="frame" x="0.0" y="0.0" width="268" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i4W-gq-Pte" id="Ub6-Xz-iMX">
@@ -1045,7 +1048,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OWB-2I-kwd">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="OWB-2I-kwd">
                                         <rect key="frame" x="0.0" y="52" width="268" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OWB-2I-kwd" id="hm6-5E-Wfv">
@@ -1097,7 +1100,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="OQD-ih-etx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="OQD-ih-etx">
                                         <rect key="frame" x="0.0" y="104" width="268" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OQD-ih-etx" id="at7-Ic-m81">
@@ -1149,7 +1152,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LaC-RC-ffu">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="LaC-RC-ffu">
                                         <rect key="frame" x="0.0" y="156" width="268" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LaC-RC-ffu" id="z57-XG-ca0">
@@ -1203,7 +1206,56 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdU-gA-W6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528" y="2324"/>
+            <point key="canvasLocation" x="1478" y="2629"/>
+        </scene>
+        <!--Import Seed-->
+        <scene sceneID="3kM-Ak-4kt">
+            <objects>
+                <viewController title="Import Seed" id="N4Z-yg-pFd" customClass="ImportSeedController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="syz-OR-PiP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Paste here your seed key..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-Ni-yt1">
+                                <rect key="frame" x="20" y="108" width="374" height="678"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCR-fV-Jnf">
+                                <rect key="frame" x="20" y="794" width="374" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="KlF-jE-ppl"/>
+                                    <constraint firstAttribute="height" constant="48" id="yC1-s8-Fk9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Import wallet" backgroundImage="send-button-background">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="importWallet" destination="N4Z-yg-pFd" eventType="touchUpInside" id="iYw-5F-Nc3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WoH-2d-dV5" firstAttribute="trailing" secondItem="hxg-Ni-yt1" secondAttribute="trailing" constant="20" id="99l-xW-0p7"/>
+                            <constraint firstItem="hCR-fV-Jnf" firstAttribute="top" secondItem="hxg-Ni-yt1" secondAttribute="bottom" constant="8" id="IZ3-c1-TOL"/>
+                            <constraint firstItem="hxg-Ni-yt1" firstAttribute="top" secondItem="WoH-2d-dV5" secondAttribute="top" constant="20" id="KiJ-DG-0FC"/>
+                            <constraint firstItem="hCR-fV-Jnf" firstAttribute="leading" secondItem="WoH-2d-dV5" secondAttribute="leading" constant="20" id="XXz-ii-WTx"/>
+                            <constraint firstItem="WoH-2d-dV5" firstAttribute="trailing" secondItem="hCR-fV-Jnf" secondAttribute="trailing" constant="20" id="e5K-eh-v4E"/>
+                            <constraint firstItem="hxg-Ni-yt1" firstAttribute="leading" secondItem="WoH-2d-dV5" secondAttribute="leading" constant="20" id="lz0-iE-OSE"/>
+                            <constraint firstItem="WoH-2d-dV5" firstAttribute="bottom" secondItem="hCR-fV-Jnf" secondAttribute="bottom" constant="20" id="qkM-HG-jxu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WoH-2d-dV5"/>
+                    </view>
+                    <connections>
+                        <outlet property="seedKeyTextView" destination="hxg-Ni-yt1" id="qcJ-8h-5cD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y1s-8u-3B8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1586" y="2213"/>
         </scene>
         <!--Root Controller-->
         <scene sceneID="Htf-R8-jQr">
@@ -1327,14 +1379,16 @@
             </objects>
             <point key="canvasLocation" x="-59" y="1564"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Settings Navigation Controller-->
         <scene sceneID="vny-hd-ZL2">
             <objects>
-                <navigationController storyboardIdentifier="settingsNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vnV-RV-eRV" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="settingsNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vnV-RV-eRV" customClass="SettingsNavigationController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nAq-68-vgb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1685,7 +1739,7 @@
                             <constraint firstItem="npr-N9-2BU" firstAttribute="top" secondItem="YUG-CS-Tfw" secondAttribute="bottom" constant="24" id="orv-Dt-TKf"/>
                             <constraint firstItem="lw3-0Y-2Dz" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="rlW-7u-2pG"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Sml-dk-cmE"/>
+                        <viewLayoutGuide key="safeArea" id="Kmh-9W-iiQ"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZuR-CX-LMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

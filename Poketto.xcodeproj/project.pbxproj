@@ -33,6 +33,8 @@
 		70C82D6622710B7200F627A1 /* PaymentSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */; };
 		70C82D68227113A100F627A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C82D67227113A100F627A1 /* Assets.xcassets */; };
 		A136120CCE27E06D8541DB17 /* Pods_Poketto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 184E4C91EB2B14C9091ED422 /* Pods_Poketto.framework */; };
+		DD9826F12279FD84003CB0ED /* ImportSeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9826F02279FD84003CB0ED /* ImportSeedController.swift */; };
+		DD9826F3227A008D003CB0ED /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9826F2227A008D003CB0ED /* SettingsNavigationController.swift */; };
 		DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAE1F572255234C00D30A8C /* AppDelegate.swift */; };
 		DDAE1F5D2255234C00D30A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDAE1F5B2255234C00D30A8C /* Main.storyboard */; };
 		DDAE1F622255234D00D30A8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDAE1F602255234D00D30A8C /* LaunchScreen.storyboard */; };
@@ -88,6 +90,8 @@
 		9D52EC7AF6843B272DF9DECA /* Pods_PokettoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2222DDD006819514830BBDB /* Pods-Poketto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poketto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Poketto/Pods-Poketto.release.xcconfig"; sourceTree = "<group>"; };
 		B8A9DCECD69B7C600C3A2A9A /* Pods-PokettoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokettoUITests/Pods-PokettoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DD9826F02279FD84003CB0ED /* ImportSeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSeedController.swift; sourceTree = "<group>"; };
+		DD9826F2227A008D003CB0ED /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		DDAE1F542255234C00D30A8C /* Poketto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poketto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDAE1F572255234C00D30A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDAE1F5C2255234C00D30A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -202,7 +206,9 @@
 				707DEB97226F52A500F0AD93 /* PaymentContactsController.swift */,
 				707DEB99226F52B300F0AD93 /* PaymentSendController.swift */,
 				70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */,
+				DD9826F2227A008D003CB0ED /* SettingsNavigationController.swift */,
 				707DEB93226DD56000F0AD93 /* SettingsController.swift */,
+				DD9826F02279FD84003CB0ED /* ImportSeedController.swift */,
 				707DEB95226F466800F0AD93 /* RequestController.swift */,
 				707FB2042275CF2A005B29A2 /* ContactsController.swift */,
 			);
@@ -550,12 +556,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD9826F3227A008D003CB0ED /* SettingsNavigationController.swift in Sources */,
 				70A31C7822676550007291D1 /* Wallet.swift in Sources */,
 				DDB50445225CC6EF005B3DE0 /* Explorer.swift in Sources */,
 				70A31C832267810B007291D1 /* TransactionCell.swift in Sources */,
 				707DEB9A226F52B300F0AD93 /* PaymentSendController.swift in Sources */,
 				70A31C7422676096007291D1 /* LaunchController.swift in Sources */,
 				70A31C7A22676A34007291D1 /* OnboardingController.swift in Sources */,
+				DD9826F12279FD84003CB0ED /* ImportSeedController.swift in Sources */,
 				707DEB96226F466800F0AD93 /* RequestController.swift in Sources */,
 				70C82D6622710B7200F627A1 /* PaymentSuccessController.swift in Sources */,
 				DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */,
@@ -759,7 +767,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.poketto.Poketto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -778,7 +786,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.poketto.Poketto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
