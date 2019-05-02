@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import web3swift
 
 class PaymentSendController: UIViewController {
     
@@ -93,12 +94,11 @@ class PaymentSendController: UIViewController {
                 print("This is run on the background queue")
 
                 let wallet = Wallet.init()
-                wallet.send(toAddress: self.address!, value: amount, success: { result in
-                    print("show next screen")
+                wallet.send(toAddress: self.address!, value: amount, success: { transaction in
+                    print("show next screen \(transaction)")
                     DispatchQueue.main.async {
                         SVProgressHUD.dismiss()
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                        let transaction = ["address": self.address!, "amount": amount]
                         self.performSegue(withIdentifier: "success", sender: transaction)
                     }
                 }) { error in
@@ -130,8 +130,7 @@ class PaymentSendController: UIViewController {
         
         if segue.identifier == "success" {
             let paymentSuccessVC = segue.destination as! PaymentSuccessController
-            paymentSuccessVC.address = (sender as! [String: Any])["address"] as? String
-            paymentSuccessVC.amount = (sender as! [String: Any])["amount"] as? String
+            paymentSuccessVC.transaction = sender as? TransactionSendingResult
         }
     }
 }

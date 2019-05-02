@@ -692,6 +692,9 @@
                                                 <state key="normal" title="  Share transaction" image="share-transaction">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="shareTransaction" destination="e0q-2O-PhO" eventType="touchUpInside" id="wIZ-fU-7fy"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuF-xU-wLX">
                                                 <rect key="frame" x="0.0" y="48" width="211" height="40"/>

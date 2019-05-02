@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D58C51A157635E467B6E941 /* Pods_PokettoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AB1536B3DED6642D4611F5C /* Pods_PokettoUITests.framework */; };
-		6C8C696A2B9C6F24215BF1AD /* Pods_PokettoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F5878C1C88F9C1DF2C13E2A /* Pods_PokettoTests.framework */; };
+		1BD6E5DFF314324206BAE069 /* Pods_Poketto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A2196B6BC317ADF6BD8E6E /* Pods_Poketto.framework */; };
 		70572CD12274A17200297421 /* db.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70572CCF2274A17200297421 /* db.xcdatamodeld */; };
 		707DEB94226DD56000F0AD93 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB93226DD56000F0AD93 /* SettingsController.swift */; };
 		707DEB96226F466800F0AD93 /* RequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB95226F466800F0AD93 /* RequestController.swift */; };
@@ -32,7 +31,8 @@
 		70AD5C3E2279064400A9E164 /* EmptyStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AD5C3D2279064400A9E164 /* EmptyStateController.swift */; };
 		70C82D6622710B7200F627A1 /* PaymentSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */; };
 		70C82D68227113A100F627A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C82D67227113A100F627A1 /* Assets.xcassets */; };
-		98971E821774F846BB7FD1D7 /* Pods_Poketto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515515C4E4D20C69036E179E /* Pods_Poketto.framework */; };
+		834EB4074D28F39898252A8C /* Pods_PokettoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B253EE3970DACFA3540D4AD0 /* Pods_PokettoUITests.framework */; };
+		AE32744C8439029411C7066A /* Pods_PokettoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C161CEAAECB034BD6C623E /* Pods_PokettoTests.framework */; };
 		DD8FADDF227A50FC00851827 /* UITextViewWithDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8FADDE227A50FC00851827 /* UITextViewWithDoneButton.swift */; };
 		DD9826F12279FD84003CB0ED /* ImportSeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9826F02279FD84003CB0ED /* ImportSeedController.swift */; };
 		DD9826F3227A008D003CB0ED /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9826F2227A008D003CB0ED /* SettingsNavigationController.swift */; };
@@ -62,10 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		206A1CAC48F3B34E3E07D3EA /* Pods-Poketto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poketto.release.xcconfig"; path = "Target Support Files/Pods-Poketto/Pods-Poketto.release.xcconfig"; sourceTree = "<group>"; };
-		515515C4E4D20C69036E179E /* Pods_Poketto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poketto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		52EF1555442FADE5B9BB3AEF /* Pods-PokettoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoUITests.release.xcconfig"; path = "Target Support Files/Pods-PokettoUITests/Pods-PokettoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		6F5878C1C88F9C1DF2C13E2A /* Pods_PokettoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BB705613E84BCFB97EA9BDD /* Pods-Poketto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poketto.debug.xcconfig"; path = "Target Support Files/Pods-Poketto/Pods-Poketto.debug.xcconfig"; sourceTree = "<group>"; };
+		42A2196B6BC317ADF6BD8E6E /* Pods_Poketto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poketto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70572CD02274A17200297421 /* db.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = db.xcdatamodel; sourceTree = "<group>"; };
 		707DEB93226DD56000F0AD93 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		707DEB95226F466800F0AD93 /* RequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestController.swift; sourceTree = "<group>"; };
@@ -89,11 +87,11 @@
 		70AD5C3D2279064400A9E164 /* EmptyStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateController.swift; sourceTree = "<group>"; };
 		70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessController.swift; sourceTree = "<group>"; };
 		70C82D67227113A100F627A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7DD15113621CC87DD08FA6A6 /* Pods-PokettoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoTests.release.xcconfig"; path = "Target Support Files/Pods-PokettoTests/Pods-PokettoTests.release.xcconfig"; sourceTree = "<group>"; };
-		7F44315E6459C261E9485296 /* Pods-Poketto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poketto.debug.xcconfig"; path = "Target Support Files/Pods-Poketto/Pods-Poketto.debug.xcconfig"; sourceTree = "<group>"; };
-		9AB1536B3DED6642D4611F5C /* Pods_PokettoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C14F3262DF824AD0646A20C5 /* Pods-PokettoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoUITests.debug.xcconfig"; path = "Target Support Files/Pods-PokettoUITests/Pods-PokettoUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		DD02623A1C7AFB0192E2593F /* Pods-PokettoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoTests.debug.xcconfig"; path = "Target Support Files/Pods-PokettoTests/Pods-PokettoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A7366CF0787387400EB702E3 /* Pods-PokettoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoUITests.release.xcconfig"; path = "Target Support Files/Pods-PokettoUITests/Pods-PokettoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B253EE3970DACFA3540D4AD0 /* Pods_PokettoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B637010F76D280B41A32B36F /* Pods-PokettoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoTests.debug.xcconfig"; path = "Target Support Files/Pods-PokettoTests/Pods-PokettoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C495E1192C0D8AE1A69360A2 /* Pods-PokettoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoTests.release.xcconfig"; path = "Target Support Files/Pods-PokettoTests/Pods-PokettoTests.release.xcconfig"; sourceTree = "<group>"; };
+		CB0977AB6DCC1765E5885B9A /* Pods-PokettoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoUITests.debug.xcconfig"; path = "Target Support Files/Pods-PokettoUITests/Pods-PokettoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD8FADDE227A50FC00851827 /* UITextViewWithDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewWithDoneButton.swift; sourceTree = "<group>"; };
 		DD9826F02279FD84003CB0ED /* ImportSeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportSeedController.swift; sourceTree = "<group>"; };
 		DD9826F2227A008D003CB0ED /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
@@ -109,6 +107,8 @@
 		DDAE1F772255234D00D30A8C /* PokettoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokettoUITests.swift; sourceTree = "<group>"; };
 		DDAE1F792255234D00D30A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDB50444225CC6EF005B3DE0 /* Explorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explorer.swift; sourceTree = "<group>"; };
+		E6C161CEAAECB034BD6C623E /* Pods_PokettoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F16406E9285BF41CC8D0C9C4 /* Pods-Poketto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poketto.release.xcconfig"; path = "Target Support Files/Pods-Poketto/Pods-Poketto.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98971E821774F846BB7FD1D7 /* Pods_Poketto.framework in Frameworks */,
+				1BD6E5DFF314324206BAE069 /* Pods_Poketto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C8C696A2B9C6F24215BF1AD /* Pods_PokettoTests.framework in Frameworks */,
+				AE32744C8439029411C7066A /* Pods_PokettoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D58C51A157635E467B6E941 /* Pods_PokettoUITests.framework in Frameworks */,
+				834EB4074D28F39898252A8C /* Pods_PokettoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,16 +207,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		AAA045A5E3047C92CE600EDD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				515515C4E4D20C69036E179E /* Pods_Poketto.framework */,
-				6F5878C1C88F9C1DF2C13E2A /* Pods_PokettoTests.framework */,
-				9AB1536B3DED6642D4611F5C /* Pods_PokettoUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		DDAE1F4B2255234B00D30A8C = {
 			isa = PBXGroup;
 			children = (
@@ -225,7 +215,7 @@
 				DDAE1F762255234D00D30A8C /* PokettoUITests */,
 				DDAE1F552255234C00D30A8C /* Products */,
 				F3ED0823E6594FA8BF7A89D4 /* Pods */,
-				AAA045A5E3047C92CE600EDD /* Frameworks */,
+				FC7F149A6E646BA62C6E9F5C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -286,14 +276,24 @@
 		F3ED0823E6594FA8BF7A89D4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7F44315E6459C261E9485296 /* Pods-Poketto.debug.xcconfig */,
-				206A1CAC48F3B34E3E07D3EA /* Pods-Poketto.release.xcconfig */,
-				DD02623A1C7AFB0192E2593F /* Pods-PokettoTests.debug.xcconfig */,
-				7DD15113621CC87DD08FA6A6 /* Pods-PokettoTests.release.xcconfig */,
-				C14F3262DF824AD0646A20C5 /* Pods-PokettoUITests.debug.xcconfig */,
-				52EF1555442FADE5B9BB3AEF /* Pods-PokettoUITests.release.xcconfig */,
+				1BB705613E84BCFB97EA9BDD /* Pods-Poketto.debug.xcconfig */,
+				F16406E9285BF41CC8D0C9C4 /* Pods-Poketto.release.xcconfig */,
+				B637010F76D280B41A32B36F /* Pods-PokettoTests.debug.xcconfig */,
+				C495E1192C0D8AE1A69360A2 /* Pods-PokettoTests.release.xcconfig */,
+				CB0977AB6DCC1765E5885B9A /* Pods-PokettoUITests.debug.xcconfig */,
+				A7366CF0787387400EB702E3 /* Pods-PokettoUITests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		FC7F149A6E646BA62C6E9F5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42A2196B6BC317ADF6BD8E6E /* Pods_Poketto.framework */,
+				E6C161CEAAECB034BD6C623E /* Pods_PokettoTests.framework */,
+				B253EE3970DACFA3540D4AD0 /* Pods_PokettoUITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,12 +303,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDAE1F7C2255234D00D30A8C /* Build configuration list for PBXNativeTarget "Poketto" */;
 			buildPhases = (
-				C84F1B8D5F51D9D3CCAD70F0 /* [CP] Check Pods Manifest.lock */,
+				9D1F521B9D719C8B0074D0FF /* [CP] Check Pods Manifest.lock */,
 				DDAE1F502255234C00D30A8C /* Sources */,
 				DDAE1F512255234C00D30A8C /* Frameworks */,
 				DDAE1F522255234C00D30A8C /* Resources */,
 				70572CD82274A38A00297421 /* ShellScript */,
-				3C411C839B345D82904E0BDA /* [CP] Embed Pods Frameworks */,
+				8CCC20635760C377C8ECDE71 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,7 +323,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDAE1F7F2255234D00D30A8C /* Build configuration list for PBXNativeTarget "PokettoTests" */;
 			buildPhases = (
-				2743CA13D2354A0A054AFF26 /* [CP] Check Pods Manifest.lock */,
+				B7A32E2F0481919F11D7FC74 /* [CP] Check Pods Manifest.lock */,
 				DDAE1F642255234D00D30A8C /* Sources */,
 				DDAE1F652255234D00D30A8C /* Frameworks */,
 				DDAE1F662255234D00D30A8C /* Resources */,
@@ -342,7 +342,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDAE1F822255234D00D30A8C /* Build configuration list for PBXNativeTarget "PokettoUITests" */;
 			buildPhases = (
-				D21E4FAF1E4C892C67B36330 /* [CP] Check Pods Manifest.lock */,
+				1BE59DD6CF16174BBB525025 /* [CP] Check Pods Manifest.lock */,
 				DDAE1F6F2255234D00D30A8C /* Sources */,
 				DDAE1F702255234D00D30A8C /* Frameworks */,
 				DDAE1F712255234D00D30A8C /* Resources */,
@@ -428,7 +428,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2743CA13D2354A0A054AFF26 /* [CP] Check Pods Manifest.lock */ = {
+		1BE59DD6CF16174BBB525025 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -443,14 +443,32 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PokettoTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-PokettoUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3C411C839B345D82904E0BDA /* [CP] Embed Pods Frameworks */ = {
+		70572CD82274A38A00297421 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# mogenerator -m Poketto/data/db.xcdatamodeld/db.xcdatamodel -O Poketto/data/Models/Generated --swift --template-var arc=true\n";
+			showEnvVarsInLog = 0;
+		};
+		8CCC20635760C377C8ECDE71 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -500,25 +518,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Poketto/Pods-Poketto-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		70572CD82274A38A00297421 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# mogenerator -m Poketto/data/db.xcdatamodeld/db.xcdatamodel -O Poketto/data/Models/Generated --swift --template-var arc=true\n";
-			showEnvVarsInLog = 0;
-		};
-		C84F1B8D5F51D9D3CCAD70F0 /* [CP] Check Pods Manifest.lock */ = {
+		9D1F521B9D719C8B0074D0FF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -540,7 +540,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D21E4FAF1E4C892C67B36330 /* [CP] Check Pods Manifest.lock */ = {
+		B7A32E2F0481919F11D7FC74 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -555,7 +555,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PokettoUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-PokettoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -768,7 +768,7 @@
 		};
 		DDAE1F7D2255234D00D30A8C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F44315E6459C261E9485296 /* Pods-Poketto.debug.xcconfig */;
+			baseConfigurationReference = 1BB705613E84BCFB97EA9BDD /* Pods-Poketto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -787,7 +787,7 @@
 		};
 		DDAE1F7E2255234D00D30A8C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 206A1CAC48F3B34E3E07D3EA /* Pods-Poketto.release.xcconfig */;
+			baseConfigurationReference = F16406E9285BF41CC8D0C9C4 /* Pods-Poketto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -806,7 +806,7 @@
 		};
 		DDAE1F802255234D00D30A8C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD02623A1C7AFB0192E2593F /* Pods-PokettoTests.debug.xcconfig */;
+			baseConfigurationReference = B637010F76D280B41A32B36F /* Pods-PokettoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -828,7 +828,7 @@
 		};
 		DDAE1F812255234D00D30A8C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DD15113621CC87DD08FA6A6 /* Pods-PokettoTests.release.xcconfig */;
+			baseConfigurationReference = C495E1192C0D8AE1A69360A2 /* Pods-PokettoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -850,7 +850,7 @@
 		};
 		DDAE1F832255234D00D30A8C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C14F3262DF824AD0646A20C5 /* Pods-PokettoUITests.debug.xcconfig */;
+			baseConfigurationReference = CB0977AB6DCC1765E5885B9A /* Pods-PokettoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -871,7 +871,7 @@
 		};
 		DDAE1F842255234D00D30A8C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 52EF1555442FADE5B9BB3AEF /* Pods-PokettoUITests.release.xcconfig */;
+			baseConfigurationReference = A7366CF0787387400EB702E3 /* Pods-PokettoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
