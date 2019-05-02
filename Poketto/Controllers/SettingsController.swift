@@ -70,6 +70,8 @@ class SettingsOptionsController: UITableViewController {
             }
         } else if (indexPath.row == 1) {
             delegate?.importScreenView()
+        } else if (indexPath.row == 3) {
+            UIApplication.shared.open(URL(string: "https://github.com/pokettocash/poketto-ios")!, options: [:], completionHandler: nil)
         }
     }
 }

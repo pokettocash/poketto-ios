@@ -25,7 +25,8 @@ class Wallet {
     }
     
     func importSeed(seed: String) {
-        KeychainWrapper.standard.set(seed, forKey: "mnemonic")
+        let mnemonicSeed = seed.trimmingCharacters(in: .whitespacesAndNewlines)
+        KeychainWrapper.standard.set(mnemonicSeed, forKey: "mnemonic")
     }
     
     func exportSeed() -> String? {
@@ -38,9 +39,8 @@ class Wallet {
         if(mnemonic == nil) {
             return nil
         }
-        print("mnemonic \(mnemonic!)")
         
-        let keystore = try! BIP32Keystore(mnemonics: mnemonic!)
+        let keystore = try! BIP32Keystore(mnemonics: mnemonic!.trimmingCharacters(in: .whitespacesAndNewlines))
         let ownWalletAddress = keystore?.addresses?.first!
         
         return ownWalletAddress
