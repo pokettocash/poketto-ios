@@ -45,6 +45,12 @@ and uncomment the run script:
 
 Work in progress 🏗
 
+## License
+
+recall-app is under the GPLv3 and the MPLv2 license.
+
+See [LICENSE](https://github.com/pokettocash/poketto-ios/blob/master/LICENSE) for more license info.
+
 ---
 
 Made at [Done Sunday](http://donesunday.com/) 🌞 by [@_andre_sousa](https://twitter.com/_andre_sousa), [@alvesjtiago](https://twitter.com/alvesjtiago) and [@jackveiga](https://twitter.com/jackveiga).
