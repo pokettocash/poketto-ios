@@ -11,4 +11,5 @@ import UIKit
 class DashboardHeaderView: UICollectionReusableView {
    
     @IBOutlet var balanceLabel: UILabel!
+    @IBOutlet var emptyStateView: UIView!
 }

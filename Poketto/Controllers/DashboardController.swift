@@ -15,7 +15,7 @@ import Contacts
 
 class DashboardController: UIViewController, SettingsDelegate {
     
-    @IBOutlet var emptyStateContainer   : UIView!
+    var emptyStateContainer             : EmptyStateController!
     @IBOutlet var collectionView        : UICollectionView!
     private let refreshControl          = UIRefreshControl()
     var transactions                    : Array<Any> = []
@@ -25,6 +25,7 @@ class DashboardController: UIViewController, SettingsDelegate {
     var contactStore                    = CNContactStore()
     var wallet                          = Wallet.init()
     var explorer                        = Explorer.init()
+    var hasFetchedData                  = false
     
     
     override func viewDidLoad() {
@@ -34,6 +35,9 @@ class DashboardController: UIViewController, SettingsDelegate {
     
         collectionView.refreshControl = self.refreshControl
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        
+        emptyStateContainer = storyboard?.instantiateViewController(withIdentifier: "emptyStateVC") as? EmptyStateController
+        self.addChild(emptyStateContainer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,17 +85,11 @@ class DashboardController: UIViewController, SettingsDelegate {
         print("wallet address \(wallet.getEthereumAddress()!.address)")
         explorer.transactionsFrom(address: wallet.getEthereumAddress()!.address, completion: { transactions in
             print("transactions \(transactions)")
-            if transactions.count == 0 {
-                DispatchQueue.main.async {
-                    self.emptyStateContainer.isHidden = false
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.emptyStateContainer.isHidden = true
-                    self.refreshControl.endRefreshing()
-                    self.transactions = transactions
-                    self.collectionView.reloadData()
-                }
+            DispatchQueue.main.async {
+                self.hasFetchedData = true
+                self.refreshControl.endRefreshing()
+                self.transactions = transactions
+                self.collectionView.reloadData()
             }
         })
     }
@@ -193,6 +191,24 @@ extension DashboardController : UICollectionViewDataSource {
                 sectionHeader.balanceLabel.text = "\(String(format: "%.2f", balance)) xDai"
             }
             
+            if(hasFetchedData) {
+                sectionHeader.isHidden = false
+            }
+            
+            if(self.transactions.count == 0 && hasFetchedData) {
+                sectionHeader.emptyStateView.isHidden = false
+                self.emptyStateContainer.view.isHidden = false
+                if(!sectionHeader.emptyStateView.contains(self.emptyStateContainer.view)) {
+                    sectionHeader.emptyStateView.addSubview(self.emptyStateContainer.view)
+                }
+            } else {
+                sectionHeader.emptyStateView.isHidden = true
+                self.emptyStateContainer.view.isHidden = true
+                if(sectionHeader.emptyStateView.contains(self.emptyStateContainer.view)) {
+                    self.emptyStateContainer.view.removeFromSuperview()
+                }
+            }
+            
             return sectionHeader
         }
         return UICollectionReusableView()
@@ -264,6 +280,30 @@ extension DashboardController : UICollectionViewDataSource {
         cell.contactImageView.layer.cornerRadius = 20
         
         return cell
+    }
+}
+
+extension DashboardController : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        if let headerView = collectionView.visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionHeader).first as? DashboardHeaderView {
+            // Layout to get the right dimensions
+            headerView.layoutIfNeeded()
+        }
+
+        // Automagically get the right height
+        var height : CGFloat = 240
+        if self.transactions.count == 0 {
+            height = self.view.frame.size.height
+        }
+        
+        emptyStateContainer.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: height)
+        emptyStateContainer.view.updateConstraints()
+        emptyStateContainer.view.layoutSubviews()
+        
+        // return the correct size
+        return CGSize(width: collectionView.frame.width, height: height)
     }
 }
 
