@@ -8,9 +8,7 @@
 
 import UIKit
 import SwiftKeychainWrapper
-import Web3swift
-import EthereumABI
-import EthereumAddress
+import web3swift
 import BigInt
 
 class Wallet {
@@ -89,11 +87,9 @@ class Wallet {
             print(error)
             if let web3Error = error as? Web3Error {
                 print("error \(web3Error)")
-                // Waiting for PR
-//                let desc = web3Error.errorDescription
-//                print("desc \(desc)")
-//                failure(desc)
-                failure("Error executing transaction \(web3Error.localizedDescription)")
+                let desc = web3Error.errorDescription
+                print("desc \(desc)")
+                failure(desc)
             } else {
                 failure("Invalid code")
             }
