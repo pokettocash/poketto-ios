@@ -1316,11 +1316,36 @@
                                     <action selector="goToDashboard" destination="VsL-Ce-LRk" eventType="touchUpInside" id="ix6-b8-Uab"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oga-K4-vST">
+                                <rect key="frame" x="20" y="458" width="374" height="97.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Poketto is a xDai pocket wallet for your day-to-day transactions. The simplest, most secure and near instant way to send money to friends and pay for your every day items.</string>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-icon" translatesAutoresizingMaskIntoConstraints="NO" id="zzn-Om-0nd">
+                                <rect key="frame" x="87" y="178" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="fcX-pW-CKp"/>
+                                    <constraint firstAttribute="width" constant="240" id="hkV-Xe-vDO"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Oga-K4-vST" firstAttribute="firstBaseline" secondItem="zzn-Om-0nd" secondAttribute="baseline" constant="60" id="8rh-PT-HwQ"/>
                             <constraint firstItem="dyn-0b-KUf" firstAttribute="bottom" secondItem="AXx-gw-AeF" secondAttribute="bottom" constant="56" id="I5j-Yq-kMw"/>
+                            <constraint firstItem="zzn-Om-0nd" firstAttribute="centerX" secondItem="y6M-hM-Gkx" secondAttribute="centerX" id="W5c-92-nED"/>
+                            <constraint firstItem="zzn-Om-0nd" firstAttribute="centerY" secondItem="y6M-hM-Gkx" secondAttribute="centerY" constant="-150" id="Xgi-ue-sJq"/>
                             <constraint firstItem="AXx-gw-AeF" firstAttribute="leading" secondItem="dyn-0b-KUf" secondAttribute="leading" constant="20" id="e9V-9i-Pz4"/>
+                            <constraint firstItem="Oga-K4-vST" firstAttribute="leading" secondItem="dyn-0b-KUf" secondAttribute="leading" constant="20" id="oSE-6e-fxT"/>
+                            <constraint firstItem="dyn-0b-KUf" firstAttribute="trailing" secondItem="Oga-K4-vST" secondAttribute="trailing" constant="20" id="rn5-86-vbY"/>
                             <constraint firstItem="dyn-0b-KUf" firstAttribute="trailing" secondItem="AXx-gw-AeF" secondAttribute="trailing" constant="20" id="yaf-bI-4uv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dyn-0b-KUf"/>
@@ -1328,7 +1353,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcY-rR-ghl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3939" y="814"/>
+            <point key="canvasLocation" x="3937.68115942029" y="813.61607142857144"/>
         </scene>
         <!--Page1 Controller-->
         <scene sceneID="KP1-9S-vxR">
@@ -1756,6 +1781,7 @@
         <image name="cell-qrcode" width="34" height="34"/>
         <image name="nav-button-qrcode" width="32" height="32"/>
         <image name="nav-button-settings" width="32" height="32"/>
+        <image name="onboarding-icon" width="240" height="240"/>
         <image name="pay-button-background" width="177" height="60"/>
         <image name="pay-unknown" width="28" height="28"/>
         <image name="receive-funds-bg" width="184" height="48"/>

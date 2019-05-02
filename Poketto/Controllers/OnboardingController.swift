@@ -12,8 +12,8 @@ class OnboardingController: UIPageViewController
 {
     fileprivate lazy var pages: [UIViewController] = {
         return [
-            self.getViewController(withIdentifier: "Page1"),
-            self.getViewController(withIdentifier: "Page2"),
+//            self.getViewController(withIdentifier: "Page1"),
+//            self.getViewController(withIdentifier: "Page2"),
             self.getViewController(withIdentifier: "Page3")
         ]
     }()
@@ -31,12 +31,12 @@ class OnboardingController: UIPageViewController
         self.dataSource = self
         self.delegate   = self
         
-        pageControl = UIPageControl(frame: CGRect(x: view.bounds.size.width/2-50, y: view.frame.size.height-50, width: 100, height: 20))
-        pageControl.pageIndicatorTintColor = UIColor.lightGray
-        pageControl.currentPageIndicatorTintColor = UIColor.blue
-        pageControl.numberOfPages = 3
-        pageControl.currentPage = 0
-        view.addSubview(pageControl)
+//        pageControl = UIPageControl(frame: CGRect(x: view.bounds.size.width/2-50, y: view.frame.size.height-50, width: 100, height: 20))
+//        pageControl.pageIndicatorTintColor = UIColor.lightGray
+//        pageControl.currentPageIndicatorTintColor = UIColor.blue
+//        pageControl.numberOfPages = 1
+//        pageControl.currentPage = 0
+//        view.addSubview(pageControl)
         
         if let firstVC = pages.first
         {
