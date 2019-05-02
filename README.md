@@ -7,6 +7,8 @@ Poketto is the simplest xDai wallet for your day-to-day transactions.
 Our goal with Poketto is to make it easy to send money to friends and pay for every day items.
 It's your pocket wallet inside your phone with secure and near instant transactions.
 
+Test it now via [Testflight](https://testflight.apple.com/join/DTj4abRB)
+
 ## Features
 
 - Send xDai to an address or saved contacts
