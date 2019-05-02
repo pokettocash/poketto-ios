@@ -293,7 +293,6 @@
 				C14F3262DF824AD0646A20C5 /* Pods-PokettoUITests.debug.xcconfig */,
 				52EF1555442FADE5B9BB3AEF /* Pods-PokettoUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -773,7 +772,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z7XW95HDSC;
+				DEVELOPMENT_TEAM = 57JMDA279Y;
 				INFOPLIST_FILE = Poketto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -792,7 +791,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z7XW95HDSC;
+				DEVELOPMENT_TEAM = 57JMDA279Y;
 				INFOPLIST_FILE = Poketto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
