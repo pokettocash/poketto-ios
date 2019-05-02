@@ -2,46 +2,34 @@ PODS:
   - Alamofire (4.8.0)
   - BigInt (3.1.0):
     - SipHash (~> 1.2)
-  - Chester (0.7.2)
-  - CryptoSwift (0.14.0)
-  - EthereumABI (1.1.1):
-    - BigInt (~> 3.1)
-    - CryptoSwift (~> 0.13)
-    - EthereumAddress (~> 1.0.0)
-  - EthereumAddress (1.0.0):
-    - CryptoSwift (~> 0.13)
+  - Chester (0.9.0)
+  - CryptoSwift (1.0.0)
   - MagicalRecord (2.3.3):
     - MagicalRecord/Core (= 2.3.3)
   - MagicalRecord/Core (2.3.3)
   - Presentr (1.9)
-  - PromiseKit (6.8.3):
-    - PromiseKit/CorePromise (= 6.8.3)
-    - PromiseKit/Foundation (= 6.8.3)
-    - PromiseKit/UIKit (= 6.8.3)
-  - PromiseKit/CorePromise (6.8.3)
-  - PromiseKit/Foundation (6.8.3):
+  - PromiseKit (6.8.4):
+    - PromiseKit/CorePromise (= 6.8.4)
+    - PromiseKit/Foundation (= 6.8.4)
+    - PromiseKit/UIKit (= 6.8.4)
+  - PromiseKit/CorePromise (6.8.4)
+  - PromiseKit/Foundation (6.8.4):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.8.3):
+  - PromiseKit/UIKit (6.8.4):
     - PromiseKit/CorePromise
   - QRCodeReader.swift (10.0.0)
-  - scrypt (2.0):
-    - CryptoSwift (~> 0.11)
-  - secp256k1_swift (1.0.3)
+  - secp256k1.c (0.1.2)
   - SipHash (1.2.2)
+  - Starscream (3.1.0)
   - SVProgressHUD (2.2.5)
   - SwiftKeychainWrapper (3.2.0)
-  - SwiftRLP (1.2):
-    - BigInt (~> 3.1)
   - SwiftyJSON (4.0.0)
-  - web3swift (2.0.4):
+  - web3swift (2.2.0):
     - BigInt (~> 3.1)
-    - CryptoSwift (~> 0.13)
-    - EthereumABI (~> 1.1.1)
-    - EthereumAddress (~> 1.0.0)
-    - PromiseKit (~> 6.3)
-    - scrypt (~> 2.0)
-    - secp256k1_swift (~> 1.0.3)
-    - SwiftRLP (~> 1.1)
+    - CryptoSwift (~> 1.0.0)
+    - PromiseKit (~> 6.8.4)
+    - secp256k1.c (~> 0.1)
+    - Starscream (~> 3.1.0)
 
 DEPENDENCIES:
   - Alamofire (= 4.8.0)
@@ -52,7 +40,7 @@ DEPENDENCIES:
   - SVProgressHUD
   - SwiftKeychainWrapper
   - SwiftyJSON (= 4.0)
-  - web3swift (= 2.0.4)
+  - web3swift (from `https://github.com/pokettocash/web3swift.git`, branch `issue-172`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -60,50 +48,49 @@ SPEC REPOS:
     - BigInt
     - Chester
     - CryptoSwift
-    - EthereumABI
-    - EthereumAddress
     - Presentr
     - PromiseKit
     - QRCodeReader.swift
-    - scrypt
-    - secp256k1_swift
+    - secp256k1.c
     - SipHash
+    - Starscream
     - SVProgressHUD
     - SwiftKeychainWrapper
-    - SwiftRLP
     - SwiftyJSON
-    - web3swift
 
 EXTERNAL SOURCES:
   MagicalRecord:
     :git: https://github.com/magicalpanda/MagicalRecord.git
     :tag: v2.3.3
+  web3swift:
+    :branch: issue-172
+    :git: https://github.com/pokettocash/web3swift.git
 
 CHECKOUT OPTIONS:
   MagicalRecord:
     :git: https://github.com/magicalpanda/MagicalRecord.git
     :tag: v2.3.3
+  web3swift:
+    :commit: fb0be8f2f2f9b5cc7e3372e4b1c08f3d456150e2
+    :git: https://github.com/pokettocash/web3swift.git
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
-  Chester: 7e8e34ff4160f6f349f605f6392f839c3b834b00
-  CryptoSwift: 35a10419f4dbf0619c13f8c1c180037e115323fa
-  EthereumABI: f040f5429e5a4366d028c88b88d9441e137593af
-  EthereumAddress: f476e1320dca3a0024431e713ede7a09c7eb7796
+  Chester: 978562d533be4d3341a70b449bdfef1fc70d1937
+  CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   MagicalRecord: e3dfdee87c234c6d460dbd5d8a32e3cb4de223aa
   Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
-  PromiseKit: 94c6e781838c5bf4717677d0d882b0e7250c80fc
+  PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
   QRCodeReader.swift: 74d0378eb0c7807828552b49626bbc8307495aee
-  scrypt: 3fe5b1a3b0976f97cd87488673a8f7c65708cc84
-  secp256k1_swift: 4fc5c4b2d2c6d21ee8ccb868cdc92da12f38bed9
+  secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
+  Starscream: 08172b481e145289c4930cb567230fb55897cfa4
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
-  SwiftRLP: 98a02b2210128353ca02e4c2f4d83e2a9796db4f
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  web3swift: aeb3d08ded961e0562919d4161f5af6ccb0ab30f
+  web3swift: 149ab5d1e57edf8125b095f889f089ab55fadcf7
 
-PODFILE CHECKSUM: cf36f2e980197bce0bb389ef52e71a56b24d5254
+PODFILE CHECKSUM: ec0a76ecba9f404008ed6980a1e09edbcb38208b
 
 COCOAPODS: 1.6.1
