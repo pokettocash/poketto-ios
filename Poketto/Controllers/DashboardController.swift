@@ -90,6 +90,7 @@ class DashboardController: UIViewController, SettingsDelegate {
                     self.emptyStateContainer.isHidden = true
                     self.refreshControl.endRefreshing()
                     self.transactions = transactions
+                    self.transactions.reverse()
                     self.collectionView.reloadData()
                 }
             }
