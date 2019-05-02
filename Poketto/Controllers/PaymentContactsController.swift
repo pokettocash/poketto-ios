@@ -104,12 +104,7 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
                 }
             } else {
                 DispatchQueue.main.async {
-                    let msg = "Invalid code"
-                    let alert = UIAlertController(title: "Error",
-                                                  message: msg,
-                                                  preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         }
