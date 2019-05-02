@@ -47,7 +47,7 @@ Work in progress 🏗
 
 ## License
 
-recall-app is under the GPLv3 and the MPLv2 license.
+poketto-ios is under the GPLv3 and the MPLv2 license.
 
 See [LICENSE](https://github.com/pokettocash/poketto-ios/blob/master/LICENSE) for more license info.
 
