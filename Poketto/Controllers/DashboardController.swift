@@ -89,6 +89,7 @@ class DashboardController: UIViewController, SettingsDelegate {
                 self.hasFetchedData = true
                 self.refreshControl.endRefreshing()
                 self.transactions = transactions
+                self.transactions.reverse()
                 self.collectionView.reloadData()
             }
         })
