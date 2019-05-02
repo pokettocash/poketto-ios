@@ -190,7 +190,7 @@ extension DashboardController : UICollectionViewDataSource {
         if kind == UICollectionView.elementKindSectionHeader {
             
             if(balance != nil) {
-                sectionHeader.balanceLabel.text = "\(balance!) xDai"
+                sectionHeader.balanceLabel.text = "\(String(format: "%.2f", balance)) xDai"
             }
             
             return sectionHeader
