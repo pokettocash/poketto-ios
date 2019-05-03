@@ -120,6 +120,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                             <state key="normal" title="  Request" image="arrow-down" backgroundImage="request-button-background"/>
+                                            <connections>
+                                                <action selector="request" destination="BYZ-38-t0r" eventType="touchUpInside" id="vQ7-JN-P6N"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E59-rd-AH7">
                                             <rect key="frame" x="206" y="122" width="193" height="60"/>
