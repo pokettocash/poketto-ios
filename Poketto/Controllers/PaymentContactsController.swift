@@ -289,7 +289,17 @@ extension PaymentContactsController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 48
+        return 45
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return 52
+        } else if indexPath.section == 1 {
+            return 0
+        } else {
+            return 56
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -301,12 +311,12 @@ extension PaymentContactsController : UITableViewDataSource {
 //            titleLabel.text = "Popular"
             headerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 0)
         } else {
-            let titleLabel = UILabel(frame: CGRect(x: 15, y: 10, width: tableView.frame.size.width-30, height: 20))
+            let titleLabel = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.frame.size.width-30, height: 20))
             headerView.addSubview(titleLabel)
             titleLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 0.6)
             titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
             titleLabel.text = "Recent"
-            let underline = UIView(frame: CGRect(x: 15, y: 40, width: tableView.frame.size.width-30, height: 2))
+            let underline = UIView(frame: CGRect(x: 15, y: 36, width: tableView.frame.size.width-30, height: 2))
             underline.backgroundColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
             headerView.addSubview(underline)
         }
