@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QSI-JI-uk8">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="dashboardVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="DashboardController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="28t-0i-3Jn">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z4o-1M-Ako">
                                     <size key="itemSize" width="375" height="60"/>
@@ -29,7 +29,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="transactionCellId" id="1Vp-Du-xJs" customClass="TransactionCell" customModule="Poketto" customModuleProvider="target">
-                                        <rect key="frame" x="19.5" y="240" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="240" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -43,7 +43,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEb-FM-Pdr">
-                                                    <rect key="frame" x="71" y="19.5" width="165" height="21"/>
+                                                    <rect key="frame" x="71" y="19.666666666666668" width="165" height="21.000000000000004"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="AeY-Rq-SXe"/>
                                                         <constraint firstAttribute="width" constant="165" id="EmY-om-gO0"/>
@@ -53,7 +53,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlZ-8X-5uM">
-                                                    <rect key="frame" x="260" y="19.5" width="95" height="21"/>
+                                                    <rect key="frame" x="260" y="19.666666666666668" width="95" height="21.000000000000004"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="95" id="oxF-4O-s1Y"/>
                                                         <constraint firstAttribute="height" constant="21" id="rUH-FW-FvN"/>
@@ -80,7 +80,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dashboardHeaderId" id="vnz-Ez-YVR" customClass="DashboardHeaderView" customModule="Poketto" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9N-H0-N5y">
@@ -242,18 +242,18 @@
             <objects>
                 <viewController storyboardIdentifier="payOptionsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uD4-Zb-agu" customClass="PaymentContactsController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aEq-Up-I4u">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="52" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="pqV-XE-U3W">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pasteCellId" id="Y3P-47-BI8" customClass="PasteCell" customModule="Poketto" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1" width="414" height="52"/>
+                                        <rect key="frame" x="0.0" y="1" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y3P-47-BI8" id="chF-xq-vRo">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="request-clipboard" translatesAutoresizingMaskIntoConstraints="NO" id="xQq-r3-dsI">
@@ -317,10 +317,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="enterAddressCellId" id="eeY-xo-MLt">
-                                        <rect key="frame" x="0.0" y="53" width="414" height="52"/>
+                                        <rect key="frame" x="0.0" y="53" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eeY-xo-MLt" id="XU6-FD-CUM">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-address-manually" translatesAutoresizingMaskIntoConstraints="NO" id="etH-h0-jMf">
@@ -338,7 +338,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter address manually" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWX-tC-lRH">
-                                                    <rect key="frame" x="55" y="15.5" width="347" height="21"/>
+                                                    <rect key="frame" x="55" y="15.666666666666664" width="347" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="vel-7o-lrP"/>
                                                     </constraints>
@@ -369,10 +369,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scanCellId" id="xiK-HX-b1i">
-                                        <rect key="frame" x="0.0" y="105" width="414" height="52"/>
+                                        <rect key="frame" x="0.0" y="105" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xiK-HX-b1i" id="bs1-uN-dvS">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="lLv-3i-SpQ">
@@ -390,7 +390,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan address from QR Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xm6-lY-D6Y">
-                                                    <rect key="frame" x="55" y="15.5" width="347" height="21"/>
+                                                    <rect key="frame" x="55" y="15.666666666666664" width="347" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="CRh-At-VMb"/>
                                                     </constraints>
@@ -427,7 +427,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6sq-OE-8Zd"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Y8d-Qn-2xW"/>
+                    <navigationItem key="navigationItem" id="Y8d-Qn-2xW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="xCv-aw-0rH">
+                            <connections>
+                                <action selector="cancel" destination="uD4-Zb-agu" id="0nR-0q-0xA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="pqV-XE-U3W" id="clz-Te-uUj"/>
                         <segue destination="vmc-Ph-dxZ" kind="show" identifier="send" id="A5U-YT-T22"/>
@@ -442,11 +448,11 @@
             <objects>
                 <viewController id="vmc-Ph-dxZ" customClass="PaymentSendController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z90-jH-MMY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3th-ND-3nJ">
-                                <rect key="frame" x="15" y="88" width="384" height="2"/>
+                                <rect key="frame" x="15" y="88" width="345" height="2"/>
                                 <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="AZs-FM-xIY"/>
@@ -463,7 +469,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0x..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5i-eh-1cZ">
-                                <rect key="frame" x="137" y="106" width="261" height="40"/>
+                                <rect key="frame" x="137" y="106" width="222" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="BNu-xK-EYR"/>
                                 </constraints>
@@ -479,21 +485,21 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Apn-ci-9D0">
-                                <rect key="frame" x="15" y="162" width="384" height="2"/>
+                                <rect key="frame" x="15" y="162" width="345" height="2"/>
                                 <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="Jb8-NB-U9N"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tDv-at-CIA">
-                                <rect key="frame" x="15" y="258" width="384" height="2"/>
+                                <rect key="frame" x="15" y="258" width="345" height="2"/>
                                 <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="SZC-WX-JI5"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2q0-pW-CPp">
-                                <rect key="frame" x="93" y="195" width="228" height="30"/>
+                                <rect key="frame" x="73.666666666666686" y="195" width="228" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="228" id="Uvx-IJ-SsF"/>
                                     <constraint firstAttribute="height" constant="30" id="bti-FP-X1Q"/>
@@ -503,7 +509,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YiI-Lg-8Ty">
-                                <rect key="frame" x="15" y="540" width="384" height="48"/>
+                                <rect key="frame" x="15" y="456" width="345" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Q3k-YZ-UJC"/>
                                 </constraints>
@@ -572,21 +578,21 @@
             <objects>
                 <viewController id="e0q-2O-PhO" customClass="PaymentSuccessController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rw0-dW-WIT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7f-gm-poz">
-                                <rect key="frame" x="0.0" y="88" width="414" height="359"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="317"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success-checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="xhm-1C-Bqa">
-                                        <rect key="frame" x="150.5" y="68" width="113" height="113"/>
+                                        <rect key="frame" x="131" y="26" width="113" height="113"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="113" id="49e-uw-rLg"/>
                                             <constraint firstAttribute="height" constant="113" id="C93-3r-hGw"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPA-SI-Tj3">
-                                        <rect key="frame" x="144" y="279" width="126.5" height="48"/>
+                                        <rect key="frame" x="124.33333333333334" y="237" width="126.33333333333334" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="8C8-za-i7N"/>
                                         </constraints>
@@ -595,7 +601,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've just sent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaH-yj-W0H">
-                                        <rect key="frame" x="150" y="229" width="114" height="20"/>
+                                        <rect key="frame" x="130.66666666666666" y="187" width="114" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="6Rr-O3-juD"/>
                                             <constraint firstAttribute="width" constant="114" id="Rll-ZW-uF9"/>
@@ -617,17 +623,17 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QpR-Pl-Jvh">
-                                <rect key="frame" x="15" y="447" width="384" height="2"/>
+                                <rect key="frame" x="15" y="405" width="345" height="2"/>
                                 <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="ffM-lO-OYA"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgb-dk-SGB">
-                                <rect key="frame" x="0.0" y="449" width="414" height="359"/>
+                                <rect key="frame" x="0.0" y="407" width="375" height="317"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4FX-CT-UZp">
-                                        <rect key="frame" x="87" y="32" width="240" height="40"/>
+                                        <rect key="frame" x="67.666666666666686" y="32" width="240" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tP9-SK-yEm">
                                                 <rect key="frame" x="0.0" y="10" width="22" height="20"/>
@@ -668,7 +674,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2OZ-qe-9zt">
-                                        <rect key="frame" x="15" y="311" width="384" height="48"/>
+                                        <rect key="frame" x="15" y="269" width="345" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="8Wd-4Z-5gK"/>
                                         </constraints>
@@ -682,7 +688,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BsS-Bh-cWY">
-                                        <rect key="frame" x="101.5" y="191" width="211" height="88"/>
+                                        <rect key="frame" x="82" y="149" width="211" height="88"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GB1-2h-8Hh">
                                                 <rect key="frame" x="0.0" y="0.0" width="211" height="40"/>
@@ -765,11 +771,11 @@
             <objects>
                 <viewController storyboardIdentifier="contactsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bgg-dz-nHx" customClass="ContactsController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ck2-Gd-PQ6">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Search Contacts" translatesAutoresizingMaskIntoConstraints="NO" id="zO8-It-H7g">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="RMK-SG-1Hn"/>
                                 </constraints>
@@ -780,14 +786,14 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Eyz-Zk-xny">
-                                <rect key="frame" x="0.0" y="132" width="414" height="764"/>
+                                <rect key="frame" x="0.0" y="132" width="375" height="680"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCellId" rowHeight="50" id="2cs-ud-MtJ" customClass="ContactCell" customModule="Poketto" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2cs-ud-MtJ" id="2U8-26-4Vv">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rqa-vD-FNN">
@@ -798,7 +804,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8SL-ye-87X">
-                                                    <rect key="frame" x="71" y="14.5" width="328" height="21"/>
+                                                    <rect key="frame" x="71" y="14.333333333333336" width="328" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="0YS-bY-X4c"/>
                                                     </constraints>
@@ -870,17 +876,17 @@
             <objects>
                 <viewController storyboardIdentifier="settingsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zbk-Xs-99T" customClass="SettingsController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qfl-gO-b8a">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings-header" translatesAutoresizingMaskIntoConstraints="NO" id="KqO-uY-leS">
-                                <rect key="frame" x="0.0" y="88" width="414" height="128"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="k0z-6F-tls"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qyb-5v-ZWm">
-                                <rect key="frame" x="189" y="240" width="36" height="36"/>
+                                <rect key="frame" x="169.66666666666666" y="240" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="eep-iP-Jzn"/>
                                     <constraint firstAttribute="height" constant="36" id="fpR-kY-vla"/>
@@ -891,7 +897,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zo3-Jr-1XX">
-                                <rect key="frame" x="249" y="240" width="36" height="36"/>
+                                <rect key="frame" x="229.66666666666666" y="240" width="35.999999999999972" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="HhH-xi-V9Q"/>
                                     <constraint firstAttribute="height" constant="36" id="VrV-UN-Yt9"/>
@@ -902,7 +908,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsl-J9-9c9">
-                                <rect key="frame" x="129" y="240" width="36" height="36"/>
+                                <rect key="frame" x="109.66666666666667" y="240" width="36.000000000000014" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="TUM-Go-wNg"/>
                                     <constraint firstAttribute="width" constant="36" id="eqJ-PL-FcJ"/>
@@ -913,7 +919,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join the community" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tH-W8-oAg">
-                                <rect key="frame" x="117" y="292" width="180.5" height="21"/>
+                                <rect key="frame" x="97.333333333333329" y="292" width="180.33333333333337" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="cVM-eh-1R2"/>
                                 </constraints>
@@ -922,7 +928,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help us create the future of web" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ANp-13-mRG">
-                                <rect key="frame" x="90.5" y="329" width="233.5" height="21"/>
+                                <rect key="frame" x="70.666666666666671" y="329" width="233.66666666666663" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="1BL-nJ-lT4"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="MDS-uT-r5i"/>
@@ -932,7 +938,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ol4-0l-C3n">
-                                <rect key="frame" x="73" y="382" width="268" height="208"/>
+                                <rect key="frame" x="53.666666666666657" y="382" width="268" height="208"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="268" id="gd4-dp-o1g"/>
                                     <constraint firstAttribute="height" constant="208" id="mCc-nS-t4b"/>
@@ -942,7 +948,7 @@
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.1.0(1)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThG-y9-dUb">
-                                <rect key="frame" x="186.5" y="829" width="41" height="21"/>
+                                <rect key="frame" x="167" y="745" width="41" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="GeF-03-23j"/>
                                 </constraints>
@@ -1014,7 +1020,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Backup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6k-wQ-Tme">
-                                                    <rect key="frame" x="40" y="15.5" width="216" height="21"/>
+                                                    <rect key="frame" x="40" y="15.666666666666664" width="216" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="cjG-8m-V1k"/>
                                                     </constraints>
@@ -1073,7 +1079,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Import seed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewb-vd-XcO">
-                                                    <rect key="frame" x="40" y="15.5" width="216" height="21"/>
+                                                    <rect key="frame" x="40" y="15.666666666666664" width="216" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="yUe-ni-skw"/>
                                                     </constraints>
@@ -1125,7 +1131,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5F3-7j-5V8">
-                                                    <rect key="frame" x="40" y="15.5" width="216" height="21"/>
+                                                    <rect key="frame" x="40" y="15.666666666666664" width="216" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="7I9-9K-QUU"/>
                                                     </constraints>
@@ -1177,7 +1183,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Legal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K5i-rT-yod">
-                                                    <rect key="frame" x="40" y="15.5" width="216" height="21"/>
+                                                    <rect key="frame" x="40" y="15.666666666666664" width="216" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="n4I-8R-Sta"/>
                                                     </constraints>
@@ -1216,17 +1222,17 @@
             <objects>
                 <viewController title="Import Seed" id="N4Z-yg-pFd" customClass="ImportSeedController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="syz-OR-PiP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Paste here your seed key..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-Ni-yt1" customClass="UITextViewWithDoneButton" customModule="Poketto" customModuleProvider="target">
-                                <rect key="frame" x="20" y="108" width="374" height="678"/>
+                                <rect key="frame" x="20" y="108" width="335" height="594"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCR-fV-Jnf">
-                                <rect key="frame" x="20" y="794" width="374" height="48"/>
+                                <rect key="frame" x="20" y="710" width="335" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="KlF-jE-ppl"/>
                                     <constraint firstAttribute="height" constant="48" id="yC1-s8-Fk9"/>
@@ -1265,7 +1271,7 @@
             <objects>
                 <viewController id="QSI-JI-uk8" customClass="RootController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f7w-3s-6Sl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cN7-h0-1U7"/>
@@ -1280,7 +1286,7 @@
             <objects>
                 <viewController storyboardIdentifier="launchVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Tn-eB-RUz" customClass="LaunchController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="woj-Tv-5Mc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4ke-IV-oIJ"/>
@@ -1303,11 +1309,11 @@
             <objects>
                 <viewController storyboardIdentifier="Page3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VsL-Ce-LRk" customClass="Page3Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y6M-hM-Gkx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXx-gw-AeF">
-                                <rect key="frame" x="20" y="755" width="374" height="51"/>
+                                <rect key="frame" x="20" y="671" width="335" height="51"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.77528444259999996" blue="0.0058782038889999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="h3P-v9-h1H"/>
@@ -1320,7 +1326,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oga-K4-vST">
-                                <rect key="frame" x="20" y="458" width="374" height="97.5"/>
+                                <rect key="frame" x="20" y="415.66666666666669" width="335" height="97.666666666666686"/>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">Poketto is a xDai pocket wallet for your day-to-day transactions. The simplest, most secure and near instant way to send money to friends and pay for your every day items.</string>
@@ -1333,7 +1339,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-icon" translatesAutoresizingMaskIntoConstraints="NO" id="zzn-Om-0nd">
-                                <rect key="frame" x="87" y="178" width="240" height="240"/>
+                                <rect key="frame" x="67.666666666666686" y="136" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="fcX-pW-CKp"/>
                                     <constraint firstAttribute="width" constant="240" id="hkV-Xe-vDO"/>
@@ -1363,7 +1369,7 @@
             <objects>
                 <viewController storyboardIdentifier="Page1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pA8-B8-Xq2" customClass="Page1Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zID-dh-rFb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="wTr-Uy-Jvw"/>
@@ -1378,7 +1384,7 @@
             <objects>
                 <viewController storyboardIdentifier="Page2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8CV-a7-Mon" customClass="Page2Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gcv-JY-nM5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="EGz-tv-E8E"/>
@@ -1394,7 +1400,7 @@
                 <navigationController storyboardIdentifier="dashboardNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iJV-Gs-E4e" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="xFq-mP-gCh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
@@ -1414,7 +1420,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nAq-68-vgb">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1433,11 +1439,11 @@
             <objects>
                 <viewController storyboardIdentifier="requestVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yyt-Sr-ESc" customClass="RequestController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PUj-VT-sB4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receive xDai in your wallet." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCn-2R-uEv">
-                                <rect key="frame" x="109" y="120" width="196.5" height="21"/>
+                                <rect key="frame" x="89.333333333333329" y="120" width="196.33333333333337" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="LeB-F7-Tn8"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="UKh-CQ-vKM"/>
@@ -1447,7 +1453,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lx-1u-2Rb">
-                                <rect key="frame" x="73" y="460" width="268" height="104"/>
+                                <rect key="frame" x="53.666666666666657" y="460" width="268" height="104"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="104" id="4iD-v2-YZy"/>
                                     <constraint firstAttribute="width" constant="268" id="sqq-Jr-wcU"/>
@@ -1457,7 +1463,7 @@
                                 </connections>
                             </containerView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9bJ-UE-sGW">
-                                <rect key="frame" x="102" y="165" width="210" height="210"/>
+                                <rect key="frame" x="82.666666666666686" y="165" width="210" height="210"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="210" id="R0a-om-qFW"/>
@@ -1465,7 +1471,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBx-Q7-Srb">
-                                <rect key="frame" x="73" y="395" width="268" height="40"/>
+                                <rect key="frame" x="73" y="395" width="229" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="pC5-sG-jGg"/>
                                 </constraints>
@@ -1474,7 +1480,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8J-Vk-dpO">
-                                <rect key="frame" x="73" y="88" width="268" height="2"/>
+                                <rect key="frame" x="53.666666666666657" y="88" width="268" height="2"/>
                                 <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="268" id="5qS-zS-zzu"/>
@@ -1540,7 +1546,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copy to clipboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSt-ii-aYQ">
-                                                    <rect key="frame" x="40" y="15.5" width="216" height="21"/>
+                                                    <rect key="frame" x="40" y="15.666666666666664" width="216" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="qpX-hS-nq3"/>
                                                     </constraints>
@@ -1599,7 +1605,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share with others" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PM4-cL-zSZ">
-                                                    <rect key="frame" x="40" y="15.5" width="216" height="21"/>
+                                                    <rect key="frame" x="40" y="15.666666666666664" width="216" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="vC3-xq-jVf"/>
                                                     </constraints>
@@ -1639,7 +1645,7 @@
                 <navigationController storyboardIdentifier="requestNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Bo3-dC-Z44" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Giz-QE-Lck">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
@@ -1658,7 +1664,7 @@
                 <navigationController storyboardIdentifier="paymentContactsNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="q2k-vh-Oth" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wpV-0N-Imh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
@@ -1677,7 +1683,7 @@
                 <navigationController storyboardIdentifier="contactsNavVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="q7x-8X-njP" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YVf-sH-T16">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1694,11 +1700,11 @@
             <objects>
                 <viewController storyboardIdentifier="emptyStateVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LQM-I3-wfg" customClass="EmptyStateController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WOW-vX-TFp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUG-CS-Tfw">
-                                <rect key="frame" x="115" y="447.5" width="184" height="1"/>
+                                <rect key="frame" x="95.666666666666686" y="405.66666666666669" width="184" height="1"/>
                                 <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="184" id="4Iu-Wl-Tbq"/>
@@ -1706,7 +1712,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WV4-6B-ViR">
-                                <rect key="frame" x="115" y="327.5" width="184" height="48"/>
+                                <rect key="frame" x="95.666666666666686" y="285.66666666666669" width="184" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="184" id="jBX-Xm-ud2"/>
                                     <constraint firstAttribute="height" constant="48" id="mXU-Xe-RJz"/>
@@ -1720,7 +1726,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npr-N9-2BU">
-                                <rect key="frame" x="115" y="472.5" width="184" height="48"/>
+                                <rect key="frame" x="95.666666666666686" y="430.66666666666669" width="184" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="184" id="00c-Gt-kPu"/>
                                     <constraint firstAttribute="height" constant="48" id="bX7-wO-HmN"/>
@@ -1734,7 +1740,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start receiving xDai transfers in your wallet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGX-N0-J1t">
-                                <rect key="frame" x="115" y="391.5" width="184" height="32"/>
+                                <rect key="frame" x="95.666666666666686" y="349.66666666666669" width="184" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="GjC-CI-5XO"/>
                                     <constraint firstAttribute="width" constant="184" id="bfc-JV-Hia"/>
@@ -1744,7 +1750,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn how to add funds to your wallet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lw3-0Y-2Dz">
-                                <rect key="frame" x="115" y="536.5" width="184" height="32"/>
+                                <rect key="frame" x="95.666666666666686" y="494.66666666666669" width="184" height="32.000000000000057"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="184" id="PFi-Hg-ceC"/>
                                     <constraint firstAttribute="height" constant="32" id="fOa-dV-kDT"/>
@@ -1779,9 +1785,9 @@
         <image name="add-funds-bg" width="184" height="48"/>
         <image name="arrow-down" width="12" height="16"/>
         <image name="arrow-up" width="12" height="16"/>
-        <image name="assign-address" width="13.5" height="14"/>
-        <image name="cell-address-manually" width="34" height="34"/>
-        <image name="cell-qrcode" width="34" height="34"/>
+        <image name="assign-address" width="13.333333015441895" height="14"/>
+        <image name="cell-address-manually" width="34" height="34.333332061767578"/>
+        <image name="cell-qrcode" width="34" height="34.333332061767578"/>
         <image name="nav-button-qrcode" width="32" height="32"/>
         <image name="nav-button-settings" width="32" height="32"/>
         <image name="onboarding-icon" width="240" height="240"/>
@@ -1789,17 +1795,17 @@
         <image name="pay-unknown" width="28" height="28"/>
         <image name="receive-funds-bg" width="184" height="48"/>
         <image name="request-button-background" width="177" height="60"/>
-        <image name="request-clipboard" width="34" height="34"/>
-        <image name="request-share" width="34" height="34"/>
+        <image name="request-clipboard" width="34" height="34.333332061767578"/>
+        <image name="request-share" width="34" height="34.333332061767578"/>
         <image name="send-button-background" width="346" height="48"/>
-        <image name="settings-backup" width="34" height="34"/>
-        <image name="settings-currency" width="34" height="34"/>
+        <image name="settings-backup" width="34" height="34.333332061767578"/>
+        <image name="settings-currency" width="34" height="34.333332061767578"/>
         <image name="settings-discord" width="36" height="36"/>
         <image name="settings-github" width="36" height="36"/>
         <image name="settings-header" width="350" height="128"/>
-        <image name="settings-legal" width="34" height="34"/>
+        <image name="settings-legal" width="34" height="34.333332061767578"/>
         <image name="settings-row-arrow" width="7" height="12"/>
-        <image name="settings-seed" width="34" height="34"/>
+        <image name="settings-seed" width="34" height="34.333332061767578"/>
         <image name="settings-twitter" width="36" height="36"/>
         <image name="share-transaction" width="12" height="14"/>
         <image name="success-checkmark" width="113" height="113"/>

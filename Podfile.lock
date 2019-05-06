@@ -22,7 +22,7 @@ PODS:
   - SipHash (1.2.2)
   - Starscream (3.1.0)
   - SVProgressHUD (2.2.5)
-  - SwiftKeychainWrapper (3.2.0)
+  - SwiftKeychainWrapper (3.3.0)
   - SwiftyJSON (4.0.0)
   - web3swift (2.2.0):
     - BigInt (~> 3.1)
@@ -87,7 +87,7 @@ SPEC CHECKSUMS:
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   Starscream: 08172b481e145289c4930cb567230fb55897cfa4
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
+  SwiftKeychainWrapper: ef5ad793bc0e08e24a5913f28345b8f7bc8e4123
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   web3swift: 149ab5d1e57edf8125b095f889f089ab55fadcf7
 

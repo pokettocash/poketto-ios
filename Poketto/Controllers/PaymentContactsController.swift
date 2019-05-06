@@ -11,7 +11,33 @@ import AVFoundation
 import QRCodeReader
 
 
-class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
+class CustomSearchBar: UISearchBar {
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setShowsCancelButton(false, animated: false)
+    }
+}
+
+class CustomSearchController: UISearchController, UISearchBarDelegate {
+    
+    lazy var _searchBar: CustomSearchBar = {
+        [unowned self] in
+        let result = CustomSearchBar(frame: CGRect.zero)
+        result.delegate = self
+        
+        return result
+        }()
+    
+    override var searchBar: UISearchBar {
+        get {
+            return _searchBar
+        }
+    }
+}
+
+
+class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
 
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
@@ -27,7 +53,7 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
         
         return QRCodeReaderViewController(builder: builder)
     }()
-    var searchController            : UISearchController!
+    var searchController            : CustomSearchController!
     let reuseIdentifier             = "payOptionCellId"
     @IBOutlet weak var tableView    : UITableView!
     var hasAddressOnClipboard       : Bool = false
@@ -43,15 +69,25 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
     
     func setSearchBar() {
         
-        searchController = UISearchController(searchResultsController: nil)
+        searchController = CustomSearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
+        searchController.delegate = self
         searchController.searchBar.placeholder = "Search Contacts"
-        searchController.searchBar.showsCancelButton = true
+        searchController.searchBar.showsCancelButton = false
         navigationItem.titleView = searchController.searchBar
         searchController.hidesNavigationBarDuringPresentation = false
         navigationController!.navigationBar.prefersLargeTitles = false
         navigationItem.largeTitleDisplayMode = .always
+        self.definesPresentationContext = true
+
+        for s in searchController.searchBar.subviews[0].subviews {
+            if s is UITextField {
+                s.layer.borderWidth = 2.0
+                s.layer.cornerRadius = 10
+                s.layer.borderColor = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1).cgColor
+            }
+        }
     }
     
     func setNavigationBar() {
@@ -64,7 +100,16 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
         
     }
     
+    func didPresentSearchController(_ searchController: UISearchController) {
+        searchController.searchBar.showsCancelButton = false
+    }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancel() {
         
         navigationController?.dismiss(animated: true, completion: nil)
     }
