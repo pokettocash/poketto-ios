@@ -107,42 +107,60 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
         DispatchQueue.global(qos: .background).async {
 
             var paymentContactsArray : [PaymentContact] = []
+            
+            var toTransactions : [String] = []
             for transaction in self.transactions {
+                let transactionJSON = transaction as! JSON
+                let toAddress = transactionJSON["to"].stringValue
+                toTransactions.append(toAddress)
+            }
+            
+            var fromTransactions : [String] = []
+            for transaction in self.transactions {
+                let transactionJSON = transaction as! JSON
+                let fromAddress = transactionJSON["from"].stringValue
+                fromTransactions.append(fromAddress)
+            }
+            let uniqueToTransactions = Array(Set(toTransactions))
+            let uniqueFromTransactions = Array(Set(fromTransactions))
+            
+            for toTransaction in uniqueToTransactions {
                 if paymentContactsArray.count == 0 {
-                    let transactionJSON = transaction as! JSON
-                    let paymentContact = self.addContact(from: transactionJSON)
+                    let paymentContact = self.addContact(from: toTransaction)
                     paymentContactsArray.append(paymentContact)
                 } else {
-                    let transactionJSON = transaction as! JSON
-                    let toAddress = transactionJSON["to"].stringValue
-                    let fromAddress = transactionJSON["from"].stringValue
-                    var filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == toAddress.uppercased()})
+                    var filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == toTransaction.uppercased()})
                     if filteredContacts.count == 0 {
-                        filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == fromAddress.uppercased()})
-                        if filteredContacts.count == 0 {
-                            if toAddress.uppercased() == self.wallet.getEthereumAddress()?.address.uppercased() {
-                                if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: fromAddress.uppercased()) {
-                                    filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == contact.address!.uppercased()})
-                                    if filteredContacts.count == 0 {
-                                        let paymentContact = self.addContact(from: transactionJSON)
-                                        paymentContactsArray.append(paymentContact)
-                                    }
-                                } else {
-                                    let paymentContact = self.addContact(from: transactionJSON)
-                                    paymentContactsArray.append(paymentContact)
-                                }
-                            } else {
-                                if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: toAddress.uppercased()) {
-                                    filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == contact.address!.uppercased()})
-                                    if filteredContacts.count == 0 {
-                                        let paymentContact = self.addContact(from: transactionJSON)
-                                        paymentContactsArray.append(paymentContact)
-                                    }
-                                } else {
-                                    let paymentContact = self.addContact(from: transactionJSON)
-                                    paymentContactsArray.append(paymentContact)
-                                }
+                        if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: toTransaction.uppercased()) {
+                            filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == contact.address!.uppercased()})
+                            if filteredContacts.count == 0 {
+                                let paymentContact = self.addContact(from: toTransaction)
+                                paymentContactsArray.append(paymentContact)
                             }
+                        } else {
+                            let paymentContact = self.addContact(from: toTransaction)
+                            paymentContactsArray.append(paymentContact)
+                        }
+                    }
+                }
+            }
+            
+            for fromTransaction in uniqueFromTransactions {
+                if paymentContactsArray.count == 0 {
+                    let paymentContact = self.addContact(from: fromTransaction)
+                    paymentContactsArray.append(paymentContact)
+                } else {
+                    var filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == fromTransaction.uppercased()})
+                    if filteredContacts.count == 0 {
+                        if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: fromTransaction.uppercased()) {
+                            filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == contact.address!.uppercased()})
+                            if filteredContacts.count == 0 {
+                                let paymentContact = self.addContact(from: fromTransaction)
+                                paymentContactsArray.append(paymentContact)
+                            }
+                        } else {
+                            let paymentContact = self.addContact(from: fromTransaction)
+                            paymentContactsArray.append(paymentContact)
                         }
                     }
                 }
@@ -156,31 +174,20 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
 
     }
     
-    func addContact(from transaction: JSON) -> PaymentContact {
+    func addContact(from address: String) -> PaymentContact {
         
         let paymentContact = PaymentContact()
-        let toAddress = transaction["to"].stringValue
-        let fromAddress = transaction["from"].stringValue
-        if toAddress.uppercased() == wallet.getEthereumAddress()?.address.uppercased() {
-            if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: fromAddress.uppercased()) {
-                paymentContact.name = contact.name
-                paymentContact.address = contact.address
-                paymentContact.avatarURL = contact.avatar_url
-                paymentContact.contactId = contact.contact_id
-            } else {
-                paymentContact.name = fromAddress
-                paymentContact.address = fromAddress
-            }
+
+        if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: address.uppercased()) {
+            paymentContact.name = contact.name
+            paymentContact.address = contact.address
+            paymentContact.avatarURL = contact.avatar_url
+            paymentContact.contactId = contact.contact_id
         } else {
-            if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: toAddress.uppercased()) {
-                paymentContact.name = contact.name
-                paymentContact.address = contact.address
-                paymentContact.avatarURL = contact.avatar_url
-            } else {
-                paymentContact.name = toAddress
-                paymentContact.address = toAddress
-            }
+            paymentContact.name = address
+            paymentContact.address = address
         }
+
         return paymentContact
     }
 
