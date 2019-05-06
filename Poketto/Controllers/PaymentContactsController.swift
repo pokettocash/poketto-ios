@@ -9,7 +9,8 @@
 import UIKit
 import AVFoundation
 import QRCodeReader
-
+import SwiftyJSON
+import Contacts
 
 class CustomSearchBar: UISearchBar {
     
@@ -58,6 +59,10 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
     @IBOutlet weak var tableView    : UITableView!
     var hasAddressOnClipboard       : Bool = false
     var selectedAddress             : String!
+    var transactions                : Array<Any> = []
+    var paymentContacts             : [PaymentContact] = []
+    var wallet                      = Wallet.init()
+    var contactStore                = CNContactStore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +70,9 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
         setNavigationBar()
         setSearchBar()
         checkPasteBoard()
+        setPaymentContacts()
     }
-    
+
     func setSearchBar() {
         
         searchController = CustomSearchController(searchResultsController: nil)
@@ -94,6 +100,88 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    func setPaymentContacts() {
+        
+        DispatchQueue.global(qos: .background).async {
+
+            var paymentContactsArray : [PaymentContact] = []
+            for transaction in self.transactions {
+                if paymentContactsArray.count == 0 {
+                    let transactionJSON = transaction as! JSON
+                    let paymentContact = self.addContact(from: transactionJSON)
+                    paymentContactsArray.append(paymentContact)
+                } else {
+                    let transactionJSON = transaction as! JSON
+                    let toAddress = transactionJSON["to"].stringValue
+                    let fromAddress = transactionJSON["from"].stringValue
+                    var filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == toAddress.uppercased()})
+                    if filteredContacts.count == 0 {
+                        filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == fromAddress.uppercased()})
+                        if filteredContacts.count == 0 {
+                            if toAddress.uppercased() == self.wallet.getEthereumAddress()?.address.uppercased() {
+                                if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: fromAddress.uppercased()) {
+                                    filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == contact.address!.uppercased()})
+                                    if filteredContacts.count == 0 {
+                                        let paymentContact = self.addContact(from: transactionJSON)
+                                        paymentContactsArray.append(paymentContact)
+                                    }
+                                } else {
+                                    let paymentContact = self.addContact(from: transactionJSON)
+                                    paymentContactsArray.append(paymentContact)
+                                }
+                            } else {
+                                if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: toAddress.uppercased()) {
+                                    filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == contact.address!.uppercased()})
+                                    if filteredContacts.count == 0 {
+                                        let paymentContact = self.addContact(from: transactionJSON)
+                                        paymentContactsArray.append(paymentContact)
+                                    }
+                                } else {
+                                    let paymentContact = self.addContact(from: transactionJSON)
+                                    paymentContactsArray.append(paymentContact)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            DispatchQueue.main.async {
+                self.paymentContacts = paymentContactsArray
+                self.tableView.reloadData()
+            }
+        }
+
+    }
+    
+    func addContact(from transaction: JSON) -> PaymentContact {
+        
+        let paymentContact = PaymentContact()
+        let toAddress = transaction["to"].stringValue
+        let fromAddress = transaction["from"].stringValue
+        if toAddress.uppercased() == wallet.getEthereumAddress()?.address.uppercased() {
+            if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: fromAddress.uppercased()) {
+                paymentContact.name = contact.name
+                paymentContact.address = contact.address
+                paymentContact.avatarURL = contact.avatar_url
+                paymentContact.contactId = contact.contact_id
+            } else {
+                paymentContact.name = fromAddress
+                paymentContact.address = fromAddress
+            }
+        } else {
+            if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: toAddress.uppercased()) {
+                paymentContact.name = contact.name
+                paymentContact.address = contact.address
+                paymentContact.avatarURL = contact.avatar_url
+            } else {
+                paymentContact.name = toAddress
+                paymentContact.address = toAddress
+            }
+        }
+        return paymentContact
     }
 
     func updateSearchResults(for searchController: UISearchController) {
@@ -189,8 +277,34 @@ extension PaymentContactsController : UITableViewDataSource {
         } else if section == 1 {
             return 0
         } else {
-            return 0
+            return paymentContacts.count
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 48
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 58))
+        headerView.backgroundColor = UIColor.white
+        if section == 0 {
+            headerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 0)
+        } else if section == 1 {
+//            titleLabel.text = "Popular"
+            headerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 0)
+        } else {
+            let titleLabel = UILabel(frame: CGRect(x: 15, y: 10, width: tableView.frame.size.width-30, height: 20))
+            headerView.addSubview(titleLabel)
+            titleLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 0.6)
+            titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+            titleLabel.text = "Recent"
+            let underline = UIView(frame: CGRect(x: 15, y: 40, width: tableView.frame.size.width-30, height: 2))
+            underline.backgroundColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
+            headerView.addSubview(underline)
+        }
+        return headerView
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -218,7 +332,36 @@ extension PaymentContactsController : UITableViewDataSource {
                 }
             }
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "pasteCellId", for: indexPath) as! PasteCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "paymentContactCellId", for: indexPath) as! PaymentContactCell
+            let paymentContact = paymentContacts[indexPath.row]
+            cell.addressLabel.text = paymentContact.name
+            
+            if let contactId = paymentContact.contactId {
+                do {
+                    let phoneContact = try contactStore.unifiedContact(withIdentifier: contactId, keysToFetch: [CNContactThumbnailImageDataKey as CNKeyDescriptor])
+                    if let avatar = phoneContact.thumbnailImageData {
+                        DispatchQueue.main.async {
+                            cell.contactImageView.image = UIImage(data: avatar)
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            cell.contactImageView.image = UIImage(named: "contact-placeholder")
+                        }
+                    }
+                } catch {
+                    print("Error fetching results for container")
+                    DispatchQueue.main.async {
+                        cell.contactImageView.image = UIImage(named: "contact-placeholder")
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    cell.contactImageView.image = UIImage(named: "unknown-address")
+                }
+            }
+
+            cell.contactImageView.layer.cornerRadius = 20
+
             return cell
         }
     }

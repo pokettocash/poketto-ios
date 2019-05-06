@@ -102,6 +102,8 @@ class DashboardController: UIViewController, SettingsDelegate {
     @IBAction func pay() {
         
         let paymentContactsNavVC = storyboard?.instantiateViewController(withIdentifier: "paymentContactsNavVC") as! UINavigationController
+        let paymentsVC = paymentContactsNavVC.viewControllers[0] as! PaymentContactsController
+        paymentsVC.transactions = transactions
         navigationController?.present(paymentContactsNavVC, animated: true, completion: nil)
     }
     

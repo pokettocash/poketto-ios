@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1BD6E5DFF314324206BAE069 /* Pods_Poketto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A2196B6BC317ADF6BD8E6E /* Pods_Poketto.framework */; };
 		70572CD12274A17200297421 /* db.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70572CCF2274A17200297421 /* db.xcdatamodeld */; };
+		7073A69D2280C03800049A2E /* PaymentContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073A69C2280C03800049A2E /* PaymentContactCell.swift */; };
+		7073A69F2280C6AA00049A2E /* PaymentContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073A69E2280C6AA00049A2E /* PaymentContact.swift */; };
 		707DEB94226DD56000F0AD93 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB93226DD56000F0AD93 /* SettingsController.swift */; };
 		707DEB96226F466800F0AD93 /* RequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB95226F466800F0AD93 /* RequestController.swift */; };
 		707DEB98226F52A500F0AD93 /* PaymentContactsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707DEB97226F52A500F0AD93 /* PaymentContactsController.swift */; };
@@ -65,6 +67,8 @@
 		1BB705613E84BCFB97EA9BDD /* Pods-Poketto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poketto.debug.xcconfig"; path = "Target Support Files/Pods-Poketto/Pods-Poketto.debug.xcconfig"; sourceTree = "<group>"; };
 		42A2196B6BC317ADF6BD8E6E /* Pods_Poketto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poketto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70572CD02274A17200297421 /* db.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = db.xcdatamodel; sourceTree = "<group>"; };
+		7073A69C2280C03800049A2E /* PaymentContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentContactCell.swift; sourceTree = "<group>"; };
+		7073A69E2280C6AA00049A2E /* PaymentContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentContact.swift; sourceTree = "<group>"; };
 		707DEB93226DD56000F0AD93 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		707DEB95226F466800F0AD93 /* RequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestController.swift; sourceTree = "<group>"; };
 		707DEB97226F52A500F0AD93 /* PaymentContactsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentContactsController.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 		707FB2062275D04E005B29A2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7073A69E2280C6AA00049A2E /* PaymentContact.swift */,
 				707FB2072275D061005B29A2 /* PhoneContact.swift */,
 			);
 			path = Models;
@@ -202,6 +207,7 @@
 				707DEB9B226F572900F0AD93 /* PayOptionCell.swift */,
 				70A31C822267810B007291D1 /* TransactionCell.swift */,
 				707FB2092275D351005B29A2 /* ContactCell.swift */,
+				7073A69C2280C03800049A2E /* PaymentContactCell.swift */,
 				DD8FADDE227A50FC00851827 /* UITextViewWithDoneButton.swift */,
 			);
 			path = Views;
@@ -577,7 +583,9 @@
 				70A31C7422676096007291D1 /* LaunchController.swift in Sources */,
 				70A31C7A22676A34007291D1 /* OnboardingController.swift in Sources */,
 				DD9826F12279FD84003CB0ED /* ImportSeedController.swift in Sources */,
+				7073A69F2280C6AA00049A2E /* PaymentContact.swift in Sources */,
 				707DEB96226F466800F0AD93 /* RequestController.swift in Sources */,
+				7073A69D2280C03800049A2E /* PaymentContactCell.swift in Sources */,
 				70C82D6622710B7200F627A1 /* PaymentSuccessController.swift in Sources */,
 				DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */,
 				70AD5C3E2279064400A9E164 /* EmptyStateController.swift in Sources */,
