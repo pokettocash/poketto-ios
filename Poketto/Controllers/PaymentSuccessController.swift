@@ -8,20 +8,26 @@
 
 import UIKit
 import web3swift
+import Contacts
 
 class PaymentSuccessController: UIViewController {
     
-    var transaction                 : TransactionSendingResult!
-    @IBOutlet weak var addressLabel : UILabel!
-    @IBOutlet weak var amountLabel  : UILabel!
+    var transaction                         : TransactionSendingResult!
+    var paymentContact                      : PaymentContact!
+    @IBOutlet weak var userImageView        : UIImageView!
+    @IBOutlet weak var userNameLabel        : UILabel!
+    @IBOutlet weak var amountLabel          : UILabel!
+    @IBOutlet weak var assignWalletButton   : UIButton!
+    var contactStore                        = CNContactStore()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let amountValue = Float(transaction.transaction.value) / 1000000000000000000.0
         let amount = String(format: "%.2f", amountValue)
 
-        addressLabel.text = "\(transaction.transaction.to.address)"
+        userNameLabel.text = "\(transaction.transaction.to.address)"
         
         let attributedString = NSMutableAttributedString(string: amount,
                                                          attributes: [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 40),
@@ -30,6 +36,41 @@ class PaymentSuccessController: UIViewController {
             attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
                          NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)]))
         amountLabel.attributedText = attributedString
+        
+        if let contactId = paymentContact?.contactId {
+            
+            assignWalletButton.isHidden = true
+            assignWalletButton.isUserInteractionEnabled = false
+            
+            userImageView.layer.cornerRadius = userImageView.frame.size.width/2
+            
+            userNameLabel.text = paymentContact.name
+            userNameLabel.font = UIFont.systemFont(ofSize: 16)
+            userNameLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)
+            
+            do {
+                let phoneContact = try contactStore.unifiedContact(withIdentifier: contactId, keysToFetch: [CNContactThumbnailImageDataKey as CNKeyDescriptor])
+                if let avatar = phoneContact.thumbnailImageData {
+                    DispatchQueue.main.async {
+                        self.userImageView.image = UIImage(data: avatar)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.userImageView.image = UIImage(named: "contact-placeholder")
+                    }
+                }
+            } catch {
+                print("Error fetching results for container")
+                DispatchQueue.main.async {
+                    self.userImageView.image = UIImage(named: "contact-placeholder")
+                }
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.userImageView.image = UIImage(named: "unknown-address")
+            }
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

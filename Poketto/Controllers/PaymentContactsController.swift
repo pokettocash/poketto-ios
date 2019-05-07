@@ -181,7 +181,6 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
         if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: address.uppercased()) {
             paymentContact.name = contact.name
             paymentContact.address = contact.address
-            paymentContact.avatarURL = contact.avatar_url
             paymentContact.contactId = contact.contact_id
         } else {
             paymentContact.name = address
@@ -258,8 +257,11 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "send" {
             let sendVC = segue.destination as! PaymentSendController
+            print("selectedAddress \(selectedAddress)")
             sendVC.address = selectedAddress
-            
+            if let contact = sender as? PaymentContact {
+                sendVC.paymentContact = contact
+            }
             let backItem = UIBarButtonItem()
             backItem.title = "Pay"
             navigationItem.backBarButtonItem = backItem
@@ -352,7 +354,7 @@ extension PaymentContactsController : UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "paymentContactCellId", for: indexPath) as! PaymentContactCell
             let paymentContact = paymentContacts[indexPath.row]
             cell.addressLabel.text = paymentContact.name
-            
+                        
             if let contactId = paymentContact.contactId {
                 do {
                     let phoneContact = try contactStore.unifiedContact(withIdentifier: contactId, keysToFetch: [CNContactThumbnailImageDataKey as CNKeyDescriptor])
@@ -389,6 +391,8 @@ extension PaymentContactsController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath, animated: true)
+
         if indexPath.section == 0 {
             if hasAddressOnClipboard {
                 if indexPath.row == 0 {
@@ -406,8 +410,12 @@ extension PaymentContactsController : UITableViewDelegate {
                     scanAction()
                 }
             }
+        } else if indexPath.section == 1 {
+            
+        } else {
+            let paymentContact = paymentContacts[indexPath.row]
+            selectedAddress = paymentContact.address
+            performSegue(withIdentifier: "send", sender: paymentContact)
         }
-        
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

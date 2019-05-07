@@ -10,7 +10,6 @@ import UIKit
 
 class PaymentContact: NSObject {
 
-    var avatarURL   : String?
     var name        : String!
     var address     : String!
     var contactId   : String?

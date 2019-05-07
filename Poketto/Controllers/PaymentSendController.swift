@@ -9,22 +9,57 @@
 import UIKit
 import SVProgressHUD
 import web3swift
+import Contacts
 
 class PaymentSendController: UIViewController {
     
     var address                         : String!
+    var paymentContact                  : PaymentContact!
     @IBOutlet weak var userImageView    : UIImageView!
     @IBOutlet weak var userNameLabel    : UILabel!
     @IBOutlet weak var amountTextField  : UITextField!
     var navBarTitleLabel                : UILabel!
     var navBarSubTitleLabel             : UILabel!
+    var contactStore                = CNContactStore()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("PaymentSendController address \(address!)")
+        
+        userImageView.layer.cornerRadius = userImageView.frame.size.width/2
+        
         if address != nil {
             userNameLabel.text = address
+        }
+        if let contactId = paymentContact?.contactId {
+            
+            userNameLabel.text = paymentContact.name
+            userNameLabel.font = UIFont.systemFont(ofSize: 16)
+            userNameLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)
+
+            do {
+                let phoneContact = try contactStore.unifiedContact(withIdentifier: contactId, keysToFetch: [CNContactThumbnailImageDataKey as CNKeyDescriptor])
+                if let avatar = phoneContact.thumbnailImageData {
+                    DispatchQueue.main.async {
+                        self.userImageView.image = UIImage(data: avatar)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.userImageView.image = UIImage(named: "contact-placeholder")
+                    }
+                }
+            } catch {
+                print("Error fetching results for container")
+                DispatchQueue.main.async {
+                    self.userImageView.image = UIImage(named: "contact-placeholder")
+                }
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.userImageView.image = UIImage(named: "unknown-address")
+            }
         }
     }
     
@@ -33,7 +68,6 @@ class PaymentSendController: UIViewController {
         
         setNavigationBar()
         if address != nil {
-            userNameLabel.text = address
             amountTextField.becomeFirstResponder()
         }
     }
@@ -94,6 +128,8 @@ class PaymentSendController: UIViewController {
                 print("This is run on the background queue")
 
                 let wallet = Wallet.init()
+                print("send \(self.address!)")
+
                 wallet.send(toAddress: self.address!, value: amount, success: { transaction in
                     print("show next screen \(transaction)")
                     DispatchQueue.main.async {
@@ -130,6 +166,9 @@ class PaymentSendController: UIViewController {
         
         if segue.identifier == "success" {
             let paymentSuccessVC = segue.destination as! PaymentSuccessController
+            if paymentContact != nil {
+                paymentSuccessVC.paymentContact = paymentContact
+            }
             paymentSuccessVC.transaction = sender as? TransactionSendingResult
         }
     }

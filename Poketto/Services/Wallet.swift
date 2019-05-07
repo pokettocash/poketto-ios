@@ -48,7 +48,7 @@ class Wallet {
     
     func send(toAddress: String, value: String, success: @escaping (TransactionSendingResult) -> Void, failure: @escaping (String) -> Void) {
         
-        let toAddress = EthereumAddress(toAddress)!
+        let toAddress = EthereumAddress(toAddress.lowercased())!
         
         let endpoint = "https://dai.poa.network"
         let connection = web3(provider: Web3HttpProvider(URL(string: endpoint)!)!)
