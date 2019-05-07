@@ -12,33 +12,8 @@ import QRCodeReader
 import SwiftyJSON
 import Contacts
 
-class CustomSearchBar: UISearchBar {
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        setShowsCancelButton(false, animated: false)
-    }
-}
 
-class CustomSearchController: UISearchController, UISearchBarDelegate {
-    
-    lazy var _searchBar: CustomSearchBar = {
-        [unowned self] in
-        let result = CustomSearchBar(frame: CGRect.zero)
-        result.delegate = self
-        
-        return result
-        }()
-    
-    override var searchBar: UISearchBar {
-        get {
-            return _searchBar
-        }
-    }
-}
-
-
-class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate {
+class PaymentContactsController: UIViewController, UISearchBarDelegate {
 
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
@@ -54,15 +29,18 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
         
         return QRCodeReaderViewController(builder: builder)
     }()
-    var searchController            : CustomSearchController!
+
     let reuseIdentifier             = "payOptionCellId"
     @IBOutlet weak var tableView    : UITableView!
     var hasAddressOnClipboard       : Bool = false
     var selectedAddress             : String!
     var transactions                : Array<Any> = []
     var paymentContacts             : [PaymentContact] = []
+    var filteredPaymentContacts     : [PaymentContact] = []
     var wallet                      = Wallet.init()
     var contactStore                = CNContactStore()
+    var searchBar                   : UISearchBar!
+    var searchBarText               : String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,19 +53,12 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
 
     func setSearchBar() {
         
-        searchController = CustomSearchController(searchResultsController: nil)
-        searchController.searchBar.delegate = self
-        searchController.searchResultsUpdater = self
-        searchController.delegate = self
-        searchController.searchBar.placeholder = "Search Contacts"
-        searchController.searchBar.showsCancelButton = false
-        navigationItem.titleView = searchController.searchBar
-        searchController.hidesNavigationBarDuringPresentation = false
-        navigationController!.navigationBar.prefersLargeTitles = false
-        navigationItem.largeTitleDisplayMode = .always
-        self.definesPresentationContext = true
-
-        for s in searchController.searchBar.subviews[0].subviews {
+        searchBar = UISearchBar(frame: CGRect.zero)
+        searchBar.delegate = self
+        searchBar.placeholder = "Search Contacts"
+        navigationItem.titleView = searchBar
+        
+        for s in searchBar.subviews[0].subviews {
             if s is UITextField {
                 s.layer.borderWidth = 2.0
                 s.layer.cornerRadius = 10
@@ -168,6 +139,7 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
 
             DispatchQueue.main.async {
                 self.paymentContacts = paymentContactsArray
+                self.filteredPaymentContacts = self.paymentContacts
                 self.tableView.reloadData()
             }
         }
@@ -189,18 +161,38 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
 
         return paymentContact
     }
-
-    func updateSearchResults(for searchController: UISearchController) {
-        
-    }
     
-    func didPresentSearchController(_ searchController: UISearchController) {
-        searchController.searchBar.showsCancelButton = false
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText:String){
+
+        searchBarText = searchText
+        filterContentForSearchText(searchText: searchText)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
         navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.text = searchBarText
+        tableView.reloadData()
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        
+        DispatchQueue.main.async {
+            self.filteredPaymentContacts.removeAll()
+            
+            if searchText != "" {
+                self.filteredPaymentContacts = self.paymentContacts.filter { paymentContact in
+                    return "\(paymentContact.name!)".lowercased().contains(searchText.lowercased()) || "\(paymentContact.address!)".lowercased().contains(searchText.lowercased())
+                }
+            } else {
+                self.filteredPaymentContacts = self.paymentContacts
+                
+            }
+            self.tableView.reloadData()
+        }
     }
     
     @IBAction func cancel() {
@@ -257,7 +249,6 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "send" {
             let sendVC = segue.destination as! PaymentSendController
-            print("selectedAddress \(selectedAddress)")
             sendVC.address = selectedAddress
             if let contact = sender as? PaymentContact {
                 sendVC.paymentContact = contact
@@ -273,10 +264,21 @@ class PaymentContactsController: UIViewController, UISearchResultsUpdating, UISe
 extension PaymentContactsController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        if let searchText = searchBarText {
+            if searchText != "" {
+                return 1
+            }
+        }
         return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let searchText = searchBarText {
+            if searchText != "" {
+                return filteredPaymentContacts.count
+            }
+        }
+
         if section == 0 {
             if hasAddressOnClipboard {
                 return 3
@@ -286,15 +288,24 @@ extension PaymentContactsController : UITableViewDataSource {
         } else if section == 1 {
             return 0
         } else {
-            return paymentContacts.count
+            return filteredPaymentContacts.count
         }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        }
         return 45
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let searchText = searchBarText {
+            if searchText != "" {
+                return 56
+            }
+        }
+
         if indexPath.section == 0 {
             return 52
         } else if indexPath.section == 1 {
@@ -307,7 +318,14 @@ extension PaymentContactsController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 58))
         headerView.backgroundColor = UIColor.white
-        if section == 0 {
+        var searchTextIsActive = false
+        if let searchText = searchBarText {
+            if searchText != "" {
+                searchTextIsActive = true
+            }
+        }
+
+        if section == 0 && !searchTextIsActive {
             headerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 0)
         } else if section == 1 {
 //            titleLabel.text = "Popular"
@@ -328,7 +346,14 @@ extension PaymentContactsController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 0 {
+        var searchTextIsActive = false
+        if let searchText = searchBarText {
+            if searchText != "" {
+                searchTextIsActive = true
+            }
+        }
+
+        if indexPath.section == 0 && !searchTextIsActive {
             if hasAddressOnClipboard {
                 if indexPath.row == 0 {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "pasteCellId", for: indexPath) as! PasteCell
@@ -352,7 +377,7 @@ extension PaymentContactsController : UITableViewDataSource {
             }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "paymentContactCellId", for: indexPath) as! PaymentContactCell
-            let paymentContact = paymentContacts[indexPath.row]
+            let paymentContact = filteredPaymentContacts[indexPath.row]
             cell.addressLabel.text = paymentContact.name
                         
             if let contactId = paymentContact.contactId {
@@ -392,8 +417,15 @@ extension PaymentContactsController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        var searchTextIsActive = false
+        if let searchText = searchBarText {
+            if searchText != "" {
+                searchTextIsActive = true
+            }
+        }
 
-        if indexPath.section == 0 {
+        if indexPath.section == 0 && !searchTextIsActive {
             if hasAddressOnClipboard {
                 if indexPath.row == 0 {
                     selectedAddress = UIPasteboard.general.string
@@ -413,7 +445,7 @@ extension PaymentContactsController : UITableViewDelegate {
         } else if indexPath.section == 1 {
             
         } else {
-            let paymentContact = paymentContacts[indexPath.row]
+            let paymentContact = filteredPaymentContacts[indexPath.row]
             selectedAddress = paymentContact.address
             performSegue(withIdentifier: "send", sender: paymentContact)
         }
