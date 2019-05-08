@@ -111,7 +111,8 @@ class PaymentDetailsController: UIViewController {
             let paymentSendVC = segue.destination as! PaymentSendController
             paymentSendVC.address = paymentContact.address
             paymentSendVC.paymentContact = paymentContact
-            
+            paymentSendVC.fromDetails = true
+
             let backItem = UIBarButtonItem()
             backItem.title = "Back"
             navigationItem.backBarButtonItem = backItem

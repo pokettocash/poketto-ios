@@ -233,6 +233,7 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
             if let contact = sender as? PaymentContact {
                 sendVC.paymentContact = contact
             }
+            sendVC.fromDetails = false
             let backItem = UIBarButtonItem()
             backItem.title = "Pay"
             navigationItem.backBarButtonItem = backItem

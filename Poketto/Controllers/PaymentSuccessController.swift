@@ -12,6 +12,7 @@ import Contacts
 
 class PaymentSuccessController: UIViewController {
     
+    var fromDetails                         : Bool!
     var transaction                         : TransactionSendingResult!
     var paymentContact                      : PaymentContact!
     @IBOutlet weak var userImageView        : UIImageView!
@@ -85,7 +86,12 @@ class PaymentSuccessController: UIViewController {
     
     @IBAction func done() {
         
-        navigationController?.dismiss(animated: true, completion: nil)
+        if fromDetails {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+            navigationController?.popToRootViewController(animated: true)
+        } else {
+            navigationController?.dismiss(animated: true, completion: nil)
+        }
     }
 
     @IBAction func assignContact() {

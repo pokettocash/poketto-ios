@@ -13,6 +13,7 @@ import Contacts
 
 class PaymentSendController: UIViewController {
     
+    var fromDetails                     : Bool!
     var address                         : String!
     var paymentContact                  : PaymentContact!
     @IBOutlet weak var userImageView    : UIImageView!
@@ -172,6 +173,7 @@ class PaymentSendController: UIViewController {
             if paymentContact != nil {
                 paymentSuccessVC.paymentContact = paymentContact
             }
+            paymentSuccessVC.fromDetails = fromDetails
             paymentSuccessVC.transaction = sender as? TransactionSendingResult
         }
     }
