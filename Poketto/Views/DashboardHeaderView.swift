@@ -12,4 +12,6 @@ class DashboardHeaderView: UICollectionReusableView {
    
     @IBOutlet var balanceLabel: UILabel!
     @IBOutlet var emptyStateView: UIView!
+    
+    @IBOutlet var spentTodayLabel: UILabel!
 }

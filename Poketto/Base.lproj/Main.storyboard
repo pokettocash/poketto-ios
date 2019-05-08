@@ -135,7 +135,7 @@
                                                 <action selector="pay" destination="BYZ-38-t0r" eventType="touchUpInside" id="ukA-fk-XEx"/>
                                             </connections>
                                         </button>
-                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spent today" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwV-cp-UAK">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spent today" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwV-cp-UAK">
                                             <rect key="frame" x="248" y="32" width="112" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="Lec-rb-QpT"/>
@@ -145,7 +145,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ers-73-5HB">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ers-73-5HB">
                                             <rect key="frame" x="233" y="60" width="127" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="HV0-dL-MJL"/>
@@ -198,6 +198,7 @@
                                     <connections>
                                         <outlet property="balanceLabel" destination="dzJ-vx-9c7" id="Yrw-9Z-wJs"/>
                                         <outlet property="emptyStateView" destination="Op5-4B-zRy" id="kz2-Cb-vs2"/>
+                                        <outlet property="spentTodayLabel" destination="Ers-73-5HB" id="TQE-fp-Hf0"/>
                                     </connections>
                                 </collectionReusableView>
                                 <connections>
