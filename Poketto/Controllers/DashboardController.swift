@@ -219,6 +219,14 @@ class DashboardController: UIViewController, SettingsDelegate {
         controller.address = wallet.getEthereumAddress()?.address
         customPresentViewController(presenter, viewController: navController, animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "paymentDetails" {
+            let transaction = sender as! Transaction
+            let paymentDetailsVC = segue.destination as! PaymentDetailsController
+            paymentDetailsVC.transaction = transaction
+        }
+    }
 }
 
 extension DashboardController : UICollectionViewDataSource {
@@ -331,6 +339,7 @@ extension DashboardController : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
+        let transaction = transactions[indexPath.row]
+        performSegue(withIdentifier: "paymentDetails", sender: transaction)
     }
 }
