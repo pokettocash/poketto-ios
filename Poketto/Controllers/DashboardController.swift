@@ -18,7 +18,7 @@ class DashboardController: UIViewController, SettingsDelegate {
     var emptyStateContainer             : EmptyStateController!
     @IBOutlet var collectionView        : UICollectionView!
     private let refreshControl          = UIRefreshControl()
-    var transactions                    : Array<Any> = []
+    var transactions                    : Array<Transaction> = []
     let reuseIdentifier                 = "transactionCellId"
     var headerID                        = "dashboardHeaderId"
     var balance                         : Float!
@@ -85,10 +85,59 @@ class DashboardController: UIViewController, SettingsDelegate {
         print("wallet address \(wallet.getEthereumAddress()!.address)")
         explorer.transactionsFrom(address: wallet.getEthereumAddress()!.address, completion: { transactions in
             print("transactions \(transactions)")
+            
+            let walletAddress = self.wallet.getEthereumAddress()?.address
+            
+            var serializedTransactions : Array<Transaction> = []
+            
+            transactions.forEach({ (exploredTransaction) in
+                let jsonTransaction = exploredTransaction as! JSON
+                let transaction = Transaction.init()
+                
+                transaction.toAddress = jsonTransaction["to"].stringValue
+                transaction.fromAddress = jsonTransaction["from"].stringValue
+                
+                var othersAddress = transaction.toAddress.uppercased()
+                transaction.transactionType = .Debit
+                if transaction.toAddress.uppercased() == walletAddress!.uppercased() {
+                    othersAddress = transaction.fromAddress.uppercased()
+                    transaction.transactionType = .Credit
+                }
+                
+                if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: othersAddress) {
+                    
+                    transaction.displayName = contact.name
+                    
+                    do {
+                        let phoneContact = try self.contactStore.unifiedContact(withIdentifier: contact.contact_id!, keysToFetch: [CNContactThumbnailImageDataKey as CNKeyDescriptor])
+                        if let avatar = phoneContact.thumbnailImageData {
+                            transaction.displayImage = UIImage(data: avatar)
+                        } else {
+                            transaction.displayImage = UIImage(named: "contact-placeholder")
+                        }
+                    } catch {
+                        print("Error fetching results for container")
+                        transaction.displayImage = UIImage(named: "contact-placeholder")
+                    }
+                    
+                } else {
+                    transaction.displayImage = UIImage(named: "unknown-address")
+                }
+                
+                if let amount = jsonTransaction["value"].string {
+                    let wei = Float(amount)!
+                    let dai : Float = wei / 1000000000000000000.0
+                    
+                    transaction.amount = dai
+                }
+                
+                serializedTransactions.append(transaction)
+            })
+            
             DispatchQueue.main.async {
                 self.hasFetchedData = true
                 self.refreshControl.endRefreshing()
-                self.transactions = transactions
+                self.transactions = serializedTransactions
                 self.transactions.reverse()
                 self.collectionView.reloadData()
             }
@@ -222,62 +271,30 @@ extension DashboardController : UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TransactionCell
         
-        let transaction = transactions[indexPath.row] as! JSON
+        let transaction = transactions[indexPath.row]
         
-        let toAddress = transaction["to"].stringValue
-        let fromAddress = transaction["from"].stringValue
-
-        var othersAddress = toAddress.uppercased()
-        if toAddress.uppercased() == wallet.getEthereumAddress()?.address.uppercased() {
-            othersAddress = fromAddress.uppercased()
-        }
-    
-        if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: othersAddress) {
-            
-            cell.addressLabel.text = contact.name
-            
-            do {
-                let phoneContact = try contactStore.unifiedContact(withIdentifier: contact.contact_id!, keysToFetch: [CNContactThumbnailImageDataKey as CNKeyDescriptor])
-                if let avatar = phoneContact.thumbnailImageData {
-                    DispatchQueue.main.async {
-                        cell.contactImageView.image = UIImage(data: avatar)
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        cell.contactImageView.image = UIImage(named: "contact-placeholder")
-                    }
-                }
-            } catch {
-                print("Error fetching results for container")
-                DispatchQueue.main.async {
-                    cell.contactImageView.image = UIImage(named: "contact-placeholder")
-                }
-            }
-            
+        if (transaction.displayName != nil) {
+            cell.addressLabel.text = transaction.displayName
         } else {
             let attributedString = NSMutableAttributedString(string: "Unknown",
                                                              attributes: [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium),
                                                                            NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)])
-            attributedString.append(NSMutableAttributedString(string: "   \(transaction["to"])",
+            attributedString.append(NSMutableAttributedString(string: "   \(transaction.transactionType == .Credit ? transaction.fromAddress ?? "" : transaction.toAddress ?? "")",
                 attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12, weight: .medium),
-                NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 0.3)]))
+                             NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 0.3)]))
             cell.addressLabel.attributedText = attributedString
-            DispatchQueue.main.async {
-                cell.contactImageView.image = UIImage(named: "unknown-address")
-            }
         }
         
-        if let amount = transaction["value"].string {
-            let wei = Float(amount)!
-            let dai : Float = wei / 1000000000000000000.0
-            
-            if toAddress.uppercased() == wallet.getEthereumAddress()?.address.uppercased() {
-                cell.amountLabel.text = String(format: "+%.2f", dai)
-                cell.amountLabel.textColor = UIColor(red: 255/255, green: 190/255, blue: 65/255, alpha: 1)
-            } else {
-                cell.amountLabel.text = String(format: "%.2f", dai)
-                cell.amountLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)
-            }
+        if (transaction.displayImage != nil) {
+            cell.contactImageView.image = transaction.displayImage
+        }
+        
+        if (transaction.transactionType == .Credit) {
+            cell.amountLabel.text = String(format: "+%.2f", transaction.amount)
+            cell.amountLabel.textColor = UIColor(red: 255/255, green: 190/255, blue: 65/255, alpha: 1)
+        } else {
+            cell.amountLabel.text = String(format: "%.2f", transaction.amount)
+            cell.amountLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)
         }
         
         cell.contactImageView.layer.cornerRadius = 20

@@ -34,7 +34,7 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var tableView    : UITableView!
     var hasAddressOnClipboard       : Bool = false
     var selectedAddress             : String!
-    var transactions                : Array<Any> = []
+    var transactions                : Array<Transaction> = []
     var paymentContacts             : [PaymentContact] = []
     var filteredPaymentContacts     : [PaymentContact] = []
     var wallet                      = Wallet.init()
@@ -81,16 +81,12 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
             
             var toTransactions : [String] = []
             for transaction in self.transactions {
-                let transactionJSON = transaction as! JSON
-                let toAddress = transactionJSON["to"].stringValue
-                toTransactions.append(toAddress)
+                toTransactions.append(transaction.toAddress)
             }
             
             var fromTransactions : [String] = []
             for transaction in self.transactions {
-                let transactionJSON = transaction as! JSON
-                let fromAddress = transactionJSON["from"].stringValue
-                fromTransactions.append(fromAddress)
+                fromTransactions.append(transaction.fromAddress)
             }
             let uniqueToTransactions = Array(Set(toTransactions))
             let uniqueFromTransactions = Array(Set(fromTransactions))
