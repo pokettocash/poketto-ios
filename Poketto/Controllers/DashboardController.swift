@@ -28,17 +28,18 @@ class DashboardController: UIViewController, SettingsDelegate {
     var explorer                        = Explorer.init()
     var hasFetchedData                  = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addNavDivider()
     
         collectionView.refreshControl = self.refreshControl
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         
         emptyStateContainer = storyboard?.instantiateViewController(withIdentifier: "emptyStateVC") as? EmptyStateController
         self.addChild(emptyStateContainer)
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +47,7 @@ class DashboardController: UIViewController, SettingsDelegate {
         
         fetchData()
     }
-    
+        
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -62,20 +63,8 @@ class DashboardController: UIViewController, SettingsDelegate {
         let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.sectionHeadersPinToVisibleBounds = true
     }
-    
-    func addNavDivider() {
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-
-        let dividerView = UIView(frame: CGRect(x: 15, y: (navigationController?.navigationBar.frame.size.height)!-2, width: (navigationController?.navigationBar.frame.size.width)!-30, height: 2))
-        dividerView.backgroundColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
-        navigationController?.navigationBar.addSubview(dividerView)
-    }
-    
     func fetchData() {
-        
-        //        wallet.importSeed(seed: "barely setup matter drive exchange agree fatal sunny interest adjust horror hip season captain dilemma upgrade debris bullet renew hurt citizen scatter famous season")
         
         explorer.balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
             print("balance \(balance)")
@@ -94,8 +83,11 @@ class DashboardController: UIViewController, SettingsDelegate {
                 let jsonTransaction = exploredTransaction as! JSON
                 let transaction = Transaction.init()
                 
+                print("jsonTransaction \(jsonTransaction)")
+                
                 transaction.toAddress = jsonTransaction["to"].stringValue
                 transaction.fromAddress = jsonTransaction["from"].stringValue
+                transaction.txHash = jsonTransaction["hash"].stringValue
                 
                 let date = jsonTransaction["timeStamp"].stringValue
                 transaction.date = Date.init(timeIntervalSince1970: TimeInterval(Double(date)!))

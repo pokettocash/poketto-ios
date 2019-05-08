@@ -13,9 +13,14 @@ class PaymentDetailsController: UIViewController {
 
     var transaction                         : Transaction!
     var paymentContact                      : PaymentContact!
+    @IBOutlet weak var titleLabel           : UILabel!
+    @IBOutlet weak var toLabel              : UILabel!
     @IBOutlet weak var userImageView        : UIImageView!
     @IBOutlet weak var userNameLabel        : UILabel!
     @IBOutlet weak var amountLabel          : UILabel!
+    @IBOutlet weak var dateLabel            : UILabel!
+    @IBOutlet weak var hourLabel            : UILabel!
+    @IBOutlet weak var actionsViewHeight    : NSLayoutConstraint!
     @IBOutlet weak var assignWalletButton   : UIButton!
     var contactStore                        = CNContactStore()
 
@@ -24,11 +29,27 @@ class PaymentDetailsController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "Payment details"
-
-        let amountValue = Float(transaction.amount) / 1000000000000000000.0
+        
+        if transaction.transactionType == .Credit {
+            toLabel.text = "From:"
+            titleLabel.text = "You've received"
+        }
+        
+        let amountValue = Float(transaction.amount)
         let amount = String(format: "%.2f", amountValue)
         
-        userNameLabel.text = transaction.toAddress
+        userImageView.image = transaction.displayImage!
+        userImageView.layer.cornerRadius = userImageView.frame.size.width/2
+        
+        if (transaction.displayName != nil) {
+            userNameLabel.text = transaction.displayName
+            userNameLabel.font = UIFont.systemFont(ofSize: 16)
+            assignWalletButton.removeFromSuperview()
+            actionsViewHeight.constant = 88
+        } else {
+            userNameLabel.text = transaction.transactionType == .Credit ? transaction.fromAddress ?? "" : transaction.toAddress ?? ""
+            userNameLabel.numberOfLines = 2
+        }
         
         let attributedString = NSMutableAttributedString(string: amount,
                                                          attributes: [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 40),
@@ -38,39 +59,16 @@ class PaymentDetailsController: UIViewController {
                                                                        NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)]))
         amountLabel.attributedText = attributedString
         
-        if let contactId = paymentContact?.contactId {
-            
-            assignWalletButton.isHidden = true
-            assignWalletButton.isUserInteractionEnabled = false
-            
-            userImageView.layer.cornerRadius = userImageView.frame.size.width/2
-            
-            userNameLabel.text = paymentContact.name
-            userNameLabel.font = UIFont.systemFont(ofSize: 16)
-            userNameLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)
-            
-            do {
-                let phoneContact = try contactStore.unifiedContact(withIdentifier: contactId, keysToFetch: [CNContactThumbnailImageDataKey as CNKeyDescriptor])
-                if let avatar = phoneContact.thumbnailImageData {
-                    DispatchQueue.main.async {
-                        self.userImageView.image = UIImage(data: avatar)
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self.userImageView.image = UIImage(named: "contact-placeholder")
-                    }
-                }
-            } catch {
-                print("Error fetching results for container")
-                DispatchQueue.main.async {
-                    self.userImageView.image = UIImage(named: "contact-placeholder")
-                }
-            }
-        } else {
-            DispatchQueue.main.async {
-                self.userImageView.image = UIImage(named: "unknown-address")
-            }
-        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE, dd MMM yyyy"
+        dateLabel.text = dateFormatter.string(from: transaction.date)
+        
+        let hourFormatter = DateFormatter()
+        hourFormatter.dateFormat = "hh:mm"
+        hourLabel.text = hourFormatter.string(from: transaction.date)
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     @IBAction func done() {
@@ -88,12 +86,36 @@ class PaymentDetailsController: UIViewController {
     
     @IBAction func shareTransaction() {
         
-//        if let hash = transaction.transaction.txhash {
-//            let urlString = "https://blockscout.com/poa/dai/tx/\(hash)/internal_transactions"
-//            let url = URL(string: urlString)
-//            let ac = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
-//            present(ac, animated: true)
-//        }
+        if let hash = transaction.txHash {
+            let urlString = "https://blockscout.com/poa/dai/tx/\(hash)/internal_transactions"
+            let url = URL(string: urlString)
+            let ac = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
+            present(ac, animated: true)
+        }
+    }
+    
+    @IBAction func sendPayment() {
+
+        var paymentContact : PaymentContact
+        if transaction.transactionType == .Credit {
+            paymentContact = PaymentContact().addContact(from: transaction.fromAddress)
+        } else {
+            paymentContact = PaymentContact().addContact(from: transaction.toAddress)
+        }
+        performSegue(withIdentifier: "sendFromDetails", sender: paymentContact)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "sendFromDetails" {
+            let paymentContact = sender as! PaymentContact
+            let paymentSendVC = segue.destination as! PaymentSendController
+            paymentSendVC.address = paymentContact.address
+            paymentSendVC.paymentContact = paymentContact
+            
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
+        }
     }
 
 }

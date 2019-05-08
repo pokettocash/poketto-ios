@@ -20,7 +20,7 @@ class PaymentSendController: UIViewController {
     @IBOutlet weak var amountTextField  : UITextField!
     var navBarTitleLabel                : UILabel!
     var navBarSubTitleLabel             : UILabel!
-    var contactStore                = CNContactStore()
+    var contactStore                    = CNContactStore()
 
 
     override func viewDidLoad() {
@@ -61,6 +61,9 @@ class PaymentSendController: UIViewController {
                 self.userImageView.image = UIImage(named: "unknown-address")
             }
         }
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {

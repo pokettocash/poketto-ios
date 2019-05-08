@@ -93,7 +93,7 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
             
             for toTransaction in uniqueToTransactions {
                 if paymentContactsArray.count == 0 {
-                    let paymentContact = self.addContact(from: toTransaction)
+                    let paymentContact = PaymentContact().addContact(from: toTransaction)
                     paymentContactsArray.append(paymentContact)
                 } else {
                     var filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == toTransaction.uppercased()})
@@ -101,11 +101,11 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
                         if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: toTransaction.uppercased()) {
                             filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == contact.address!.uppercased()})
                             if filteredContacts.count == 0 {
-                                let paymentContact = self.addContact(from: toTransaction)
+                                let paymentContact = PaymentContact().addContact(from: toTransaction)
                                 paymentContactsArray.append(paymentContact)
                             }
                         } else {
-                            let paymentContact = self.addContact(from: toTransaction)
+                            let paymentContact = PaymentContact().addContact(from: toTransaction)
                             paymentContactsArray.append(paymentContact)
                         }
                     }
@@ -114,7 +114,7 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
             
             for fromTransaction in uniqueFromTransactions {
                 if paymentContactsArray.count == 0 {
-                    let paymentContact = self.addContact(from: fromTransaction)
+                    let paymentContact = PaymentContact().addContact(from: fromTransaction)
                     paymentContactsArray.append(paymentContact)
                 } else {
                     var filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == fromTransaction.uppercased()})
@@ -122,11 +122,11 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
                         if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: fromTransaction.uppercased()) {
                             filteredContacts = paymentContactsArray.filter({$0.address.uppercased() == contact.address!.uppercased()})
                             if filteredContacts.count == 0 {
-                                let paymentContact = self.addContact(from: fromTransaction)
+                                let paymentContact = PaymentContact().addContact(from: fromTransaction)
                                 paymentContactsArray.append(paymentContact)
                             }
                         } else {
-                            let paymentContact = self.addContact(from: fromTransaction)
+                            let paymentContact = PaymentContact().addContact(from: fromTransaction)
                             paymentContactsArray.append(paymentContact)
                         }
                     }
@@ -141,23 +141,7 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
         }
 
     }
-    
-    func addContact(from address: String) -> PaymentContact {
         
-        let paymentContact = PaymentContact()
-
-        if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: address.uppercased()) {
-            paymentContact.name = contact.name
-            paymentContact.address = contact.address
-            paymentContact.contactId = contact.contact_id
-        } else {
-            paymentContact.name = address
-            paymentContact.address = address
-        }
-
-        return paymentContact
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText:String){
 
         searchBarText = searchText

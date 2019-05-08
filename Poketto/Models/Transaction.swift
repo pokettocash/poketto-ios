@@ -12,6 +12,7 @@ class Transaction: NSObject {
     var fromAddress : String!
     var toAddress : String!
     var date : Date!
+    var txHash : String!
     var amount : Float! // in DAI
     var transactionType : TransactionTypes!
     
