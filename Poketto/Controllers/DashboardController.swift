@@ -22,6 +22,7 @@ class DashboardController: UIViewController, SettingsDelegate {
     let reuseIdentifier                 = "transactionCellId"
     var headerID                        = "dashboardHeaderId"
     var balance                         : Float!
+    var spentToday                      : Float!
     var contactStore                    = CNContactStore()
     var wallet                          = Wallet.init()
     var explorer                        = Explorer.init()
@@ -84,11 +85,10 @@ class DashboardController: UIViewController, SettingsDelegate {
         
         print("wallet address \(wallet.getEthereumAddress()!.address)")
         explorer.transactionsFrom(address: wallet.getEthereumAddress()!.address, completion: { transactions in
-            print("transactions \(transactions)")
-            
             let walletAddress = self.wallet.getEthereumAddress()?.address
             
             var serializedTransactions : Array<Transaction> = []
+            var spentTodaySum = Float(0.0)
             
             transactions.forEach({ (exploredTransaction) in
                 let jsonTransaction = exploredTransaction as! JSON
@@ -96,6 +96,9 @@ class DashboardController: UIViewController, SettingsDelegate {
                 
                 transaction.toAddress = jsonTransaction["to"].stringValue
                 transaction.fromAddress = jsonTransaction["from"].stringValue
+                
+                let date = jsonTransaction["timeStamp"].stringValue
+                transaction.date = Date.init(timeIntervalSince1970: TimeInterval(Double(date)!))
                 
                 var othersAddress = transaction.toAddress.uppercased()
                 transaction.transactionType = .Debit
@@ -131,8 +134,14 @@ class DashboardController: UIViewController, SettingsDelegate {
                     transaction.amount = dai
                 }
                 
+                if (Calendar.current.isDateInToday(transaction.date) && transaction.transactionType == .Debit) {
+                    spentTodaySum += transaction.amount
+                }
+                
                 serializedTransactions.append(transaction)
             })
+            
+            self.spentToday = spentTodaySum
             
             DispatchQueue.main.async {
                 self.hasFetchedData = true
@@ -249,6 +258,10 @@ extension DashboardController : UICollectionViewDataSource {
             
             if(balance != nil) {
                 sectionHeader.balanceLabel.text = "\(String(format: "%.2f", balance)) xDai"
+            }
+            
+            if(spentToday != nil) {
+                sectionHeader.spentTodayLabel.text = "\(String(format: "%.2f", spentToday)) xDai"
             }
             
             if(hasFetchedData) {
