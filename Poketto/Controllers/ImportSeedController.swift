@@ -58,12 +58,20 @@ class ImportSeedController: UIViewController, UITextViewDelegate {
     
     @IBAction func importWallet() {
         let wallet = Wallet.init()
-        wallet.importSeed(seed: seedKeyTextView.text)
-        
-        let settingsNavigationController = self.navigationController as! SettingsNavigationController
-        settingsNavigationController.importCompleted()
-        
-        dismiss(animated: true, completion: nil)
+        let importedWallet = wallet.importSeed(seed: seedKeyTextView.text)
+        if (!importedWallet) {
+            let msg = "The seed key you provided was invalid. Please try again with a different one."
+            let alert = UIAlertController(title: "Error",
+                                          message: msg,
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let settingsNavigationController = self.navigationController as! SettingsNavigationController
+            settingsNavigationController.importCompleted()
+            
+            dismiss(animated: true, completion: nil)
+        }
     }
     
 }

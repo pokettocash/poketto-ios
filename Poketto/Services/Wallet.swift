@@ -24,9 +24,16 @@ class Wallet {
         print("keystore: \(String(describing: keystore))")
     }
     
-    func importSeed(seed: String) {
+    func importSeed(seed: String) -> Bool {
         let mnemonicSeed = seed.trimmingCharacters(in: .whitespacesAndNewlines)
-        KeychainWrapper.standard.set(mnemonicSeed, forKey: "mnemonic")
+        
+        do {
+            let _ = try BIP32Keystore(mnemonics: mnemonicSeed)
+            KeychainWrapper.standard.set(mnemonicSeed, forKey: "mnemonic")
+            return true
+        } catch {
+            return false
+        }
     }
     
     func exportSeed() -> String? {
