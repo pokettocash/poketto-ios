@@ -84,11 +84,11 @@ class PaymentSendController: UIViewController {
     func setNavigationBar() {
         
         if let navigationBar = navigationController?.navigationBar {
-            let firstFrame = CGRect(x: navigationBar.frame.width/2 - 47, y: 0, width: 94, height: 18)
+            let firstFrame = CGRect(x: navigationBar.frame.width/2 - 60, y: 0, width: 120, height: 18)
             let secondFrame = CGRect(x: 0, y: 20, width: navigationBar.frame.width, height: 12)
             
             navBarTitleLabel = UILabel(frame: firstFrame)
-            navBarTitleLabel.text = "Send Money"
+            navBarTitleLabel.text = "Send Payment"
             navBarTitleLabel.font = UIFont.boldSystemFont(ofSize: 16)
             navBarTitleLabel.textAlignment = .center
             

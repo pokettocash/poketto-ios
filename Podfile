@@ -8,7 +8,7 @@ target 'Poketto' do
   pod 'Chester'
   pod 'SwiftKeychainWrapper'
   pod 'SwiftyJSON', '4.0'
-  pod 'web3swift', :git => 'https://github.com/pokettocash/web3swift.git', :branch => 'issue-172'
+  pod 'web3swift', :git => 'https://github.com/pokettocash/web3swift.git'
   pod 'Presentr'
   pod 'QRCodeReader.swift', '~> 10.0.0'
   pod 'SVProgressHUD'

@@ -20,7 +20,6 @@ class PaymentDetailsController: UIViewController {
     @IBOutlet weak var amountLabel          : UILabel!
     @IBOutlet weak var dateLabel            : UILabel!
     @IBOutlet weak var hourLabel            : UILabel!
-    @IBOutlet weak var actionsViewHeight    : NSLayoutConstraint!
     @IBOutlet weak var assignWalletButton   : UIButton!
     var contactStore                        = CNContactStore()
 
@@ -44,8 +43,7 @@ class PaymentDetailsController: UIViewController {
         if (transaction.displayName != nil) {
             userNameLabel.text = transaction.displayName
             userNameLabel.font = UIFont.systemFont(ofSize: 16)
-            assignWalletButton.removeFromSuperview()
-            actionsViewHeight.constant = 88
+            assignWalletButton.setTitle("  Reassign address to contact", for: .normal)
         } else {
             userNameLabel.text = transaction.transactionType == .Credit ? transaction.fromAddress ?? "" : transaction.toAddress ?? ""
             userNameLabel.numberOfLines = 2
@@ -81,6 +79,7 @@ class PaymentDetailsController: UIViewController {
         let contactsNavVC = storyboard?.instantiateViewController(withIdentifier: "contactsNavVC") as! UINavigationController
         let contactsVC = contactsNavVC.viewControllers[0] as! ContactsController
         contactsVC.address = transaction.toAddress
+        contactsVC.delegate = self
         navigationController?.present(contactsNavVC, animated: true, completion: nil)
     }
     
@@ -119,4 +118,20 @@ class PaymentDetailsController: UIViewController {
         }
     }
 
+}
+
+extension PaymentDetailsController : ContactsDelegate {
+    
+    func assignedContact(phoneContact: CNContact) {
+        userNameLabel.text = "\(phoneContact.givenName) \(phoneContact.familyName)"
+        DispatchQueue.main.async {
+            if let contactThumbailData = phoneContact.thumbnailImageData {
+                self.userImageView.image = UIImage(data: contactThumbailData)
+            } else {
+                DispatchQueue.main.async {
+                    self.userImageView.image = UIImage(named: "contact-placeholder")
+                }
+            }
+        }
+    }
 }

@@ -40,7 +40,7 @@ DEPENDENCIES:
   - SVProgressHUD
   - SwiftKeychainWrapper
   - SwiftyJSON (= 4.0)
-  - web3swift (from `https://github.com/pokettocash/web3swift.git`, branch `issue-172`)
+  - web3swift (from `https://github.com/pokettocash/web3swift.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -63,7 +63,6 @@ EXTERNAL SOURCES:
     :git: https://github.com/magicalpanda/MagicalRecord.git
     :tag: v2.3.3
   web3swift:
-    :branch: issue-172
     :git: https://github.com/pokettocash/web3swift.git
 
 CHECKOUT OPTIONS:
@@ -71,7 +70,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/magicalpanda/MagicalRecord.git
     :tag: v2.3.3
   web3swift:
-    :commit: fb0be8f2f2f9b5cc7e3372e4b1c08f3d456150e2
+    :commit: 78b2af9f3ee2dfdf6a872702fb4985f69739730e
     :git: https://github.com/pokettocash/web3swift.git
 
 SPEC CHECKSUMS:
@@ -91,6 +90,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   web3swift: 149ab5d1e57edf8125b095f889f089ab55fadcf7
 
-PODFILE CHECKSUM: ec0a76ecba9f404008ed6980a1e09edbcb38208b
+PODFILE CHECKSUM: 69c94b5e5ce594590dbd2c97efb5e97df0527e79
 
 COCOAPODS: 1.6.1

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QSI-JI-uk8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QSI-JI-uk8">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -510,7 +510,7 @@
                                     <constraint firstAttribute="height" constant="2" id="AZs-FM-xIY"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paying:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgM-ED-R2t">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgM-ED-R2t">
                                 <rect key="frame" x="15" y="27.666666666666671" width="62" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="62" id="dGD-NG-dbh"/>
@@ -1942,10 +1942,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cS-Yd-lzC">
-                                <rect key="frame" x="82" y="538" width="211" height="132"/>
+                                <rect key="frame" x="62.666666666666657" y="538" width="249.99999999999997" height="132"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xte-9f-sHo">
-                                        <rect key="frame" x="0.0" y="0.0" width="211" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="pgE-eA-iOU"/>
                                         </constraints>
@@ -1957,7 +1957,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ip-vt-UlR">
-                                        <rect key="frame" x="0.0" y="46" width="211" height="40"/>
+                                        <rect key="frame" x="0.0" y="46" width="250" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="1d1-X7-Mp1"/>
                                         </constraints>
@@ -1969,7 +1969,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WiL-5q-5QQ">
-                                        <rect key="frame" x="0.0" y="92" width="211" height="40"/>
+                                        <rect key="frame" x="0.0" y="92" width="250" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="hez-w7-bO9"/>
                                         </constraints>
@@ -1984,7 +1984,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="211" id="30P-kT-6hW"/>
+                                    <constraint firstAttribute="width" constant="250" id="30P-kT-6hW"/>
                                     <constraint firstAttribute="trailing" secondItem="8ip-vt-UlR" secondAttribute="trailing" id="8dp-Mg-j1r"/>
                                     <constraint firstItem="Xte-9f-sHo" firstAttribute="leading" secondItem="4cS-Yd-lzC" secondAttribute="leading" id="Ct1-Ua-rv5"/>
                                     <constraint firstItem="WiL-5q-5QQ" firstAttribute="leading" secondItem="4cS-Yd-lzC" secondAttribute="leading" id="ME7-nZ-wcc"/>
@@ -2026,7 +2026,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="iQH-KV-BFA"/>
                     <connections>
-                        <outlet property="actionsViewHeight" destination="sRK-1J-GrE" id="Ly1-c5-RgF"/>
                         <outlet property="amountLabel" destination="i1r-rj-tER" id="dZv-OX-GWg"/>
                         <outlet property="assignWalletButton" destination="WiL-5q-5QQ" id="BQE-Kd-Sdm"/>
                         <outlet property="dateLabel" destination="inV-LO-ioy" id="pSC-uO-iM0"/>

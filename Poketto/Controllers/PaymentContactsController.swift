@@ -32,7 +32,6 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
 
     let reuseIdentifier             = "payOptionCellId"
     @IBOutlet weak var tableView    : UITableView!
-    var hasAddressOnClipboard       : Bool = false
     var selectedAddress             : String!
     var transactions                : Array<Transaction> = []
     var paymentContacts             : [PaymentContact] = []
@@ -47,7 +46,6 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
 
         setNavigationBar()
         setSearchBar()
-        checkPasteBoard()
         setPaymentContacts()
     }
 
@@ -179,18 +177,7 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
         
         navigationController?.dismiss(animated: true, completion: nil)
     }
-    
-    func checkPasteBoard() {
         
-        if let pasteboardString = UIPasteboard.general.string {
-            let first2 = String(pasteboardString.prefix(2))
-            if first2 == "0x" {
-                hasAddressOnClipboard = true
-            }
-            tableView.reloadData()
-        }
-    }
-    
     func scanAction() {
         
         readerVC.completionBlock = { (result: QRCodeReaderResult?) in
@@ -261,11 +248,7 @@ extension PaymentContactsController : UITableViewDataSource {
         }
 
         if section == 0 {
-            if hasAddressOnClipboard {
-                return 3
-            } else {
-                return 2
-            }
+            return 2
         } else if section == 1 {
             return 0
         } else {
@@ -274,7 +257,14 @@ extension PaymentContactsController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
+        var searchTextIsActive = false
+        if let searchText = searchBarText {
+            if searchText != "" {
+                searchTextIsActive = true
+            }
+        }
+
+        if (section == 0 && !searchTextIsActive) || filteredPaymentContacts.count == 0 {
             return 0
         }
         return 45
@@ -335,26 +325,19 @@ extension PaymentContactsController : UITableViewDataSource {
         }
 
         if indexPath.section == 0 && !searchTextIsActive {
-            if hasAddressOnClipboard {
-                if indexPath.row == 0 {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "pasteCellId", for: indexPath) as! PasteCell
-                    cell.subtitleLabel.text = UIPasteboard.general.string
-                    return cell
-                } else if indexPath.row == 1 {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "enterAddressCellId", for: indexPath)
-                    return cell
-                } else {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "scanCellId", for: indexPath)
-                    return cell
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "pasteCellId", for: indexPath) as! PasteCell
+                cell.subtitleLabel.text = "No address on clipboard"
+                if let pasteboardString = UIPasteboard.general.string {
+                    let first2 = String(pasteboardString.prefix(2))
+                    if first2 == "0x" {
+                        cell.subtitleLabel.text = UIPasteboard.general.string
+                    }
                 }
+                return cell
             } else {
-                if indexPath.row == 0 {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "enterAddressCellId", for: indexPath)
-                    return cell
-                } else {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "scanCellId", for: indexPath)
-                    return cell
-                }
+                let cell = tableView.dequeueReusableCell(withIdentifier: "scanCellId", for: indexPath)
+                return cell
             }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "paymentContactCellId", for: indexPath) as! PaymentContactCell
@@ -407,21 +390,24 @@ extension PaymentContactsController : UITableViewDelegate {
         }
 
         if indexPath.section == 0 && !searchTextIsActive {
-            if hasAddressOnClipboard {
-                if indexPath.row == 0 {
-                    selectedAddress = UIPasteboard.general.string
-                    performSegue(withIdentifier: "send", sender: nil)
-                } else if indexPath.row == 1 {
-
-                } else {
-                    scanAction()
+            if indexPath.row == 0 {
+                if let pasteboardString = UIPasteboard.general.string {
+                    let first2 = String(pasteboardString.prefix(2))
+                    if first2 == "0x" {
+                        selectedAddress = UIPasteboard.general.string
+                        performSegue(withIdentifier: "send", sender: nil)
+                        return
+                    }
                 }
+                let alert = UIAlertController(title: "Error",
+                                              message: "No address on clipboard.",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else if indexPath.row == 1 {
+
             } else {
-                if indexPath.row == 0 {
-
-                } else {
-                    scanAction()
-                }
+                scanAction()
             }
         } else if indexPath.section == 1 {
             

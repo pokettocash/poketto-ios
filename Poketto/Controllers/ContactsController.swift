@@ -10,6 +10,10 @@ import UIKit
 import Contacts
 import MagicalRecord
 
+protocol ContactsDelegate {
+    func assignedContact(phoneContact: CNContact)
+}
+
 class ContactsController: UIViewController {
     
     @IBOutlet weak var tableView : UITableView!
@@ -53,6 +57,7 @@ class ContactsController: UIViewController {
     }()
     
     var filterContacts : [CNContact]!
+    var delegate : ContactsDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -147,12 +152,12 @@ extension ContactsController : UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
+        let phoneContact = filterContacts[indexPath.row]
+
         let cell = tableView.cellForRow(at: indexPath) as! ContactCell
         cell.spinner.isHidden = false
         cell.spinner.startAnimating()
-        
-        let phoneContact = filterContacts[indexPath.row]
-        
+                
         if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: address.uppercased()) {
             contact.name = "\(phoneContact.givenName) \(phoneContact.familyName)"
             contact.contact_id = phoneContact.identifier
@@ -171,6 +176,9 @@ extension ContactsController : UITableViewDelegate {
             cell.accessoryType = .checkmark
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                if self.delegate != nil {
+                    self.delegate.assignedContact(phoneContact: phoneContact)
+                }
                 self.navigationController!.dismiss(animated: true, completion: nil)
             })
         })
