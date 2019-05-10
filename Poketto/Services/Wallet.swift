@@ -72,8 +72,13 @@ class Wallet {
         var options = TransactionOptions.defaultOptions
         options.value = amount
         options.from = ownWalletAddress
-        options.gasPrice = .manual(Web3.Utils.parseToBigUInt("3", units: .Gwei)!)
-        options.gasLimit = .automatic
+        
+        // According to https://poa.network/xdai there's a fixed gas price of 1 Gwei
+        options.gasPrice = .manual(Web3.Utils.parseToBigUInt("1", units: .Gwei)!)
+        
+        // Set limit to 21000 which is the consumed gas amount for a regular transaction
+        options.gasLimit = .manual(21000)
+        
         let tx = contract.write(
             "fallback",
             parameters: [AnyObject](),
