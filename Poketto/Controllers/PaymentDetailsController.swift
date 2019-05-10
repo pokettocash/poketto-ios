@@ -78,7 +78,11 @@ class PaymentDetailsController: UIViewController {
         
         let contactsNavVC = storyboard?.instantiateViewController(withIdentifier: "contactsNavVC") as! UINavigationController
         let contactsVC = contactsNavVC.viewControllers[0] as! ContactsController
-        contactsVC.address = transaction.toAddress
+        if transaction.transactionType == .Credit {
+            contactsVC.address = transaction.fromAddress
+        } else {
+            contactsVC.address = transaction.toAddress
+        }
         contactsVC.delegate = self
         navigationController?.present(contactsNavVC, animated: true, completion: nil)
     }

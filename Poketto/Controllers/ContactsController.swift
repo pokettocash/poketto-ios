@@ -57,12 +57,17 @@ class ContactsController: UIViewController {
     }()
     
     var filterContacts : [CNContact]!
+    var filterContactsDictionary = [String: [CNContact]]()
+    var sectionTitles = [String]()
+    var filterSearchText = ""
+
     var delegate : ContactsDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         filterContacts = phoneContacts
+        setupSections(from: filterContacts)
 
         // Do any additional setup after loading the view.
         for s in searchBar.subviews[0].subviews {
@@ -80,6 +85,26 @@ class ContactsController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
     }
     
+    func setupSections(from filterContacts: [CNContact]) {
+        
+        let filterContactsStrings = filterContacts.map { "\($0.givenName) \($0.familyName)" }
+        
+        var i = 0
+        for contactString in filterContactsStrings {
+            let contactKey = String(contactString.prefix(1))
+            if var contactValues = filterContactsDictionary[contactKey] {
+                contactValues.append(filterContacts[i])
+                filterContactsDictionary[contactKey] = contactValues
+            } else {
+                filterContactsDictionary[contactKey] = [filterContacts[i]]
+            }
+            i += 1
+        }
+        
+        sectionTitles = [String](filterContactsDictionary.keys)
+        sectionTitles = sectionTitles.sorted(by: { $0 < $1 })
+    }
+    
     @IBAction func cancel() {
         
         navigationController!.dismiss(animated: true, completion: nil)
@@ -90,6 +115,7 @@ class ContactsController: UIViewController {
 extension ContactsController : UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText:String){
+        filterSearchText = searchText
         filterContentForSearchText(searchText: searchText)
     }
     
@@ -106,6 +132,9 @@ extension ContactsController : UISearchBarDelegate {
                 self.filterContacts = self.phoneContacts
                 
             }
+            
+            self.setupSections(from: self.filterContacts)
+            
             self.tableView.reloadData()
         }
     }
@@ -119,29 +148,67 @@ extension ContactsController : UISearchBarDelegate {
 extension ContactsController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if filterSearchText != "" {
+            return 1
+        }
+        return sectionTitles.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filterContacts.count
+        if filterSearchText != "" {
+            return filterContacts.count
+        }
+        let contactKey = sectionTitles[section]
+        if let contactValues = filterContactsDictionary[contactKey] {
+            return contactValues.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if filterSearchText != "" {
+            return nil
+        }
+        return sectionTitles[section]
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        if filterSearchText != "" {
+            return nil
+        }
+        return sectionTitles
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactCellId", for: indexPath) as! ContactCell
-        let phoneContact = filterContacts[indexPath.row]
-        cell.contactImageView.layer.cornerRadius = 20
-        cell.contactLabel.text = "\(phoneContact.givenName) \(phoneContact.familyName)"
-        cell.spinner.isHidden = true
-        cell.accessoryType = .none
-        DispatchQueue.main.async {
-            if let contactThumbailData = phoneContact.thumbnailImageData {
-                cell.contactImageView.image = UIImage(data: contactThumbailData)
-            } else {
-                DispatchQueue.main.async {
-                    cell.contactImageView.image = UIImage(named: "contact-placeholder")
+        
+        var phoneContact : CNContact?
+        if filterSearchText != "" {
+            phoneContact = filterContacts[indexPath.row]
+        } else {
+            let contactKey = sectionTitles[indexPath.section]
+            if let contactValues = filterContactsDictionary[contactKey] {
+                phoneContact = contactValues[indexPath.row]
+            }
+        }
+        
+        if phoneContact != nil {
+            cell.contactLabel.text = "\(phoneContact!.givenName) \(phoneContact!.familyName)"
+            
+            DispatchQueue.main.async {
+                if let contactThumbailData = phoneContact!.thumbnailImageData {
+                    cell.contactImageView.image = UIImage(data: contactThumbailData)
+                } else {
+                    DispatchQueue.main.async {
+                        cell.contactImageView.image = UIImage(named: "contact-placeholder")
+                    }
                 }
             }
         }
+
+        cell.contactImageView.layer.cornerRadius = 20
+        cell.spinner.isHidden = true
+        cell.accessoryType = .none
         return cell
     }
 }
@@ -151,21 +218,29 @@ extension ContactsController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let phoneContact = filterContacts[indexPath.row]
+                
+        var phoneContact : CNContact?
+        if filterSearchText != "" {
+            phoneContact = filterContacts[indexPath.row]
+        } else {
+            let contactKey = sectionTitles[indexPath.section]
+            if let contactValues = filterContactsDictionary[contactKey] {
+                phoneContact = contactValues[indexPath.row]
+            }
+        }
 
         let cell = tableView.cellForRow(at: indexPath) as! ContactCell
         cell.spinner.isHidden = false
         cell.spinner.startAnimating()
                 
         if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: address.uppercased()) {
-            contact.name = "\(phoneContact.givenName) \(phoneContact.familyName)"
-            contact.contact_id = phoneContact.identifier
+            contact.name = "\(phoneContact!.givenName) \(phoneContact!.familyName)"
+            contact.contact_id = phoneContact!.identifier
         } else {
             let contact = PKContact(context: NSManagedObjectContext.mr_default())
             contact.address = address.uppercased()
-            contact.name = "\(phoneContact.givenName) \(phoneContact.familyName)"
-            contact.contact_id = phoneContact.identifier
+            contact.name = "\(phoneContact!.givenName) \(phoneContact!.familyName)"
+            contact.contact_id = phoneContact!.identifier
         }
         
         NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
@@ -177,7 +252,7 @@ extension ContactsController : UITableViewDelegate {
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 if self.delegate != nil {
-                    self.delegate.assignedContact(phoneContact: phoneContact)
+                    self.delegate.assignedContact(phoneContact: phoneContact!)
                 }
                 self.navigationController!.dismiss(animated: true, completion: nil)
             })

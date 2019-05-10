@@ -99,8 +99,8 @@ class DashboardController: UIViewController, SettingsDelegate {
                     transaction.transactionType = .Credit
                 }
                 
-                if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: othersAddress) {
-                    
+                if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: othersAddress, in: NSManagedObjectContext.mr_default()) {
+
                     transaction.displayName = contact.name
                     
                     do {
