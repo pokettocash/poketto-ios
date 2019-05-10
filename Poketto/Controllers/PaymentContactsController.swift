@@ -180,37 +180,9 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
         
     func scanAction() {
         
-        readerVC.completionBlock = { (result: QRCodeReaderResult?) in
-            if let resultString = result?.value {
-                let first2 = String(resultString.prefix(2))
-                if first2 == "0x" {
-                    DispatchQueue.main.async {
-                        self.readerVC.dismiss(animated: true, completion: {
-                            self.selectedAddress = resultString
-                            self.performSegue(withIdentifier: "send", sender: nil)
-                        })
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        let msg = "Invalid address"
-                        let alert = UIAlertController(title: "Error",
-                                                      message: msg,
-                                                      preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
-                }
-            }
-        }
-        
-        // Presents the readerVC as modal form sheet
-        readerVC.modalPresentationStyle = .formSheet
-        
-        present(readerVC, animated: true, completion: nil)
+        let customQRCodeController = storyboard?.instantiateViewController(withIdentifier: "customQRCodeVC") as! CustomQRCodeController
+        customQRCodeController.delegate = self
+        self.present(customQRCodeController, animated: true, completion: nil)        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -405,8 +377,6 @@ extension PaymentContactsController : UITableViewDelegate {
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else if indexPath.row == 1 {
-
-            } else {
                 scanAction()
             }
         } else if indexPath.section == 1 {
@@ -415,6 +385,31 @@ extension PaymentContactsController : UITableViewDelegate {
             let paymentContact = filteredPaymentContacts[indexPath.row]
             selectedAddress = paymentContact.address
             performSegue(withIdentifier: "send", sender: paymentContact)
+        }
+    }
+}
+
+extension PaymentContactsController : CustomQRCodeControllerDelegate {
+    
+    func scanned(result: QRCodeReaderResult?) {
+
+        if let resultString = result?.value {
+            let first2 = String(resultString.prefix(2))
+            if first2 == "0x" {
+                DispatchQueue.main.async {
+                    self.selectedAddress = resultString
+                    self.performSegue(withIdentifier: "send", sender: nil)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    let msg = "Invalid address"
+                    let alert = UIAlertController(title: "Error",
+                                                  message: msg,
+                                                  preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
     }
 }

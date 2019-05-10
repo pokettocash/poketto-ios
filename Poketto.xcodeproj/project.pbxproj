@@ -34,6 +34,7 @@
 		70AD5C3E2279064400A9E164 /* EmptyStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AD5C3D2279064400A9E164 /* EmptyStateController.swift */; };
 		70C82D6622710B7200F627A1 /* PaymentSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */; };
 		70C82D68227113A100F627A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C82D67227113A100F627A1 /* Assets.xcassets */; };
+		70E0A482228486C40002CBF3 /* CustomQRCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E0A481228486C40002CBF3 /* CustomQRCodeController.swift */; };
 		834EB4074D28F39898252A8C /* Pods_PokettoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B253EE3970DACFA3540D4AD0 /* Pods_PokettoUITests.framework */; };
 		AE32744C8439029411C7066A /* Pods_PokettoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C161CEAAECB034BD6C623E /* Pods_PokettoTests.framework */; };
 		DD251A232282E79900F1D781 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD251A222282E79900F1D781 /* Transaction.swift */; };
@@ -94,6 +95,7 @@
 		70AD5C3D2279064400A9E164 /* EmptyStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateController.swift; sourceTree = "<group>"; };
 		70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessController.swift; sourceTree = "<group>"; };
 		70C82D67227113A100F627A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		70E0A481228486C40002CBF3 /* CustomQRCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomQRCodeController.swift; sourceTree = "<group>"; };
 		A7366CF0787387400EB702E3 /* Pods-PokettoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoUITests.release.xcconfig"; path = "Target Support Files/Pods-PokettoUITests/Pods-PokettoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B253EE3970DACFA3540D4AD0 /* Pods_PokettoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B637010F76D280B41A32B36F /* Pods-PokettoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoTests.debug.xcconfig"; path = "Target Support Files/Pods-PokettoTests/Pods-PokettoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				DD9826F02279FD84003CB0ED /* ImportSeedController.swift */,
 				707DEB95226F466800F0AD93 /* RequestController.swift */,
 				707FB2042275CF2A005B29A2 /* ContactsController.swift */,
+				70E0A481228486C40002CBF3 /* CustomQRCodeController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				70572CD12274A17200297421 /* db.xcdatamodeld in Sources */,
 				70A31C85226782A0007291D1 /* DashboardHeaderView.swift in Sources */,
 				70A31C76226760E4007291D1 /* DashboardController.swift in Sources */,
+				70E0A482228486C40002CBF3 /* CustomQRCodeController.swift in Sources */,
 				707FB20A2275D351005B29A2 /* ContactCell.swift in Sources */,
 				707DEB9E226F5BCB00F0AD93 /* PasteCell.swift in Sources */,
 				70A31C802267709A007291D1 /* Page3Controller.swift in Sources */,

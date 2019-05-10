@@ -1973,7 +1973,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="hez-w7-bO9"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="  Assign address to contact" image="assign-address">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -2041,6 +2041,96 @@
             </objects>
             <point key="canvasLocation" x="2321" y="2260"/>
         </scene>
+        <!--CustomQR Code Controller-->
+        <scene sceneID="KPB-ui-dqV">
+            <objects>
+                <viewController storyboardIdentifier="customQRCodeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ywu-om-eG0" customClass="CustomQRCodeController" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QuN-l2-byX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTV-iY-6Ht">
+                                <rect key="frame" x="0.0" y="629" width="375" height="183"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scan-payment" translatesAutoresizingMaskIntoConstraints="NO" id="PBy-hU-xg4">
+                                        <rect key="frame" x="58.666666666666657" y="49" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="28" id="6mR-BJ-Sv4"/>
+                                            <constraint firstAttribute="height" constant="28" id="iEz-j3-1f6"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan to send a payment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHF-sm-Ztl">
+                                        <rect key="frame" x="98.666666666666686" y="53" width="178" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="178" id="cCq-2P-fT2"/>
+                                            <constraint firstAttribute="height" constant="20" id="s3t-Lr-LC4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can scan a QR code to send xDai to another wallet" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwF-fD-fMa">
+                                        <rect key="frame" x="98.666666666666686" y="81" width="218" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="HDW-s1-edb"/>
+                                            <constraint firstAttribute="width" constant="218" id="Qta-h9-S9m"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="OHF-sm-Ztl" firstAttribute="leading" secondItem="PBy-hU-xg4" secondAttribute="trailing" constant="12" id="5FK-R3-RhY"/>
+                                    <constraint firstItem="HwF-fD-fMa" firstAttribute="top" secondItem="OHF-sm-Ztl" secondAttribute="bottom" constant="8" symbolic="YES" id="73J-Gf-gOJ"/>
+                                    <constraint firstItem="OHF-sm-Ztl" firstAttribute="centerX" secondItem="KTV-iY-6Ht" secondAttribute="centerX" id="KrA-f4-Dwr"/>
+                                    <constraint firstItem="HwF-fD-fMa" firstAttribute="leading" secondItem="OHF-sm-Ztl" secondAttribute="leading" id="OrV-ol-hde"/>
+                                    <constraint firstItem="OHF-sm-Ztl" firstAttribute="top" secondItem="KTV-iY-6Ht" secondAttribute="top" constant="53" id="T5t-Vs-jgK"/>
+                                    <constraint firstAttribute="height" constant="183" id="iI2-Zb-pv2"/>
+                                    <constraint firstItem="PBy-hU-xg4" firstAttribute="centerY" secondItem="OHF-sm-Ztl" secondAttribute="centerY" id="wEQ-gR-yAp"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTq-Ql-Jvb">
+                                <rect key="frame" x="0.0" y="44" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="1qh-lY-6dB"/>
+                                    <constraint firstAttribute="height" constant="60" id="mm0-uT-Pek"/>
+                                </constraints>
+                                <state key="normal" image="scan-close-button"/>
+                                <connections>
+                                    <action selector="cancel" destination="Ywu-om-eG0" eventType="touchUpInside" id="Mtr-aM-0sB"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scan-square-overlay" translatesAutoresizingMaskIntoConstraints="NO" id="oNB-iY-dAi">
+                                <rect key="frame" x="81" y="194.66666666666663" width="213" height="223"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="223" id="5Dy-Y1-HOE"/>
+                                    <constraint firstAttribute="width" constant="213" id="lfi-m4-jNM"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="KTV-iY-6Ht" secondAttribute="bottom" id="KA8-F2-GkD"/>
+                            <constraint firstItem="KTV-iY-6Ht" firstAttribute="trailing" secondItem="i7d-CB-0BH" secondAttribute="trailing" id="R0i-3r-1VJ"/>
+                            <constraint firstItem="oNB-iY-dAi" firstAttribute="centerY" secondItem="QuN-l2-byX" secondAttribute="centerY" constant="-100" id="Zn2-Et-oP5"/>
+                            <constraint firstItem="KTV-iY-6Ht" firstAttribute="leading" secondItem="i7d-CB-0BH" secondAttribute="leading" id="eEC-yw-raP"/>
+                            <constraint firstItem="uTq-Ql-Jvb" firstAttribute="top" secondItem="i7d-CB-0BH" secondAttribute="top" id="l40-Lr-eCZ"/>
+                            <constraint firstItem="uTq-Ql-Jvb" firstAttribute="leading" secondItem="i7d-CB-0BH" secondAttribute="leading" id="nze-hq-T7o"/>
+                            <constraint firstItem="oNB-iY-dAi" firstAttribute="centerX" secondItem="QuN-l2-byX" secondAttribute="centerX" id="wAe-qg-1XN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="i7d-CB-0BH"/>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="uTq-Ql-Jvb" id="D5y-TN-EZL"/>
+                        <outlet property="scannerOverlay" destination="oNB-iY-dAi" id="oci-q5-IHD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EmT-Fi-xG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3240.8000000000002" y="2268.4729064039411"/>
+        </scene>
     </scenes>
     <resources>
         <image name="add-funds-bg" width="184" height="48"/>
@@ -2058,6 +2148,9 @@
         <image name="request-button-background" width="177" height="60"/>
         <image name="request-clipboard" width="34" height="34.333332061767578"/>
         <image name="request-share" width="34" height="34.333332061767578"/>
+        <image name="scan-close-button" width="15.333333015441895" height="15.333333015441895"/>
+        <image name="scan-payment" width="34" height="34.333332061767578"/>
+        <image name="scan-square-overlay" width="219" height="223"/>
         <image name="send-button-background" width="346" height="48"/>
         <image name="send-new-payment" width="12" height="12"/>
         <image name="settings-backup" width="34" height="34.333332061767578"/>
