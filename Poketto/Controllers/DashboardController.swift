@@ -160,14 +160,10 @@ class DashboardController: UIViewController, SettingsDelegate {
     @IBAction func settings() {
         
         let presenter: Presentr = {
+            let heightFloat : Float = 526
             let width = ModalSize.sideMargin(value: 14)
-            let height = ModalSize.custom(size: 570)
-            let window = UIApplication.shared.keyWindow
-            var padding : CGFloat = 0
-            if window?.safeAreaInsets.bottom == 0 {
-                padding = 50
-            }
-            let center = ModalCenterPosition.customOrigin(origin: CGPoint(x: 14, y: (122-padding)*(UIScreen.main.bounds.size.height/812)-padding))
+            let height = ModalSize.custom(size: heightFloat)
+            let center = ModalCenterPosition.customOrigin(origin: CGPoint(x: 14, y: Int(Float((UIScreen.main.bounds.size.height / 2)) - (heightFloat / 2.0))))
             let customType = PresentationType.custom(width: width, height: height, center: center)
             
             let customPresenter = Presentr(presentationType: customType)
