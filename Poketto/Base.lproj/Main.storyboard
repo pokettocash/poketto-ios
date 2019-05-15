@@ -992,7 +992,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ol4-0l-C3n">
-                                <rect key="frame" x="53.666666666666664" y="382" width="268" height="156"/>
+                                <rect key="frame" x="53.666666666666657" y="382" width="268" height="156"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="268" id="gd4-dp-o1g"/>
                                     <constraint firstAttribute="height" constant="156" id="mCc-nS-t4b"/>
@@ -1327,7 +1327,10 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oga-K4-vST">
-                                <rect key="frame" x="20" y="415.66666666666669" width="335" height="97.666666666666686"/>
+                                <rect key="frame" x="20" y="415.66666666666669" width="335" height="160.00000000000006"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160" id="uYt-vM-h0C"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">Poketto is a xDai pocket wallet for your day-to-day transactions. The simplest, most secure and near instant way to send money to friends and pay for your every day items.</string>
@@ -1349,8 +1352,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="AXx-gw-AeF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Oga-K4-vST" secondAttribute="bottom" constant="40" id="6oM-0V-UES"/>
                             <constraint firstItem="Oga-K4-vST" firstAttribute="firstBaseline" secondItem="zzn-Om-0nd" secondAttribute="baseline" constant="60" id="8rh-PT-HwQ"/>
-                            <constraint firstItem="dyn-0b-KUf" firstAttribute="bottom" secondItem="AXx-gw-AeF" secondAttribute="bottom" constant="56" id="I5j-Yq-kMw"/>
+                            <constraint firstItem="dyn-0b-KUf" firstAttribute="bottom" secondItem="AXx-gw-AeF" secondAttribute="bottom" priority="999" constant="56" id="I5j-Yq-kMw"/>
                             <constraint firstItem="zzn-Om-0nd" firstAttribute="centerX" secondItem="y6M-hM-Gkx" secondAttribute="centerX" id="W5c-92-nED"/>
                             <constraint firstItem="zzn-Om-0nd" firstAttribute="centerY" secondItem="y6M-hM-Gkx" secondAttribute="centerY" constant="-150" id="Xgi-ue-sJq"/>
                             <constraint firstItem="AXx-gw-AeF" firstAttribute="leading" secondItem="dyn-0b-KUf" secondAttribute="leading" constant="20" id="e9V-9i-Pz4"/>
