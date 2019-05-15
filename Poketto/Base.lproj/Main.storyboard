@@ -1368,11 +1368,10 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXx-gw-AeF">
                                 <rect key="frame" x="20" y="671" width="335" height="51"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.77528444259999996" blue="0.0058782038889999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="h3P-v9-h1H"/>
                                 </constraints>
-                                <state key="normal" title="Go To your Wallet">
+                                <state key="normal" title="Go To your Wallet" backgroundImage="send-button-background">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
