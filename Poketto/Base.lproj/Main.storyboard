@@ -707,21 +707,42 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAB-ex-LBH">
                                                 <rect key="frame" x="82" y="0.0" width="158" height="40"/>
                                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
-                                                <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDp-ub-zRX">
+                                                <rect key="frame" x="82" y="0.0" width="158" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="short address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Go8-T4-78D">
+                                                <rect key="frame" x="82" y="20" width="158" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="2GV-EG-TP6"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                                                <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="tP9-SK-yEm" firstAttribute="leading" secondItem="4FX-CT-UZp" secondAttribute="leading" id="BWX-h9-1Wu"/>
+                                            <constraint firstAttribute="bottom" secondItem="Go8-T4-78D" secondAttribute="bottom" id="Gjm-N7-2gc"/>
                                             <constraint firstAttribute="bottom" secondItem="bAB-ex-LBH" secondAttribute="bottom" id="HSg-iq-eJJ"/>
                                             <constraint firstItem="WRu-xs-sc4" firstAttribute="centerY" secondItem="4FX-CT-UZp" secondAttribute="centerY" id="JMi-Kv-07R"/>
                                             <constraint firstAttribute="height" constant="40" id="MVW-HE-p8n"/>
+                                            <constraint firstAttribute="trailing" secondItem="Go8-T4-78D" secondAttribute="trailing" id="Mc6-PR-7Tc"/>
                                             <constraint firstItem="bAB-ex-LBH" firstAttribute="top" secondItem="4FX-CT-UZp" secondAttribute="top" id="OFs-Mx-ZG3"/>
+                                            <constraint firstAttribute="bottom" secondItem="xDp-ub-zRX" secondAttribute="bottom" constant="20" id="Vmf-YU-34S"/>
+                                            <constraint firstAttribute="trailing" secondItem="xDp-ub-zRX" secondAttribute="trailing" id="Yrr-y0-dlz"/>
                                             <constraint firstAttribute="trailing" secondItem="bAB-ex-LBH" secondAttribute="trailing" id="bpQ-iR-PSY"/>
                                             <constraint firstAttribute="width" constant="240" id="ftb-rJ-VKM"/>
+                                            <constraint firstItem="Go8-T4-78D" firstAttribute="leading" secondItem="WRu-xs-sc4" secondAttribute="trailing" constant="16" id="g1A-bx-1q0"/>
                                             <constraint firstItem="bAB-ex-LBH" firstAttribute="leading" secondItem="WRu-xs-sc4" secondAttribute="trailing" constant="16" id="hd2-IA-Oyu"/>
+                                            <constraint firstItem="xDp-ub-zRX" firstAttribute="top" secondItem="4FX-CT-UZp" secondAttribute="top" id="kcX-aG-Sw7"/>
                                             <constraint firstItem="WRu-xs-sc4" firstAttribute="leading" secondItem="tP9-SK-yEm" secondAttribute="trailing" constant="16" id="lFB-2q-dvt"/>
+                                            <constraint firstItem="xDp-ub-zRX" firstAttribute="leading" secondItem="WRu-xs-sc4" secondAttribute="trailing" constant="16" id="xPm-k1-Ae2"/>
                                             <constraint firstItem="tP9-SK-yEm" firstAttribute="centerY" secondItem="4FX-CT-UZp" secondAttribute="centerY" id="zzp-cQ-UrQ"/>
                                         </constraints>
                                     </view>
@@ -810,10 +831,12 @@
                         <viewLayoutGuide key="safeArea" id="hjq-Bx-4Xf"/>
                     </view>
                     <connections>
+                        <outlet property="addressLabel" destination="bAB-ex-LBH" id="skz-g4-nWo"/>
                         <outlet property="amountLabel" destination="DPA-SI-Tj3" id="9xe-lv-qqc"/>
                         <outlet property="assignWalletButton" destination="PuF-xU-wLX" id="Cw1-9d-P6y"/>
+                        <outlet property="shortAddressLabel" destination="Go8-T4-78D" id="ydq-NW-Ixc"/>
                         <outlet property="userImageView" destination="WRu-xs-sc4" id="S5e-L5-7ry"/>
-                        <outlet property="userNameLabel" destination="bAB-ex-LBH" id="k2r-If-9Tu"/>
+                        <outlet property="userNameLabel" destination="xDp-ub-zRX" id="ITj-pt-qB6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uPc-Ca-dGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1874,14 +1897,35 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e93-91-665">
                                         <rect key="frame" x="102" y="0.0" width="158" height="40"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
-                                        <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vl-7C-w9D">
+                                        <rect key="frame" x="102" y="0.0" width="158" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="IR0-d8-MlO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="short address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHa-h8-fuj">
+                                        <rect key="frame" x="102" y="20" width="158" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="SCe-8a-fLw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
+                                        <color key="textColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7Vl-7C-w9D" secondAttribute="trailing" id="0AV-fD-A9R"/>
                                     <constraint firstAttribute="trailing" secondItem="e93-91-665" secondAttribute="trailing" id="1yZ-5L-IBp"/>
                                     <constraint firstAttribute="height" constant="40" id="6ar-3s-ceI"/>
+                                    <constraint firstItem="7Vl-7C-w9D" firstAttribute="top" secondItem="CWC-yS-bEq" secondAttribute="top" id="C8z-Km-T8V"/>
+                                    <constraint firstItem="KHa-h8-fuj" firstAttribute="leading" secondItem="MZn-CB-2GH" secondAttribute="trailing" constant="16" id="GGi-zv-piJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="KHa-h8-fuj" secondAttribute="bottom" id="Ifm-78-twk"/>
                                     <constraint firstItem="MZn-CB-2GH" firstAttribute="centerY" secondItem="CWC-yS-bEq" secondAttribute="centerY" id="Sbg-6x-Ua1"/>
                                     <constraint firstItem="yFi-bn-KWx" firstAttribute="centerY" secondItem="CWC-yS-bEq" secondAttribute="centerY" id="WdP-rw-Eol"/>
                                     <constraint firstAttribute="bottom" secondItem="e93-91-665" secondAttribute="bottom" id="bDV-6M-bf5"/>
@@ -1889,6 +1933,8 @@
                                     <constraint firstAttribute="width" constant="260" id="giK-AO-58k"/>
                                     <constraint firstItem="yFi-bn-KWx" firstAttribute="leading" secondItem="CWC-yS-bEq" secondAttribute="leading" id="hVq-WE-rlb"/>
                                     <constraint firstItem="MZn-CB-2GH" firstAttribute="leading" secondItem="yFi-bn-KWx" secondAttribute="trailing" constant="16" id="itA-DT-yJh"/>
+                                    <constraint firstItem="7Vl-7C-w9D" firstAttribute="leading" secondItem="MZn-CB-2GH" secondAttribute="trailing" constant="16" id="vjk-eh-Rp9"/>
+                                    <constraint firstAttribute="trailing" secondItem="KHa-h8-fuj" secondAttribute="trailing" id="vx6-Lg-ZVB"/>
                                     <constraint firstItem="e93-91-665" firstAttribute="leading" secondItem="MZn-CB-2GH" secondAttribute="trailing" constant="16" id="x8F-xj-NQK"/>
                                 </constraints>
                             </view>
@@ -1977,14 +2023,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="iQH-KV-BFA"/>
                     <connections>
+                        <outlet property="addressLabel" destination="e93-91-665" id="Dio-ch-hcg"/>
                         <outlet property="amountLabel" destination="i1r-rj-tER" id="dZv-OX-GWg"/>
                         <outlet property="assignWalletButton" destination="WiL-5q-5QQ" id="BQE-Kd-Sdm"/>
                         <outlet property="dateLabel" destination="inV-LO-ioy" id="pSC-uO-iM0"/>
                         <outlet property="hourLabel" destination="x4e-FR-SgB" id="MrN-f1-gbz"/>
+                        <outlet property="shortAddressLabel" destination="KHa-h8-fuj" id="rUN-ZV-Cwo"/>
                         <outlet property="titleLabel" destination="jo8-km-PNr" id="PgK-XV-Jfe"/>
                         <outlet property="toLabel" destination="yFi-bn-KWx" id="mOs-bK-AAQ"/>
                         <outlet property="userImageView" destination="MZn-CB-2GH" id="sb8-i7-bDL"/>
-                        <outlet property="userNameLabel" destination="e93-91-665" id="geV-jK-hQX"/>
+                        <outlet property="userNameLabel" destination="7Vl-7C-w9D" id="KRD-TT-aqR"/>
                         <segue destination="vmc-Ph-dxZ" kind="show" identifier="sendFromDetails" id="hQV-8h-Vdd"/>
                     </connections>
                 </viewController>

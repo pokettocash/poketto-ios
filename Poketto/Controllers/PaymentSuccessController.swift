@@ -17,6 +17,8 @@ class PaymentSuccessController: UIViewController {
     var paymentContact                      : PaymentContact!
     @IBOutlet weak var userImageView        : UIImageView!
     @IBOutlet weak var userNameLabel        : UILabel!
+    @IBOutlet weak var addressLabel         : UILabel!
+    @IBOutlet weak var shortAddressLabel    : UILabel!
     @IBOutlet weak var amountLabel          : UILabel!
     @IBOutlet weak var assignWalletButton   : UIButton!
     var contactStore                        = CNContactStore()
@@ -28,7 +30,7 @@ class PaymentSuccessController: UIViewController {
         let amountValue = Float(transaction.transaction.value) / 1000000000000000000.0
         let amount = String(format: "%.2f", amountValue)
 
-        userNameLabel.text = "\(transaction.transaction.to.address)"
+        addressLabel.text = "\(transaction.transaction.to.address)"
         
         let attributedString = NSMutableAttributedString(string: amount,
                                                          attributes: [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 40),
@@ -42,9 +44,14 @@ class PaymentSuccessController: UIViewController {
             
             assignWalletButton.isHidden = true
             assignWalletButton.isUserInteractionEnabled = false
-            
+            addressLabel.isHidden = true
+            userNameLabel.isHidden = false
+            shortAddressLabel.isHidden = false
+
             userImageView.layer.cornerRadius = userImageView.frame.size.width/2
             
+            shortAddressLabel.text = "\(transaction.transaction.to.address)"
+
             userNameLabel.text = paymentContact.name
             userNameLabel.font = UIFont.systemFont(ofSize: 16)
             userNameLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)
@@ -67,6 +74,9 @@ class PaymentSuccessController: UIViewController {
                 }
             }
         } else {
+            addressLabel.isHidden = false
+            userNameLabel.isHidden = true
+            shortAddressLabel.isHidden = true
             DispatchQueue.main.async {
                 self.userImageView.image = UIImage(named: "unknown-address")
             }

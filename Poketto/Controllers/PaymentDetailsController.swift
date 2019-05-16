@@ -17,6 +17,8 @@ class PaymentDetailsController: UIViewController {
     @IBOutlet weak var toLabel              : UILabel!
     @IBOutlet weak var userImageView        : UIImageView!
     @IBOutlet weak var userNameLabel        : UILabel!
+    @IBOutlet weak var addressLabel         : UILabel!
+    @IBOutlet weak var shortAddressLabel    : UILabel!
     @IBOutlet weak var amountLabel          : UILabel!
     @IBOutlet weak var dateLabel            : UILabel!
     @IBOutlet weak var hourLabel            : UILabel!
@@ -41,12 +43,24 @@ class PaymentDetailsController: UIViewController {
         userImageView.layer.cornerRadius = userImageView.frame.size.width/2
         
         if (transaction.displayName != nil) {
+            
+            addressLabel.isHidden = true
+            userNameLabel.isHidden = false
+            shortAddressLabel.isHidden = false
+            
+            shortAddressLabel.text = transaction.transactionType == .Credit ? transaction.fromAddress ?? "" : transaction.toAddress ?? ""
+
             userNameLabel.text = transaction.displayName
             userNameLabel.font = UIFont.systemFont(ofSize: 16)
             assignWalletButton.setTitle("  Reassign address to contact", for: .normal)
         } else {
-            userNameLabel.text = transaction.transactionType == .Credit ? transaction.fromAddress ?? "" : transaction.toAddress ?? ""
-            userNameLabel.numberOfLines = 2
+            
+            addressLabel.isHidden = false
+            userNameLabel.isHidden = true
+            shortAddressLabel.isHidden = true
+
+            addressLabel.text = transaction.transactionType == .Credit ? transaction.fromAddress ?? "" : transaction.toAddress ?? ""
+            addressLabel.numberOfLines = 2
         }
         
         let attributedString = NSMutableAttributedString(string: amount,
