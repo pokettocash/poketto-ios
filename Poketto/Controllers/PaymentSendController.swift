@@ -18,10 +18,12 @@ class PaymentSendController: UIViewController {
     var paymentContact                  : PaymentContact!
     @IBOutlet weak var userImageView    : UIImageView!
     @IBOutlet weak var userNameLabel    : UILabel!
+    @IBOutlet weak var addressLabel     : UILabel!
     @IBOutlet weak var amountTextField  : UITextField!
     var navBarTitleLabel                : UILabel!
     var navBarSubTitleLabel             : UILabel!
     var contactStore                    = CNContactStore()
+    @IBOutlet weak var sendButtonBottomConstraint      : NSLayoutConstraint!
 
 
     override func viewDidLoad() {
@@ -36,6 +38,9 @@ class PaymentSendController: UIViewController {
         }
         if let contactId = paymentContact?.contactId {
             
+            addressLabel.isHidden = false
+            addressLabel.text = address
+
             userNameLabel.text = paymentContact.name
             userNameLabel.font = UIFont.systemFont(ofSize: 16)
             userNameLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)
@@ -58,6 +63,9 @@ class PaymentSendController: UIViewController {
                 }
             }
         } else {
+            addressLabel.removeFromSuperview()
+            addressLabel = nil
+
             DispatchQueue.main.async {
                 self.userImageView.image = UIImage(named: "unknown-address")
             }
@@ -65,6 +73,13 @@ class PaymentSendController: UIViewController {
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,6 +132,15 @@ class PaymentSendController: UIViewController {
         navBarSubTitleLabel.removeFromSuperview()
         navBarTitleLabel = nil
         navBarSubTitleLabel = nil
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            
+            sendButtonBottomConstraint.constant = keyboardHeight + 16
+        }
     }
     
     @IBAction func send() {
