@@ -1,15 +1,15 @@
 //
-//  Page1Controller.swift
+//  Page4Controller.swift
 //  Poketto
 //
-//  Created by André Sousa on 17/04/2019.
+//  Created by Andre Sousa on 17/05/2019.
 //  Copyright © 2019 Poketto. All rights reserved.
 //
 
 import UIKit
 
-class Page1Controller: UIViewController {
-    
+class Page4Controller: UIViewController {
+
     @IBOutlet weak var spacingConstraint : NSLayoutConstraint!
 
     override func viewDidLoad() {

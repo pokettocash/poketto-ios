@@ -1344,98 +1344,52 @@
             </objects>
             <point key="canvasLocation" x="1586" y="814"/>
         </scene>
-        <!--Page3 Controller-->
+        <!--Page4 Controller-->
         <scene sceneID="wVe-kS-Pge">
             <objects>
-                <viewController storyboardIdentifier="Page3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VsL-Ce-LRk" customClass="Page3Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Page4" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VsL-Ce-LRk" customClass="Page4Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y6M-hM-Gkx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXx-gw-AeF">
-                                <rect key="frame" x="20" y="671" width="335" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="h3P-v9-h1H"/>
-                                </constraints>
-                                <state key="normal" title="Go To your Wallet" backgroundImage="send-button-background">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToDashboard" destination="VsL-Ce-LRk" eventType="touchUpInside" id="ix6-b8-Uab"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oga-K4-vST">
-                                <rect key="frame" x="20" y="415.66666666666669" width="335" height="160.00000000000006"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160" id="uYt-vM-h0C"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="511.00000000000006" width="335" height="64.666666666666686"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">Poketto is a xDai pocket wallet for your day-to-day transactions. The simplest, most secure and near instant way to send money to friends and pay for your every day items.</string>
+                                        <string key="content">Your xDai wallet will be generated for you as soon as you press get started. You can also import an existing wallet on the settings.</string>
                                         <attributes>
-                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-icon" translatesAutoresizingMaskIntoConstraints="NO" id="zzn-Om-0nd">
-                                <rect key="frame" x="67.666666666666686" y="136" width="240" height="240"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding4" translatesAutoresizingMaskIntoConstraints="NO" id="zzn-Om-0nd">
+                                <rect key="frame" x="43.666666666666657" y="167" width="288" height="288"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="fcX-pW-CKp"/>
-                                    <constraint firstAttribute="width" constant="240" id="hkV-Xe-vDO"/>
+                                    <constraint firstAttribute="height" constant="288" id="fcX-pW-CKp"/>
+                                    <constraint firstAttribute="width" constant="288" id="hkV-Xe-vDO"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="AXx-gw-AeF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Oga-K4-vST" secondAttribute="bottom" constant="40" id="6oM-0V-UES"/>
-                            <constraint firstItem="Oga-K4-vST" firstAttribute="firstBaseline" secondItem="zzn-Om-0nd" secondAttribute="baseline" constant="60" id="8rh-PT-HwQ"/>
-                            <constraint firstItem="dyn-0b-KUf" firstAttribute="bottom" secondItem="AXx-gw-AeF" secondAttribute="bottom" priority="999" constant="56" id="I5j-Yq-kMw"/>
+                            <constraint firstItem="Oga-K4-vST" firstAttribute="top" secondItem="zzn-Om-0nd" secondAttribute="bottom" constant="56" id="O1Z-ew-orT"/>
                             <constraint firstItem="zzn-Om-0nd" firstAttribute="centerX" secondItem="y6M-hM-Gkx" secondAttribute="centerX" id="W5c-92-nED"/>
-                            <constraint firstItem="zzn-Om-0nd" firstAttribute="centerY" secondItem="y6M-hM-Gkx" secondAttribute="centerY" constant="-150" id="Xgi-ue-sJq"/>
-                            <constraint firstItem="AXx-gw-AeF" firstAttribute="leading" secondItem="dyn-0b-KUf" secondAttribute="leading" constant="20" id="e9V-9i-Pz4"/>
+                            <constraint firstItem="zzn-Om-0nd" firstAttribute="centerY" secondItem="y6M-hM-Gkx" secondAttribute="centerY" constant="-95" id="Xgi-ue-sJq"/>
                             <constraint firstItem="Oga-K4-vST" firstAttribute="leading" secondItem="dyn-0b-KUf" secondAttribute="leading" constant="20" id="oSE-6e-fxT"/>
                             <constraint firstItem="dyn-0b-KUf" firstAttribute="trailing" secondItem="Oga-K4-vST" secondAttribute="trailing" constant="20" id="rn5-86-vbY"/>
-                            <constraint firstItem="dyn-0b-KUf" firstAttribute="trailing" secondItem="AXx-gw-AeF" secondAttribute="trailing" constant="20" id="yaf-bI-4uv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dyn-0b-KUf"/>
                     </view>
+                    <connections>
+                        <outlet property="spacingConstraint" destination="O1Z-ew-orT" id="XLs-Vm-kfi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcY-rR-ghl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3937.68115942029" y="813.61607142857144"/>
-        </scene>
-        <!--Page1 Controller-->
-        <scene sceneID="KP1-9S-vxR">
-            <objects>
-                <viewController storyboardIdentifier="Page1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pA8-B8-Xq2" customClass="Page1Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zID-dh-rFb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="wTr-Uy-Jvw"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k4J-c5-gc5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2322" y="814"/>
-        </scene>
-        <!--Page2 Controller-->
-        <scene sceneID="D9Y-h7-MkX">
-            <objects>
-                <viewController storyboardIdentifier="Page2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8CV-a7-Mon" customClass="Page2Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gcv-JY-nM5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="EGz-tv-E8E"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GqJ-EW-HYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3148" y="814"/>
+            <point key="canvasLocation" x="4697" y="814"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4CL-wJ-iPH">
@@ -2145,6 +2099,159 @@
             </objects>
             <point key="canvasLocation" x="3240.8000000000002" y="2268.4729064039411"/>
         </scene>
+        <!--Page1 Controller-->
+        <scene sceneID="CVv-a4-8td">
+            <objects>
+                <viewController storyboardIdentifier="Page1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qWe-MB-kFu" customClass="Page1Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Krd-2c-UP7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZJ-QZ-54K">
+                                <rect key="frame" x="20" y="511.00000000000006" width="335" height="64.666666666666686"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Poketto is the simplest, most secure and near instant way to send money to friends and pay for your every day items.">
+                                        <attributes>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding1" translatesAutoresizingMaskIntoConstraints="NO" id="gp7-ej-ien">
+                                <rect key="frame" x="43.666666666666657" y="167" width="288" height="288"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="hpa-oY-Zz6"/>
+                                    <constraint firstAttribute="height" constant="288" id="jaw-Ug-NRm"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gp7-ej-ien" firstAttribute="centerX" secondItem="Krd-2c-UP7" secondAttribute="centerX" id="OBv-sK-5jg"/>
+                            <constraint firstItem="gp7-ej-ien" firstAttribute="centerY" secondItem="Krd-2c-UP7" secondAttribute="centerY" constant="-95" id="UWf-2W-MGw"/>
+                            <constraint firstItem="yZJ-QZ-54K" firstAttribute="top" secondItem="gp7-ej-ien" secondAttribute="bottom" constant="56" id="UiV-uk-dJ7"/>
+                            <constraint firstItem="yZJ-QZ-54K" firstAttribute="leading" secondItem="eWM-UA-VYL" secondAttribute="leading" constant="20" id="XS3-ET-tXp"/>
+                            <constraint firstItem="eWM-UA-VYL" firstAttribute="trailing" secondItem="yZJ-QZ-54K" secondAttribute="trailing" constant="20" id="kyv-Bo-pRo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eWM-UA-VYL"/>
+                    </view>
+                    <connections>
+                        <outlet property="spacingConstraint" destination="UiV-uk-dJ7" id="FiF-RA-3Bs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LhG-HG-uiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2342" y="814"/>
+        </scene>
+        <!--Page2 Controller-->
+        <scene sceneID="bYE-y0-3Hr">
+            <objects>
+                <viewController storyboardIdentifier="Page2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nlm-KL-O8e" customClass="Page2Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nag-O9-V2y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1a-29-mXj">
+                                <rect key="frame" x="20" y="511.00000000000006" width="335" height="64.666666666666686"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Poketto uses xDai for near instant transactions to an xDai address. Not sure what xDai is? We will try to explain.">
+                                        <attributes>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding2" translatesAutoresizingMaskIntoConstraints="NO" id="af2-5m-W3j">
+                                <rect key="frame" x="43.666666666666657" y="167" width="288" height="288"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="288" id="fWn-vL-ZzH"/>
+                                    <constraint firstAttribute="width" constant="288" id="nRR-s6-5wo"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bWt-Wn-GZk" firstAttribute="trailing" secondItem="p1a-29-mXj" secondAttribute="trailing" constant="20" id="FHc-bs-vMj"/>
+                            <constraint firstItem="af2-5m-W3j" firstAttribute="centerX" secondItem="Nag-O9-V2y" secondAttribute="centerX" id="mzB-tK-wlC"/>
+                            <constraint firstItem="p1a-29-mXj" firstAttribute="leading" secondItem="bWt-Wn-GZk" secondAttribute="leading" constant="20" id="nGY-0o-kZH"/>
+                            <constraint firstItem="af2-5m-W3j" firstAttribute="centerY" secondItem="Nag-O9-V2y" secondAttribute="centerY" constant="-95" id="nsx-p5-Ob4"/>
+                            <constraint firstItem="p1a-29-mXj" firstAttribute="top" secondItem="af2-5m-W3j" secondAttribute="bottom" constant="56" id="uKX-kB-13k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bWt-Wn-GZk"/>
+                    </view>
+                    <connections>
+                        <outlet property="spacingConstraint" destination="uKX-kB-13k" id="69O-8k-Zhy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hdd-b0-5aA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3113" y="814"/>
+        </scene>
+        <!--Page3 Controller-->
+        <scene sceneID="0WV-9W-uUr">
+            <objects>
+                <viewController storyboardIdentifier="Page3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fjk-Up-GKI" customClass="Page3Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wOb-Hz-LlO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9X-GV-VhS">
+                                <rect key="frame" x="20" y="511.00000000000006" width="335" height="64.666666666666686"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="xDai is an Ethereum blockchain that uses USD-stable xDai (a representation of DAI token) as the native coin of the network.">
+                                        <attributes>
+                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding3" translatesAutoresizingMaskIntoConstraints="NO" id="sJx-gS-6Qu">
+                                <rect key="frame" x="43.666666666666657" y="167" width="288" height="288"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="2qN-sa-r6E"/>
+                                    <constraint firstAttribute="height" constant="288" id="Ywb-FM-DHh"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXn-9d-Wep">
+                                <rect key="frame" x="82" y="724" width="211" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dtc-rs-Ufx"/>
+                                </constraints>
+                                <state key="normal" title="   Learn more about xDai" image="discover">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="learnMore" destination="fjk-Up-GKI" eventType="touchUpInside" id="pwg-1N-8nt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sJx-gS-6Qu" firstAttribute="centerX" secondItem="wOb-Hz-LlO" secondAttribute="centerX" id="Cp3-h7-73P"/>
+                            <constraint firstItem="sJx-gS-6Qu" firstAttribute="centerY" secondItem="wOb-Hz-LlO" secondAttribute="centerY" constant="-95" id="FWT-eP-nBL"/>
+                            <constraint firstItem="aXn-9d-Wep" firstAttribute="centerX" secondItem="wOb-Hz-LlO" secondAttribute="centerX" id="MeJ-jX-uiC"/>
+                            <constraint firstItem="P9X-GV-VhS" firstAttribute="top" secondItem="sJx-gS-6Qu" secondAttribute="bottom" constant="56" id="SUA-I9-5sD"/>
+                            <constraint firstItem="P9X-GV-VhS" firstAttribute="leading" secondItem="qY1-Sl-5Qd" secondAttribute="leading" constant="20" id="YSf-h4-rcE"/>
+                            <constraint firstItem="qY1-Sl-5Qd" firstAttribute="trailing" secondItem="P9X-GV-VhS" secondAttribute="trailing" constant="20" id="tUK-cf-ohZ"/>
+                            <constraint firstItem="qY1-Sl-5Qd" firstAttribute="bottom" secondItem="aXn-9d-Wep" secondAttribute="bottom" constant="10" id="unN-mR-X1E"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qY1-Sl-5Qd"/>
+                    </view>
+                    <connections>
+                        <outlet property="learnMoreButtonBottomConstraint" destination="unN-mR-X1E" id="krf-36-Pxx"/>
+                        <outlet property="spacingConstraint" destination="SUA-I9-5sD" id="cUO-7g-fE8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kZr-Pp-utP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3900" y="814"/>
+        </scene>
     </scenes>
     <resources>
         <image name="add-funds-bg" width="184" height="48"/>
@@ -2153,9 +2260,13 @@
         <image name="assign-address" width="13.333333015441895" height="14"/>
         <image name="cell-address-manually" width="34" height="34.333332061767578"/>
         <image name="cell-qrcode" width="34" height="34.333332061767578"/>
+        <image name="discover" width="14" height="14"/>
         <image name="nav-button-qrcode" width="32" height="32"/>
         <image name="nav-button-settings" width="32" height="32"/>
-        <image name="onboarding-icon" width="240" height="240"/>
+        <image name="onboarding1" width="286" height="288"/>
+        <image name="onboarding2" width="272" height="276"/>
+        <image name="onboarding3" width="288" height="288"/>
+        <image name="onboarding4" width="276" height="276"/>
         <image name="pay-button-background" width="177" height="60"/>
         <image name="pay-unknown" width="28" height="28"/>
         <image name="receive-funds-bg" width="184" height="48"/>

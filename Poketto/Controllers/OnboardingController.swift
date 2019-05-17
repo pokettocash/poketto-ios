@@ -12,13 +12,15 @@ class OnboardingController: UIPageViewController
 {
     fileprivate lazy var pages: [UIViewController] = {
         return [
-//            self.getViewController(withIdentifier: "Page1"),
-//            self.getViewController(withIdentifier: "Page2"),
-            self.getViewController(withIdentifier: "Page3")
+            self.getViewController(withIdentifier: "Page1"),
+            self.getViewController(withIdentifier: "Page2"),
+            self.getViewController(withIdentifier: "Page3"),
+            self.getViewController(withIdentifier: "Page4")
         ]
     }()
     
     var pageControl : UIPageControl!
+    var getStartedButton : UIButton!
     
     fileprivate func getViewController(withIdentifier identifier: String) -> UIViewController
     {
@@ -31,12 +33,7 @@ class OnboardingController: UIPageViewController
         self.dataSource = self
         self.delegate   = self
         
-//        pageControl = UIPageControl(frame: CGRect(x: view.bounds.size.width/2-50, y: view.frame.size.height-50, width: 100, height: 20))
-//        pageControl.pageIndicatorTintColor = UIColor.lightGray
-//        pageControl.currentPageIndicatorTintColor = UIColor.blue
-//        pageControl.numberOfPages = 1
-//        pageControl.currentPage = 0
-//        view.addSubview(pageControl)
+        print("UIScreen.main.bounds.size.height \(UIScreen.main.bounds.size.height)")
         
         if let firstVC = pages.first
         {
@@ -47,10 +44,48 @@ class OnboardingController: UIPageViewController
     override func viewDidLayoutSubviews() {
         for subView in self.view.subviews {
             if subView is UIPageControl {
+                pageControl = subView as? UIPageControl
+                let window = UIApplication.shared.keyWindow
+                var padding : CGFloat = 30
+                if window?.safeAreaInsets.bottom == 0 {
+                    padding = 0
+                }
+                if getStartedButton != nil {
+                    pageControl.frame = CGRect(x: view.bounds.size.width/2-50, y: (625-padding)*(UIScreen.main.bounds.size.height/812)-padding, width: 100, height: 20)
+                }
+                pageControl.pageIndicatorTintColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1)
+                pageControl.currentPageIndicatorTintColor = UIColor(red: 101/255, green: 101/255, blue: 101/255, alpha: 1)
+                pageControl.numberOfPages = 4
+                pageControl.currentPage = 0
+                pageControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
                 self.view.bringSubviewToFront(subView)
             }
         }
         super.viewDidLayoutSubviews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let window = UIApplication.shared.keyWindow
+        var padding : CGFloat = 20
+        if window?.safeAreaInsets.bottom == 0 {
+            padding = 0
+        }
+
+        getStartedButton = UIButton(frame: CGRect(x: 15, y: view.frame.size.height-70-padding, width: view.frame.size.width-30, height: 48))
+        getStartedButton.setTitle("Get Started", for: .normal)
+        getStartedButton.setTitleColor(UIColor.white, for: .normal)
+        getStartedButton.setBackgroundImage(UIImage(named: "send-button-background"), for: .normal)
+        getStartedButton.addTarget(self, action: #selector(goToDashboard), for: .touchUpInside)
+        view.addSubview(getStartedButton)
+    }
+    
+    @objc func goToDashboard() {
+        
+        let wallet = Wallet.init()
+        wallet.generate()
+        AppDelegate.shared.rootViewController.switchToDashboard()
     }
 }
 
