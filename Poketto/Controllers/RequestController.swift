@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Presentr
 
-class RequestController: UIViewController {
+class RequestController: UIViewController, PresentrDelegate {
     
     var address                         : String!
     @IBOutlet weak var addressLabel     : UILabel!
@@ -52,12 +53,14 @@ class RequestController: UIViewController {
     
     @IBAction func dismiss() {
         
+        AppDelegate.shared.removeBackgroundBlur()
         dismiss(animated: true, completion: nil)
     }
     
     func copyToClipboard() {
         
         UIPasteboard.general.string = address
+        AppDelegate.shared.removeBackgroundBlur()
         dismiss(animated: true, completion: nil)
     }
     
@@ -66,6 +69,11 @@ class RequestController: UIViewController {
         let items = [address]
         let ac = UIActivityViewController(activityItems: items as! [String], applicationActivities: nil)
         present(ac, animated: true)
+    }
+    
+    func presentrShouldDismiss(keyboardShowing: Bool) -> Bool {
+        AppDelegate.shared.removeBackgroundBlur()
+        return true
     }
 }
 

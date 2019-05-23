@@ -14,7 +14,8 @@ import SwiftKeychainWrapper
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    var window              : UIWindow?
+    var backgroundBlurView  : UIView?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -67,5 +68,22 @@ extension AppDelegate {
             KeychainWrapper.standard.removeObject(forKey: "mnemonic")
         }
     }
+    
+    func blurBackground() {
+        
+        if backgroundBlurView == nil {
+            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+            backgroundBlurView = UIVisualEffectView(effect: blurEffect)
+            backgroundBlurView!.frame = rootViewController.view.bounds
+            backgroundBlurView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            rootViewController.view.addSubview(backgroundBlurView!)
+        }
+    }
+    
+    func removeBackgroundBlur() {
+        backgroundBlurView?.removeFromSuperview()
+        backgroundBlurView = nil
+    }
+
 }
 

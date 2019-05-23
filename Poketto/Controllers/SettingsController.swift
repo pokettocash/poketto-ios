@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Presentr
 
-class SettingsController: UIViewController, SettingsOptionsDelegate {
+class SettingsController: UIViewController, SettingsOptionsDelegate, PresentrDelegate {
     weak var settingsOptionsController : SettingsOptionsController?
     
     override func viewDidLoad() {
@@ -20,6 +21,7 @@ class SettingsController: UIViewController, SettingsOptionsDelegate {
         
     @IBAction func dismiss() {
         
+        AppDelegate.shared.removeBackgroundBlur()
         dismiss(animated: true, completion: nil)
     }
     
@@ -51,6 +53,11 @@ class SettingsController: UIViewController, SettingsOptionsDelegate {
                 settingsOptionsController?.delegate = self
             }
         }
+    }
+    
+    func presentrShouldDismiss(keyboardShowing: Bool) -> Bool {
+        AppDelegate.shared.removeBackgroundBlur()
+        return true
     }
 }
 

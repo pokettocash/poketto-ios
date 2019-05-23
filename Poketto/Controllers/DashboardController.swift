@@ -159,6 +159,8 @@ class DashboardController: UIViewController, SettingsDelegate {
     
     @IBAction func settings() {
         
+        AppDelegate.shared.blurBackground()
+        
         let presenter: Presentr = {
             let heightFloat : Float = 526
             let width = ModalSize.sideMargin(value: 14)
@@ -187,6 +189,8 @@ class DashboardController: UIViewController, SettingsDelegate {
     }
     
     @IBAction func request() {
+        
+        AppDelegate.shared.blurBackground()
         
         let presenter: Presentr = {
             let width = ModalSize.sideMargin(value: 14)
