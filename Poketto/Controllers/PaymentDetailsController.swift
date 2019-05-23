@@ -17,8 +17,8 @@ class PaymentDetailsController: UIViewController {
     @IBOutlet weak var toLabel              : UILabel!
     @IBOutlet weak var userImageView        : UIImageView!
     @IBOutlet weak var userNameLabel        : UILabel!
-    @IBOutlet weak var addressLabel         : UILabel!
-    @IBOutlet weak var shortAddressLabel    : UILabel!
+    @IBOutlet weak var addressLabel         : TapAndCopyLabel!
+    @IBOutlet weak var shortAddressLabel    : TapAndCopyLabel!
     @IBOutlet weak var amountLabel          : UILabel!
     @IBOutlet weak var dateLabel            : UILabel!
     @IBOutlet weak var hourLabel            : UILabel!
