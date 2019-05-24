@@ -19,8 +19,10 @@ class DashboardController: UIViewController, SettingsDelegate {
     @IBOutlet var collectionView        : UICollectionView!
     private let refreshControl          = UIRefreshControl()
     var transactions                    : Array<Transaction> = []
+    var dayGroupedTransactions          : Array<Any> = []
     let reuseIdentifier                 = "transactionCellId"
     var headerID                        = "dashboardHeaderId"
+    var headerDayID                     = "dashboardHeaderDayId"
     var balance                         : Float!
     var spentToday                      : Float!
     var contactStore                    = CNContactStore()
@@ -31,6 +33,7 @@ class DashboardController: UIViewController, SettingsDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.register(UINib(nibName: "DashboardHeaderDayView", bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerDayID)
     
         collectionView.refreshControl = self.refreshControl
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
@@ -133,6 +136,9 @@ class DashboardController: UIViewController, SettingsDelegate {
                 serializedTransactions.append(transaction)
             })
             
+            let groupedTransactions = serializedTransactions.groupSort(byDate: { $0.date })
+            self.dayGroupedTransactions = groupedTransactions.reversed()
+            
             self.spentToday = spentTodaySum
             
             DispatchQueue.main.async {
@@ -233,57 +239,93 @@ class DashboardController: UIViewController, SettingsDelegate {
 extension DashboardController : UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return dayGroupedTransactions.count+1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return transactions.count
+        if section == 0 {
+            return 0
+        } else {
+            let transactions = (dayGroupedTransactions as NSArray).object(at: section-1) as! [Transaction]
+            return transactions.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        var sectionHeader = DashboardHeaderView()
-        
-        sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: self.headerID, for: indexPath) as! DashboardHeaderView
-        
-        if kind == UICollectionView.elementKindSectionHeader {
-            
-            if(balance != nil) {
-                sectionHeader.balanceLabel.text = "\(String(format: "%.2f", balance)) xDai"
-            }
-            
-            if(spentToday != nil) {
-                sectionHeader.spentTodayLabel.text = "\(String(format: "%.2f", spentToday)) xDai"
-            }
-            
-            if(hasFetchedData) {
-                sectionHeader.isHidden = false
-            }
-            
-            if(self.transactions.count == 0 && hasFetchedData) {
-                sectionHeader.emptyStateView.isHidden = false
-                self.emptyStateContainer.view.isHidden = false
-                if(!sectionHeader.emptyStateView.contains(self.emptyStateContainer.view)) {
-                    sectionHeader.emptyStateView.addSubview(self.emptyStateContainer.view)
-                }
-            } else {
-                sectionHeader.emptyStateView.isHidden = true
-                self.emptyStateContainer.view.isHidden = true
-                if(sectionHeader.emptyStateView.contains(self.emptyStateContainer.view)) {
-                    self.emptyStateContainer.view.removeFromSuperview()
-                }
-            }
-            
-            return sectionHeader
-        }
-        return UICollectionReusableView()
+    
+        if indexPath.section == 0 {
+            var sectionHeader = DashboardHeaderView()
 
+            sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: self.headerID, for: indexPath) as! DashboardHeaderView
+
+            if kind == UICollectionView.elementKindSectionHeader {
+
+                if(balance != nil) {
+                    sectionHeader.balanceLabel.text = "\(String(format: "%.2f", balance)) xDai"
+                }
+
+                if(spentToday != nil) {
+                    sectionHeader.spentTodayLabel.text = "\(String(format: "%.2f", spentToday)) xDai"
+                }
+
+                if(hasFetchedData) {
+                    sectionHeader.isHidden = false
+                }
+
+                if(self.transactions.count == 0 && hasFetchedData) {
+                    sectionHeader.emptyStateView.isHidden = false
+                    self.emptyStateContainer.view.isHidden = false
+                    if(!sectionHeader.emptyStateView.contains(self.emptyStateContainer.view)) {
+                        sectionHeader.emptyStateView.addSubview(self.emptyStateContainer.view)
+                    }
+                } else {
+                    sectionHeader.emptyStateView.isHidden = true
+                    self.emptyStateContainer.view.isHidden = true
+                    if(sectionHeader.emptyStateView.contains(self.emptyStateContainer.view)) {
+                        self.emptyStateContainer.view.removeFromSuperview()
+                    }
+                }
+
+                return sectionHeader
+            }
+            return UICollectionReusableView()
+        } else {
+            var sectionHeader = DashboardHeaderDayView()
+            
+            sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: self.headerDayID, for: indexPath) as! DashboardHeaderDayView
+            
+            if kind == UICollectionView.elementKindSectionHeader {
+                
+                let transactions = (dayGroupedTransactions as NSArray).object(at: indexPath.section-1) as! [Transaction]
+                let transaction = transactions[0]
+                
+                if Calendar.current.isDateInToday(transaction.date) {
+                    sectionHeader.dateLabel.text = "Today"
+                } else if Calendar.current.isDateInYesterday(transaction.date) {
+                    sectionHeader.dateLabel.text = "Yesterday"
+                } else if Calendar.current.isDate(Date(), equalTo: transaction.date, toGranularity: .weekOfYear) {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "MMM, dd MMMM"
+                    sectionHeader.dateLabel.text = dateFormatter.string(from: transaction.date)
+                } else {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd MMMM"
+                    sectionHeader.dateLabel.text = dateFormatter.string(from: transaction.date)
+                }
+                
+                return sectionHeader
+            }
+            return UICollectionReusableView()
+        }
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TransactionCell
         
+        let transactions = (dayGroupedTransactions as NSArray).object(at: indexPath.section-1) as! [Transaction]
         let transaction = transactions[indexPath.row]
         
         if (transaction.displayName != nil) {
@@ -320,23 +362,28 @@ extension DashboardController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        if let headerView = collectionView.visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionHeader).first as? DashboardHeaderView {
-            // Layout to get the right dimensions
-            headerView.layoutIfNeeded()
-        }
+        if section == 0 {
+            if let headerView = collectionView.visibleSupplementaryViews(ofKind: UICollectionView.elementKindSectionHeader).first as? DashboardHeaderView {
+                // Layout to get the right dimensions
+                headerView.layoutIfNeeded()
+            }
+            
+            // Automagically get the right height
+            var height : CGFloat = 215
+            if self.transactions.count == 0 {
+                height = self.view.frame.size.height
+            }
+            
+            emptyStateContainer.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: height)
+            emptyStateContainer.view.updateConstraints()
+            emptyStateContainer.view.layoutSubviews()
+            
+            // return the correct size
+            return CGSize(width: collectionView.frame.width, height: height)
 
-        // Automagically get the right height
-        var height : CGFloat = 240
-        if self.transactions.count == 0 {
-            height = self.view.frame.size.height
+        } else {
+            return CGSize(width: collectionView.frame.width, height: 50)
         }
-        
-        emptyStateContainer.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: height)
-        emptyStateContainer.view.updateConstraints()
-        emptyStateContainer.view.layoutSubviews()
-        
-        // return the correct size
-        return CGSize(width: collectionView.frame.width, height: height)
     }
 }
 
@@ -344,7 +391,10 @@ extension DashboardController : UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let transaction = transactions[indexPath.row]
-        performSegue(withIdentifier: "paymentDetails", sender: transaction)
+        if indexPath.section > 0 {
+            let transactions = (dayGroupedTransactions as NSArray).object(at: indexPath.section-1) as! [Transaction]
+            let transaction = transactions[indexPath.row]
+            performSegue(withIdentifier: "paymentDetails", sender: transaction)
+        }
     }
 }

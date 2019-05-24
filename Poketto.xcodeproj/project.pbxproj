@@ -10,6 +10,9 @@
 		1BD6E5DFF314324206BAE069 /* Pods_Poketto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A2196B6BC317ADF6BD8E6E /* Pods_Poketto.framework */; };
 		657300FF228F1011003BE6D2 /* Page4Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657300FE228F1011003BE6D2 /* Page4Controller.swift */; };
 		65C5CD0F2296DFB500C2221A /* TapAndCopyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C5CD0E2296DFB500C2221A /* TapAndCopyLabel.swift */; };
+		65DE5CC52297F8DF00109C29 /* DashboardHeaderDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE5CC32297F8DF00109C29 /* DashboardHeaderDayView.swift */; };
+		65DE5CC62297F8DF00109C29 /* DashboardHeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65DE5CC42297F8DF00109C29 /* DashboardHeaderDayView.xib */; };
+		65DE5CC9229802A600109C29 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE5CC8229802A600109C29 /* ArrayUtils.swift */; };
 		7016B4B722831973000C49B8 /* PaymentDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7016B4B622831973000C49B8 /* PaymentDetailsController.swift */; };
 		70572CD12274A17200297421 /* db.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70572CCF2274A17200297421 /* db.xcdatamodeld */; };
 		7073A69D2280C03800049A2E /* PaymentContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073A69C2280C03800049A2E /* PaymentContactCell.swift */; };
@@ -73,6 +76,9 @@
 		42A2196B6BC317ADF6BD8E6E /* Pods_Poketto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poketto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		657300FE228F1011003BE6D2 /* Page4Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page4Controller.swift; sourceTree = "<group>"; };
 		65C5CD0E2296DFB500C2221A /* TapAndCopyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapAndCopyLabel.swift; sourceTree = "<group>"; };
+		65DE5CC32297F8DF00109C29 /* DashboardHeaderDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHeaderDayView.swift; sourceTree = "<group>"; };
+		65DE5CC42297F8DF00109C29 /* DashboardHeaderDayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardHeaderDayView.xib; sourceTree = "<group>"; };
+		65DE5CC8229802A600109C29 /* ArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
 		7016B4B622831973000C49B8 /* PaymentDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailsController.swift; sourceTree = "<group>"; };
 		70572CD02274A17200297421 /* db.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = db.xcdatamodel; sourceTree = "<group>"; };
 		7073A69C2280C03800049A2E /* PaymentContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentContactCell.swift; sourceTree = "<group>"; };
@@ -153,13 +159,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		70572CCE2274845D00297421 /* data */ = {
+		65DE5CC72298027F00109C29 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				65DE5CC8229802A600109C29 /* ArrayUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		70572CCE2274845D00297421 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				70572CDE2274A58400297421 /* Models */,
 				70572CCF2274A17200297421 /* db.xcdatamodeld */,
 			);
-			path = data;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		70572CDE2274A58400297421 /* Models */ = {
@@ -224,6 +238,8 @@
 				7073A69C2280C03800049A2E /* PaymentContactCell.swift */,
 				DD8FADDE227A50FC00851827 /* UITextViewWithDoneButton.swift */,
 				65C5CD0E2296DFB500C2221A /* TapAndCopyLabel.swift */,
+				65DE5CC32297F8DF00109C29 /* DashboardHeaderDayView.swift */,
+				65DE5CC42297F8DF00109C29 /* DashboardHeaderDayView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -253,11 +269,12 @@
 		DDAE1F562255234C00D30A8C /* Poketto */ = {
 			isa = PBXGroup;
 			children = (
+				65DE5CC72298027F00109C29 /* Utils */,
 				707FB2062275D04E005B29A2 /* Models */,
 				70A31C81226780ED007291D1 /* Views */,
 				70A31C7022676066007291D1 /* Controllers */,
 				DDB50443225CC50C005B3DE0 /* Services */,
-				70572CCE2274845D00297421 /* data */,
+				70572CCE2274845D00297421 /* Data */,
 				DDAE1F572255234C00D30A8C /* AppDelegate.swift */,
 				DDAE1F5B2255234C00D30A8C /* Main.storyboard */,
 				DDAE1F602255234D00D30A8C /* LaunchScreen.storyboard */,
@@ -427,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDAE1F622255234D00D30A8C /* LaunchScreen.storyboard in Resources */,
+				65DE5CC62297F8DF00109C29 /* DashboardHeaderDayView.xib in Resources */,
 				70C82D68227113A100F627A1 /* Assets.xcassets in Resources */,
 				DDAE1F5D2255234C00D30A8C /* Main.storyboard in Resources */,
 			);
@@ -609,8 +627,10 @@
 				DD251A232282E79900F1D781 /* Transaction.swift in Sources */,
 				707FB2082275D061005B29A2 /* PhoneContact.swift in Sources */,
 				70572CD12274A17200297421 /* db.xcdatamodeld in Sources */,
+				65DE5CC9229802A600109C29 /* ArrayUtils.swift in Sources */,
 				70A31C85226782A0007291D1 /* DashboardHeaderView.swift in Sources */,
 				70A31C76226760E4007291D1 /* DashboardController.swift in Sources */,
+				65DE5CC52297F8DF00109C29 /* DashboardHeaderDayView.swift in Sources */,
 				70E0A482228486C40002CBF3 /* CustomQRCodeController.swift in Sources */,
 				707FB20A2275D351005B29A2 /* ContactCell.swift in Sources */,
 				707DEB9E226F5BCB00F0AD93 /* PasteCell.swift in Sources */,
