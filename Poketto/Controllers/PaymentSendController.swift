@@ -143,6 +143,15 @@ class PaymentSendController: UIViewController {
         }
     }
     
+    @IBAction func setMaxValue() {
+        let wallet = Wallet.init()
+        let transactionCost = Float(0.000021)
+        
+        Explorer.init().balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
+            self.amountTextField.text = String(balance - transactionCost)
+        })
+    }
+    
     @IBAction func send() {
         
         if let amount = amountTextField.text {

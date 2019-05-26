@@ -595,13 +595,32 @@
                                 <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFq-eh-sSD">
+                                <rect key="frame" x="73.666666666666686" y="240" width="228" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="YbW-UQ-Dgw"/>
+                                    <constraint firstAttribute="width" constant="228" id="k9j-Xt-wKj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="10" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="Send max balance" image="max">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="setMaxValue" destination="vmc-Ph-dxZ" eventType="touchUpInside" id="666-lp-obb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="3th-ND-3nJ" secondAttribute="trailing" constant="15" id="1dG-Y8-4kz"/>
+                            <constraint firstItem="xFq-eh-sSD" firstAttribute="centerX" secondItem="Z90-jH-MMY" secondAttribute="centerX" id="1hK-bm-F3x"/>
+                            <constraint firstItem="xFq-eh-sSD" firstAttribute="top" secondItem="tDv-at-CIA" secondAttribute="bottom" constant="20" id="4Mc-Dc-r8k"/>
                             <constraint firstItem="W5i-eh-1cZ" firstAttribute="centerX" secondItem="Z90-jH-MMY" secondAttribute="centerX" constant="16" id="4c0-ke-zrh"/>
                             <constraint firstItem="3th-ND-3nJ" firstAttribute="leading" secondItem="Z90-jH-MMY" secondAttribute="leading" constant="15" id="75N-bD-g2F"/>
                             <constraint firstItem="Apn-ci-9D0" firstAttribute="leading" secondItem="Z90-jH-MMY" secondAttribute="leading" constant="15" id="7Vo-Ma-xva"/>
+                            <constraint firstItem="xFq-eh-sSD" firstAttribute="centerX" secondItem="Z90-jH-MMY" secondAttribute="centerX" id="8VY-1k-aym"/>
                             <constraint firstItem="Zf4-5U-zBj" firstAttribute="top" secondItem="W5i-eh-1cZ" secondAttribute="bottom" constant="8" id="Clq-Mb-eUd"/>
                             <constraint firstItem="W5i-eh-1cZ" firstAttribute="leading" secondItem="r1a-87-9eQ" secondAttribute="trailing" constant="16" id="FZz-6T-hsV"/>
                             <constraint firstItem="oNV-FB-B1C" firstAttribute="leading" secondItem="s1l-cj-qw3" secondAttribute="leading" constant="15" id="Fw5-2O-UVv"/>
@@ -638,7 +657,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpb-Hb-71e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3990" y="1564"/>
+            <point key="canvasLocation" x="3989.5999999999999" y="1563.5467980295566"/>
         </scene>
         <!--Payment Success Controller-->
         <scene sceneID="9FV-fq-ec3">
@@ -2261,6 +2280,7 @@
         <image name="cell-address-manually" width="34" height="34.333332061767578"/>
         <image name="cell-qrcode" width="34" height="34.333332061767578"/>
         <image name="discover" width="14" height="14"/>
+        <image name="max" width="17" height="17"/>
         <image name="nav-button-qrcode" width="32" height="32"/>
         <image name="nav-button-settings" width="32" height="32"/>
         <image name="onboarding1" width="286" height="288"/>
