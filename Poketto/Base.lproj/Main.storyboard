@@ -1098,6 +1098,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="versionLabel" destination="ThG-y9-dUb" id="SJh-mZ-yTR"/>
                         <segue destination="N4Z-yg-pFd" kind="show" identifier="importSeed" id="I1J-Pc-efU"/>
                     </connections>
                 </viewController>

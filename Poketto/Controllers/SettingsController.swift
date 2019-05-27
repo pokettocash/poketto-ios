@@ -10,13 +10,19 @@ import UIKit
 import Presentr
 
 class SettingsController: UIViewController, SettingsOptionsDelegate, PresentrDelegate {
-    weak var settingsOptionsController : SettingsOptionsController?
+    
+    weak var settingsOptionsController  : SettingsOptionsController?
+    @IBOutlet weak var versionLabel     : UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.layer.cornerRadius = 25
         view.clipsToBounds = true
+        
+        let versionString = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        let buildString = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
+        versionLabel.text = "\(versionString)(\(buildString))"
     }
         
     @IBAction func dismiss() {
