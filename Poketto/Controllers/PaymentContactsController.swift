@@ -163,7 +163,7 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
             
             if searchText != "" {
                 self.filteredPaymentContacts = self.paymentContacts.filter { paymentContact in
-                    return "\(paymentContact.name!)".lowercased().contains(searchText.lowercased()) || "\(paymentContact.address!)".lowercased().contains(searchText.lowercased())
+                    return "\(paymentContact.name!)".lowercased().hasPrefix(searchText.lowercased()) || "\(paymentContact.address!)".lowercased().hasPrefix(searchText.lowercased())
                 }
             } else {
                 self.filteredPaymentContacts = self.paymentContacts
