@@ -325,8 +325,9 @@ extension DashboardController : UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! TransactionCell
         
-        let transactions = (dayGroupedTransactions as NSArray).object(at: indexPath.section-1) as! [Transaction]
-        let transaction = transactions[indexPath.row]
+        let transactions = (dayGroupedTransactions as NSArray).object(at: indexPath.section-1) as! NSArray
+        let reversedTransactions = transactions.reversed() as! [Transaction]
+        let transaction = reversedTransactions[indexPath.row]
         
         if (transaction.displayName != nil) {
             cell.addressLabel.text = transaction.displayName
@@ -392,8 +393,9 @@ extension DashboardController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if indexPath.section > 0 {
-            let transactions = (dayGroupedTransactions as NSArray).object(at: indexPath.section-1) as! [Transaction]
-            let transaction = transactions[indexPath.row]
+            let transactions = (dayGroupedTransactions as NSArray).object(at: indexPath.section-1) as! NSArray
+            let reversedTransactions = transactions.reversed() as! [Transaction]
+            let transaction = reversedTransactions[indexPath.row]
             performSegue(withIdentifier: "paymentDetails", sender: transaction)
         }
     }
