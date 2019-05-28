@@ -595,7 +595,7 @@
                                 <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFq-eh-sSD">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFq-eh-sSD">
                                 <rect key="frame" x="73.666666666666686" y="240" width="228" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="YbW-UQ-Dgw"/>
@@ -615,7 +615,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="3th-ND-3nJ" secondAttribute="trailing" constant="15" id="1dG-Y8-4kz"/>
-                            <constraint firstItem="xFq-eh-sSD" firstAttribute="centerX" secondItem="Z90-jH-MMY" secondAttribute="centerX" id="1hK-bm-F3x"/>
+                            <constraint firstItem="xFq-eh-sSD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2q0-pW-CPp" secondAttribute="bottom" constant="8" id="2zO-tb-plB"/>
                             <constraint firstItem="xFq-eh-sSD" firstAttribute="top" secondItem="tDv-at-CIA" secondAttribute="bottom" constant="20" id="4Mc-Dc-r8k"/>
                             <constraint firstItem="W5i-eh-1cZ" firstAttribute="centerX" secondItem="Z90-jH-MMY" secondAttribute="centerX" constant="16" id="4c0-ke-zrh"/>
                             <constraint firstItem="3th-ND-3nJ" firstAttribute="leading" secondItem="Z90-jH-MMY" secondAttribute="leading" constant="15" id="75N-bD-g2F"/>
@@ -649,6 +649,9 @@
                     <connections>
                         <outlet property="addressLabel" destination="Zf4-5U-zBj" id="cQo-Xj-SvZ"/>
                         <outlet property="amountTextField" destination="2q0-pW-CPp" id="xoh-cF-Men"/>
+                        <outlet property="currencyDivider" destination="tDv-at-CIA" id="vLP-7f-MDZ"/>
+                        <outlet property="maxButton" destination="xFq-eh-sSD" id="cmE-24-u3z"/>
+                        <outlet property="maxButtonTopConstraint" destination="4Mc-Dc-r8k" id="lad-Mz-XNI"/>
                         <outlet property="sendButtonBottomConstraint" destination="njT-tH-Ua5" id="36R-TI-i0u"/>
                         <outlet property="userImageView" destination="r1a-87-9eQ" id="3iP-2G-mcQ"/>
                         <outlet property="userNameLabel" destination="W5i-eh-1cZ" id="ukd-Nm-Fb4"/>

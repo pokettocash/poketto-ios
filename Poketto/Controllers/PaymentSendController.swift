@@ -13,17 +13,20 @@ import Contacts
 
 class PaymentSendController: UIViewController {
     
-    var fromDetails                     : Bool!
-    var address                         : String!
-    var paymentContact                  : PaymentContact!
-    @IBOutlet weak var userImageView    : UIImageView!
-    @IBOutlet weak var userNameLabel    : UILabel!
-    @IBOutlet weak var addressLabel     : UILabel!
-    @IBOutlet weak var amountTextField  : UITextField!
-    var navBarTitleLabel                : UILabel!
-    var navBarSubTitleLabel             : UILabel!
-    var contactStore                    = CNContactStore()
-    @IBOutlet weak var sendButtonBottomConstraint      : NSLayoutConstraint!
+    var fromDetails                                 : Bool!
+    var address                                     : String!
+    var paymentContact                              : PaymentContact!
+    @IBOutlet weak var userImageView                : UIImageView!
+    @IBOutlet weak var userNameLabel                : UILabel!
+    @IBOutlet weak var addressLabel                 : UILabel!
+    @IBOutlet weak var amountTextField              : UITextField!
+    var navBarTitleLabel                            : UILabel!
+    var navBarSubTitleLabel                         : UILabel!
+    var contactStore                                = CNContactStore()
+    @IBOutlet weak var currencyDivider              : UIView!
+    @IBOutlet weak var sendButtonBottomConstraint   : NSLayoutConstraint!
+    @IBOutlet weak var maxButton                    : UIButton!
+    @IBOutlet weak var maxButtonTopConstraint       : NSLayoutConstraint!
 
 
     override func viewDidLoad() {
@@ -80,6 +83,17 @@ class PaymentSendController: UIViewController {
             name: UIResponder.keyboardWillShowNotification,
             object: nil
         )
+        
+        print("UIScreen.main.bounds.size.height \(UIScreen.main.bounds.size.height)")
+        
+        if UIScreen.main.bounds.size.height <= 568 {
+            view.removeConstraint(maxButtonTopConstraint)
+            maxButtonTopConstraint = nil
+            maxButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+            maxButton.imageEdgeInsets = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+            maxButton.imageView?.contentMode = .scaleAspectFit
+            currencyDivider.removeFromSuperview()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -139,7 +153,11 @@ class PaymentSendController: UIViewController {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             
-            sendButtonBottomConstraint.constant = keyboardHeight + 16
+            if UIScreen.main.bounds.size.height <= 568 {
+                sendButtonBottomConstraint.constant = keyboardHeight + 6
+            } else {
+                sendButtonBottomConstraint.constant = keyboardHeight + 16
+            }
         }
     }
     
