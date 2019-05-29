@@ -84,8 +84,6 @@ class PaymentSendController: UIViewController {
             object: nil
         )
         
-        print("UIScreen.main.bounds.size.height \(UIScreen.main.bounds.size.height)")
-        
         if UIScreen.main.bounds.size.height <= 568 {
             view.removeConstraint(maxButtonTopConstraint)
             maxButtonTopConstraint = nil
@@ -167,6 +165,9 @@ class PaymentSendController: UIViewController {
         
         Explorer.init().balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
             self.amountTextField.text = String(balance - transactionCost)
+            self.maxButton.setTitleColor(UIColor(red: 33/255, green: 107/255, blue: 254/255, alpha: 1), for: .normal)
+            self.maxButton.setTitleColor(UIColor(red: 33/255, green: 107/255, blue: 254/255, alpha: 0.5), for: .highlighted)
+            self.maxButton.tintColor = UIColor(red: 33/255, green: 107/255, blue: 254/255, alpha: 1)
         })
     }
     
@@ -227,5 +228,20 @@ class PaymentSendController: UIViewController {
             paymentSuccessVC.fromDetails = fromDetails
             paymentSuccessVC.transaction = sender as? TransactionSendingResult
         }
+    }
+}
+
+extension PaymentSendController : UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        
+        if textField.text != "" {
+            maxButton.setTitleColor(UIColor.black, for: .normal)
+            maxButton.setTitleColor(UIColor(white: 0, alpha: 0.5), for: .highlighted)
+            maxButton.tintColor = UIColor.black
+        }
+
+        return true
     }
 }
