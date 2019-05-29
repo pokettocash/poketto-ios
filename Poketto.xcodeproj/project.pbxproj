@@ -13,6 +13,8 @@
 		65DE5CC52297F8DF00109C29 /* DashboardHeaderDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE5CC32297F8DF00109C29 /* DashboardHeaderDayView.swift */; };
 		65DE5CC62297F8DF00109C29 /* DashboardHeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65DE5CC42297F8DF00109C29 /* DashboardHeaderDayView.xib */; };
 		65DE5CC9229802A600109C29 /* ArrayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DE5CC8229802A600109C29 /* ArrayUtils.swift */; };
+		65FCE76C229F0D0F007E7903 /* PopularContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FCE76B229F0D0F007E7903 /* PopularContactsCell.swift */; };
+		65FCE76E229F0E3F007E7903 /* PopularContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FCE76D229F0E3F007E7903 /* PopularContactCell.swift */; };
 		7016B4B722831973000C49B8 /* PaymentDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7016B4B622831973000C49B8 /* PaymentDetailsController.swift */; };
 		70572CD12274A17200297421 /* db.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70572CCF2274A17200297421 /* db.xcdatamodeld */; };
 		7073A69D2280C03800049A2E /* PaymentContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073A69C2280C03800049A2E /* PaymentContactCell.swift */; };
@@ -79,6 +81,8 @@
 		65DE5CC32297F8DF00109C29 /* DashboardHeaderDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHeaderDayView.swift; sourceTree = "<group>"; };
 		65DE5CC42297F8DF00109C29 /* DashboardHeaderDayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardHeaderDayView.xib; sourceTree = "<group>"; };
 		65DE5CC8229802A600109C29 /* ArrayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayUtils.swift; sourceTree = "<group>"; };
+		65FCE76B229F0D0F007E7903 /* PopularContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularContactsCell.swift; sourceTree = "<group>"; };
+		65FCE76D229F0E3F007E7903 /* PopularContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularContactCell.swift; sourceTree = "<group>"; };
 		7016B4B622831973000C49B8 /* PaymentDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailsController.swift; sourceTree = "<group>"; };
 		70572CD02274A17200297421 /* db.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = db.xcdatamodel; sourceTree = "<group>"; };
 		7073A69C2280C03800049A2E /* PaymentContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentContactCell.swift; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 				70A31C822267810B007291D1 /* TransactionCell.swift */,
 				707FB2092275D351005B29A2 /* ContactCell.swift */,
 				7073A69C2280C03800049A2E /* PaymentContactCell.swift */,
+				65FCE76B229F0D0F007E7903 /* PopularContactsCell.swift */,
+				65FCE76D229F0E3F007E7903 /* PopularContactCell.swift */,
 				DD8FADDE227A50FC00851827 /* UITextViewWithDoneButton.swift */,
 				65C5CD0E2296DFB500C2221A /* TapAndCopyLabel.swift */,
 				65DE5CC32297F8DF00109C29 /* DashboardHeaderDayView.swift */,
@@ -636,6 +642,7 @@
 				707DEB9E226F5BCB00F0AD93 /* PasteCell.swift in Sources */,
 				70A31C802267709A007291D1 /* Page3Controller.swift in Sources */,
 				DD8FADDF227A50FC00851827 /* UITextViewWithDoneButton.swift in Sources */,
+				65FCE76E229F0E3F007E7903 /* PopularContactCell.swift in Sources */,
 				707DEB94226DD56000F0AD93 /* SettingsController.swift in Sources */,
 				707FB2052275CF2A005B29A2 /* ContactsController.swift in Sources */,
 				70A31C7C22677084007291D1 /* Page1Controller.swift in Sources */,
@@ -643,6 +650,7 @@
 				70A31C7E22677090007291D1 /* Page2Controller.swift in Sources */,
 				707DEB98226F52A500F0AD93 /* PaymentContactsController.swift in Sources */,
 				707DEB9C226F572900F0AD93 /* PayOptionCell.swift in Sources */,
+				65FCE76C229F0D0F007E7903 /* PopularContactsCell.swift in Sources */,
 				657300FF228F1011003BE6D2 /* Page4Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

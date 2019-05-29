@@ -36,6 +36,7 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
     var transactions                : Array<Transaction> = []
     var paymentContacts             : [PaymentContact] = []
     var filteredPaymentContacts     : [PaymentContact] = []
+    var popularPaymentContacts      : [PaymentContact] = []
     var wallet                      = Wallet.init()
     var contactStore                = CNContactStore()
     var searchBar                   : UISearchBar!
@@ -76,16 +77,24 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
         DispatchQueue.global(qos: .background).async {
 
             var paymentContactsArray : [PaymentContact] = []
-            
+            var popularContactsArray : [PaymentContact] = []
+
             var toTransactions : [String] = []
             for transaction in self.transactions {
                 toTransactions.append(transaction.toAddress)
             }
-            
+
             var fromTransactions : [String] = []
             for transaction in self.transactions {
                 fromTransactions.append(transaction.fromAddress)
             }
+            
+            var allTransactions = toTransactions
+            allTransactions.append(contentsOf: fromTransactions)
+            
+            let popularTransactions = Dictionary(grouping: allTransactions, by: {$0}).filter { $1.count > 1 }.keys
+            print("popularTransactions count \(popularTransactions.count)")
+            
             let uniqueToTransactions = Array(Set(toTransactions))
             let uniqueFromTransactions = Array(Set(fromTransactions))
             
@@ -130,10 +139,34 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
                     }
                 }
             }
-
+            
+            for popularTransaction in popularTransactions {
+                if popularContactsArray.count == 0 {
+                    let popularContact = PaymentContact().addContact(from: popularTransaction)
+                    popularContactsArray.append(popularContact)
+                } else {
+                    var filteredContacts = popularContactsArray.filter({$0.address.uppercased() == popularTransaction.uppercased()})
+                    if filteredContacts.count == 0 {
+                        if let contact = PKContact.mr_findFirst(byAttribute: "address", withValue: popularTransaction.uppercased()) {
+                            filteredContacts = popularContactsArray.filter({$0.address.uppercased() == contact.address!.uppercased()})
+                            if filteredContacts.count == 0 {
+                                let popularContact = PaymentContact().addContact(from: popularTransaction)
+                                popularContactsArray.append(popularContact)
+                            }
+                        } else {
+                            let popularContact = PaymentContact().addContact(from: popularTransaction)
+                            popularContactsArray.append(popularContact)
+                        }
+                    }
+                }
+            }
+            
+            print("popularContactsArray \(popularContactsArray)")
+            
             DispatchQueue.main.async {
                 self.paymentContacts = paymentContactsArray
                 self.filteredPaymentContacts = self.paymentContacts
+                self.popularPaymentContacts = popularContactsArray
                 self.tableView.reloadData()
             }
         }
@@ -222,7 +255,7 @@ extension PaymentContactsController : UITableViewDataSource {
         if section == 0 {
             return 2
         } else if section == 1 {
-            return 0
+            return 1
         } else {
             return filteredPaymentContacts.count
         }
@@ -239,7 +272,7 @@ extension PaymentContactsController : UITableViewDataSource {
         if (section == 0 && !searchTextIsActive) || filteredPaymentContacts.count == 0 {
             return 0
         }
-        return 45
+        return 70
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -252,7 +285,7 @@ extension PaymentContactsController : UITableViewDataSource {
         if indexPath.section == 0 {
             return 52
         } else if indexPath.section == 1 {
-            return 0
+            return 100
         } else {
             return 56
         }
@@ -271,15 +304,21 @@ extension PaymentContactsController : UITableViewDataSource {
         if section == 0 && !searchTextIsActive {
             headerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 0)
         } else if section == 1 {
-//            titleLabel.text = "Popular"
-            headerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 0)
+            let titleLabel = UILabel(frame: CGRect(x: 15, y: 26, width: tableView.frame.size.width-30, height: 20))
+            headerView.addSubview(titleLabel)
+            titleLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 0.6)
+            titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+            titleLabel.text = "Popular"
+            let underline = UIView(frame: CGRect(x: 15, y: 56, width: tableView.frame.size.width-30, height: 2))
+            underline.backgroundColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
+            headerView.addSubview(underline)
         } else {
-            let titleLabel = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.frame.size.width-30, height: 20))
+            let titleLabel = UILabel(frame: CGRect(x: 15, y: 26, width: tableView.frame.size.width-30, height: 20))
             headerView.addSubview(titleLabel)
             titleLabel.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 0.6)
             titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
             titleLabel.text = "Recent"
-            let underline = UIView(frame: CGRect(x: 15, y: 36, width: tableView.frame.size.width-30, height: 2))
+            let underline = UIView(frame: CGRect(x: 15, y: 56, width: tableView.frame.size.width-30, height: 2))
             underline.backgroundColor = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
             headerView.addSubview(underline)
         }
@@ -311,6 +350,16 @@ extension PaymentContactsController : UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "scanCellId", for: indexPath)
                 return cell
             }
+        } else if indexPath.section == 1 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "popularContactsCellId", for: indexPath) as! PopularContactsCell
+            
+            cell.paymentContactsController = self
+            cell.popularPaymentContacts = self.popularPaymentContacts
+            cell.reloadCollectionView()
+            
+            return cell
+
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "paymentContactCellId", for: indexPath) as! PaymentContactCell
             let paymentContact = filteredPaymentContacts[indexPath.row]
