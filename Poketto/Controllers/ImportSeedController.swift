@@ -69,7 +69,7 @@ class ImportSeedController: UIViewController, UITextViewDelegate {
         } else {
             let settingsNavigationController = self.navigationController as! SettingsNavigationController
             settingsNavigationController.importCompleted()
-            
+            AppDelegate.shared.removeBackgroundBlur()
             dismiss(animated: true, completion: nil)
         }
     }
