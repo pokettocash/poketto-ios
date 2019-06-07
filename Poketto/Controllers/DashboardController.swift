@@ -305,7 +305,7 @@ extension DashboardController : UICollectionViewDataSource {
                     sectionHeader.dateLabel.text = "Yesterday"
                 } else if Calendar.current.isDate(Date(), equalTo: transaction.date, toGranularity: .weekOfYear) {
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "MMM, dd MMMM"
+                    dateFormatter.dateFormat = "EEE, dd MMMM"
                     sectionHeader.dateLabel.text = dateFormatter.string(from: transaction.date)
                 } else {
                     let dateFormatter = DateFormatter()

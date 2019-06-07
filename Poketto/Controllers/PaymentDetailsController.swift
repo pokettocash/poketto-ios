@@ -72,7 +72,7 @@ class PaymentDetailsController: UIViewController {
         amountLabel.attributedText = attributedString
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE, dd MMM yyyy"
+        dateFormatter.dateFormat = "EEE, dd MMMM yyyy"
         dateLabel.text = dateFormatter.string(from: transaction.date)
         
         let hourFormatter = DateFormatter()
