@@ -27,7 +27,7 @@ class PaymentSendController: UIViewController {
     @IBOutlet weak var sendButtonBottomConstraint   : NSLayoutConstraint!
     @IBOutlet weak var maxButton                    : UIButton!
     @IBOutlet weak var maxButtonTopConstraint       : NSLayoutConstraint!
-
+    let selection                                   = UISelectionFeedbackGenerator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,6 +160,9 @@ class PaymentSendController: UIViewController {
     }
     
     @IBAction func setMaxValue() {
+        
+        selection.selectionChanged()
+        
         let wallet = Wallet.init()
         let transactionCost = Float(0.000021)
         

@@ -29,6 +29,7 @@ class DashboardController: UIViewController, SettingsDelegate {
     var wallet                          = Wallet.init()
     var explorer                        = Explorer.init()
     var hasFetchedData                  = false
+    let impact                          = UIImpactFeedbackGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,6 +158,9 @@ class DashboardController: UIViewController, SettingsDelegate {
     
     @IBAction func pay() {
         
+        impact.prepare()
+        impact.impactOccurred()
+
         let paymentContactsNavVC = storyboard?.instantiateViewController(withIdentifier: "paymentContactsNavVC") as! UINavigationController
         let paymentsVC = paymentContactsNavVC.viewControllers[0] as! PaymentContactsController
         paymentsVC.transactions = transactions
@@ -166,6 +170,8 @@ class DashboardController: UIViewController, SettingsDelegate {
     @IBAction func settings() {
         
         AppDelegate.shared.blurBackground()
+        impact.prepare()
+        impact.impactOccurred()
         
         let presenter: Presentr = {
             let heightFloat : Float = 526
@@ -197,7 +203,9 @@ class DashboardController: UIViewController, SettingsDelegate {
     @IBAction func request() {
         
         AppDelegate.shared.blurBackground()
-        
+        impact.prepare()
+        impact.impactOccurred()
+
         let presenter: Presentr = {
             let width = ModalSize.sideMargin(value: 14)
             let height = ModalSize.custom(size: 536)
