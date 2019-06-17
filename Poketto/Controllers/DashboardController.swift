@@ -35,6 +35,7 @@ class DashboardController: UIViewController, SettingsDelegate {
         
         collectionView.register(UINib(nibName: "DashboardHeaderDayView", bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerDayID)
     
+        collectionView.delaysContentTouches = false
         collectionView.refreshControl = self.refreshControl
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         
@@ -385,6 +386,10 @@ extension DashboardController : UICollectionViewDelegateFlowLayout {
         } else {
             return CGSize(width: collectionView.frame.width, height: 50)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        return true
     }
 }
 
