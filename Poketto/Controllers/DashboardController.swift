@@ -158,7 +158,6 @@ class DashboardController: UIViewController, SettingsDelegate {
     
     @IBAction func pay() {
         
-        impact.prepare()
         impact.impactOccurred()
 
         let paymentContactsNavVC = storyboard?.instantiateViewController(withIdentifier: "paymentContactsNavVC") as! UINavigationController
@@ -170,7 +169,6 @@ class DashboardController: UIViewController, SettingsDelegate {
     @IBAction func settings() {
         
         AppDelegate.shared.blurBackground()
-        impact.prepare()
         impact.impactOccurred()
         
         let presenter: Presentr = {
@@ -203,7 +201,6 @@ class DashboardController: UIViewController, SettingsDelegate {
     @IBAction func request() {
         
         AppDelegate.shared.blurBackground()
-        impact.prepare()
         impact.impactOccurred()
 
         let presenter: Presentr = {
