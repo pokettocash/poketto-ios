@@ -51,8 +51,6 @@ You can keep track of what is happening on this project by heading over to our [
 
 To get an overview of our quarterly status head over to [our roadmap](https://www.notion.so/donesunday/bd48985b027e4619b678b0b8ece279fb?v=89f353f020614cc7a87ea015e859daee).
 
-## 
-
 ## Donations
 
 Donations enable us to continue boostrastrapping Poketto's development.
