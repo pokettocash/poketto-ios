@@ -18,10 +18,6 @@ Download now on the [App Store](https://itunes.apple.com/us/app/poketto-cash/id1
 - Near instant transactions (< 5 seconds)
 - Import and export your wallet
 
-## Roadmap
-
-To get an overview of the current development status head over to [our roadmap](https://github.com/pokettocash/poketto-ios/projects/1).
-
 ## Contribute
 
 ### Setup
@@ -46,6 +42,16 @@ and uncomment the run script:
 ### Guidelines
 
 Work in progress 🏗
+
+## Project board
+
+You can keep track of what is happening on this project by heading over to our [project board](https://github.com/orgs/pokettocash/projects/1) here on github.
+
+## Roadmap
+
+To get an overview of our quarterly status head over to [our roadmap](https://www.notion.so/donesunday/bd48985b027e4619b678b0b8ece279fb?v=89f353f020614cc7a87ea015e859daee).
+
+## 
 
 ## Donations
 
