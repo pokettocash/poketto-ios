@@ -57,7 +57,7 @@ Donations enable us to continue boostrastrapping Poketto's development.
 
 ERC20 Tokens or xDai
 
-Address: 0x3849bA8A4D7193bF550a6e04632b176F9Ce1B7e8
+Address: `0x3849bA8A4D7193bF550a6e04632b176F9Ce1B7e8`
 
 Thank you for your support! ♥
 
