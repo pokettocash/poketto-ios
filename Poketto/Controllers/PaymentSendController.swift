@@ -189,7 +189,7 @@ class PaymentSendController: UIViewController {
                 let wallet = Wallet.init()
                 print("send \(self.address!)")
 
-                wallet.send(toAddress: self.address!, value: amount, success: { transaction in
+                wallet.send(toAddress: self.address!, value: amount, message: nil, success: { transaction in
                     print("show next screen \(transaction)")
                     DispatchQueue.main.async {
                         SVProgressHUD.dismiss()

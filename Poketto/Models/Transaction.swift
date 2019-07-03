@@ -15,6 +15,7 @@ class Transaction: NSObject {
     var txHash : String!
     var amount : Float! // in DAI
     var transactionType : TransactionTypes!
+    var input : String?
     
     var displayName : String?
     var displayImage : UIImage?

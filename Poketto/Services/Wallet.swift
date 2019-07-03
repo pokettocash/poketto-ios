@@ -53,7 +53,7 @@ class Wallet {
         return ownWalletAddress
     }
     
-    func send(toAddress: String, value: String, success: @escaping (TransactionSendingResult) -> Void, failure: @escaping (String) -> Void) {
+    func send(toAddress: String, value: String, message: String?, success: @escaping (TransactionSendingResult) -> Void, failure: @escaping (String) -> Void) {
         
         let toAddress = EthereumAddress(toAddress.lowercased())!
         
@@ -76,13 +76,20 @@ class Wallet {
         // According to https://poa.network/xdai there's a fixed gas price of 1 Gwei
         options.gasPrice = .manual(Web3.Utils.parseToBigUInt("1", units: .Gwei)!)
         
-        // Set limit to 21000 which is the consumed gas amount for a regular transaction
-        options.gasLimit = .manual(21000)
+        var messageData = Data()
+        if(message == nil) {
+            // Set limit to 21000 which is the consumed gas amount for a regular transaction
+            options.gasLimit = .manual(21000)
+        } else {
+            // Set limit to 80000. It should be under 60000 for a 140 char string with 4bytes characters (ex: "𐀀")
+            options.gasLimit = .manual(80000)
+            messageData = message!.data(using: .utf8)!
+        }
         
         let tx = contract.write(
             "fallback",
             parameters: [AnyObject](),
-            extraData: Data(),
+            extraData: messageData,
             transactionOptions: options)!
         
         do {

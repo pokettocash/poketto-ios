@@ -11,25 +11,50 @@ import Contacts
 
 class PaymentDetailsController: UIViewController {
 
-    var transaction                         : Transaction!
-    var paymentContact                      : PaymentContact!
-    @IBOutlet weak var titleLabel           : UILabel!
-    @IBOutlet weak var toLabel              : UILabel!
-    @IBOutlet weak var userImageView        : UIImageView!
-    @IBOutlet weak var userNameLabel        : UILabel!
-    @IBOutlet weak var addressLabel         : TapAndCopyLabel!
-    @IBOutlet weak var shortAddressLabel    : TapAndCopyLabel!
-    @IBOutlet weak var amountLabel          : UILabel!
-    @IBOutlet weak var dateLabel            : UILabel!
-    @IBOutlet weak var hourLabel            : UILabel!
-    @IBOutlet weak var assignWalletButton   : UIButton!
-    var contactStore                        = CNContactStore()
+    var transaction                                 : Transaction!
+    var paymentContact                              : PaymentContact!
+    @IBOutlet weak var titleLabel                   : UILabel!
+    @IBOutlet weak var toLabel                      : UILabel!
+    @IBOutlet weak var userImageView                : UIImageView!
+    @IBOutlet weak var userNameLabel                : UILabel!
+    @IBOutlet weak var addressLabel                 : TapAndCopyLabel!
+    @IBOutlet weak var shortAddressLabel            : TapAndCopyLabel!
+    @IBOutlet weak var amountLabel                  : UILabel!
+    @IBOutlet weak var messageLabel                 : UILabel!
+    @IBOutlet weak var dateLabel                    : UILabel!
+    @IBOutlet weak var hourLabel                    : UILabel!
+    @IBOutlet weak var assignWalletButton           : UIButton!
+    var contactStore                                = CNContactStore()
+    @IBOutlet weak var firstDividerTopConstraint    : NSLayoutConstraint!
+    @IBOutlet weak var secondDividerBottomConstraint: NSLayoutConstraint!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Payment details"
+        
+        if transaction.input != "0x" {
+            if let messageData = transaction.input?.hexadecimal {
+                let message = String(data: messageData, encoding: String.Encoding.utf8)!
+                messageLabel.text = "\"\(message)\""
+            } else {
+                messageLabel.removeFromSuperview()
+            }
+        } else {
+            messageLabel.removeFromSuperview()
+        }
+        
+        print("UIScreen.main.bounds.size.height \(UIScreen.main.bounds.size.height)")
+        if UIScreen.main.bounds.size.height <= 568 {
+            firstDividerTopConstraint.constant = 16
+            secondDividerBottomConstraint.constant = 16
+            if messageLabel != nil {
+                messageLabel.numberOfLines = 3
+                messageLabel.lineBreakMode = .byTruncatingTail
+            }
+        }
+        
         
         if transaction.transactionType == .Credit {
             toLabel.text = "From:"
