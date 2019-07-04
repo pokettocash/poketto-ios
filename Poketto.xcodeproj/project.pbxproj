@@ -17,6 +17,8 @@
 		65FCE76E229F0E3F007E7903 /* PopularContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FCE76D229F0E3F007E7903 /* PopularContactCell.swift */; };
 		7016B4B722831973000C49B8 /* PaymentDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7016B4B622831973000C49B8 /* PaymentDetailsController.swift */; };
 		7047515722CCC35700108B51 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047515622CCC35700108B51 /* StringUtils.swift */; };
+		7047515922CE660D00108B51 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047515822CE660C00108B51 /* SettingsCell.swift */; };
+		7047515B22CE674100108B51 /* BioAccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047515A22CE674100108B51 /* BioAccessController.swift */; };
 		70572CD12274A17200297421 /* db.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70572CCF2274A17200297421 /* db.xcdatamodeld */; };
 		7073A69D2280C03800049A2E /* PaymentContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073A69C2280C03800049A2E /* PaymentContactCell.swift */; };
 		7073A69F2280C6AA00049A2E /* PaymentContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7073A69E2280C6AA00049A2E /* PaymentContact.swift */; };
@@ -86,6 +88,8 @@
 		65FCE76D229F0E3F007E7903 /* PopularContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularContactCell.swift; sourceTree = "<group>"; };
 		7016B4B622831973000C49B8 /* PaymentDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailsController.swift; sourceTree = "<group>"; };
 		7047515622CCC35700108B51 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		7047515822CE660C00108B51 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		7047515A22CE674100108B51 /* BioAccessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioAccessController.swift; sourceTree = "<group>"; };
 		70572CD02274A17200297421 /* db.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = db.xcdatamodel; sourceTree = "<group>"; };
 		7073A69C2280C03800049A2E /* PaymentContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentContactCell.swift; sourceTree = "<group>"; };
 		7073A69E2280C6AA00049A2E /* PaymentContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentContact.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			children = (
 				65DE5CC8229802A600109C29 /* ArrayUtils.swift */,
 				7047515622CCC35700108B51 /* StringUtils.swift */,
+				7047515A22CE674100108B51 /* BioAccessController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				65C5CD0E2296DFB500C2221A /* TapAndCopyLabel.swift */,
 				65DE5CC32297F8DF00109C29 /* DashboardHeaderDayView.swift */,
 				65DE5CC42297F8DF00109C29 /* DashboardHeaderDayView.xib */,
+				7047515822CE660C00108B51 /* SettingsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -527,6 +533,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Poketto/Pods-Poketto-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${BUILT_PRODUCTS_DIR}/BiometricAuthentication/BiometricAuthentication.framework",
 				"${BUILT_PRODUCTS_DIR}/Chester/Chester.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
@@ -547,6 +554,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BiometricAuthentication.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Chester.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
@@ -631,6 +639,7 @@
 				707DEB96226F466800F0AD93 /* RequestController.swift in Sources */,
 				7073A69D2280C03800049A2E /* PaymentContactCell.swift in Sources */,
 				70C82D6622710B7200F627A1 /* PaymentSuccessController.swift in Sources */,
+				7047515922CE660D00108B51 /* SettingsCell.swift in Sources */,
 				DDAE1F582255234C00D30A8C /* AppDelegate.swift in Sources */,
 				70AD5C3E2279064400A9E164 /* EmptyStateController.swift in Sources */,
 				DD251A232282E79900F1D781 /* Transaction.swift in Sources */,
@@ -644,6 +653,7 @@
 				707FB20A2275D351005B29A2 /* ContactCell.swift in Sources */,
 				707DEB9E226F5BCB00F0AD93 /* PasteCell.swift in Sources */,
 				70A31C802267709A007291D1 /* Page3Controller.swift in Sources */,
+				7047515B22CE674100108B51 /* BioAccessController.swift in Sources */,
 				7047515722CCC35700108B51 /* StringUtils.swift in Sources */,
 				DD8FADDF227A50FC00851827 /* UITextViewWithDoneButton.swift in Sources */,
 				65FCE76E229F0E3F007E7903 /* PopularContactCell.swift in Sources */,

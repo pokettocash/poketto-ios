@@ -171,30 +171,10 @@ class DashboardController: UIViewController, SettingsDelegate {
     
     @IBAction func settings() {
         
-        AppDelegate.shared.blurBackground()
         impact.impactOccurred()
-        
-        let presenter: Presentr = {
-            let heightFloat : Float = 526
-            let width = ModalSize.sideMargin(value: 14)
-            let height = ModalSize.custom(size: heightFloat)
-            let center = ModalCenterPosition.customOrigin(origin: CGPoint(x: 14, y: Int(Float((UIScreen.main.bounds.size.height / 2)) - (heightFloat / 2.0))))
-            let customType = PresentationType.custom(width: width, height: height, center: center)
-            
-            let customPresenter = Presentr(presentationType: customType)
-            customPresenter.transitionType = .coverVertical
-            customPresenter.dismissTransitionType = .coverVerticalFromTop
-            customPresenter.roundCorners = true
-            customPresenter.cornerRadius = 25
-            customPresenter.backgroundColor = .black
-            customPresenter.backgroundOpacity = 0.5
-            customPresenter.dismissOnSwipe = false
-            customPresenter.dismissOnSwipeDirection = .top
-            return customPresenter
-        }()
         let controller = storyboard?.instantiateViewController(withIdentifier: "settingsNavVC") as! SettingsNavigationController
         controller.settingsDelegate = self
-        customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
     }
     
     func importCompleted() {

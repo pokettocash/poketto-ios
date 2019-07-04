@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.8.0)
   - BigInt (3.1.0):
     - SipHash (~> 1.2)
+  - BiometricAuthentication (3.0)
   - Chester (0.9.0)
   - CryptoSwift (1.0.0)
   - MagicalRecord (2.3.3):
@@ -33,6 +34,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (= 4.8.0)
+  - BiometricAuthentication
   - Chester
   - MagicalRecord (from `https://github.com/magicalpanda/MagicalRecord.git`, tag `v2.3.3`)
   - Presentr
@@ -46,6 +48,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - BigInt
+    - BiometricAuthentication
     - Chester
     - CryptoSwift
     - Presentr
@@ -76,6 +79,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
+  BiometricAuthentication: e39b1a55040d679d5dbc4fa90d76e067c432de7f
   Chester: 978562d533be4d3341a70b449bdfef1fc70d1937
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   MagicalRecord: e3dfdee87c234c6d460dbd5d8a32e3cb4de223aa
@@ -90,6 +94,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   web3swift: 149ab5d1e57edf8125b095f889f089ab55fadcf7
 
-PODFILE CHECKSUM: 69c94b5e5ce594590dbd2c97efb5e97df0527e79
+PODFILE CHECKSUM: ae928b88e24171dd1461b1a1e1a1b1804f425eeb
 
 COCOAPODS: 1.6.1

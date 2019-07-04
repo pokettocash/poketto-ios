@@ -5,6 +5,7 @@ target 'Poketto' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   pod 'Alamofire', '4.8.0'
+  pod 'BiometricAuthentication'
   pod 'Chester'
   pod 'SwiftKeychainWrapper'
   pod 'SwiftyJSON', '4.0'
@@ -13,6 +14,7 @@ target 'Poketto' do
   pod 'QRCodeReader.swift', '~> 10.0.0'
   pod 'SVProgressHUD'
   pod 'MagicalRecord', :git => 'https://github.com/magicalpanda/MagicalRecord.git', :tag => 'v2.3.3'
+
 
   target 'PokettoTests' do
     inherit! :search_paths

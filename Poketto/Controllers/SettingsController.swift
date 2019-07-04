@@ -7,27 +7,106 @@
 //
 
 import UIKit
-import Presentr
+import BiometricAuthentication
 
-class SettingsController: UIViewController, SettingsOptionsDelegate, PresentrDelegate {
+class SettingsController: UIViewController, SettingsOptionsDelegate {
     
-    weak var settingsOptionsController  : SettingsOptionsController?
-    @IBOutlet weak var versionLabel     : UILabel!
-    
+    weak var settingsOptionsController      : SettingsOptionsController?
+    @IBOutlet weak var versionLabel         : UILabel!
+    @IBOutlet weak var settingsContainer    : UIView!
+    @IBOutlet weak var versionTopConstraint : NSLayoutConstraint!
+    @IBOutlet weak var scrollView           : UIScrollView!
+    let selection                           = UISelectionFeedbackGenerator()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.layer.cornerRadius = 25
-        view.clipsToBounds = true
         
         let versionString = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
         let buildString = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
         versionLabel.text = "\(versionString)(\(buildString))"
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let verticalSpace = scrollView.frame.size.height - (settingsContainer.frame.origin.y + settingsContainer.frame.size.height)
+        if verticalSpace < versionTopConstraint.constant {
+            versionTopConstraint.constant = verticalSpace
+        }
+        
+        if let cell = settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? SettingsCell {
+            cell.bioAccessSwitch.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
+            
+            if let bioAccess = UserDefaults.standard.object(forKey: "bioAccess") as? Bool {
+                if bioAccess == true {
+                    cell.bioAccessSwitch.setOn(true, animated: true)
+                }
+            }
+        }
+    }
+    
+    @IBAction func bioAccessSwitch(_ sender: Any) {
+        let cell = settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! SettingsCell
+        if cell.bioAccessSwitch.isOn {
+            cell.bioAccessSwitch.setOn(true, animated: true)
+        } else {
+            cell.bioAccessSwitch.setOn(false, animated:true)
+        }
+    }
+    
+    @objc func stateChanged(switchState: UISwitch) {
+        selection.selectionChanged()
+        let cell = settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! SettingsCell
+        if cell.bioAccessSwitch.isOn {
+            askBioAccess()
+        } else {
+            UserDefaults.standard.set(false, forKey: "bioAccess")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    func askBioAccess() {
+        
+        let alert = UIAlertController(title: "Biometric access", message: "Enable authentication.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title:  NSLocalizedString("Yes, please!", comment: ""), style: .cancel, handler: { _ in
+            
+            BioMetricAuthenticator.authenticateWithBioMetrics(reason: "") { (result) in
+                switch result {
+                case .success( _):
+                    UserDefaults.standard.set(true, forKey: "bioAccess")
+                    UserDefaults.standard.synchronize()
+                    
+                case .failure(let error):
+                    switch error {
+                    // device does not support biometric (face id or touch id) authentication
+                    case .biometryNotAvailable:
+                        self.showErrorAlert(message: error.message())
+                        
+                    // No biometry enrolled in this device, ask user to register fingerprint or face
+                    case .biometryNotEnrolled:
+                        self.showGotoSettingsAlert(message: error.message())
+                        
+                    // do nothing on canceled by system or user
+                    case .fallback, .biometryLockedout, .canceledBySystem, .canceledByUser:
+                        self.showPasscodeAuthentication(message: error.message())
+                        
+                    // show error for any other reason
+                    default:
+                        self.showErrorAlert(message: error.message())
+                    }
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title:  NSLocalizedString("No, thank you!", comment: ""), style: .default, handler: { _ in
+            let cell = self.settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! SettingsCell
+            cell.bioAccessSwitch.setOn(false, animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
         
     @IBAction func dismiss() {
         
-        AppDelegate.shared.removeBackgroundBlur()
         dismiss(animated: true, completion: nil)
     }
     
@@ -61,10 +140,6 @@ class SettingsController: UIViewController, SettingsOptionsDelegate, PresentrDel
         }
     }
     
-    func presentrShouldDismiss(keyboardShowing: Bool) -> Bool {
-        AppDelegate.shared.removeBackgroundBlur()
-        return true
-    }
 }
 
 protocol SettingsOptionsDelegate: class {
@@ -83,7 +158,7 @@ class SettingsOptionsController: UITableViewController {
             }
         } else if (indexPath.row == 1) {
             delegate?.importScreenView()
-        } else if (indexPath.row == 2) {
+        } else if (indexPath.row == 3) {
             UIApplication.shared.open(URL(string: "https://github.com/pokettocash/poketto-ios/blob/master/LICENSE")!, options: [:], completionHandler: nil)
         }
     }

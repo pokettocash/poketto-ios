@@ -17,10 +17,7 @@ class SettingsNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.layer.cornerRadius = 25
-        view.clipsToBounds = true
-        
+                
         self.navigationBar.shadowImage = UIImage()
     }
     
