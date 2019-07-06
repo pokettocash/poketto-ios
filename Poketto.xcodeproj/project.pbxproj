@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,6 +48,8 @@
 		70E0A482228486C40002CBF3 /* CustomQRCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E0A481228486C40002CBF3 /* CustomQRCodeController.swift */; };
 		834EB4074D28F39898252A8C /* Pods_PokettoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B253EE3970DACFA3540D4AD0 /* Pods_PokettoUITests.framework */; };
 		AE32744C8439029411C7066A /* Pods_PokettoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C161CEAAECB034BD6C623E /* Pods_PokettoTests.framework */; };
+		C52C878D22CFC55F0056368A /* PocketWeb3Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52C878C22CFC55F0056368A /* PocketWeb3Provider.swift */; };
+		C52C878F22CFC56E0056368A /* Web3ProviderUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52C878E22CFC56E0056368A /* Web3ProviderUtil.swift */; };
 		DD251A232282E79900F1D781 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD251A222282E79900F1D781 /* Transaction.swift */; };
 		DD8FADDF227A50FC00851827 /* UITextViewWithDoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8FADDE227A50FC00851827 /* UITextViewWithDoneButton.swift */; };
 		DD9826F12279FD84003CB0ED /* ImportSeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9826F02279FD84003CB0ED /* ImportSeedController.swift */; };
@@ -122,6 +124,8 @@
 		B253EE3970DACFA3540D4AD0 /* Pods_PokettoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B637010F76D280B41A32B36F /* Pods-PokettoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoTests.debug.xcconfig"; path = "Target Support Files/Pods-PokettoTests/Pods-PokettoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C495E1192C0D8AE1A69360A2 /* Pods-PokettoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoTests.release.xcconfig"; path = "Target Support Files/Pods-PokettoTests/Pods-PokettoTests.release.xcconfig"; sourceTree = "<group>"; };
+		C52C878C22CFC55F0056368A /* PocketWeb3Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PocketWeb3Provider.swift; sourceTree = "<group>"; };
+		C52C878E22CFC56E0056368A /* Web3ProviderUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Web3ProviderUtil.swift; sourceTree = "<group>"; };
 		CB0977AB6DCC1765E5885B9A /* Pods-PokettoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoUITests.debug.xcconfig"; path = "Target Support Files/Pods-PokettoUITests/Pods-PokettoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD251A222282E79900F1D781 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		DD8FADDE227A50FC00851827 /* UITextViewWithDoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewWithDoneButton.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 		65DE5CC72298027F00109C29 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C52C878E22CFC56E0056368A /* Web3ProviderUtil.swift */,
 				65DE5CC8229802A600109C29 /* ArrayUtils.swift */,
 				7047515622CCC35700108B51 /* StringUtils.swift */,
 				7047515A22CE674100108B51 /* BioAccessController.swift */,
@@ -323,6 +328,7 @@
 		DDB50443225CC50C005B3DE0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C52C878C22CFC55F0056368A /* PocketWeb3Provider.swift */,
 				DDB50444225CC6EF005B3DE0 /* Explorer.swift */,
 				70A31C7722676550007291D1 /* Wallet.swift */,
 			);
@@ -531,54 +537,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Poketto/Pods-Poketto-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
-				"${BUILT_PRODUCTS_DIR}/BiometricAuthentication/BiometricAuthentication.framework",
-				"${BUILT_PRODUCTS_DIR}/Chester/Chester.framework",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
-				"${BUILT_PRODUCTS_DIR}/PocketSwift/PocketSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Presentr/Presentr.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
-				"${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework",
-				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/secp256k1.c/secp256k1.framework",
-				"${BUILT_PRODUCTS_DIR}/web3swift/web3swift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Poketto/Pods-Poketto-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BiometricAuthentication.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Chester.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PocketSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Presentr.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNCryptor.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/web3swift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Poketto/Pods-Poketto-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -660,6 +623,7 @@
 				65DE5CC9229802A600109C29 /* ArrayUtils.swift in Sources */,
 				70A31C85226782A0007291D1 /* DashboardHeaderView.swift in Sources */,
 				70A31C76226760E4007291D1 /* DashboardController.swift in Sources */,
+				C52C878D22CFC55F0056368A /* PocketWeb3Provider.swift in Sources */,
 				65DE5CC52297F8DF00109C29 /* DashboardHeaderDayView.swift in Sources */,
 				70E0A482228486C40002CBF3 /* CustomQRCodeController.swift in Sources */,
 				707FB20A2275D351005B29A2 /* ContactCell.swift in Sources */,
@@ -668,6 +632,7 @@
 				7047515B22CE674100108B51 /* BioAccessController.swift in Sources */,
 				7047515722CCC35700108B51 /* StringUtils.swift in Sources */,
 				DD8FADDF227A50FC00851827 /* UITextViewWithDoneButton.swift in Sources */,
+				C52C878F22CFC56E0056368A /* Web3ProviderUtil.swift in Sources */,
 				65FCE76E229F0E3F007E7903 /* PopularContactCell.swift in Sources */,
 				707DEB94226DD56000F0AD93 /* SettingsController.swift in Sources */,
 				707FB2052275CF2A005B29A2 /* ContactsController.swift in Sources */,
