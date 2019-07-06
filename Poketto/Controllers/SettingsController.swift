@@ -160,6 +160,31 @@ class SettingsOptionsController: UITableViewController {
             delegate?.importScreenView()
         } else if (indexPath.row == 3) {
             UIApplication.shared.open(URL(string: "https://github.com/pokettocash/poketto-ios/blob/master/LICENSE")!, options: [:], completionHandler: nil)
+        } else if (indexPath.row == 4) {
+            let alert = UIAlertController(title: "Select a network",
+                                          message: "",
+                                          preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Default Network", style: .default, handler: { (action) -> Void in
+                UserDefaults.standard.set("default", forKey: "currentNetwork")
+                print("Default network selected!")
+            })
+            
+            let action2 = UIAlertAction(title: "Pocket Network", style: .default, handler: { (action) -> Void in
+                UserDefaults.standard.set("pocket", forKey: "currentNetwork")
+                print("Pocket Network selected!")
+            })
+            
+            // Cancel button
+            let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in })
+            
+            // Restyle the view of the Alert
+            alert.view.tintColor = UIColor.blue
+            alert.view.layer.cornerRadius = 25
+            // Add action buttons and present the Alert
+            alert.addAction(action1)
+            alert.addAction(action2)
+            alert.addAction(cancel)
+            present(alert, animated: true, completion: nil)
         }
     }
 }
