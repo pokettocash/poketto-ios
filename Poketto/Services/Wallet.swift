@@ -57,8 +57,8 @@ class Wallet {
         
         let toAddress = EthereumAddress(toAddress.lowercased())!
         
-        let endpoint = "https://dai.poa.network"
-        let connection = web3(provider: Web3HttpProvider(URL(string: endpoint)!)!)
+        let currentNetwork = Web3ProviderUtil.getCurrentProvider()
+        let connection = web3(provider: currentNetwork)
         
         let mnemonic = KeychainWrapper.standard.string(forKey: "mnemonic")
         let keystore = try! BIP32Keystore(mnemonics: mnemonic!)
