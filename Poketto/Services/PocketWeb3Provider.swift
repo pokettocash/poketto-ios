@@ -60,7 +60,6 @@ public class PocketWeb3Provider: Web3Provider {
             }
         }
     }
-    // TODO: Figure out request batch
     public func sendAsync(_ requests: JSONRPCrequestBatch, queue: DispatchQueue) -> Promise<JSONRPCresponseBatch> {
         do {
             let jsonEncoder = JSONEncoder()
