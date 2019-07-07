@@ -176,9 +176,15 @@ class SettingsOptionsController: UITableViewController {
             
             // Cancel button
             let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: { (action) -> Void in })
-            
+            // Check which network option is selected and change UI style
+            if Web3ProviderUtil.getCurrentNetwork() == "pocket" {
+                action2.setValue(UIColor.blue, forKey: "titleTextColor")
+                action1.setValue(UIColor.gray, forKey: "titleTextColor")
+            }else {
+                action2.setValue(UIColor.gray, forKey: "titleTextColor")
+                action1.setValue(UIColor.blue, forKey: "titleTextColor")
+            }
             // Restyle the view of the Alert
-            alert.view.tintColor = UIColor.blue
             alert.view.layer.cornerRadius = 25
             // Add action buttons and present the Alert
             alert.addAction(action1)
