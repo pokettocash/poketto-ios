@@ -71,4 +71,4 @@ See [LICENSE](https://github.com/pokettocash/poketto-ios/blob/master/LICENSE) fo
 
 Made at [Done Sunday](http://donesunday.com/) 🌞 by [@_andre_sousa](https://twitter.com/_andre_sousa), [@alvesjtiago](https://twitter.com/alvesjtiago) and [@jackveiga](https://twitter.com/jackveiga).
 
-Join us on [Discord](https://discord.gg/6SrsfUf) to help shape Poketto's future.
+Join us on [Discord](https://chat.donesunday.com) to help shape Poketto's future.
