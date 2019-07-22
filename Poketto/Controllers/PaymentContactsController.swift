@@ -341,8 +341,12 @@ extension PaymentContactsController : UITableViewDataSource {
                 cell.subtitleLabel.text = "No address on clipboard"
                 if let pasteboardString = UIPasteboard.general.string {
                     let first2 = String(pasteboardString.prefix(2))
+                    let ethereumUrl = String(pasteboardString.prefix(9))
                     if first2 == "0x" {
                         cell.subtitleLabel.text = UIPasteboard.general.string
+                    } else if ethereumUrl == "ethereum:" {
+                        let range = pasteboardString.range(of: ethereumUrl)
+                        cell.subtitleLabel.text = String(pasteboardString[range!.upperBound...])
                     }
                 }
                 return cell
@@ -414,8 +418,14 @@ extension PaymentContactsController : UITableViewDelegate {
             if indexPath.row == 0 {
                 if let pasteboardString = UIPasteboard.general.string {
                     let first2 = String(pasteboardString.prefix(2))
+                    let ethereumUrl = String(pasteboardString.prefix(9))
                     if first2 == "0x" {
                         selectedAddress = UIPasteboard.general.string
+                        performSegue(withIdentifier: "send", sender: nil)
+                        return
+                    } else if ethereumUrl == "ethereum:" {
+                        let range = pasteboardString.range(of: ethereumUrl)
+                        selectedAddress = String(pasteboardString[range!.upperBound...])
                         performSegue(withIdentifier: "send", sender: nil)
                         return
                     }
@@ -444,9 +454,16 @@ extension PaymentContactsController : CustomQRCodeControllerDelegate {
 
         if let resultString = result?.value {
             let first2 = String(resultString.prefix(2))
+            let ethereumUrl = String(resultString.prefix(9))
             if first2 == "0x" {
                 DispatchQueue.main.async {
                     self.selectedAddress = resultString
+                    self.performSegue(withIdentifier: "send", sender: nil)
+                }
+            } else if ethereumUrl == "ethereum:" {
+                DispatchQueue.main.async {
+                    let range = resultString.range(of: ethereumUrl)
+                    self.selectedAddress = String(resultString[range!.upperBound...])
                     self.performSegue(withIdentifier: "send", sender: nil)
                 }
             } else {

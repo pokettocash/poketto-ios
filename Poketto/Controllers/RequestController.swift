@@ -25,7 +25,7 @@ class RequestController: UIViewController, PresentrDelegate {
         addressLabel.text = address
 
         // Get data from the string
-        let data = address.data(using: String.Encoding.ascii)
+        let data = "ethereum:\(address!)".data(using: String.Encoding.ascii)
         // Get a QR CIFilter
         guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else { return }
         // Input the data
