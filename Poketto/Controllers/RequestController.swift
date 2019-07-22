@@ -35,13 +35,9 @@ class RequestController: UIViewController, PresentrDelegate {
         // Scale the image
         let transform = CGAffineTransform(scaleX: 10, y: 10)
         let scaledQrImage = qrImage.transformed(by: transform)
-        // Invert the colors
-        guard let colorInvertFilter = CIFilter(name: "CIColorInvert") else { return }
-        colorInvertFilter.setValue(scaledQrImage, forKey: "inputImage")
-        guard let outputInvertedImage = colorInvertFilter.outputImage else { return }
         // Replace the black with transparency
         guard let maskToAlphaFilter = CIFilter(name: "CIMaskToAlpha") else { return }
-        maskToAlphaFilter.setValue(outputInvertedImage, forKey: "inputImage")
+        maskToAlphaFilter.setValue(scaledQrImage, forKey: "inputImage")
         guard let outputCIImage = maskToAlphaFilter.outputImage else { return }
         // Do some processing to get the UIImage
         let context = CIContext()
