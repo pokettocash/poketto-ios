@@ -30,6 +30,7 @@ class PaymentSendController: UIViewController {
     @IBOutlet weak var noteTextView                : UITextView!
     var hasCenteredNoteTextViewVertically           = false
     let selection                                   = UISelectionFeedbackGenerator()
+    var maxBalanceSelected                          = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -174,17 +175,23 @@ class PaymentSendController: UIViewController {
         
         selection.selectionChanged()
         
-        let wallet = Wallet.init()
         var transactionCost = Float(0.000021)
         if self.noteTextView.text?.isEmpty == false && self.noteTextView.text != "Write a public note" {
             transactionCost = Float(0.00008)
         }
+        setMaxValueWithTransactionCost(transactionCost: transactionCost)
+    }
+    
+    func setMaxValueWithTransactionCost(transactionCost: Float) {
         
+        let wallet = Wallet.init()
+
         Explorer.init().balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
             self.amountTextField.text = String(balance - transactionCost)
             self.maxButton.setTitleColor(UIColor(red: 33/255, green: 107/255, blue: 254/255, alpha: 1), for: .normal)
             self.maxButton.setTitleColor(UIColor(red: 33/255, green: 107/255, blue: 254/255, alpha: 0.5), for: .highlighted)
             self.maxButton.tintColor = UIColor(red: 33/255, green: 107/255, blue: 254/255, alpha: 1)
+            self.maxBalanceSelected = true
         })
     }
     
@@ -260,6 +267,7 @@ extension PaymentSendController : UITextFieldDelegate {
             maxButton.setTitleColor(UIColor(red: 115/255, green: 115/255, blue: 115/255, alpha: 1.0), for: .normal)
             maxButton.setTitleColor(UIColor(red: 115/255, green: 115/255, blue: 115/255, alpha: 0.5), for: .highlighted)
             maxButton.tintColor = UIColor(red: 115/255, green: 115/255, blue: 115/255, alpha: 1.0)
+            self.maxBalanceSelected = false
         }
 
         return true
@@ -278,12 +286,16 @@ extension PaymentSendController : UITextViewDelegate {
         if textView.text.isEmpty {
             textView.text = "Write a public note"
         }
+        setMaxValue()
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 
         if textView == noteTextView && noteTextView.text!.count+text.count > 55 {
             return false
+        }
+        if self.maxBalanceSelected {
+            self.setMaxValueWithTransactionCost(transactionCost: Float(0.00008))
         }
         return true
     }
