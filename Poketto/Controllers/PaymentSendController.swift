@@ -253,6 +253,9 @@ class PaymentSendController: UIViewController {
             if paymentContact != nil {
                 paymentSuccessVC.paymentContact = paymentContact
             }
+            if self.noteTextView.text?.isEmpty == false && self.noteTextView.text != "Write a public note" {
+                paymentSuccessVC.message = self.noteTextView.text!
+            }
             paymentSuccessVC.fromDetails = fromDetails
             paymentSuccessVC.transaction = sender as? TransactionSendingResult
         }

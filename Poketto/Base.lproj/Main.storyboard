@@ -798,14 +798,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="361"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success-checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="xhm-1C-Bqa">
-                                        <rect key="frame" x="131" y="70" width="113" height="113"/>
+                                        <rect key="frame" x="131" y="58" width="113" height="113"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="113" id="49e-uw-rLg"/>
                                             <constraint firstAttribute="height" constant="113" id="C93-3r-hGw"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPA-SI-Tj3">
-                                        <rect key="frame" x="124.33333333333334" y="281" width="126.33333333333334" height="48"/>
+                                        <rect key="frame" x="124.33333333333334" y="269" width="126.33333333333334" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="8C8-za-i7N"/>
                                         </constraints>
@@ -814,7 +814,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've just sent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaH-yj-W0H">
-                                        <rect key="frame" x="130.66666666666666" y="231" width="114" height="20"/>
+                                        <rect key="frame" x="130.66666666666666" y="219" width="114" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="6Rr-O3-juD"/>
                                             <constraint firstAttribute="width" constant="114" id="Rll-ZW-uF9"/>
@@ -823,16 +823,29 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;&quot;" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryw-eQ-jx4">
+                                        <rect key="frame" x="15" y="333" width="345" height="12"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="ZQX-sz-Ids"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="ryw-eQ-jx4" firstAttribute="leading" secondItem="k7f-gm-poz" secondAttribute="leading" constant="15" id="08X-rV-qaF"/>
+                                    <constraint firstItem="ryw-eQ-jx4" firstAttribute="top" secondItem="DPA-SI-Tj3" secondAttribute="bottom" constant="16" id="46i-0e-GQ6"/>
+                                    <constraint firstAttribute="trailing" secondItem="ryw-eQ-jx4" secondAttribute="trailing" constant="15" id="AAB-D3-04Z"/>
                                     <constraint firstItem="xhm-1C-Bqa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="k7f-gm-poz" secondAttribute="top" constant="10" id="BV4-GM-dqy"/>
                                     <constraint firstItem="xhm-1C-Bqa" firstAttribute="centerX" secondItem="k7f-gm-poz" secondAttribute="centerX" id="K6p-Ec-z8m"/>
                                     <constraint firstItem="DPA-SI-Tj3" firstAttribute="centerX" secondItem="k7f-gm-poz" secondAttribute="centerX" id="YdJ-n6-xti"/>
                                     <constraint firstItem="PaH-yj-W0H" firstAttribute="top" secondItem="xhm-1C-Bqa" secondAttribute="bottom" priority="999" constant="48" id="YxD-fn-ROF"/>
+                                    <constraint firstAttribute="bottom" secondItem="ryw-eQ-jx4" secondAttribute="bottom" constant="16" id="eja-Io-1OO"/>
                                     <constraint firstItem="PaH-yj-W0H" firstAttribute="centerX" secondItem="k7f-gm-poz" secondAttribute="centerX" id="iUd-1z-aZm"/>
                                     <constraint firstItem="DPA-SI-Tj3" firstAttribute="top" secondItem="PaH-yj-W0H" secondAttribute="bottom" constant="30" id="wMq-QY-0bI"/>
-                                    <constraint firstAttribute="bottom" secondItem="DPA-SI-Tj3" secondAttribute="bottom" constant="32" id="xnF-ja-MGU"/>
+                                    <constraint firstAttribute="bottom" secondItem="DPA-SI-Tj3" secondAttribute="bottom" priority="999" constant="32" id="xnF-ja-MGU"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QpR-Pl-Jvh">
@@ -995,6 +1008,7 @@
                         <outlet property="addressLabel" destination="bAB-ex-LBH" id="skz-g4-nWo"/>
                         <outlet property="amountLabel" destination="DPA-SI-Tj3" id="9xe-lv-qqc"/>
                         <outlet property="assignWalletButton" destination="PuF-xU-wLX" id="Cw1-9d-P6y"/>
+                        <outlet property="messageLabel" destination="ryw-eQ-jx4" id="qZ7-Db-EM8"/>
                         <outlet property="shortAddressLabel" destination="Go8-T4-78D" id="ydq-NW-Ixc"/>
                         <outlet property="userImageView" destination="WRu-xs-sc4" id="S5e-L5-7ry"/>
                         <outlet property="userNameLabel" destination="xDp-ub-zRX" id="ITj-pt-qB6"/>
@@ -2182,9 +2196,6 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;&quot;" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fo4-KB-Vjx">
                                 <rect key="frame" x="15" y="140" width="345" height="12"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="ZRI-kZ-lUb"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

@@ -14,12 +14,14 @@ class PaymentSuccessController: UIViewController {
     
     var fromDetails                         : Bool!
     var transaction                         : TransactionSendingResult!
+    var message                             : String?
     var paymentContact                      : PaymentContact!
     @IBOutlet weak var userImageView        : UIImageView!
     @IBOutlet weak var userNameLabel        : UILabel!
     @IBOutlet weak var addressLabel         : UILabel!
     @IBOutlet weak var shortAddressLabel    : UILabel!
     @IBOutlet weak var amountLabel          : UILabel!
+    @IBOutlet weak var messageLabel         : UILabel!
     @IBOutlet weak var assignWalletButton   : UIButton!
     var contactStore                        = CNContactStore()
 
@@ -81,7 +83,12 @@ class PaymentSuccessController: UIViewController {
                 self.userImageView.image = UIImage(named: "unknown-address")
             }
         }
-
+        
+        if message != nil {
+            messageLabel.text = "\"\(message!)\""
+        } else {
+            messageLabel.removeFromSuperview()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
