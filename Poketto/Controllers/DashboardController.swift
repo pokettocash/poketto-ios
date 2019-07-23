@@ -93,9 +93,9 @@ class DashboardController: UIViewController, SettingsDelegate {
                 transaction.toAddress = jsonTransaction["to"].stringValue
                 transaction.fromAddress = jsonTransaction["from"].stringValue
                 transaction.txHash = jsonTransaction["hash"].stringValue
-                transaction.input = jsonTransaction["input"].rawString(.utf8, options: .init())
+                let inputData = jsonTransaction["input"]
+                transaction.input = inputData.stringValue
 
-                
                 let date = jsonTransaction["timeStamp"].stringValue
                 transaction.date = Date.init(timeIntervalSince1970: TimeInterval(Double(date)!))
                 

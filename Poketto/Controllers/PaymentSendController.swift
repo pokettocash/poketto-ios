@@ -27,6 +27,8 @@ class PaymentSendController: UIViewController {
     @IBOutlet weak var sendButtonBottomConstraint   : NSLayoutConstraint!
     @IBOutlet weak var maxButton                    : UIButton!
     @IBOutlet weak var maxButtonTopConstraint       : NSLayoutConstraint!
+    @IBOutlet weak var noteTextView                : UITextView!
+    var hasCenteredNoteTextViewVertically           = false
     let selection                                   = UISelectionFeedbackGenerator()
 
     override func viewDidLoad() {
@@ -84,6 +86,7 @@ class PaymentSendController: UIViewController {
             object: nil
         )
         
+        
         if UIScreen.main.bounds.size.height <= 568 {
             view.removeConstraint(maxButtonTopConstraint)
             maxButtonTopConstraint = nil
@@ -91,6 +94,14 @@ class PaymentSendController: UIViewController {
             maxButton.imageEdgeInsets = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
             maxButton.imageView?.contentMode = .scaleAspectFit
             currencyDivider.removeFromSuperview()
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if !hasCenteredNoteTextViewVertically {
+            noteTextView.centerVertically()
+            hasCenteredNoteTextViewVertically = true
         }
     }
     
@@ -164,7 +175,10 @@ class PaymentSendController: UIViewController {
         selection.selectionChanged()
         
         let wallet = Wallet.init()
-        let transactionCost = Float(0.000021)
+        var transactionCost = Float(0.000021)
+        if self.noteTextView.text?.isEmpty == false && self.noteTextView.text != "Write a public note" {
+            transactionCost = Float(0.00008)
+        }
         
         Explorer.init().balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
             self.amountTextField.text = String(balance - transactionCost)
@@ -187,9 +201,13 @@ class PaymentSendController: UIViewController {
                 print("This is run on the background queue")
 
                 let wallet = Wallet.init()
-                print("send \(self.address!)")
+                
+                var message : String? = nil
+                if self.noteTextView.text?.isEmpty == false && self.noteTextView.text != "Write a public note" {
+                    message = self.noteTextView.text!
+                }
 
-                wallet.send(toAddress: self.address!, value: amount, message: nil, success: { transaction in
+                wallet.send(toAddress: self.address!, value: amount, message: message, success: { transaction in
                     print("show next screen \(transaction)")
                     DispatchQueue.main.async {
                         SVProgressHUD.dismiss()
@@ -238,13 +256,46 @@ extension PaymentSendController : UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        
-        if textField.text != "" {
-            maxButton.setTitleColor(UIColor.black, for: .normal)
-            maxButton.setTitleColor(UIColor(white: 0, alpha: 0.5), for: .highlighted)
-            maxButton.tintColor = UIColor.black
+        if textField == amountTextField && textField.text != "" {
+            maxButton.setTitleColor(UIColor(red: 115/255, green: 115/255, blue: 115/255, alpha: 1.0), for: .normal)
+            maxButton.setTitleColor(UIColor(red: 115/255, green: 115/255, blue: 115/255, alpha: 0.5), for: .highlighted)
+            maxButton.tintColor = UIColor(red: 115/255, green: 115/255, blue: 115/255, alpha: 1.0)
         }
 
         return true
+    }
+}
+
+extension PaymentSendController : UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Write a public note" {
+            textView.text = nil
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Write a public note"
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+
+        if textView == noteTextView && noteTextView.text!.count+text.count > 55 {
+            return false
+        }
+        return true
+    }
+}
+
+extension UITextView {
+    
+    func centerVertically() {
+        let fittingSize = CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude)
+        let size = sizeThatFits(fittingSize)
+        let topOffset = (bounds.size.height - size.height * zoomScale) / 2
+        let positiveTopOffset = max(1, topOffset)
+        contentOffset.y = -positiveTopOffset
     }
 }

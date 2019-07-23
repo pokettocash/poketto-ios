@@ -34,28 +34,6 @@ class PaymentDetailsController: UIViewController {
         
         navigationItem.title = "Payment details"
         
-        if transaction.input != "0x" {
-            if let messageData = transaction.input?.hexadecimal {
-                let message = String(data: messageData, encoding: String.Encoding.utf8)!
-                messageLabel.text = "\"\(message)\""
-            } else {
-                messageLabel.removeFromSuperview()
-            }
-        } else {
-            messageLabel.removeFromSuperview()
-        }
-        
-        print("UIScreen.main.bounds.size.height \(UIScreen.main.bounds.size.height)")
-        if UIScreen.main.bounds.size.height <= 568 {
-            firstDividerTopConstraint.constant = 16
-            secondDividerBottomConstraint.constant = 16
-            if messageLabel != nil {
-                messageLabel.numberOfLines = 3
-                messageLabel.lineBreakMode = .byTruncatingTail
-            }
-        }
-        
-        
         if transaction.transactionType == .Credit {
             toLabel.text = "From:"
             titleLabel.text = "You've received"
@@ -103,6 +81,29 @@ class PaymentDetailsController: UIViewController {
         let hourFormatter = DateFormatter()
         hourFormatter.dateFormat = "hh:mm"
         hourLabel.text = hourFormatter.string(from: transaction.date)
+        
+        if transaction.input != "0x" {
+            
+            let indexStartOfText = transaction.input!.index(transaction.input!.startIndex, offsetBy: 2)
+            let hexadecimalSubstring = String.init(transaction.input![indexStartOfText...])
+            if let messageData = hexadecimalSubstring.hexadecimal {
+                let message = String.init(data: messageData, encoding: .utf8)
+                messageLabel.text = "\"\(message!)\""
+            } else {
+                messageLabel.removeFromSuperview()
+            }
+        } else {
+            messageLabel.removeFromSuperview()
+        }
+        
+        if UIScreen.main.bounds.size.height <= 568 {
+            firstDividerTopConstraint.constant = 16
+            secondDividerBottomConstraint.constant = 16
+            if messageLabel != nil {
+                messageLabel.numberOfLines = 3
+                messageLabel.lineBreakMode = .byTruncatingTail
+            }
+        }
         
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
