@@ -18,7 +18,7 @@ class EmptyStateController: UIViewController {
     
     @IBAction func addFunds() {
         
-        UIApplication.shared.open(URL(string: "https://poketto.cash")!, options: [:], completionHandler: nil)
+        UIApplication.shared.open(URL(string: "https://medium.com/@jaredstauffer/how-to-get-xdai-how-to-convert-dai-to-xdai-eth-dai-xdai-30a60e4b6641")!, options: [:], completionHandler: nil)
     }
     
     @IBAction func receiveFunds() {
