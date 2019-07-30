@@ -10,11 +10,13 @@ import UIKit
 
 class Page2Controller: UIViewController {
 
+    @IBOutlet weak var imageTopConstraint : NSLayoutConstraint!
     @IBOutlet weak var spacingConstraint : NSLayoutConstraint!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        spacingConstraint.constant = 56 * UIScreen.main.bounds.size.height/812
+        
+        spacingConstraint.constant = 44 * UIScreen.main.bounds.size.height/812
+        imageTopConstraint.constant = -130 * UIScreen.main.bounds.size.height/812
     }
 }

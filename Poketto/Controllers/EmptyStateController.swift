@@ -27,4 +27,9 @@ class EmptyStateController: UIViewController {
         parent.request()
     }
     
+    @IBAction func learnMore() {
+        
+        UIApplication.shared.open(URL(string: "https://poa.network/xdai")!, options: [:], completionHandler: nil)
+    }
+    
 }

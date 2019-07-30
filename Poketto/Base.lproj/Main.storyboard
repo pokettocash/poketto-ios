@@ -1582,39 +1582,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easily send and receive" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aP7-YD-sTc">
+                                <rect key="frame" x="20" y="479" width="335" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="VfG-uX-buR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding4" translatesAutoresizingMaskIntoConstraints="NO" id="zzn-Om-0nd">
+                                <rect key="frame" x="43.666666666666657" y="147" width="288" height="288"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="288" id="fcX-pW-CKp"/>
+                                    <constraint firstAttribute="width" constant="288" id="hkV-Xe-vDO"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oga-K4-vST">
-                                <rect key="frame" x="20" y="511.00000000000006" width="335" height="64.666666666666686"/>
+                                <rect key="frame" x="20" y="518" width="335" height="69"/>
                                 <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Your xDai wallet will be generated for you as soon as you press get started. You can also import an existing wallet on the settings.</string>
+                                    <fragment content="These features make xDai the ideal choice to use for everyday transactions like retail stores or peer to peer transfers.">
                                         <attributes>
-                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding4" translatesAutoresizingMaskIntoConstraints="NO" id="zzn-Om-0nd">
-                                <rect key="frame" x="43.666666666666657" y="167" width="288" height="288"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="288" id="fcX-pW-CKp"/>
-                                    <constraint firstAttribute="width" constant="288" id="hkV-Xe-vDO"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Oga-K4-vST" firstAttribute="top" secondItem="zzn-Om-0nd" secondAttribute="bottom" constant="56" id="O1Z-ew-orT"/>
                             <constraint firstItem="zzn-Om-0nd" firstAttribute="centerX" secondItem="y6M-hM-Gkx" secondAttribute="centerX" id="W5c-92-nED"/>
-                            <constraint firstItem="zzn-Om-0nd" firstAttribute="centerY" secondItem="y6M-hM-Gkx" secondAttribute="centerY" constant="-95" id="Xgi-ue-sJq"/>
+                            <constraint firstItem="zzn-Om-0nd" firstAttribute="centerY" secondItem="y6M-hM-Gkx" secondAttribute="centerY" constant="-115" id="Xgi-ue-sJq"/>
+                            <constraint firstItem="Oga-K4-vST" firstAttribute="top" secondItem="aP7-YD-sTc" secondAttribute="bottom" constant="10" id="Xjh-wg-MN5"/>
+                            <constraint firstItem="dyn-0b-KUf" firstAttribute="trailing" secondItem="aP7-YD-sTc" secondAttribute="trailing" constant="20" id="b17-Tu-qo5"/>
+                            <constraint firstItem="aP7-YD-sTc" firstAttribute="leading" secondItem="dyn-0b-KUf" secondAttribute="leading" constant="20" id="egT-Mp-gXu"/>
+                            <constraint firstItem="aP7-YD-sTc" firstAttribute="top" secondItem="zzn-Om-0nd" secondAttribute="bottom" constant="44" id="gCM-aZ-N51"/>
                             <constraint firstItem="Oga-K4-vST" firstAttribute="leading" secondItem="dyn-0b-KUf" secondAttribute="leading" constant="20" id="oSE-6e-fxT"/>
                             <constraint firstItem="dyn-0b-KUf" firstAttribute="trailing" secondItem="Oga-K4-vST" secondAttribute="trailing" constant="20" id="rn5-86-vbY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dyn-0b-KUf"/>
                     </view>
                     <connections>
-                        <outlet property="spacingConstraint" destination="O1Z-ew-orT" id="XLs-Vm-kfi"/>
+                        <outlet property="imageTopConstraint" destination="Xgi-ue-sJq" id="4U9-6J-Jjd"/>
+                        <outlet property="spacingConstraint" destination="gCM-aZ-N51" id="uHf-3D-VQH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcY-rR-ghl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1986,6 +1998,22 @@
                                 <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZd-q5-7T0">
+                                <rect key="frame" x="82" y="684" width="211" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Gc8-8u-Vwp"/>
+                                    <constraint firstAttribute="height" constant="44" id="SCM-uB-Usg"/>
+                                    <constraint firstAttribute="width" constant="211" id="adI-yh-jUd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="   Learn more about xDai" image="discover">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="learnMore" destination="LQM-I3-wfg" eventType="touchUpInside" id="ErZ-Pg-Qrn"/>
+                                    <action selector="learnMore" destination="fjk-Up-GKI" eventType="touchUpInside" id="LTX-f4-jGm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1995,10 +2023,12 @@
                             <constraint firstItem="npr-N9-2BU" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="MQX-0U-4Se"/>
                             <constraint firstItem="WV4-6B-ViR" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="SaC-ee-LXX"/>
                             <constraint firstItem="YUG-CS-Tfw" firstAttribute="centerY" secondItem="WOW-vX-TFp" secondAttribute="centerY" id="Um1-Q6-YrT"/>
+                            <constraint firstItem="SZd-q5-7T0" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="a1m-U9-lXl"/>
                             <constraint firstItem="lw3-0Y-2Dz" firstAttribute="top" secondItem="npr-N9-2BU" secondAttribute="bottom" constant="16" id="ciT-T4-Cpj"/>
                             <constraint firstItem="YUG-CS-Tfw" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="exh-sK-iLJ"/>
                             <constraint firstItem="npr-N9-2BU" firstAttribute="top" secondItem="YUG-CS-Tfw" secondAttribute="bottom" constant="24" id="orv-Dt-TKf"/>
                             <constraint firstItem="lw3-0Y-2Dz" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="rlW-7u-2pG"/>
+                            <constraint firstItem="Kmh-9W-iiQ" firstAttribute="bottom" secondItem="SZd-q5-7T0" secondAttribute="bottom" constant="50" id="u0x-sq-9o1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kmh-9W-iiQ"/>
                     </view>
@@ -2351,11 +2381,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZJ-QZ-54K">
-                                <rect key="frame" x="20" y="511.00000000000006" width="335" height="64.666666666666686"/>
+                                <rect key="frame" x="20" y="518" width="335" height="69"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Poketto is the simplest, most secure and near instant way to send money to friends and pay for your every day items.">
                                         <attributes>
-                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2363,30 +2393,43 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding1" translatesAutoresizingMaskIntoConstraints="NO" id="gp7-ej-ien">
-                                <rect key="frame" x="43.666666666666657" y="167" width="288" height="288"/>
+                                <rect key="frame" x="43.666666666666657" y="147" width="288" height="288"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="hpa-oY-Zz6"/>
                                     <constraint firstAttribute="height" constant="288" id="jaw-Ug-NRm"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your everyday wallet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LdG-fs-5Mi">
+                                <rect key="frame" x="20" y="479" width="335" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="dI4-zk-7wW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="LdG-fs-5Mi" firstAttribute="top" secondItem="gp7-ej-ien" secondAttribute="bottom" constant="44" id="5fS-dy-EkW"/>
                             <constraint firstItem="gp7-ej-ien" firstAttribute="centerX" secondItem="Krd-2c-UP7" secondAttribute="centerX" id="OBv-sK-5jg"/>
-                            <constraint firstItem="gp7-ej-ien" firstAttribute="centerY" secondItem="Krd-2c-UP7" secondAttribute="centerY" constant="-95" id="UWf-2W-MGw"/>
-                            <constraint firstItem="yZJ-QZ-54K" firstAttribute="top" secondItem="gp7-ej-ien" secondAttribute="bottom" constant="56" id="UiV-uk-dJ7"/>
+                            <constraint firstItem="gp7-ej-ien" firstAttribute="centerY" secondItem="Krd-2c-UP7" secondAttribute="centerY" constant="-115" id="UWf-2W-MGw"/>
                             <constraint firstItem="yZJ-QZ-54K" firstAttribute="leading" secondItem="eWM-UA-VYL" secondAttribute="leading" constant="20" id="XS3-ET-tXp"/>
+                            <constraint firstItem="yZJ-QZ-54K" firstAttribute="top" secondItem="LdG-fs-5Mi" secondAttribute="bottom" constant="10" id="a9c-bF-t7b"/>
                             <constraint firstItem="eWM-UA-VYL" firstAttribute="trailing" secondItem="yZJ-QZ-54K" secondAttribute="trailing" constant="20" id="kyv-Bo-pRo"/>
+                            <constraint firstItem="LdG-fs-5Mi" firstAttribute="leading" secondItem="eWM-UA-VYL" secondAttribute="leading" constant="20" id="nCo-Ba-xh3"/>
+                            <constraint firstItem="eWM-UA-VYL" firstAttribute="trailing" secondItem="LdG-fs-5Mi" secondAttribute="trailing" constant="20" id="oEb-uE-xLB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eWM-UA-VYL"/>
                     </view>
                     <connections>
-                        <outlet property="spacingConstraint" destination="UiV-uk-dJ7" id="FiF-RA-3Bs"/>
+                        <outlet property="imageTopConstraint" destination="UWf-2W-MGw" id="uPN-Zf-y7w"/>
+                        <outlet property="spacingConstraint" destination="5fS-dy-EkW" id="gDC-5d-ah1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LhG-HG-uiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2342" y="814"/>
+            <point key="canvasLocation" x="2341.5999999999999" y="813.54679802955673"/>
         </scene>
         <!--Page2 Controller-->
         <scene sceneID="bYE-y0-3Hr">
@@ -2396,38 +2439,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding2" translatesAutoresizingMaskIntoConstraints="NO" id="af2-5m-W3j">
+                                <rect key="frame" x="43.666666666666657" y="147" width="288" height="288"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="288" id="fWn-vL-ZzH"/>
+                                    <constraint firstAttribute="width" constant="288" id="nRR-s6-5wo"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay your friends, pronto" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kLg-hU-ztq">
+                                <rect key="frame" x="20" y="479" width="335" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="ruM-wP-yyU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1a-29-mXj">
-                                <rect key="frame" x="20" y="511.00000000000006" width="335" height="64.666666666666686"/>
+                                <rect key="frame" x="20" y="518" width="335" height="69"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Poketto uses xDai for near instant transactions to an xDai address. Not sure what xDai is? We will try to explain.">
                                         <attributes>
-                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding2" translatesAutoresizingMaskIntoConstraints="NO" id="af2-5m-W3j">
-                                <rect key="frame" x="43.666666666666657" y="167" width="288" height="288"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="288" id="fWn-vL-ZzH"/>
-                                    <constraint firstAttribute="width" constant="288" id="nRR-s6-5wo"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="kLg-hU-ztq" firstAttribute="leading" secondItem="bWt-Wn-GZk" secondAttribute="leading" constant="20" id="6ZL-gq-CrT"/>
                             <constraint firstItem="bWt-Wn-GZk" firstAttribute="trailing" secondItem="p1a-29-mXj" secondAttribute="trailing" constant="20" id="FHc-bs-vMj"/>
+                            <constraint firstItem="kLg-hU-ztq" firstAttribute="top" secondItem="af2-5m-W3j" secondAttribute="bottom" constant="44" id="Gmz-yh-rXf"/>
+                            <constraint firstItem="bWt-Wn-GZk" firstAttribute="trailing" secondItem="kLg-hU-ztq" secondAttribute="trailing" constant="20" id="Vv2-Ua-Cyv"/>
                             <constraint firstItem="af2-5m-W3j" firstAttribute="centerX" secondItem="Nag-O9-V2y" secondAttribute="centerX" id="mzB-tK-wlC"/>
                             <constraint firstItem="p1a-29-mXj" firstAttribute="leading" secondItem="bWt-Wn-GZk" secondAttribute="leading" constant="20" id="nGY-0o-kZH"/>
-                            <constraint firstItem="af2-5m-W3j" firstAttribute="centerY" secondItem="Nag-O9-V2y" secondAttribute="centerY" constant="-95" id="nsx-p5-Ob4"/>
-                            <constraint firstItem="p1a-29-mXj" firstAttribute="top" secondItem="af2-5m-W3j" secondAttribute="bottom" constant="56" id="uKX-kB-13k"/>
+                            <constraint firstItem="af2-5m-W3j" firstAttribute="centerY" secondItem="Nag-O9-V2y" secondAttribute="centerY" constant="-115" id="nsx-p5-Ob4"/>
+                            <constraint firstItem="p1a-29-mXj" firstAttribute="top" secondItem="kLg-hU-ztq" secondAttribute="bottom" constant="10" id="tFQ-di-n1a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bWt-Wn-GZk"/>
                     </view>
                     <connections>
-                        <outlet property="spacingConstraint" destination="uKX-kB-13k" id="69O-8k-Zhy"/>
+                        <outlet property="imageTopConstraint" destination="nsx-p5-Ob4" id="siV-Za-dGL"/>
+                        <outlet property="spacingConstraint" destination="Gmz-yh-rXf" id="o4l-Bg-tls"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hdd-b0-5aA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2442,58 +2498,115 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No volatility" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YyL-bX-LBO">
+                                <rect key="frame" x="20" y="479" width="335" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="Ldu-wy-Jmc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding3" translatesAutoresizingMaskIntoConstraints="NO" id="sJx-gS-6Qu">
+                                <rect key="frame" x="43.666666666666657" y="147" width="288" height="288"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="2qN-sa-r6E"/>
+                                    <constraint firstAttribute="height" constant="288" id="Ywb-FM-DHh"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9X-GV-VhS">
-                                <rect key="frame" x="20" y="511.00000000000006" width="335" height="64.666666666666686"/>
+                                <rect key="frame" x="20" y="518" width="335" height="69"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="xDai is an Ethereum blockchain that uses USD-stable xDai (a representation of DAI token) as the native coin of the network.">
+                                    <fragment content="xDai is a cryptocurrency that is pegged to the US Dollar, with low transaction fees, and fast transaction times.">
                                         <attributes>
-                                            <font key="NSFont" size="15" name=".AppleSystemUIFont"/>
+                                            <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding3" translatesAutoresizingMaskIntoConstraints="NO" id="sJx-gS-6Qu">
-                                <rect key="frame" x="43.666666666666657" y="167" width="288" height="288"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="2qN-sa-r6E"/>
-                                    <constraint firstAttribute="height" constant="288" id="Ywb-FM-DHh"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXn-9d-Wep">
-                                <rect key="frame" x="82" y="724" width="211" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="dtc-rs-Ufx"/>
-                                </constraints>
-                                <state key="normal" title="   Learn more about xDai" image="discover">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="learnMore" destination="fjk-Up-GKI" eventType="touchUpInside" id="pwg-1N-8nt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="sJx-gS-6Qu" firstAttribute="centerX" secondItem="wOb-Hz-LlO" secondAttribute="centerX" id="Cp3-h7-73P"/>
-                            <constraint firstItem="sJx-gS-6Qu" firstAttribute="centerY" secondItem="wOb-Hz-LlO" secondAttribute="centerY" constant="-95" id="FWT-eP-nBL"/>
-                            <constraint firstItem="aXn-9d-Wep" firstAttribute="centerX" secondItem="wOb-Hz-LlO" secondAttribute="centerX" id="MeJ-jX-uiC"/>
-                            <constraint firstItem="P9X-GV-VhS" firstAttribute="top" secondItem="sJx-gS-6Qu" secondAttribute="bottom" constant="56" id="SUA-I9-5sD"/>
+                            <constraint firstItem="sJx-gS-6Qu" firstAttribute="centerY" secondItem="wOb-Hz-LlO" secondAttribute="centerY" constant="-115" id="FWT-eP-nBL"/>
+                            <constraint firstItem="YyL-bX-LBO" firstAttribute="top" secondItem="sJx-gS-6Qu" secondAttribute="bottom" constant="44" id="OBD-lE-dgg"/>
                             <constraint firstItem="P9X-GV-VhS" firstAttribute="leading" secondItem="qY1-Sl-5Qd" secondAttribute="leading" constant="20" id="YSf-h4-rcE"/>
+                            <constraint firstItem="P9X-GV-VhS" firstAttribute="top" secondItem="YyL-bX-LBO" secondAttribute="bottom" constant="10" id="g3S-Ij-xc5"/>
+                            <constraint firstItem="YyL-bX-LBO" firstAttribute="leading" secondItem="qY1-Sl-5Qd" secondAttribute="leading" constant="20" id="gQc-Ut-FFd"/>
+                            <constraint firstItem="qY1-Sl-5Qd" firstAttribute="trailing" secondItem="YyL-bX-LBO" secondAttribute="trailing" constant="20" id="kdA-uU-8I8"/>
                             <constraint firstItem="qY1-Sl-5Qd" firstAttribute="trailing" secondItem="P9X-GV-VhS" secondAttribute="trailing" constant="20" id="tUK-cf-ohZ"/>
-                            <constraint firstItem="qY1-Sl-5Qd" firstAttribute="bottom" secondItem="aXn-9d-Wep" secondAttribute="bottom" constant="10" id="unN-mR-X1E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qY1-Sl-5Qd"/>
                     </view>
                     <connections>
-                        <outlet property="learnMoreButtonBottomConstraint" destination="unN-mR-X1E" id="krf-36-Pxx"/>
-                        <outlet property="spacingConstraint" destination="SUA-I9-5sD" id="cUO-7g-fE8"/>
+                        <outlet property="imageTopConstraint" destination="FWT-eP-nBL" id="8mf-3T-fDW"/>
+                        <outlet property="spacingConstraint" destination="OBD-lE-dgg" id="BK6-Sg-epG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZr-Pp-utP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3900" y="814"/>
+        </scene>
+        <!--Page5 Controller-->
+        <scene sceneID="KT0-8T-siY">
+            <objects>
+                <viewController storyboardIdentifier="Page5" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HxB-bk-hgC" customClass="Page5Controller" customModule="Poketto" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sAx-7G-QEW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your phone is all you need" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h63-Zk-7pC">
+                                <rect key="frame" x="20" y="479" width="335" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="jpe-Oy-Lht"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding5" translatesAutoresizingMaskIntoConstraints="NO" id="Zgg-GB-P3d">
+                                <rect key="frame" x="43.666666666666657" y="147" width="288" height="288"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="Jlc-uJ-swk"/>
+                                    <constraint firstAttribute="height" constant="288" id="KCv-ZR-6Qd"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwK-XZ-Nwa">
+                                <rect key="frame" x="20" y="518" width="335" height="69"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Your wallet will be generated as soon as you press get started. You can also import an existing wallet on the settings.">
+                                        <attributes>
+                                            <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h63-Zk-7pC" firstAttribute="leading" secondItem="HvQ-Ds-zWJ" secondAttribute="leading" constant="20" id="31o-0z-Vai"/>
+                            <constraint firstItem="HvQ-Ds-zWJ" firstAttribute="trailing" secondItem="VwK-XZ-Nwa" secondAttribute="trailing" constant="20" id="6dk-pS-Fvy"/>
+                            <constraint firstItem="Zgg-GB-P3d" firstAttribute="centerX" secondItem="sAx-7G-QEW" secondAttribute="centerX" id="8CF-L5-41Q"/>
+                            <constraint firstItem="VwK-XZ-Nwa" firstAttribute="leading" secondItem="HvQ-Ds-zWJ" secondAttribute="leading" constant="20" id="Cjb-5A-iXQ"/>
+                            <constraint firstItem="h63-Zk-7pC" firstAttribute="top" secondItem="Zgg-GB-P3d" secondAttribute="bottom" constant="44" id="Rnr-Z9-0xX"/>
+                            <constraint firstItem="Zgg-GB-P3d" firstAttribute="centerY" secondItem="sAx-7G-QEW" secondAttribute="centerY" constant="-115" id="kHf-RD-Uj4"/>
+                            <constraint firstItem="VwK-XZ-Nwa" firstAttribute="top" secondItem="h63-Zk-7pC" secondAttribute="bottom" constant="10" id="tdo-jK-Eth"/>
+                            <constraint firstItem="HvQ-Ds-zWJ" firstAttribute="trailing" secondItem="h63-Zk-7pC" secondAttribute="trailing" constant="20" id="wXT-lV-VYc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HvQ-Ds-zWJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageTopConstraint" destination="kHf-RD-Uj4" id="URP-LO-Cfw"/>
+                        <outlet property="spacingConstraint" destination="Rnr-Z9-0xX" id="Uvv-j5-sLV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uk3-cN-OdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5518" y="814"/>
         </scene>
     </scenes>
     <resources>
@@ -2503,15 +2616,16 @@
         <image name="assign-address" width="13.333333015441895" height="14"/>
         <image name="cell-address-manually" width="34" height="34.333332061767578"/>
         <image name="cell-qrcode" width="34" height="34.333332061767578"/>
-        <image name="discover" width="14" height="14"/>
+        <image name="discover" width="24" height="24"/>
         <image name="max" width="24" height="24"/>
         <image name="nav-button-qrcode" width="32" height="32"/>
         <image name="nav-button-settings" width="32" height="32"/>
         <image name="note-icon" width="24" height="24"/>
-        <image name="onboarding1" width="286" height="288"/>
-        <image name="onboarding2" width="272" height="276"/>
-        <image name="onboarding3" width="288" height="288"/>
-        <image name="onboarding4" width="276" height="276"/>
+        <image name="onboarding1" width="296" height="296"/>
+        <image name="onboarding2" width="296" height="296"/>
+        <image name="onboarding3" width="296" height="296"/>
+        <image name="onboarding4" width="296" height="296"/>
+        <image name="onboarding5" width="296" height="296"/>
         <image name="pay-button-background" width="177" height="60"/>
         <image name="pay-unknown" width="28" height="28"/>
         <image name="receive-funds-bg" width="184" height="48"/>

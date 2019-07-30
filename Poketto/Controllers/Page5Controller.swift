@@ -1,14 +1,14 @@
 //
-//  Page3Controller.swift
+//  Page5Controller.swift
 //  Poketto
 //
-//  Created by André Sousa on 17/04/2019.
+//  Created by André Sousa on 30/07/2019.
 //  Copyright © 2019 Poketto. All rights reserved.
 //
 
 import UIKit
 
-class Page3Controller: UIViewController {
+class Page5Controller: UIViewController {
 
     @IBOutlet weak var imageTopConstraint : NSLayoutConstraint!
     @IBOutlet weak var spacingConstraint : NSLayoutConstraint!

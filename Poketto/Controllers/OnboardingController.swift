@@ -15,7 +15,8 @@ class OnboardingController: UIPageViewController
             self.getViewController(withIdentifier: "Page1"),
             self.getViewController(withIdentifier: "Page2"),
             self.getViewController(withIdentifier: "Page3"),
-            self.getViewController(withIdentifier: "Page4")
+            self.getViewController(withIdentifier: "Page4"),
+            self.getViewController(withIdentifier: "Page5")
         ]
     }()
     
@@ -51,11 +52,11 @@ class OnboardingController: UIPageViewController
                     padding = 0
                 }
                 if getStartedButton != nil {
-                    pageControl.frame = CGRect(x: view.bounds.size.width/2-50, y: (625-padding)*(UIScreen.main.bounds.size.height/812)-padding, width: 100, height: 20)
+                    pageControl.frame = CGRect(x: view.bounds.size.width/2-50, y: (775-padding)*(UIScreen.main.bounds.size.height/812)-padding, width: 100, height: 12)
                 }
                 pageControl.pageIndicatorTintColor = UIColor(red: 224/255, green: 224/255, blue: 224/255, alpha: 1)
-                pageControl.currentPageIndicatorTintColor = UIColor(red: 101/255, green: 101/255, blue: 101/255, alpha: 1)
-                pageControl.numberOfPages = 4
+                pageControl.currentPageIndicatorTintColor = UIColor(red: 232/255, green: 147/255, blue: 120/255, alpha: 1)
+                pageControl.numberOfPages = 5
                 pageControl.currentPage = 0
                 pageControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
                 self.view.bringSubviewToFront(subView)
@@ -68,16 +69,18 @@ class OnboardingController: UIPageViewController
         super.viewDidAppear(animated)
         
         let window = UIApplication.shared.keyWindow
-        var padding : CGFloat = 20
+        var padding : CGFloat = 30
         if window?.safeAreaInsets.bottom == 0 {
             padding = 0
         }
 
-        getStartedButton = UIButton(frame: CGRect(x: 15, y: view.frame.size.height-70-padding, width: view.frame.size.width-30, height: 48))
+        getStartedButton = UIButton(frame: CGRect(x: view.frame.size.width/2-87, y: (685-padding)*(UIScreen.main.bounds.size.height/812)-padding, width: 174, height: 48))
         getStartedButton.setTitle("Get Started", for: .normal)
         getStartedButton.setTitleColor(UIColor.white, for: .normal)
-        getStartedButton.setBackgroundImage(UIImage(named: "send-button-background"), for: .normal)
+        getStartedButton.backgroundColor = UIColor(red: 246/255, green: 189/255, blue: 140/255, alpha: 1)
+        getStartedButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         getStartedButton.addTarget(self, action: #selector(goToDashboard), for: .touchUpInside)
+        getStartedButton.layer.cornerRadius = 9
         view.addSubview(getStartedButton)
     }
     

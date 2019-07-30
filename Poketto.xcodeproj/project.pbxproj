@@ -44,6 +44,7 @@
 		70AD5C3E2279064400A9E164 /* EmptyStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AD5C3D2279064400A9E164 /* EmptyStateController.swift */; };
 		70C82D6622710B7200F627A1 /* PaymentSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */; };
 		70C82D68227113A100F627A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70C82D67227113A100F627A1 /* Assets.xcassets */; };
+		70DE88F222F03AB1001BF2C7 /* Page5Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DE88F122F03AB1001BF2C7 /* Page5Controller.swift */; };
 		70E0A482228486C40002CBF3 /* CustomQRCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E0A481228486C40002CBF3 /* CustomQRCodeController.swift */; };
 		834EB4074D28F39898252A8C /* Pods_PokettoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B253EE3970DACFA3540D4AD0 /* Pods_PokettoUITests.framework */; };
 		AE32744C8439029411C7066A /* Pods_PokettoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C161CEAAECB034BD6C623E /* Pods_PokettoTests.framework */; };
@@ -115,6 +116,7 @@
 		70AD5C3D2279064400A9E164 /* EmptyStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateController.swift; sourceTree = "<group>"; };
 		70C82D6522710B7200F627A1 /* PaymentSuccessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessController.swift; sourceTree = "<group>"; };
 		70C82D67227113A100F627A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		70DE88F122F03AB1001BF2C7 /* Page5Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page5Controller.swift; sourceTree = "<group>"; };
 		70E0A481228486C40002CBF3 /* CustomQRCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomQRCodeController.swift; sourceTree = "<group>"; };
 		A7366CF0787387400EB702E3 /* Pods-PokettoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokettoUITests.release.xcconfig"; path = "Target Support Files/Pods-PokettoUITests/Pods-PokettoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B253EE3970DACFA3540D4AD0 /* Pods_PokettoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokettoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +225,7 @@
 				70A31C7D22677090007291D1 /* Page2Controller.swift */,
 				70A31C7F2267709A007291D1 /* Page3Controller.swift */,
 				657300FE228F1011003BE6D2 /* Page4Controller.swift */,
+				70DE88F122F03AB1001BF2C7 /* Page5Controller.swift */,
 				70A31C75226760E4007291D1 /* DashboardController.swift */,
 				70AD5C3D2279064400A9E164 /* EmptyStateController.swift */,
 				707DEB97226F52A500F0AD93 /* PaymentContactsController.swift */,
@@ -629,6 +632,7 @@
 				70A31C7822676550007291D1 /* Wallet.swift in Sources */,
 				DDB50445225CC6EF005B3DE0 /* Explorer.swift in Sources */,
 				70A31C832267810B007291D1 /* TransactionCell.swift in Sources */,
+				70DE88F222F03AB1001BF2C7 /* Page5Controller.swift in Sources */,
 				7016B4B722831973000C49B8 /* PaymentDetailsController.swift in Sources */,
 				707DEB9A226F52B300F0AD93 /* PaymentSendController.swift in Sources */,
 				70A31C7422676096007291D1 /* LaunchController.swift in Sources */,
