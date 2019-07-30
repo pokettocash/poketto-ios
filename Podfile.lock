@@ -8,6 +8,12 @@ PODS:
   - MagicalRecord (2.3.3):
     - MagicalRecord/Core (= 2.3.3)
   - MagicalRecord/Core (2.3.3)
+  - PocketSwift/Core (0.0.2):
+    - BigInt
+    - RNCryptor
+    - RxBlocking (~> 4.0)
+    - RxSwift (~> 4.0)
+    - SwiftKeychainWrapper
   - Presentr (1.9)
   - PromiseKit (6.8.4):
     - PromiseKit/CorePromise (= 6.8.4)
@@ -19,6 +25,10 @@ PODS:
   - PromiseKit/UIKit (6.8.4):
     - PromiseKit/CorePromise
   - QRCodeReader.swift (10.0.0)
+  - RNCryptor (5.1.0)
+  - RxBlocking (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
   - secp256k1.c (0.1.2)
   - SipHash (1.2.2)
   - Starscream (3.1.0)
@@ -37,6 +47,7 @@ DEPENDENCIES:
   - BiometricAuthentication
   - Chester
   - MagicalRecord (from `https://github.com/magicalpanda/MagicalRecord.git`, tag `v2.3.3`)
+  - PocketSwift/Core (~> 0.0.2)
   - Presentr
   - QRCodeReader.swift (~> 10.0.0)
   - SVProgressHUD
@@ -51,9 +62,13 @@ SPEC REPOS:
     - BiometricAuthentication
     - Chester
     - CryptoSwift
+    - PocketSwift
     - Presentr
     - PromiseKit
     - QRCodeReader.swift
+    - RNCryptor
+    - RxBlocking
+    - RxSwift
     - secp256k1.c
     - SipHash
     - Starscream
@@ -83,9 +98,13 @@ SPEC CHECKSUMS:
   Chester: 978562d533be4d3341a70b449bdfef1fc70d1937
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   MagicalRecord: e3dfdee87c234c6d460dbd5d8a32e3cb4de223aa
+  PocketSwift: 041bead3cd0a4f5ec4e619f6f7c4bd7440a1c952
   Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
   PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
   QRCodeReader.swift: 74d0378eb0c7807828552b49626bbc8307495aee
+  RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
+  RxBlocking: 79413e4d916f44bb3e113c5b2cc059e36fe58910
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   secp256k1.c: db47b726585d80f027423682eb369729e61b3b20
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   Starscream: 08172b481e145289c4930cb567230fb55897cfa4
@@ -94,6 +113,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   web3swift: 149ab5d1e57edf8125b095f889f089ab55fadcf7
 
-PODFILE CHECKSUM: ae928b88e24171dd1461b1a1e1a1b1804f425eeb
+PODFILE CHECKSUM: fc5238ed12643ebce3fd4daed917185b895a86e3
 
 COCOAPODS: 1.6.1

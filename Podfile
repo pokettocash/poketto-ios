@@ -14,6 +14,7 @@ target 'Poketto' do
   pod 'QRCodeReader.swift', '~> 10.0.0'
   pod 'SVProgressHUD'
   pod 'MagicalRecord', :git => 'https://github.com/magicalpanda/MagicalRecord.git', :tag => 'v2.3.3'
+  pod 'PocketSwift/Core', '~> 0.0.2'
 
 
   target 'PokettoTests' do
