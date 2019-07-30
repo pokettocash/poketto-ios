@@ -23,10 +23,11 @@ class PaymentSendController: UIViewController {
     var navBarTitleLabel                            : UILabel!
     var navBarSubTitleLabel                         : UILabel!
     var contactStore                                = CNContactStore()
-    @IBOutlet weak var currencyDivider              : UIView!
     @IBOutlet weak var sendButtonBottomConstraint   : NSLayoutConstraint!
     @IBOutlet weak var maxButton                    : UIButton!
-    @IBOutlet weak var maxButtonTopConstraint       : NSLayoutConstraint!
+    @IBOutlet weak var additionalViewTopConstraint  : NSLayoutConstraint!
+    @IBOutlet weak var currencyTopConstraint        : NSLayoutConstraint!
+    @IBOutlet weak var amountTopConstraint          : NSLayoutConstraint!
     @IBOutlet weak var noteTextView                : UITextView!
     var hasCenteredNoteTextViewVertically           = false
     let selection                                   = UISelectionFeedbackGenerator()
@@ -87,14 +88,14 @@ class PaymentSendController: UIViewController {
             object: nil
         )
         
-        
         if UIScreen.main.bounds.size.height <= 568 {
-            view.removeConstraint(maxButtonTopConstraint)
-            maxButtonTopConstraint = nil
             maxButton.titleLabel?.font = UIFont.systemFont(ofSize: 12)
             maxButton.imageEdgeInsets = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
             maxButton.imageView?.contentMode = .scaleAspectFit
-            currencyDivider.removeFromSuperview()
+            additionalViewTopConstraint.constant = 76
+            currencyTopConstraint.constant = 26
+            amountTopConstraint.constant = 21
+            noteTextView.autocorrectionType = .no
         }
     }
     
@@ -283,13 +284,17 @@ extension PaymentSendController : UITextViewDelegate {
         if textView.text == "Write a public note" {
             textView.text = nil
         }
+        self.noteTextView.centerVertically()
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Write a public note"
         }
-        setMaxValue()
+        if self.maxBalanceSelected {
+            setMaxValue()
+        }
+        self.noteTextView.centerVertically()
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -300,6 +305,7 @@ extension PaymentSendController : UITextViewDelegate {
         if self.maxBalanceSelected {
             self.setMaxValueWithTransactionCost(transactionCost: Float(0.00008))
         }
+        self.noteTextView.centerVertically()
         return true
     }
 }

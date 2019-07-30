@@ -651,10 +651,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xDai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNV-FB-B1C">
                                 <rect key="frame" x="15" y="160" width="35" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="QlO-ZS-oIE"/>
                                     <constraint firstAttribute="width" constant="35" id="Zoi-HN-6D1"/>
                                     <constraint firstAttribute="height" constant="21" id="dQF-b4-XcU"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="i2z-dh-NHz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -770,11 +768,12 @@
                         <viewLayoutGuide key="safeArea" id="s1l-cj-qw3"/>
                     </view>
                     <connections>
+                        <outlet property="additionalViewTopConstraint" destination="RHM-Zv-516" id="pPO-6T-4f4"/>
                         <outlet property="addressLabel" destination="Zf4-5U-zBj" id="cQo-Xj-SvZ"/>
                         <outlet property="amountTextField" destination="2q0-pW-CPp" id="xoh-cF-Men"/>
-                        <outlet property="currencyDivider" destination="tDv-at-CIA" id="vLP-7f-MDZ"/>
+                        <outlet property="amountTopConstraint" destination="okY-4o-Ace" id="Fsb-bw-S3s"/>
+                        <outlet property="currencyTopConstraint" destination="zP1-rQ-l98" id="UVv-tF-rBu"/>
                         <outlet property="maxButton" destination="xFq-eh-sSD" id="cmE-24-u3z"/>
-                        <outlet property="maxButtonTopConstraint" destination="4Mc-Dc-r8k" id="lad-Mz-XNI"/>
                         <outlet property="noteTextView" destination="hQF-I0-8Bd" id="187-P6-ccj"/>
                         <outlet property="sendButtonBottomConstraint" destination="njT-tH-Ua5" id="36R-TI-i0u"/>
                         <outlet property="userImageView" destination="r1a-87-9eQ" id="3iP-2G-mcQ"/>
@@ -823,7 +822,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;&quot;" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryw-eQ-jx4">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryw-eQ-jx4">
                                         <rect key="frame" x="15" y="333" width="345" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="ZQX-sz-Ids"/>
