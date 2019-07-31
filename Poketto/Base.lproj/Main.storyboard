@@ -1191,9 +1191,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ol4-0l-C3n">
-                                        <rect key="frame" x="53.666666666666657" y="281" width="268" height="248"/>
+                                        <rect key="frame" x="20" y="281" width="335" height="248"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="268" id="2Eu-g4-xHU"/>
                                             <constraint firstAttribute="height" constant="248" id="mCc-nS-t4b"/>
                                         </constraints>
                                         <connections>
@@ -1223,6 +1222,7 @@
                                     <constraint firstItem="ANp-13-mRG" firstAttribute="top" secondItem="0tH-W8-oAg" secondAttribute="bottom" constant="15" id="Sr2-fn-Ksn"/>
                                     <constraint firstItem="Tsl-J9-9c9" firstAttribute="top" secondItem="Zo3-Jr-1XX" secondAttribute="top" id="T3U-CA-IQH"/>
                                     <constraint firstItem="0tH-W8-oAg" firstAttribute="leading" secondItem="c6L-qZ-ybr" secondAttribute="leading" constant="20" id="XLH-uB-1eR"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ol4-0l-C3n" secondAttribute="trailing" constant="20" id="bEV-jQ-z5j"/>
                                     <constraint firstItem="Ol4-0l-C3n" firstAttribute="centerX" secondItem="c6L-qZ-ybr" secondAttribute="centerX" id="cHg-r9-kA3"/>
                                     <constraint firstAttribute="trailing" secondItem="KqO-uY-leS" secondAttribute="trailing" id="cfg-Fs-zsW"/>
                                     <constraint firstItem="0tH-W8-oAg" firstAttribute="top" secondItem="Qyb-5v-ZWm" secondAttribute="bottom" constant="15" id="fQL-Dk-4b8"/>
@@ -1231,6 +1231,7 @@
                                     <constraint firstItem="KqO-uY-leS" firstAttribute="leading" secondItem="c6L-qZ-ybr" secondAttribute="leading" id="qR8-5S-8oi"/>
                                     <constraint firstItem="KqO-uY-leS" firstAttribute="centerX" secondItem="c6L-qZ-ybr" secondAttribute="centerX" id="sX4-ZV-qJ8"/>
                                     <constraint firstItem="Qyb-5v-ZWm" firstAttribute="leading" secondItem="Tsl-J9-9c9" secondAttribute="trailing" constant="20" id="sf8-ya-dl0"/>
+                                    <constraint firstItem="Ol4-0l-C3n" firstAttribute="leading" secondItem="c6L-qZ-ybr" secondAttribute="leading" constant="20" id="szb-Ef-aB5"/>
                                     <constraint firstAttribute="trailing" secondItem="ANp-13-mRG" secondAttribute="trailing" constant="20" id="yNk-Uc-ffl"/>
                                 </constraints>
                             </scrollView>

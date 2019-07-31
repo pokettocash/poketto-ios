@@ -111,8 +111,8 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftKeychainWrapper: ef5ad793bc0e08e24a5913f28345b8f7bc8e4123
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  web3swift: 149ab5d1e57edf8125b095f889f089ab55fadcf7
+  web3swift: df889d03b677ae251a94ab7e0b486aaa6b12fa83
 
 PODFILE CHECKSUM: fc5238ed12643ebce3fd4daed917185b895a86e3
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.5
