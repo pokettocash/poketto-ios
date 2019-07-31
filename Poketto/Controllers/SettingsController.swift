@@ -159,8 +159,6 @@ class SettingsOptionsController: UITableViewController {
         } else if (indexPath.row == 1) {
             delegate?.importScreenView()
         } else if (indexPath.row == 3) {
-            UIApplication.shared.open(URL(string: "https://github.com/pokettocash/poketto-ios/blob/master/LICENSE")!, options: [:], completionHandler: nil)
-        } else if (indexPath.row == 4) {
             let alert = UIAlertController(title: "Select a network",
                                           message: "",
                                           preferredStyle: .alert)
@@ -191,6 +189,8 @@ class SettingsOptionsController: UITableViewController {
             alert.addAction(action2)
             alert.addAction(cancel)
             present(alert, animated: true, completion: nil)
+        } else if (indexPath.row == 4) {
+            UIApplication.shared.open(URL(string: "https://github.com/pokettocash/poketto-ios/blob/master/LICENSE")!, options: [:], completionHandler: nil)
         }
     }
 }
