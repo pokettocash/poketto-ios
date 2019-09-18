@@ -10,11 +10,13 @@ import UIKit
 import SVProgressHUD
 import web3swift
 import Contacts
+import BigInt
 
 class PaymentSendController: UIViewController {
     
     var fromDetails                                 : Bool!
     var address                                     : String!
+    var eip681Code                                  : Web3.EIP681Code?
     var paymentContact                              : PaymentContact!
     @IBOutlet weak var userImageView                : UIImageView!
     @IBOutlet weak var userNameLabel                : UILabel!
@@ -36,9 +38,22 @@ class PaymentSendController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("PaymentSendController address \(address!)")
-        
         userImageView.layer.cornerRadius = userImageView.frame.size.width/2
+        
+        if eip681Code != nil {
+            let targetAddress = eip681Code!.targetAddress
+            switch(targetAddress) {
+            case .ethereumAddress(let ethereumAddress):
+                address = ethereumAddress.address
+            case .ensAddress(_): break
+            }
+        
+            if eip681Code!.amount != nil {
+                DispatchQueue.main.async {
+                    self.amountTextField.text = Web3.Utils.formatToEthereumUnits(BigInt(self.eip681Code!.amount!.magnitude), toUnits: .eth, decimals: 2, decimalSeparator: ",")
+                }
+            }
+        }
         
         if address != nil {
             userNameLabel.text = address
@@ -204,17 +219,17 @@ class PaymentSendController: UIViewController {
             SVProgressHUD.setDefaultMaskType(.black)
             SVProgressHUD.setForegroundColor(UIColor(red: 251/255, green: 198/255, blue: 73/255, alpha: 1))
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            
+            var message : String? = nil
+            if self.noteTextView.text?.isEmpty == false && self.noteTextView.text != "Write a public note" {
+                message = self.noteTextView.text!
+            }
 
             DispatchQueue.global(qos: .background).async {
                 print("This is run on the background queue")
 
                 let wallet = Wallet.init()
                 
-                var message : String? = nil
-                if self.noteTextView.text?.isEmpty == false && self.noteTextView.text != "Write a public note" {
-                    message = self.noteTextView.text!
-                }
-
                 wallet.send(toAddress: self.address!, value: amount, message: message, success: { transaction in
                     print("show next screen \(transaction)")
                     DispatchQueue.main.async {

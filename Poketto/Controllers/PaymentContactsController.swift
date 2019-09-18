@@ -11,6 +11,7 @@ import AVFoundation
 import QRCodeReader
 import SwiftyJSON
 import Contacts
+import web3swift
 
 
 class PaymentContactsController: UIViewController, UISearchBarDelegate {
@@ -33,6 +34,7 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
     let reuseIdentifier             = "payOptionCellId"
     @IBOutlet weak var tableView    : UITableView!
     var selectedAddress             : String!
+    var eip681Code                  : Web3.EIP681Code?
     var transactions                : Array<Transaction> = []
     var paymentContacts             : [PaymentContact] = []
     var filteredPaymentContacts     : [PaymentContact] = []
@@ -224,6 +226,9 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
             sendVC.address = selectedAddress
             if let contact = sender as? PaymentContact {
                 sendVC.paymentContact = contact
+            }
+            if eip681Code != nil {
+                sendVC.eip681Code = eip681Code
             }
             sendVC.fromDetails = false
             let backItem = UIBarButtonItem()
@@ -453,27 +458,36 @@ extension PaymentContactsController : CustomQRCodeControllerDelegate {
     func scanned(result: QRCodeReaderResult?) {
 
         if let resultString = result?.value {
-            let first2 = String(resultString.prefix(2))
-            let ethereumUrl = String(resultString.prefix(9))
-            if first2 == "0x" {
+            
+            let parsed = Web3.EIP681CodeParser.parse(resultString)
+            if(parsed != nil) {
                 DispatchQueue.main.async {
-                    self.selectedAddress = resultString
-                    self.performSegue(withIdentifier: "send", sender: nil)
-                }
-            } else if ethereumUrl == "ethereum:" {
-                DispatchQueue.main.async {
-                    let range = resultString.range(of: ethereumUrl)
-                    self.selectedAddress = String(resultString[range!.upperBound...])
+                    self.eip681Code = parsed
                     self.performSegue(withIdentifier: "send", sender: nil)
                 }
             } else {
-                DispatchQueue.main.async {
-                    let msg = "Invalid address"
-                    let alert = UIAlertController(title: "Error",
-                                                  message: msg,
-                                                  preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                let first2 = String(resultString.prefix(2))
+                let ethereumUrl = String(resultString.prefix(9))
+                if first2 == "0x" {
+                    DispatchQueue.main.async {
+                        self.selectedAddress = resultString
+                        self.performSegue(withIdentifier: "send", sender: nil)
+                    }
+                } else if ethereumUrl == "ethereum:" {
+                    DispatchQueue.main.async {
+                        let range = resultString.range(of: ethereumUrl)
+                        self.selectedAddress = String(resultString[range!.upperBound...])
+                        self.performSegue(withIdentifier: "send", sender: nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        let msg = "Invalid address"
+                        let alert = UIAlertController(title: "Error",
+                                                      message: msg,
+                                                      preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
             }
         }
