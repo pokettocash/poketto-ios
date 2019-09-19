@@ -111,6 +111,19 @@ class PaymentSendController: UIViewController {
             currencyTopConstraint.constant = 26
             amountTopConstraint.constant = 21
             noteTextView.autocorrectionType = .no
+            if paymentContact?.contactId != nil {
+                if addressLabel != nil {
+                    addressLabel.removeFromSuperview()
+                    addressLabel = nil
+                }
+                let attributedString = NSMutableAttributedString(string: paymentContact.name,
+                                                                 attributes: [ NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16),
+                                                                               NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1)])
+                attributedString.append(NSMutableAttributedString(string: "\n(\(address!.prefix(8))...)",
+                    attributes: [NSAttributedString.Key.font: UIFont(name: "Menlo-Regular", size: 12)!,
+                                 NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 0.6)]))
+                userNameLabel.attributedText = attributedString
+            }
         }
     }
     
