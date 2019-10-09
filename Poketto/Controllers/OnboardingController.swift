@@ -33,9 +33,7 @@ class OnboardingController: UIPageViewController
         super.viewDidLoad()
         self.dataSource = self
         self.delegate   = self
-        
-        print("UIScreen.main.bounds.size.height \(UIScreen.main.bounds.size.height)")
-        
+                
         if let firstVC = pages.first
         {
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)

@@ -173,7 +173,6 @@ class PaymentSendController: UIViewController {
             
             let explorer = Explorer.init()
             explorer.balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
-                print(balance)
                 self.navBarSubTitleLabel.text = "Balance \(balance) xDai"
             })
         }
@@ -239,12 +238,10 @@ class PaymentSendController: UIViewController {
             }
 
             DispatchQueue.global(qos: .background).async {
-                print("This is run on the background queue")
 
                 let wallet = Wallet.init()
                 
                 wallet.send(toAddress: self.address!, value: amount, message: message, success: { transaction in
-                    print("show next screen \(transaction)")
                     DispatchQueue.main.async {
                         SVProgressHUD.dismiss()
                         UIApplication.shared.isNetworkActivityIndicatorVisible = false

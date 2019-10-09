@@ -72,12 +72,10 @@ class DashboardController: UIViewController, SettingsDelegate {
     func fetchData() {
         
         explorer.balanceFrom(address: wallet.getEthereumAddress()!.address, completion: { balance in
-            print("balance \(balance)")
             self.balance = balance
             self.collectionView.reloadData()
         })
         
-        print("wallet address \(wallet.getEthereumAddress()!.address)")
         explorer.transactionsFrom(address: wallet.getEthereumAddress()!.address, completion: { transactions in
             let walletAddress = self.wallet.getEthereumAddress()?.address
             
@@ -87,9 +85,7 @@ class DashboardController: UIViewController, SettingsDelegate {
             transactions.forEach({ (exploredTransaction) in
                 let jsonTransaction = exploredTransaction as! JSON
                 let transaction = Transaction.init()
-                
-                print("jsonTransaction \(jsonTransaction)")
-                
+                                
                 transaction.toAddress = jsonTransaction["to"].stringValue
                 transaction.fromAddress = jsonTransaction["from"].stringValue
                 transaction.txHash = jsonTransaction["hash"].stringValue
@@ -164,6 +160,9 @@ class DashboardController: UIViewController, SettingsDelegate {
         impact.impactOccurred()
 
         let paymentContactsNavVC = storyboard?.instantiateViewController(withIdentifier: "paymentContactsNavVC") as! UINavigationController
+        if UIScreen.main.bounds.size.height <= 568 {
+            paymentContactsNavVC.modalPresentationStyle = .fullScreen
+        }
         let paymentsVC = paymentContactsNavVC.viewControllers[0] as! PaymentContactsController
         paymentsVC.transactions = transactions
         navigationController?.present(paymentContactsNavVC, animated: true, completion: nil)

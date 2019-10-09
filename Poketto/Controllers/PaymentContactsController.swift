@@ -95,7 +95,6 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
             allTransactions.append(contentsOf: fromTransactions)
             
             let popularTransactions = Dictionary(grouping: allTransactions, by: {$0}).filter { $1.count > 1 }.keys
-            print("popularTransactions count \(popularTransactions.count)")
             
             let uniqueToTransactions = Array(Set(toTransactions))
             let uniqueFromTransactions = Array(Set(fromTransactions))
@@ -162,9 +161,7 @@ class PaymentContactsController: UIViewController, UISearchBarDelegate {
                     }
                 }
             }
-            
-            print("popularContactsArray \(popularContactsArray)")
-            
+                        
             DispatchQueue.main.async {
                 self.paymentContacts = paymentContactsArray
                 self.filteredPaymentContacts = self.paymentContacts

@@ -91,11 +91,9 @@ extension AppDelegate {
                     
                     switch result {
                     case .success( _):
-                        print("Authentication Successful")
                         self.isCheckingAuth = false
                         self.removeBackgroundBlur()
                     case .failure(let error):
-                        print("Authentication Failed")
                         self.showPasscodeAuthentication(message: error.message())
                     }
                 }
@@ -108,7 +106,6 @@ extension AppDelegate {
         BioMetricAuthenticator.authenticateWithPasscode(reason: message) { [weak self] (result) in
             switch result {
             case .success( _):
-                print("Authentication Successful")
                 self!.isCheckingAuth = false
                 self!.removeBackgroundBlur()
             case .failure(let error):

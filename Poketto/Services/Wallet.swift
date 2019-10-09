@@ -20,8 +20,6 @@ class Wallet {
         
         // Store mnemonic on keychain
         KeychainWrapper.standard.set(mnemonic, forKey: "mnemonic")
-        print("mnemonic \(mnemonic)")
-        print("keystore: \(String(describing: keystore))")
     }
     
     func importSeed(seed: String) -> Bool {
@@ -94,12 +92,6 @@ class Wallet {
         
         do {
             let result = try tx.send()
-            print("success executing transaction")
-            print(result)
-            // Balance
-            let balanceResult = try! connection.eth.getBalance(address: ownWalletAddress!)
-            let balanceString = Web3.Utils.formatToEthereumUnits(balanceResult, toUnits: .eth, decimals: 6)!
-            print("balanceString \(balanceString)")
             success(result)
         } catch {
             print("error executing transaction")
