@@ -152,8 +152,14 @@ class PaymentSendController: UIViewController {
     func setNavigationBar() {
         
         if let navigationBar = navigationController?.navigationBar {
-            let firstFrame = CGRect(x: navigationBar.frame.width/2 - 60, y: 0, width: 120, height: 18)
-            let secondFrame = CGRect(x: 0, y: 20, width: navigationBar.frame.width, height: 12)
+            let navHeight = navigationBar.frame.height
+            let labelFramesHeight = CGFloat(32)
+            var firstFrameY = navHeight/2-labelFramesHeight/2
+            if UIScreen.main.bounds.size.height <= 568 {
+                firstFrameY = 6
+            }
+            let firstFrame = CGRect(x: navigationBar.frame.width/2 - 60, y: firstFrameY, width: 120, height: 18)
+            let secondFrame = CGRect(x: 0, y: firstFrameY+firstFrame.height+2, width: navigationBar.frame.width, height: 12)
             
             navBarTitleLabel = UILabel(frame: firstFrame)
             navBarTitleLabel.text = "Send Payment"
