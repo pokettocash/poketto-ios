@@ -1969,7 +1969,7 @@
                                     <constraint firstAttribute="height" constant="48" id="bX7-wO-HmN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                <state key="normal" title="Add funds" backgroundImage="add-funds-bg">
+                                <state key="normal" title="Buy xDai*" backgroundImage="add-funds-bg">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1986,25 +1986,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn how to add funds to your wallet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lw3-0Y-2Dz">
-                                <rect key="frame" x="95.666666666666686" y="494.66666666666669" width="184" height="32.000000000000057"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="184" id="PFi-Hg-ceC"/>
-                                    <constraint firstAttribute="height" constant="32" id="fOa-dV-kDT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZd-q5-7T0">
-                                <rect key="frame" x="82" y="684" width="211" height="44"/>
+                                <rect key="frame" x="48" y="684" width="279" height="44"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="279" id="4zo-Fq-PH0"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Gc8-8u-Vwp"/>
                                     <constraint firstAttribute="height" constant="44" id="SCM-uB-Usg"/>
-                                    <constraint firstAttribute="width" constant="211" id="adI-yh-jUd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="   Learn more about xDai" image="discover">
+                                <state key="normal" title="   How to exchange Dai to xDai" image="discover">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -2012,6 +2002,20 @@
                                     <action selector="learnMore" destination="fjk-Up-GKI" eventType="touchUpInside" id="LTX-f4-jGm"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="*Carbon is responsible for handling purchases" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7d-PU-0M0">
+                                <rect key="frame" x="95.666666666666686" y="490.66666666666674" width="184" height="45"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="4fe-40-Ody"/>
+                                    <constraint firstAttribute="width" constant="184" id="m40-f5-Xo6"/>
+                                </constraints>
+                                <color key="textColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="LQM-I3-wfg" id="0c2-mM-QNw"/>
+                                </connections>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -2019,21 +2023,24 @@
                             <constraint firstItem="YUG-CS-Tfw" firstAttribute="top" secondItem="qGX-N0-J1t" secondAttribute="bottom" constant="24" id="FN7-ap-Y4D"/>
                             <constraint firstItem="qGX-N0-J1t" firstAttribute="top" secondItem="WV4-6B-ViR" secondAttribute="bottom" constant="16" id="Lj7-xI-LL4"/>
                             <constraint firstItem="npr-N9-2BU" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="MQX-0U-4Se"/>
+                            <constraint firstItem="k7d-PU-0M0" firstAttribute="top" secondItem="npr-N9-2BU" secondAttribute="bottom" constant="12" id="P4g-nE-Qhb"/>
                             <constraint firstItem="WV4-6B-ViR" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="SaC-ee-LXX"/>
                             <constraint firstItem="YUG-CS-Tfw" firstAttribute="centerY" secondItem="WOW-vX-TFp" secondAttribute="centerY" id="Um1-Q6-YrT"/>
                             <constraint firstItem="SZd-q5-7T0" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="a1m-U9-lXl"/>
-                            <constraint firstItem="lw3-0Y-2Dz" firstAttribute="top" secondItem="npr-N9-2BU" secondAttribute="bottom" constant="16" id="ciT-T4-Cpj"/>
                             <constraint firstItem="YUG-CS-Tfw" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="exh-sK-iLJ"/>
+                            <constraint firstItem="k7d-PU-0M0" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="iYD-e1-OKf"/>
                             <constraint firstItem="npr-N9-2BU" firstAttribute="top" secondItem="YUG-CS-Tfw" secondAttribute="bottom" constant="24" id="orv-Dt-TKf"/>
-                            <constraint firstItem="lw3-0Y-2Dz" firstAttribute="centerX" secondItem="WOW-vX-TFp" secondAttribute="centerX" id="rlW-7u-2pG"/>
                             <constraint firstItem="Kmh-9W-iiQ" firstAttribute="bottom" secondItem="SZd-q5-7T0" secondAttribute="bottom" constant="50" id="u0x-sq-9o1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kmh-9W-iiQ"/>
                     </view>
+                    <connections>
+                        <outlet property="disclaimerTextView" destination="k7d-PU-0M0" id="H0b-WI-pha"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZuR-CX-LMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1582.608695652174" y="1563.6160714285713"/>
+            <point key="canvasLocation" x="1581.5999999999999" y="1563.5467980295566"/>
         </scene>
         <!--Payment Details Controller-->
         <scene sceneID="Ky1-F4-5AC">

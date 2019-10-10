@@ -7,18 +7,41 @@
 //
 
 import UIKit
+import SafariServices
 
 class EmptyStateController: UIViewController {
+    
+    @IBOutlet weak var disclaimerTextView : UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let text = NSMutableAttributedString(string: "*Carbon is responsible for handling purchases")
+        text.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 12), range: NSMakeRange(0, text.length))
+        text.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 0.6), range: NSMakeRange(0, text.length))
 
-        // Do any additional setup after loading the view.
+        let selectablePart = NSMakeRange(1, 7)
+        text.addAttribute(NSAttributedString.Key.link, value: "carbonWebsite", range: selectablePart)
+        text.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: selectablePart)
+
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = NSTextAlignment.center
+        text.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, text.length))
+
+        disclaimerTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 0.6), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)]
+        disclaimerTextView.attributedText = text
+        disclaimerTextView.isEditable = false
+        disclaimerTextView.isSelectable = true
     }
     
     @IBAction func addFunds() {
         
-        UIApplication.shared.open(URL(string: "https://medium.com/@jaredstauffer/how-to-get-xdai-how-to-convert-dai-to-xdai-eth-dai-xdai-30a60e4b6641")!, options: [:], completionHandler: nil)
+        let wallet = Wallet.init()
+        let walletAddress = wallet.getEthereumAddress()!.address
+        let url = URL(string: "https://buy.carbon.money/?apiKey=9899fb8c-837b-41a5-a8bd-3094b7def049&tokens=xDai&homeScreenMessage=Poketto&receiveAddress=\(walletAddress)")
+        let vc = SFSafariViewController(url: url!)
+        vc.delegate = self
+        present(vc, animated: true, completion: nil)
     }
     
     @IBAction func receiveFunds() {
@@ -31,5 +54,20 @@ class EmptyStateController: UIViewController {
         
         UIApplication.shared.open(URL(string: "https://poa.network/xdai")!, options: [:], completionHandler: nil)
     }
+}
+
+extension EmptyStateController : UITextViewDelegate {
     
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        UIApplication.shared.open(Foundation.URL(string: "https://www.carbon.money")!, options: [:], completionHandler: nil)
+        return false
+    }
+}
+
+extension EmptyStateController : SFSafariViewControllerDelegate {
+    
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        let parent = self.parent as! DashboardController
+        parent.fetchData()
+    }
 }
