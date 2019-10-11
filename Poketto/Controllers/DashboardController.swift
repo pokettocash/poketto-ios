@@ -173,6 +173,9 @@ class DashboardController: UIViewController {
         impact.impactOccurred()
         let controller = storyboard?.instantiateViewController(withIdentifier: "settingsNavVC") as! SettingsNavigationController
         controller.settingsDelegate = self
+        if UIScreen.main.bounds.size.height <= 568 {
+            controller.modalPresentationStyle = .fullScreen
+        }
         present(controller, animated: true, completion: nil)
     }
     
