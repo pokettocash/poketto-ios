@@ -10,6 +10,7 @@ import UIKit
 
 protocol SettingsDelegate: class {
     func importCompleted()
+    func buyAttemptCompleted()
 }
 
 class SettingsNavigationController: UINavigationController {
@@ -23,6 +24,10 @@ class SettingsNavigationController: UINavigationController {
     
     func importCompleted() {
         settingsDelegate?.importCompleted()
+    }
+    
+    func buyAttemptCompleted() {
+        settingsDelegate?.buyAttemptCompleted()
     }
 
 }

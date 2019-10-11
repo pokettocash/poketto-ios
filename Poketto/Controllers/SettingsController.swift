@@ -8,6 +8,7 @@
 
 import UIKit
 import BiometricAuthentication
+import SafariServices
 
 class SettingsController: UIViewController, SettingsOptionsDelegate {
     
@@ -35,7 +36,7 @@ class SettingsController: UIViewController, SettingsOptionsDelegate {
             versionTopConstraint.constant = verticalSpace
         }
         
-        if let cell = settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? SettingsCell {
+        if let cell = settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? SettingsCell {
             cell.bioAccessSwitch.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
             
             if let bioAccess = UserDefaults.standard.object(forKey: "bioAccess") as? Bool {
@@ -44,10 +45,32 @@ class SettingsController: UIViewController, SettingsOptionsDelegate {
                 }
             }
         }
+        
+        if let cell = settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? SettingsCell {
+            
+            let text = NSMutableAttributedString(string: "*Carbon is responsible for handling purchases")
+            text.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 8), range: NSMakeRange(0, text.length))
+            text.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 0.6), range: NSMakeRange(0, text.length))
+
+            let selectablePart = NSMakeRange(1, 7)
+            text.addAttribute(NSAttributedString.Key.link, value: "carbonWebsite", range: selectablePart)
+            text.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range: selectablePart)
+
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = NSTextAlignment.left
+            paragraphStyle.lineHeightMultiple = 0.3
+            text.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, text.length))
+
+            cell.disclaimerTextView.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 0.6), NSAttributedString.Key.font: UIFont.systemFont(ofSize: 8)]
+            cell.disclaimerTextView.attributedText = text
+            cell.disclaimerTextView.isEditable = false
+            cell.disclaimerTextView.isSelectable = true
+        }
+
     }
     
     @IBAction func bioAccessSwitch(_ sender: Any) {
-        let cell = settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! SettingsCell
+        let cell = settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! SettingsCell
         if cell.bioAccessSwitch.isOn {
             cell.bioAccessSwitch.setOn(true, animated: true)
         } else {
@@ -57,7 +80,7 @@ class SettingsController: UIViewController, SettingsOptionsDelegate {
     
     @objc func stateChanged(switchState: UISwitch) {
         selection.selectionChanged()
-        let cell = settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! SettingsCell
+        let cell = settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! SettingsCell
         if cell.bioAccessSwitch.isOn {
             askBioAccess()
         } else {
@@ -99,7 +122,7 @@ class SettingsController: UIViewController, SettingsOptionsDelegate {
             }
         }))
         alert.addAction(UIAlertAction(title:  NSLocalizedString("No, thank you!", comment: ""), style: .default, handler: { _ in
-            let cell = self.settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! SettingsCell
+            let cell = self.settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! SettingsCell
             cell.bioAccessSwitch.setOn(false, animated: true)
         }))
         self.present(alert, animated: true, completion: nil)
@@ -158,8 +181,35 @@ class SettingsOptionsController: UITableViewController {
             }
         } else if (indexPath.row == 1) {
             delegate?.importScreenView()
-        } else if (indexPath.row == 3) {
+        } else if (indexPath.row == 2) {
+            let wallet = Wallet.init()
+            let walletAddress = wallet.getEthereumAddress()!.address
+            let url = URL(string: "https://buy.carbon.money/?apiKey=9899fb8c-837b-41a5-a8bd-3094b7def049&tokens=xDai&homeScreenMessage=Poketto&receiveAddress=\(walletAddress)")
+            let vc = SFSafariViewController(url: url!)
+            vc.delegate = self
+            present(vc, animated: true, completion: nil)
+
+        } else if (indexPath.row == 4) {
             UIApplication.shared.open(URL(string: "https://github.com/pokettocash/poketto-ios/blob/master/LICENSE")!, options: [:], completionHandler: nil)
         }
     }
 }
+
+extension SettingsOptionsController : UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        UIApplication.shared.open(Foundation.URL(string: "https://www.carbon.money")!, options: [:], completionHandler: nil)
+        return false
+    }
+}
+
+
+extension SettingsOptionsController : SFSafariViewControllerDelegate {
+    
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        
+        let settingsNavigationController = self.navigationController as! SettingsNavigationController
+        settingsNavigationController.buyAttemptCompleted()
+    }
+}
+

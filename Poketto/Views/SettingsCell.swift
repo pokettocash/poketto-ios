@@ -10,8 +10,8 @@ import UIKit
 
 class SettingsCell: UITableViewCell {
 
-    @IBOutlet weak var logo             : UIImageView!
-    @IBOutlet weak var nameLabel        : UILabel!
-    @IBOutlet weak var bioAccessSwitch  : UISwitch!
-
+    @IBOutlet weak var logo                 : UIImageView!
+    @IBOutlet weak var nameLabel            : UILabel!
+    @IBOutlet weak var bioAccessSwitch      : UISwitch!
+    @IBOutlet weak var disclaimerTextView   : UITextView!    
 }

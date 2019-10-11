@@ -13,7 +13,7 @@ import MagicalRecord
 import Contacts
 
 
-class DashboardController: UIViewController, SettingsDelegate {
+class DashboardController: UIViewController {
     
     var emptyStateContainer             : EmptyStateController!
     @IBOutlet var collectionView        : UICollectionView!
@@ -174,10 +174,6 @@ class DashboardController: UIViewController, SettingsDelegate {
         let controller = storyboard?.instantiateViewController(withIdentifier: "settingsNavVC") as! SettingsNavigationController
         controller.settingsDelegate = self
         present(controller, animated: true, completion: nil)
-    }
-    
-    func importCompleted() {
-        self.fetchData()
     }
     
     @IBAction func request() {
@@ -389,5 +385,16 @@ extension DashboardController : UICollectionViewDelegate {
             let transaction = reversedTransactions[indexPath.row]
             performSegue(withIdentifier: "paymentDetails", sender: transaction)
         }
+    }
+}
+
+extension DashboardController : SettingsDelegate {
+    
+    func importCompleted() {
+        fetchData()
+    }
+    
+    func buyAttemptCompleted() {
+        fetchData()
     }
 }
