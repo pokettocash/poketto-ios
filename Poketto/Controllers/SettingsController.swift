@@ -185,7 +185,7 @@ class SettingsOptionsController: UITableViewController {
         } else if (indexPath.row == 2) {
             let wallet = Wallet.init()
             let walletAddress = wallet.getEthereumAddress()!.address
-            let url = URL(string: "https://buy.carbon.money/?apiKey=9899fb8c-837b-41a5-a8bd-3094b7def049&tokens=xDai&homeScreenMessage=Poketto&receiveAddress=\(walletAddress)")
+            let url = URL(string: "https://buy.carbon.money/?apiKey=9899fb8c-837b-41a5-a8bd-3094b7def049&tokens=xDai&homeScreenMessage=Poketto&receiveAddressxDai=\(walletAddress)")
             let vc = SFSafariViewController(url: url!)
             vc.delegate = self
             present(vc, animated: true, completion: nil)
