@@ -1383,7 +1383,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="268" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings-seed" translatesAutoresizingMaskIntoConstraints="NO" id="R6k-7O-DVL">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings-currency" translatesAutoresizingMaskIntoConstraints="NO" id="R6k-7O-DVL">
                                                     <rect key="frame" x="0.0" y="12" width="28" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="R4N-lZ-ZCj"/>
@@ -1460,14 +1460,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="268" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings-biometrics" translatesAutoresizingMaskIntoConstraints="NO" id="x6H-9O-oCL">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings-face-id" translatesAutoresizingMaskIntoConstraints="NO" id="x6H-9O-oCL">
                                                     <rect key="frame" x="0.0" y="12" width="28" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="tte-Tt-lNO"/>
                                                         <constraint firstAttribute="width" constant="28" id="zD5-V4-idJ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in with Touch ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06e-o5-Mxw">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06e-o5-Mxw">
                                                     <rect key="frame" x="40" y="15.666666666666664" width="216" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="CnC-t1-eFJ"/>
@@ -2720,8 +2720,9 @@
         <image name="send-button-background" width="346" height="48"/>
         <image name="send-new-payment" width="12" height="12"/>
         <image name="settings-backup" width="34" height="34.333332061767578"/>
-        <image name="settings-biometrics" width="34" height="34.333332061767578"/>
+        <image name="settings-currency" width="34" height="34.333332061767578"/>
         <image name="settings-discord" width="36" height="36"/>
+        <image name="settings-face-id" width="34" height="34.333332061767578"/>
         <image name="settings-github" width="36" height="36"/>
         <image name="settings-header" width="350" height="128"/>
         <image name="settings-legal" width="34" height="34.333332061767578"/>

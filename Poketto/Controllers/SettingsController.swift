@@ -38,6 +38,7 @@ class SettingsController: UIViewController, SettingsOptionsDelegate {
         
         if let cell = settingsOptionsController!.tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? SettingsCell {
             cell.bioAccessSwitch.addTarget(self, action: #selector(stateChanged), for: .valueChanged)
+            cell.nameLabel.text = "Touch / Face ID"
             
             if let bioAccess = UserDefaults.standard.object(forKey: "bioAccess") as? Bool {
                 if bioAccess == true {
