@@ -2,6 +2,8 @@
 
 ![Design](https://user-images.githubusercontent.com/407470/56584925-b5dad380-65d4-11e9-87e5-3b9b356a7a4e.png)
 
+### [This app has been discontinued!]
+
 Poketto is the simplest xDai wallet for your day-to-day transactions.
 
 Our goal with Poketto is to make it easy to send money to friends and pay for every day items.
